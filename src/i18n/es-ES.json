@@ -82,5 +82,18 @@
   "cutscene.skip": "SALTAR",
   "cutscene.hint": "Esc/Espacio: saltar · P: pausar · R: repetir",
   "cutscene.paused": "PAUSADO",
-  "settings.ambienceVolume": "Volumen del ambiente"
+  "settings.ambienceVolume": "Volumen del ambiente",
+  "audio.locked": "haz clic para activar el sonido",
+  "audio.muted": "silencio",
+  "menu.extras": "EXTRAS",
+  "menu.options": "OPCIONES",
+  "menu.saveInfo": "Fase {{phase}} · {{clues}} pistas",
+  "menu.noSave": "Sin partida guardada",
+  "menu.desc.newGame": "Empezar la investigación desde el inicio.",
+  "menu.desc.continue": "Continuar donde lo dejaste.",
+  "menu.desc.extras": "Pistas, diario, créditos y prueba de finales.",
+  "menu.desc.options": "Idioma, audio, subtítulos y accesibilidad.",
+  "menu.desc.deleteSave": "Borra el progreso guardado.",
+  "menu.version": "v0.4 · en desarrollo",
+  "title.audioHint": "El sonido se activa con el primer clic"
 }

@@ -82,5 +82,18 @@
   "cutscene.skip": "SKIP",
   "cutscene.hint": "Esc/Space: skip · P: pause · R: replay",
   "cutscene.paused": "PAUSED",
-  "settings.ambienceVolume": "Ambience volume"
+  "settings.ambienceVolume": "Ambience volume",
+  "audio.locked": "click to enable sound",
+  "audio.muted": "muted",
+  "menu.extras": "EXTRAS",
+  "menu.options": "OPTIONS",
+  "menu.saveInfo": "Phase {{phase}} · {{clues}} clues",
+  "menu.noSave": "No saved game",
+  "menu.desc.newGame": "Start the investigation from the beginning.",
+  "menu.desc.continue": "Resume where you left off.",
+  "menu.desc.extras": "Clues, diary, credits and ending test.",
+  "menu.desc.options": "Language, audio, subtitles and accessibility.",
+  "menu.desc.deleteSave": "Deletes saved progress.",
+  "menu.version": "v0.4 · in development",
+  "title.audioHint": "Sound is enabled on the first click"
 }
