@@ -1,6 +1,6 @@
 # PRODUCTION_BLOCKERS — O Último Rastro
 
-Atualizado: 2026-09-24 (fase audiovisual **CONCLUÍDA** — detalhes em `FINAL_AUDIO_VIDEO_REPORT.md`)
+Atualizado: 2026-09-24 (v0.4 — jogabilidade 2D, menu, áudio e cutscenes em engine; ver `REWORK_V0.4_REPORT.md`)
 
 ## Estado do ambiente (sessão audiovisual)
 
@@ -26,9 +26,12 @@ Atualizado: 2026-09-24 (fase audiovisual **CONCLUÍDA** — detalhes em `FINAL_A
 - 33 trilhas, 35 SFX, 17 ambiências — arquivos reais, validados (sem clipping, loudness controlada, loops limpos).
 - Não há modelo generativo de áudio local (Stable Audio/ACE-Step exigem checkpoint; HF bloqueado). Síntese procedural é a alternativa local adotada; substituível por trilha autoral/modelo nos mesmos paths.
 
-### CUTSCENES — ✅ PRODUZIDO (montagem FFmpeg)
-- 10 cutscenes (16 vídeos com variantes en/es dos finais), WebM + MP4, legendas pelo jogo, fallback em passos.
+### CUTSCENES — ✅ EM ENGINE (v0.4)
+- 10 cutscenes dirigidas por ações (`StageDirector`) sobre cenários e sprites do jogo; vídeos FFmpeg removidos.
 - Geração de vídeo por modelo: **não necessária**.
+
+### PERSONAGENS / JOGABILIDADE — ⚠️ PARCIAL (v0.4)
+- Exploração 2D e sprites recortados entregues; **arte em estilo único depende de GPU** (lote `comfyui/batches/characters-v2.json` pronto para a máquina do autor).
 
 ### STT — N/A
 

@@ -22,3 +22,6 @@ Data: 2026-09-24 · Base: `bab7534` (branch `claude/practical-hypatia-34fd8u`)
 6. **E6 QA/Docs** — `final-qa.mjs`/`smoke-test.mjs`/`final-qa-av.mjs` atualizados, testes unitários, relatório, lote ComfyUI para GPU.
 
 Cada etapa termina com testes + commit.
+
+## Status
+Todas as etapas E1–E6 executadas; resultado em `REWORK_V0.4_REPORT.md`.

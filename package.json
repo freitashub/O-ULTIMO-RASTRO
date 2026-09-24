@@ -1,7 +1,7 @@
 {
   "name": "ultimo-rastro",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,9 +17,7 @@
     "qa:av": "node final-qa-av.mjs",
     "assets:manifest": "node tools/assets/build-manifest.mjs",
     "assets:registry": "node tools/assets/build-registry.mjs",
-    "audio:validate": "python3 tools/audio/validate.py",
-    "video:build": "node tools/video/build-cutscenes.mjs",
-    "video:validate": "node tools/video/validate.mjs"
+    "audio:validate": "python3 tools/audio/validate.py"
   },
   "dependencies": {
     "phaser": "^4.2.1"

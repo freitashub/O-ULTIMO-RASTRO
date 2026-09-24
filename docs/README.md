@@ -11,6 +11,7 @@
 - [Asset Registry](#asset-registry)
 - [ComfyUI (pipeline externo)](COMFYUI.md)
 - [Produção audiovisual (vozes, música, SFX, cutscenes)](FINAL_AUDIO_VIDEO_REPORT.md)
+- [Rework v0.4: jogabilidade 2D, menu, áudio, cutscenes em engine](REWORK_V0.4_REPORT.md)
 - [Testes](#testes)
 
 ## Arquitetura
@@ -82,8 +83,8 @@ STORY → CHOICE → CONSEQUENCE → REVELATION → CLIFFHANGER → NEXT
 - `DialogueSystem`: play/pause/resume/skip/replay, textSpeed.
 - `CutscenePlayer`: steps dialogue/subtitle/wait/sfx/voice/camera/**video** (cues de legenda sincronizadas, pausa/retomada, `onError` → fallback).
 - `Cutscenes` + `src/data/cutscenes.json`: 10 cutscenes com gatilhos `beforePhase`/`beforePuzzle`/`ending`; `startWithCutscene()` roteia cenas; flag `cutscene_seen_<id>` no save; `?nocutscenes=1` só para automação.
-- `CutsceneScene`: WebM/MP4 (`ensureVideo`), PULAR (Esc/Espaço/Enter), pausa (P), replay (R), fallback sem vídeo.
-- Vídeos: `npm run video:build` (FFmpeg) · `npm run video:validate`.
+- `StageDirector` + `cutscenes.json` v2: cutscenes em engine (ações: bg/spawn/walk/say/camera/…); `CutsceneScene`: PULAR (Esc/Espaço/Enter), pausa (P), replay (R).
+- Exploração 2D: `StoryScene` + `scenes.json` (hotspots, NPC, clima, luz) + `ActorSprite` (rig procedural) + `tools/assets/cutout-characters.py`.
 
 ## Asset Registry
 

@@ -1,5 +1,7 @@
 # FINAL_AUDIO_VIDEO_REPORT — O Último Rastro
 
+> **Atualização v0.4 (mesma data):** as cutscenes em vídeo (§7) foram **substituídas por cutscenes em engine** (`StageDirector`) e os arquivos WebM/MP4 removidos; a jogabilidade passou a ser exploração 2D. Ver `REWORK_V0.4_REPORT.md`. Vozes, música, SFX e ambiências desta fase continuam em uso.
+
 Data: 2026-09-24 · Base: `v0.2.0-visual-complete` (`c10b7c6`) · Branch: `claude/practical-hypatia-34fd8u`
 
 Todos os números abaixo vêm de arquivos reais no repositório e de execuções reais registradas em
