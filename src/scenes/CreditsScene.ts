@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { getState } from '@/game/GameState';
 import { getPhase, loadAllPhases } from '@/systems/PhaseLoader';
 import { t } from '@/i18n';
+import { playAmbienceLoop, playMusicTrack } from '@/game/SceneAudio';
 
 interface CreditsSceneData {
   from?: string;
@@ -22,6 +23,8 @@ export class CreditsScene extends Phaser.Scene {
 
     const { width, height } = this.cameras.main;
     this.cameras.main.setBackgroundColor('#000000');
+    void playMusicTrack(this, 'credits', 1500);
+    void playAmbienceLoop(this, null);
 
     this.add
       .text(width / 2, 50, t('credits.title'), {

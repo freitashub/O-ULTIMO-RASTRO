@@ -2,7 +2,8 @@ import Phaser from 'phaser';
 import { getState, setState } from '@/game/GameState';
 import { saveGame } from '@/game/SaveManager';
 import { t } from '@/i18n';
-import { playSfx, setChannelVolume, toggleMute } from '@/game/AudioManager';
+import { playSfx, setChannelVolume, setMasterVolume, toggleMute } from '@/game/AudioManager';
+import { preloadSfx, sfxPath } from '@/game/SceneAudio';
 
 interface SettingsSceneData {
   from?: string;
@@ -19,6 +20,7 @@ export class SettingsScene extends Phaser.Scene {
   }
 
   create(data: SettingsSceneData): void {
+    void preloadSfx(this, ['ui_click']);
     this.fromScene = data?.from ?? 'MenuScene';
     this.tab = data?.tab ?? 'audio';
 
@@ -119,17 +121,19 @@ export class SettingsScene extends Phaser.Scene {
 
     if (this.tab === 'audio') {
       addSlider(t('settings.masterVolume'), () => state.audioSettings.masterVolume, (v) => {
-        state.audioSettings.masterVolume = v;
-        setChannelVolume('music', v * state.audioSettings.musicVolume);
+        setMasterVolume(v);
       });
       addSlider(t('settings.musicVolume'), () => state.audioSettings.musicVolume, (v) => {
-        state.audioSettings.musicVolume = v;
+        setChannelVolume('music', v);
+      });
+      addSlider(t('settings.ambienceVolume'), () => state.audioSettings.ambienceVolume, (v) => {
+        setChannelVolume('ambience', v);
       });
       addSlider(t('settings.sfxVolume'), () => state.audioSettings.sfxVolume, (v) => {
-        state.audioSettings.sfxVolume = v;
+        setChannelVolume('sfx', v);
       });
       addSlider(t('settings.voiceVolume'), () => state.audioSettings.voiceVolume, (v) => {
-        state.audioSettings.voiceVolume = v;
+        setChannelVolume('voice', v);
       });
       addToggle(t('settings.muted'), () => state.audioSettings.muted, () => {
         toggleMute();
@@ -237,7 +241,8 @@ export class SettingsScene extends Phaser.Scene {
     const state = getState();
     await saveGame(state);
     setState(state);
-    playSfx(this, 'ui_click', state.audioSettings.sfxVolume);
+    const click = sfxPath('ui_click');
+    if (click) playSfx(this, click);
     if (this.statusText) {
       this.statusText.setText(t('settings.saved'));
     }

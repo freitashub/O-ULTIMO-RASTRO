@@ -5,6 +5,7 @@ import { saveGame } from '@/game/SaveManager';
 import { loadCubeConfig, CubeConfig } from '@/game/CubeConfig';
 import { ensureImage } from '@/game/OptionalAssets';
 import { t } from '@/i18n';
+import { playAmbienceLoop, playMusicTrack, playSfxById, preloadSfx } from '@/game/SceneAudio';
 
 const DEFAULT_FACES = ['olho', 'lua', 'mao', 'corvo', 'arvore', 'rosto'];
 const DEFAULT_SOLUTION = ['olho', 'lua', 'mao', 'corvo', 'arvore'];
@@ -27,6 +28,9 @@ export class PuzzleScene extends Phaser.Scene {
     this.selected = [];
     this.buttons = [];
     this.locked = false;
+    void playMusicTrack(this, 'cube', 1500);
+    void playAmbienceLoop(this, 'amb_cube');
+    void preloadSfx(this, ['sfx_cube_rotate', 'sfx_cube_solve', 'sfx_cube_fail', 'ui_click']);
 
     try {
       this.cubeConfig = await loadCubeConfig();
@@ -140,6 +144,7 @@ export class PuzzleScene extends Phaser.Scene {
 
   private selectFace(face: string): void {
     if (this.locked || this.selected.includes(face)) return;
+    void playSfxById(this, 'sfx_cube_rotate');
     this.selected.push(face);
 
     const idx = this.selected.length - 1;
@@ -153,6 +158,7 @@ export class PuzzleScene extends Phaser.Scene {
     state.cube.symbolOrder = [...this.selected];
 
     if (!isCorrect) {
+      void playSfxById(this, 'sfx_cube_fail');
       this.time.delayedCall(800, () => this.resetPuzzle());
       return;
     }
@@ -170,6 +176,7 @@ export class PuzzleScene extends Phaser.Scene {
 
   private async unlockFinalFace(): Promise<void> {
     const { width, height } = this.cameras.main;
+    void playSfxById(this, 'sfx_cube_solve');
 
     const msg = this.add
       .text(width / 2, height - 120, t('puzzle.sixthFace'), {

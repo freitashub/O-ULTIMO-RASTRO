@@ -7,6 +7,8 @@ import {
   getState
 } from '@/game/GameState';
 import { t, setLanguage, getLanguage, SUPPORTED_LANGUAGES } from '@/i18n';
+import { playMusicTrack, playSfxById, preloadSfx } from '@/game/SceneAudio';
+import { refreshVolumes, stopAmbience } from '@/game/AudioManager';
 
 export class MenuScene extends Phaser.Scene {
   private selectedIndex = 0;
@@ -21,6 +23,9 @@ export class MenuScene extends Phaser.Scene {
     this.cameras.main.setBackgroundColor('#0B0B10');
     this.buttons = [];
     this.selectedIndex = 0;
+    stopAmbience();
+    void playMusicTrack(this, 'menu', 1500);
+    void preloadSfx(this, ['ui_click', 'ui_hover']);
 
     this.add.text(width / 2, 100, t('menu.title'), {
       fontFamily: 'monospace',
@@ -48,6 +53,7 @@ export class MenuScene extends Phaser.Scene {
             const save = await loadGame();
             if (save) {
               setState(save);
+              refreshVolumes();
               if (save.language) {
                 setLanguage(save.language);
                 setGameStateLanguage(save.language);
@@ -63,6 +69,7 @@ export class MenuScene extends Phaser.Scene {
       const save = await loadGame();
       if (save) {
         setState(save);
+        refreshVolumes();
         if (save.language) {
           setLanguage(save.language);
           setGameStateLanguage(save.language);
@@ -169,12 +176,18 @@ export class MenuScene extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive({ useHandCursor: true });
 
-    btn.on('pointerover', () => btn.setColor('#ffffff'));
+    btn.on('pointerover', () => {
+      btn.setColor('#ffffff');
+      void playSfxById(this, 'ui_hover');
+    });
     btn.on('pointerout', () => {
       const idx = this.buttons.indexOf(btn);
       btn.setColor(idx === this.selectedIndex ? '#ffffff' : '#999999');
     });
-    btn.on('pointerdown', onClick);
+    btn.on('pointerdown', () => {
+      void playSfxById(this, 'ui_click');
+      onClick();
+    });
 
     return btn;
   }

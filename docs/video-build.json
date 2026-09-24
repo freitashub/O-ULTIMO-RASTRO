@@ -1,0 +1,146 @@
+{
+  "ending_bad|pt-BR": {
+    "id": "ending_bad",
+    "lang": "pt-BR",
+    "total": 14,
+    "webm": "assets/video/cutscenes/ending_bad.webm",
+    "mp4": "assets/video/cutscenes/ending_bad.mp4",
+    "bytes": 524994,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "first_troll|pt-BR": {
+    "id": "first_troll",
+    "lang": "pt-BR",
+    "total": 24,
+    "webm": "assets/video/cutscenes/first_troll.webm",
+    "mp4": "assets/video/cutscenes/first_troll.mp4",
+    "bytes": 2306474,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "revelations|pt-BR": {
+    "id": "revelations",
+    "lang": "pt-BR",
+    "total": 34,
+    "webm": "assets/video/cutscenes/revelations.webm",
+    "mp4": "assets/video/cutscenes/revelations.mp4",
+    "bytes": 1717423,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "opening|pt-BR": {
+    "id": "opening",
+    "lang": "pt-BR",
+    "total": 26,
+    "webm": "assets/video/cutscenes/opening.webm",
+    "mp4": "assets/video/cutscenes/opening.mp4",
+    "bytes": 932405,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "parents_gone|pt-BR": {
+    "id": "parents_gone",
+    "lang": "pt-BR",
+    "total": 23,
+    "webm": "assets/video/cutscenes/parents_gone.webm",
+    "mp4": "assets/video/cutscenes/parents_gone.mp4",
+    "bytes": 1238998,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "boss|pt-BR": {
+    "id": "boss",
+    "lang": "pt-BR",
+    "total": 29,
+    "webm": "assets/video/cutscenes/boss.webm",
+    "mp4": "assets/video/cutscenes/boss.mp4",
+    "bytes": 1335063,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "transformation|pt-BR": {
+    "id": "transformation",
+    "lang": "pt-BR",
+    "total": 27,
+    "webm": "assets/video/cutscenes/transformation.webm",
+    "mp4": "assets/video/cutscenes/transformation.mp4",
+    "bytes": 779491,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "cube|pt-BR": {
+    "id": "cube",
+    "lang": "pt-BR",
+    "total": 32,
+    "webm": "assets/video/cutscenes/cube.webm",
+    "mp4": "assets/video/cutscenes/cube.mp4",
+    "bytes": 1172001,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_good|pt-BR": {
+    "id": "ending_good",
+    "lang": "pt-BR",
+    "total": 16,
+    "webm": "assets/video/cutscenes/ending_good.webm",
+    "mp4": "assets/video/cutscenes/ending_good.mp4",
+    "bytes": 571178,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_good|en-US": {
+    "id": "ending_good",
+    "lang": "en-US",
+    "total": 16,
+    "webm": "assets/video/cutscenes/ending_good.en-US.webm",
+    "mp4": "assets/video/cutscenes/ending_good.en-US.mp4",
+    "bytes": 575253,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_good|es-ES": {
+    "id": "ending_good",
+    "lang": "es-ES",
+    "total": 16,
+    "webm": "assets/video/cutscenes/ending_good.es-ES.webm",
+    "mp4": "assets/video/cutscenes/ending_good.es-ES.mp4",
+    "bytes": 572988,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_bad|en-US": {
+    "id": "ending_bad",
+    "lang": "en-US",
+    "total": 14,
+    "webm": "assets/video/cutscenes/ending_bad.en-US.webm",
+    "mp4": "assets/video/cutscenes/ending_bad.en-US.mp4",
+    "bytes": 527349,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_bad|es-ES": {
+    "id": "ending_bad",
+    "lang": "es-ES",
+    "total": 14,
+    "webm": "assets/video/cutscenes/ending_bad.es-ES.webm",
+    "mp4": "assets/video/cutscenes/ending_bad.es-ES.mp4",
+    "bytes": 524391,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_secret|pt-BR": {
+    "id": "ending_secret",
+    "lang": "pt-BR",
+    "total": 18,
+    "webm": "assets/video/cutscenes/ending_secret.webm",
+    "mp4": "assets/video/cutscenes/ending_secret.mp4",
+    "bytes": 702924,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_secret|en-US": {
+    "id": "ending_secret",
+    "lang": "en-US",
+    "total": 18,
+    "webm": "assets/video/cutscenes/ending_secret.en-US.webm",
+    "mp4": "assets/video/cutscenes/ending_secret.en-US.mp4",
+    "bytes": 703471,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  },
+  "ending_secret|es-ES": {
+    "id": "ending_secret",
+    "lang": "es-ES",
+    "total": 18,
+    "webm": "assets/video/cutscenes/ending_secret.es-ES.webm",
+    "mp4": "assets/video/cutscenes/ending_secret.es-ES.mp4",
+    "bytes": 704706,
+    "builtAt": "2026-09-24T18:20:26.041Z"
+  }
+}

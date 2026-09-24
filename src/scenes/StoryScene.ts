@@ -11,7 +11,11 @@ import {
 } from '@/game/CharacterMap';
 import { ensureImage } from '@/game/OptionalAssets';
 import { createSubtitleRenderer, SubtitleRenderer } from '@/systems/SubtitleRenderer';
+import { CutscenePlayer, CutsceneStep, createCutscenePlayer } from '@/systems/CutscenePlayer';
 import { hasAssetPath, loadAssetsManifest } from '@/game/AssetsManifest';
+import { ensureVoiceLine, playPhaseAudio, playSfxById, preloadSfx, voiceKey } from '@/game/SceneAudio';
+import { phaseLineId } from '@/game/VoiceLines';
+import { stopVoice } from '@/game/AudioManager';
 import { t } from '@/i18n';
 import { Phase } from '@/types/Phase';
 
@@ -22,6 +26,7 @@ interface StorySceneData {
 export class StoryScene extends Phaser.Scene {
   private phase: Phase | null = null;
   private subtitles: SubtitleRenderer | null = null;
+  private narration: CutscenePlayer | null = null;
 
   constructor() {
     super({ key: 'StoryScene' });
@@ -37,11 +42,39 @@ export class StoryScene extends Phaser.Scene {
       await saveGame(getState());
       await this.ensureBackground(this.phase);
       await this.ensureCharacterArt(this.phase);
+      if (!this.scene.isActive()) return;
       this.renderPhase(this.phase);
+      void this.startAudio(this.phase);
     } catch {
       this.phase = null;
       this.renderWorkInProgress(phaseId);
     }
+  }
+
+  /** Música + ambiência da fase e narração (intro → cena) com legendas sincronizadas à voz. */
+  private async startAudio(phase: Phase): Promise<void> {
+    await playPhaseAudio(this, phase);
+    await preloadSfx(this, ['ui_click']);
+    const steps: CutsceneStep[] = [];
+    for (const part of ['intro', 'scene'] as const) {
+      const line = await ensureVoiceLine(this, phaseLineId(phase.id, part));
+      if (line) {
+        steps.push({
+          type: 'dialogue',
+          line: {
+            id: line.id,
+            character: line.speaker,
+            text: line.text,
+            voiceAsset: voiceKey(line),
+            duration: line.durationMs + 300
+          }
+        });
+      }
+    }
+    if (!this.scene.isActive() || steps.length === 0) return;
+    this.subtitles?.clear();
+    this.narration = createCutscenePlayer(this);
+    this.narration.play(steps);
   }
 
   private async ensureBackground(phase: Phase): Promise<void> {
@@ -145,6 +178,11 @@ export class StoryScene extends Phaser.Scene {
     });
 
     const go = (): void => {
+      void playSfxById(this, 'ui_click');
+      this.narration?.skip();
+      this.narration?.destroy();
+      this.narration = null;
+      stopVoice();
       this.scene.start('ChoiceScene', { phaseId: phase.id });
     };
 

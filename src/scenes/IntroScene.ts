@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { t } from '@/i18n';
+import { startWithCutscene } from '@/scenes/CutsceneScene';
+import { fadeOutMusic, stopAmbience } from '@/game/AudioManager';
 
 export class IntroScene extends Phaser.Scene {
   constructor() {
@@ -9,6 +11,8 @@ export class IntroScene extends Phaser.Scene {
   create(): void {
     const { width, height } = this.cameras.main;
     this.cameras.main.setBackgroundColor('#0B0B10');
+    fadeOutMusic(this, 1200);
+    stopAmbience();
 
     const text = this.add
       .text(width / 2, height / 2, t('intro.text'), {
@@ -24,7 +28,7 @@ export class IntroScene extends Phaser.Scene {
     const advance = (): void => {
       if (advanced) return;
       advanced = true;
-      this.scene.start('StoryScene', { phaseId: 1 });
+      startWithCutscene(this, { type: 'beforePhase', phase: 1 }, { scene: 'StoryScene', data: { phaseId: 1 } });
     };
 
     this.tweens.add({

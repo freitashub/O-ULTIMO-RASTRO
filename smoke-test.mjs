@@ -2,7 +2,8 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const BASE = 'http://localhost:5173';
+// Cutscenes são cobertas por final-qa-av.mjs; aqui o loop de gameplay roda sem elas.
+const BASE = 'http://localhost:5173/?nocutscenes=1';
 const OUT = path.join(process.cwd(), 'smoke-shots');
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
@@ -42,12 +43,17 @@ async function hasSave(page) {
   );
 }
 
-const browser = await chromium.launch({ headless: true });
+// Chromium: usa PW_EXECUTABLE_PATH ou o binário pré-instalado do ambiente, se existir; senão o padrão do Playwright.
+const exe = process.env.PW_EXECUTABLE_PATH || (fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
+const browser = await chromium.launch({ headless: true, executablePath: exe });
 const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
 
 page.on('pageerror', (err) => errors.push(`pageerror: ${err.message}`));
 page.on('console', (msg) => {
-  if (msg.type() === 'error') errors.push(`console.error: ${msg.text()}`);
+  if (msg.type() === 'error') errors.push(`console.error: ${msg.text()} [${msg.location()?.url ?? ''}]`);
+});
+page.on('response', (res) => {
+  if (res.status() >= 400 && !/favicon/.test(res.url())) errors.push(`http ${res.status()}: ${res.url()}`);
 });
 
 async function shot(name) {

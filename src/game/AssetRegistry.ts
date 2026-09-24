@@ -1,6 +1,6 @@
 export interface AssetEntry {
   id: string;
-  kind: 'image' | 'audio' | 'json' | 'atlas' | 'font';
+  kind: 'image' | 'audio' | 'video' | 'json' | 'atlas' | 'font';
   path: string;
   pack: string;
   optional?: boolean;

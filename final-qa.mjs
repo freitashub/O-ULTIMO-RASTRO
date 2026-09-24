@@ -2,7 +2,8 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const BASE = 'http://localhost:5173';
+// Cutscenes são cobertas por final-qa-av.mjs; aqui o loop de gameplay roda sem elas.
+const BASE = 'http://localhost:5173/?nocutscenes=1';
 const OUT = path.join(process.cwd(), 'final-qa-shots');
 const REPORT = path.join(process.cwd(), 'final-qa-results.json');
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -32,7 +33,9 @@ function note(name, status, detail = '') {
   console.log(`${status.toUpperCase()} - ${name}${detail ? ' :: ' + detail : ''}`);
 }
 
-const browser = await chromium.launch({ headless: true });
+// Chromium: usa PW_EXECUTABLE_PATH ou o binário pré-instalado do ambiente, se existir; senão o padrão do Playwright.
+const exe = process.env.PW_EXECUTABLE_PATH || (fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
+const browser = await chromium.launch({ headless: true, executablePath: exe });
 const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
 const page = await context.newPage();
 

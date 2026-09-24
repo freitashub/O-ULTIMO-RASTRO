@@ -8,6 +8,7 @@
     "objective": "Descobrir o que aconteceu.",
     "image": "/assets/backgrounds/phase-01-casa.webp",
     "music": "/assets/music/phase01_casa_medo.ogg",
+    "ambience": "/assets/audio/ambience/amb_house.ogg",
     "choices": [
       {
         "id": "a",
@@ -46,6 +47,7 @@
     "objective": "Seguir o símbolo.",
     "image": "/assets/backgrounds/phase-02-igreja.webp",
     "music": "/assets/music/phase02_igreja_curiosidade.ogg",
+    "ambience": "/assets/audio/ambience/amb_church.ogg",
     "choices": [
       {
         "id": "a",
@@ -85,6 +87,7 @@
     "objective": "Encontrar o caminho certo.",
     "image": "/assets/backgrounds/phase-03-tunel.webp",
     "music": "/assets/music/phase03_tunel_tensao.ogg",
+    "ambience": "/assets/audio/ambience/amb_underground.ogg",
     "choices": [
       {
         "id": "a",
@@ -124,6 +127,7 @@
     "objective": "Investigar o que a polícia sabe.",
     "image": "/assets/backgrounds/phase-04-delegacia.webp",
     "music": "/assets/music/phase04_delegacia_respiro.ogg",
+    "ambience": "/assets/audio/ambience/amb_police.ogg",
     "choices": [
       {
         "id": "a",
@@ -162,6 +166,7 @@
     "objective": "Encontrar um padrão.",
     "image": "/assets/backgrounds/phase-05-arquivo.webp",
     "music": "/assets/music/phase05_arquivo_confusao.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
     "choices": [
       {
         "id": "a",
@@ -201,6 +206,7 @@
     "objective": "Seguir o rastro da carta.",
     "image": "/assets/backgrounds/phase-06-estacao.webp",
     "music": "/assets/music/phase06_estacao_melancolia.ogg",
+    "ambience": "/assets/audio/ambience/amb_station.ogg",
     "choices": [
       {
         "id": "a",
@@ -239,6 +245,7 @@
     "objective": "Provar que a carta é falsa.",
     "image": "/assets/backgrounds/phase-07-biblioteca.webp",
     "music": "/assets/music/phase07_biblioteca_raiva.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
     "choices": [
       {
         "id": "a",
@@ -277,6 +284,7 @@
     "objective": "Seguir o veículo.",
     "image": "/assets/backgrounds/phase-08-porto.webp",
     "music": "/assets/music/phase08_porto_humor.ogg",
+    "ambience": "/assets/audio/ambience/amb_station.ogg",
     "choices": [
       {
         "id": "a",
@@ -315,6 +323,7 @@
     "objective": "Descobrir quem está por trás da identidade falsa.",
     "image": "/assets/backgrounds/phase-09-registros.webp",
     "music": "/assets/music/phase09_registros_urgencia.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
     "choices": [
       {
         "id": "a",
@@ -354,6 +363,7 @@
     "objective": "Observar o que o ferreiro fabrica.",
     "image": "/assets/backgrounds/phase-10-oficina.webp",
     "music": "/assets/music/phase10_oficina_confianca.ogg",
+    "ambience": "/assets/audio/ambience/amb_forge.ogg",
     "choices": [
       {
         "id": "a",
@@ -392,6 +402,7 @@
     "objective": "Explorar a cidade subterrânea.",
     "image": "/assets/backgrounds/phase-11-cidade.webp",
     "music": "/assets/music/phase11_cidade_descoberta.ogg",
+    "ambience": "/assets/audio/ambience/amb_trolls.ogg",
     "choices": [
       {
         "id": "a",
@@ -430,6 +441,7 @@
     "objective": "Usar a chave.",
     "image": "/assets/backgrounds/phase-12-chave.webp",
     "music": "/assets/music/phase12_prisioneiro_paranoia.ogg",
+    "ambience": "/assets/audio/ambience/amb_underground.ogg",
     "choices": [
       {
         "id": "a",
@@ -468,6 +480,7 @@
     "objective": "Extrair a verdade de Silas.",
     "image": "/assets/backgrounds/phase-13-silas.webp",
     "music": "/assets/music/phase13_silas_desconfianca.ogg",
+    "ambience": "/assets/audio/ambience/amb_police.ogg",
     "choices": [
       {
         "id": "a",
@@ -506,6 +519,7 @@
     "objective": "Interpretar o mapa.",
     "image": "/assets/backgrounds/phase-14-mapa.webp",
     "music": "/assets/music/phase14_mapa_choque.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
     "choices": [
       {
         "id": "a",
@@ -545,6 +559,7 @@
     "objective": "Escolher a entrada real.",
     "image": "/assets/backgrounds/phase-15-montanha.webp",
     "music": "/assets/music/phase15_montanha_tensao.ogg",
+    "ambience": "/assets/audio/ambience/amb_mountain.ogg",
     "choices": [
       {
         "id": "a",
@@ -583,6 +598,7 @@
     "objective": "Descobrir a verdade sobre os 'pais'.",
     "image": "/assets/backgrounds/phase-16-sala.webp",
     "music": "/assets/music/phase16_sala_ilusao_pico.ogg",
+    "ambience": "/assets/audio/ambience/amb_illusion.ogg",
     "choices": [
       {
         "id": "a",
@@ -621,6 +637,7 @@
     "objective": "Seguir as marcas certas.",
     "image": "/assets/backgrounds/phase-17-ultima-cidade.webp",
     "music": "/assets/music/phase17_cidade_medo.ogg",
+    "ambience": "/assets/audio/ambience/amb_trolls.ogg",
     "choices": [
       {
         "id": "a",
@@ -659,6 +676,7 @@
     "objective": "Decidir o próximo passo.",
     "image": "/assets/backgrounds/phase-18-registros.webp",
     "music": "/assets/music/phase18_verdade_raiva.ogg",
+    "ambience": "/assets/audio/ambience/amb_underground.ogg",
     "choices": [
       {
         "id": "a",
@@ -697,6 +715,7 @@
     "objective": "Ignorar a distração e encontrar a entrada.",
     "image": "/assets/backgrounds/phase-19-aviso.webp",
     "music": "/assets/music/phase19_aviso_choque.ogg",
+    "ambience": "/assets/audio/ambience/amb_mountain.ogg",
     "choices": [
       {
         "id": "a",
@@ -735,6 +754,7 @@
     "objective": "Resolver o mecanismo da entrada da caverna.",
     "image": "/assets/backgrounds/phase-20-caverna.webp",
     "music": "/assets/music/phase20_caverna_silencio.ogg",
+    "ambience": "/assets/audio/ambience/amb_cave.ogg",
     "choices": [
       {
         "id": "a",

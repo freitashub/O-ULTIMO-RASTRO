@@ -5,6 +5,11 @@ import { getState } from '@/game/GameState';
 import { saveGame } from '@/game/SaveManager';
 import { getPhasePortraitId, getPortraitPath } from '@/game/CharacterMap';
 import { ensureImage } from '@/game/OptionalAssets';
+import { ensureVoiceLine, playPhaseAudio, playSfxById, playVoiceLine, preloadSfx } from '@/game/SceneAudio';
+import { choiceLineId, phaseLineId } from '@/game/VoiceLines';
+import { stopVoice } from '@/game/AudioManager';
+import { createSubtitleRenderer, SubtitleRenderer } from '@/systems/SubtitleRenderer';
+import { startWithCutscene } from '@/scenes/CutsceneScene';
 import { t } from '@/i18n';
 import { Phase } from '@/types/Phase';
 
@@ -17,6 +22,7 @@ export class ChoiceScene extends Phaser.Scene {
   private chosen = false;
   private choiceButtons: Phaser.GameObjects.Text[] = [];
   private headerTexts: Array<Phaser.GameObjects.Text | Phaser.GameObjects.Image> = [];
+  private subtitles: SubtitleRenderer | null = null;
 
   constructor() {
     super({ key: 'ChoiceScene' });
@@ -27,6 +33,12 @@ export class ChoiceScene extends Phaser.Scene {
     this.chosen = false;
     this.choiceButtons = [];
     this.headerTexts = [];
+    this.subtitles = createSubtitleRenderer(this);
+    void playPhaseAudio(this, this.phase);
+    void preloadSfx(this, ['ui_click', 'ui_confirm', 'sfx_clue_found', 'sfx_choice_wrong', 'sfx_suspense_sting']);
+    for (const c of this.phase.choices) void ensureVoiceLine(this, choiceLineId(this.phase.id, c.id));
+    void ensureVoiceLine(this, phaseLineId(this.phase.id, 'revelation'));
+    void ensureVoiceLine(this, phaseLineId(this.phase.id, 'cliffhanger'));
 
     const { width } = this.cameras.main;
     this.cameras.main.setBackgroundColor('#0B0B10');
@@ -108,9 +120,31 @@ export class ChoiceScene extends Phaser.Scene {
     return btn;
   }
 
+  private chosenId = '';
+
+  /**
+   * Narra linhas em sequência (voz + legenda sincronizada). Resolve com a duração total em ms
+   * (0 se não houver voz disponível). Interrompe se a cena for trocada.
+   */
+  private async narrate(lineIds: string[]): Promise<number> {
+    let total = 0;
+    for (const id of lineIds) {
+      if (!this.scene.isActive()) break;
+      const played = await playVoiceLine(this, id);
+      if (!played) continue;
+      const { line } = played;
+      this.subtitles?.show({ text: line.text, speaker: line.speaker, startMs: 0, endMs: line.durationMs });
+      total += line.durationMs + 350;
+      await new Promise<void>((resolve) => this.time.delayedCall(line.durationMs + 350, resolve));
+    }
+    return total;
+  }
+
   private async handleChoice(choiceId: string): Promise<void> {
     if (this.chosen) return;
     this.chosen = true;
+    this.chosenId = choiceId;
+    void playSfxById(this, 'ui_confirm');
 
     const choice = this.phase.choices.find((c) => c.id === choiceId);
     if (!choice) return;
@@ -123,6 +157,7 @@ export class ChoiceScene extends Phaser.Scene {
     await saveGame(getState());
 
     if (!this.scene.isActive()) return;
+    void playSfxById(this, choice.correct ? 'sfx_clue_found' : 'sfx_choice_wrong');
     if (this.phase.revelation) {
       this.showRevelation(this.phase.revelation, result.consequence);
     } else {
@@ -172,6 +207,8 @@ export class ChoiceScene extends Phaser.Scene {
       if (skipped) return;
       skipped = true;
       this.time.removeAllEvents();
+      stopVoice();
+      this.subtitles?.clear();
       overlay.destroy();
       consequenceText.destroy();
       label.destroy();
@@ -179,7 +216,9 @@ export class ChoiceScene extends Phaser.Scene {
       this.showCliffhanger();
     };
 
-    this.time.delayedCall(4000, skip);
+    void this.narrate([choiceLineId(this.phase.id, this.chosenId), phaseLineId(this.phase.id, 'revelation')]).then((ms) => {
+      if (!skipped) this.time.delayedCall(Math.max(4000, ms + 600), skip);
+    });
     this.input.once('pointerdown', skip);
     this.input.keyboard?.once('keydown-ENTER', skip);
     this.input.keyboard?.once('keydown-SPACE', skip);
@@ -216,13 +255,17 @@ export class ChoiceScene extends Phaser.Scene {
       if (skipped) return;
       skipped = true;
       this.time.removeAllEvents();
+      stopVoice();
+      this.subtitles?.clear();
       overlay.destroy();
       label.destroy();
       consequence.destroy();
       this.showCliffhanger();
     };
 
-    this.time.delayedCall(3000, skip);
+    void this.narrate([choiceLineId(this.phase.id, this.chosenId)]).then((ms) => {
+      if (!skipped) this.time.delayedCall(Math.max(3000, ms + 600), skip);
+    });
     this.input.once('pointerdown', skip);
     this.input.keyboard?.once('keydown-ENTER', skip);
     this.input.keyboard?.once('keydown-SPACE', skip);
@@ -232,6 +275,8 @@ export class ChoiceScene extends Phaser.Scene {
     const { width, height } = this.cameras.main;
 
     this.cameras.main.setBackgroundColor('#050508');
+    void playSfxById(this, 'sfx_suspense_sting');
+    void this.narrate([phaseLineId(this.phase.id, 'cliffhanger')]);
     this.choiceButtons.forEach((b) => b.setVisible(false));
     this.headerTexts.forEach((t) => t.setVisible(false));
 
@@ -277,11 +322,14 @@ export class ChoiceScene extends Phaser.Scene {
     const advance = (): void => {
       if (advancedOnce) return;
       advancedOnce = true;
+      stopVoice();
+      this.subtitles?.clear();
+      void playSfxById(this, 'ui_click');
       const nextPhase = this.phase.id + 1;
       if (nextPhase > 20) {
-        this.scene.start('PuzzleScene');
+        startWithCutscene(this, { type: 'beforePuzzle' }, { scene: 'PuzzleScene' });
       } else {
-        this.scene.start('StoryScene', { phaseId: nextPhase });
+        startWithCutscene(this, { type: 'beforePhase', phase: nextPhase }, { scene: 'StoryScene', data: { phaseId: nextPhase } });
       }
     };
 

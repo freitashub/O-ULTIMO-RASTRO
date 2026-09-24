@@ -57,98 +57,880 @@
       {
         "id": "bgm_main",
         "kind": "audio",
-        "path": "/audio/bgm_main.mp3",
+        "path": "/assets/music/bgm_menu_tema.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "music:menu"
       },
       {
         "id": "bgm_tension",
         "kind": "audio",
-        "path": "/audio/bgm_tension.mp3",
+        "path": "/assets/music/bgm_suspense.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "music:suspense"
       },
       {
         "id": "bgm_credits",
         "kind": "audio",
-        "path": "/audio/bgm_credits.mp3",
+        "path": "/assets/music/bgm_credits.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "music:credits"
+      },
+      {
+        "id": "music_phase01",
+        "kind": "audio",
+        "path": "/assets/music/phase01_casa_medo.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 68571
+      },
+      {
+        "id": "music_phase02",
+        "kind": "audio",
+        "path": "/assets/music/phase02_igreja_curiosidade.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 50526
+      },
+      {
+        "id": "music_phase03",
+        "kind": "audio",
+        "path": "/assets/music/phase03_tunel_tensao.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 54545
+      },
+      {
+        "id": "music_phase04",
+        "kind": "audio",
+        "path": "/assets/music/phase04_delegacia_respiro.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 58181
+      },
+      {
+        "id": "music_phase05",
+        "kind": "audio",
+        "path": "/assets/music/phase05_arquivo_confusao.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 54857
+      },
+      {
+        "id": "music_phase06",
+        "kind": "audio",
+        "path": "/assets/music/phase06_estacao_melancolia.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 64000
+      },
+      {
+        "id": "music_phase07",
+        "kind": "audio",
+        "path": "/assets/music/phase07_biblioteca_raiva.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 48000
+      },
+      {
+        "id": "music_phase08",
+        "kind": "audio",
+        "path": "/assets/music/phase08_porto_humor.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 41739
+      },
+      {
+        "id": "music_phase09",
+        "kind": "audio",
+        "path": "/assets/music/phase09_registros_urgencia.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 48000
+      },
+      {
+        "id": "music_phase10",
+        "kind": "audio",
+        "path": "/assets/music/phase10_oficina_confianca.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 53333
+      },
+      {
+        "id": "music_phase11",
+        "kind": "audio",
+        "path": "/assets/music/phase11_cidade_descoberta.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 48000
+      },
+      {
+        "id": "music_phase12",
+        "kind": "audio",
+        "path": "/assets/music/phase12_prisioneiro_paranoia.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 60000
+      },
+      {
+        "id": "music_phase13",
+        "kind": "audio",
+        "path": "/assets/music/phase13_silas_desconfianca.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 56470
+      },
+      {
+        "id": "music_phase14",
+        "kind": "audio",
+        "path": "/assets/music/phase14_mapa_choque.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 53333
+      },
+      {
+        "id": "music_phase15",
+        "kind": "audio",
+        "path": "/assets/music/phase15_montanha_tensao.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 54545
+      },
+      {
+        "id": "music_phase16",
+        "kind": "audio",
+        "path": "/assets/music/phase16_sala_ilusao_pico.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 61935
+      },
+      {
+        "id": "music_phase17",
+        "kind": "audio",
+        "path": "/assets/music/phase17_cidade_medo.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 68571
+      },
+      {
+        "id": "music_phase18",
+        "kind": "audio",
+        "path": "/assets/music/phase18_verdade_raiva.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 48000
+      },
+      {
+        "id": "music_phase19",
+        "kind": "audio",
+        "path": "/assets/music/phase19_aviso_choque.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 53333
+      },
+      {
+        "id": "music_phase20",
+        "kind": "audio",
+        "path": "/assets/music/phase20_caverna_silencio.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 57599
+      },
+      {
+        "id": "music_menu",
+        "kind": "audio",
+        "path": "/assets/music/bgm_menu_tema.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 82285
+      },
+      {
+        "id": "music_credits",
+        "kind": "audio",
+        "path": "/assets/music/bgm_credits.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 70588
+      },
+      {
+        "id": "music_investigation",
+        "kind": "audio",
+        "path": "/assets/music/bgm_investigacao.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 50526
+      },
+      {
+        "id": "music_suspense",
+        "kind": "audio",
+        "path": "/assets/music/bgm_suspense.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 60000
+      },
+      {
+        "id": "music_discovery",
+        "kind": "audio",
+        "path": "/assets/music/bgm_descoberta.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 48000
+      },
+      {
+        "id": "music_chase",
+        "kind": "audio",
+        "path": "/assets/music/bgm_perseguicao.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 43636
+      },
+      {
+        "id": "music_trolls",
+        "kind": "audio",
+        "path": "/assets/music/bgm_trolls.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 66206
+      },
+      {
+        "id": "music_cave",
+        "kind": "audio",
+        "path": "/assets/music/bgm_caverna.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 71111
+      },
+      {
+        "id": "music_cube",
+        "kind": "audio",
+        "path": "/assets/music/bgm_cubo_orun.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 64000
+      },
+      {
+        "id": "music_transformation",
+        "kind": "audio",
+        "path": "/assets/music/bgm_transformacao.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 58181
+      },
+      {
+        "id": "music_ending_good",
+        "kind": "audio",
+        "path": "/assets/music/bgm_final_bom.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": false,
+        "durationMs": 60000
+      },
+      {
+        "id": "music_ending_bad",
+        "kind": "audio",
+        "path": "/assets/music/bgm_final_ruim.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": false,
+        "durationMs": 55384
+      },
+      {
+        "id": "music_ending_secret",
+        "kind": "audio",
+        "path": "/assets/music/bgm_final_secreto.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": false,
+        "durationMs": 66206
+      },
+      {
+        "id": "sfx_step_wood",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_step_wood.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2500
+      },
+      {
+        "id": "sfx_step_stone",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_step_stone.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2500
+      },
+      {
+        "id": "sfx_step_gravel",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_step_gravel.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2500
+      },
+      {
+        "id": "sfx_door_open",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_door_open.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1600
+      },
+      {
+        "id": "sfx_door_close",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_door_close.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 900
+      },
+      {
+        "id": "sfx_metal_gate",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_metal_gate.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2200
+      },
+      {
+        "id": "sfx_metal_clank",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_metal_clank.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1200
+      },
+      {
+        "id": "sfx_wood_creak",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_wood_creak.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1300
+      },
+      {
+        "id": "sfx_impact_low",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_impact_low.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1500
+      },
+      {
+        "id": "sfx_paper_rustle",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_paper_rustle.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 900
+      },
+      {
+        "id": "sfx_paper_turn",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_paper_turn.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 900
+      },
+      {
+        "id": "sfx_wind_gust",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_wind_gust.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 3500
+      },
+      {
+        "id": "sfx_rain_burst",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_rain_burst.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 4000
+      },
+      {
+        "id": "sfx_object_pickup",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_object_pickup.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 500
+      },
+      {
+        "id": "sfx_suspense_sting",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_suspense_sting.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 3000
+      },
+      {
+        "id": "sfx_creature_breath",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_creature_breath.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 3500
+      },
+      {
+        "id": "sfx_troll_growl",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_troll_growl.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1800
+      },
+      {
+        "id": "sfx_troll_step",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_troll_step.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1200
+      },
+      {
+        "id": "sfx_transformation_pulse",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_transformation_pulse.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 4000
+      },
+      {
+        "id": "sfx_cube_rotate",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_cube_rotate.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 800
+      },
+      {
+        "id": "sfx_cube_solve",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_cube_solve.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 4500
+      },
+      {
+        "id": "sfx_cube_fail",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_cube_fail.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1500
       },
       {
         "id": "ui_click",
         "kind": "audio",
-        "path": "/audio/ui_click.mp3",
+        "path": "/assets/audio/sfx/ui_click.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "durationMs": 120
+      },
+      {
+        "id": "ui_hover",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/ui_hover.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 80
+      },
+      {
+        "id": "ui_confirm",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/ui_confirm.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 500
       },
       {
         "id": "sfx_investigate",
         "kind": "audio",
-        "path": "/audio/sfx_investigate.mp3",
+        "path": "/assets/audio/sfx/sfx_investigate.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "durationMs": 1800
+      },
+      {
+        "id": "sfx_clue_found",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_clue_found.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2200
+      },
+      {
+        "id": "sfx_symbol_found",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_symbol_found.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 3000
+      },
+      {
+        "id": "sfx_choice_wrong",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_choice_wrong.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1399
+      },
+      {
+        "id": "sfx_bell_toll",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_bell_toll.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 5000
+      },
+      {
+        "id": "sfx_clock_tick",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_clock_tick.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2000
+      },
+      {
+        "id": "sfx_whisper",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_whisper.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 2200
+      },
+      {
+        "id": "sfx_camera_static",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_camera_static.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 1500
+      },
+      {
+        "id": "sfx_stone_grind",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_stone_grind.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 3000
+      },
+      {
+        "id": "sfx_heartbeat",
+        "kind": "audio",
+        "path": "/assets/audio/sfx/sfx_heartbeat.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "durationMs": 4000
       },
       {
         "id": "sfx_choice",
         "kind": "audio",
-        "path": "/audio/sfx_choice.mp3",
+        "path": "/assets/audio/sfx/ui_confirm.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "ui_confirm"
       },
       {
         "id": "sfx_puzzle_ok",
         "kind": "audio",
-        "path": "/audio/sfx_puzzle_ok.mp3",
+        "path": "/assets/audio/sfx/sfx_cube_solve.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "sfx_cube_solve"
       },
       {
         "id": "sfx_puzzle_fail",
         "kind": "audio",
-        "path": "/audio/sfx_puzzle_fail.mp3",
+        "path": "/assets/audio/sfx/sfx_cube_fail.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "sfx_cube_fail"
+      },
+      {
+        "id": "amb_city",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_city.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_house",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_house.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_forest",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_forest.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_church",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_church.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_police",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_police.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_interior",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_interior.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_underground",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_underground.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_trolls",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_trolls.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_forge",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_forge.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_cave",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_cave.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_mountain",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_mountain.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_illusion",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_illusion.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_cube",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_cube.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_ending_good",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_ending_good.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_ending_bad",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_ending_bad.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_ending_secret",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_ending_secret.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
+      },
+      {
+        "id": "amb_station",
+        "kind": "audio",
+        "path": "/assets/audio/ambience/amb_station.ogg",
+        "pack": "audio",
+        "optional": true,
+        "preload": false,
+        "loop": true,
+        "durationMs": 40000
       },
       {
         "id": "amb_room",
         "kind": "audio",
-        "path": "/audio/amb_room.mp3",
+        "path": "/assets/audio/ambience/amb_interior.ogg",
         "pack": "audio",
         "optional": true,
-        "preload": false
-      },
-      {
-        "id": "voice_theo_01",
-        "kind": "audio",
-        "path": "/audio/voice_theo_01.mp3",
-        "pack": "audio",
-        "optional": true,
-        "preload": false
-      },
-      {
-        "id": "voice_clara_01",
-        "kind": "audio",
-        "path": "/audio/voice_clara_01.mp3",
-        "pack": "audio",
-        "optional": true,
-        "preload": false
-      },
-      {
-        "id": "voice_narrator_01",
-        "kind": "audio",
-        "path": "/audio/voice_narrator_01.mp3",
-        "pack": "audio",
-        "optional": true,
-        "preload": false
+        "preload": false,
+        "alias": "amb_interior"
       }
     ],
     "images": [
@@ -784,6 +1566,2360 @@
         "optional": true,
         "preload": false
       }
+    ],
+    "voice": [
+      {
+        "id": "voice_theo_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/theo_q1.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "alias": "theo_q1"
+      },
+      {
+        "id": "voice_clara_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_clara_02.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "alias": "phase07_clara_02"
+      },
+      {
+        "id": "voice_narrator_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/intro_text.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "alias": "intro_text"
+      },
+      {
+        "id": "voice_en-US_ending_bad",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/ending_bad.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 2340
+      },
+      {
+        "id": "voice_en-US_ending_good",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/ending_good.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 6000
+      },
+      {
+        "id": "voice_en-US_ending_secret",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/ending_secret.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 4200
+      },
+      {
+        "id": "voice_en-US_intro_text",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/intro_text.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 3324
+      },
+      {
+        "id": "voice_en-US_puzzle_sixth_face",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/puzzle_sixth_face.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 2041
+      },
+      {
+        "id": "voice_en-US_title_subtitle",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/title_subtitle.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 3239
+      },
+      {
+        "id": "voice_en-US_transform_hint_11",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/transform_hint_11.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 4000
+      },
+      {
+        "id": "voice_en-US_transform_hint_14",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/transform_hint_14.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 3388
+      },
+      {
+        "id": "voice_en-US_transform_hint_17",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/transform_hint_17.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 3239
+      },
+      {
+        "id": "voice_en-US_transform_hint_20",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/transform_hint_20.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 2361
+      },
+      {
+        "id": "voice_en-US_transform_hint_7",
+        "kind": "audio",
+        "path": "/assets/audio/voice/en-US/transform_hint_7.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "en-US",
+        "durationMs": 3282
+      },
+      {
+        "id": "voice_es-ES_ending_bad",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/ending_bad.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 2383
+      },
+      {
+        "id": "voice_es-ES_ending_good",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/ending_good.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 6200
+      },
+      {
+        "id": "voice_es-ES_ending_secret",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/ending_secret.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 4600
+      },
+      {
+        "id": "voice_es-ES_intro_text",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/intro_text.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 2938
+      },
+      {
+        "id": "voice_es-ES_puzzle_sixth_face",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/puzzle_sixth_face.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 1978
+      },
+      {
+        "id": "voice_es-ES_title_subtitle",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/title_subtitle.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 3154
+      },
+      {
+        "id": "voice_es-ES_transform_hint_11",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/transform_hint_11.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 4300
+      },
+      {
+        "id": "voice_es-ES_transform_hint_14",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/transform_hint_14.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 4000
+      },
+      {
+        "id": "voice_es-ES_transform_hint_17",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/transform_hint_17.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 3538
+      },
+      {
+        "id": "voice_es-ES_transform_hint_20",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/transform_hint_20.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 2511
+      },
+      {
+        "id": "voice_es-ES_transform_hint_7",
+        "kind": "audio",
+        "path": "/assets/audio/voice/es-ES/transform_hint_7.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "es-ES",
+        "durationMs": 2788
+      },
+      {
+        "id": "voice_pt-BR_cube_inscription",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/cube_inscription.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5100
+      },
+      {
+        "id": "voice_pt-BR_ending_bad",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/ending_bad.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2340
+      },
+      {
+        "id": "voice_pt-BR_ending_good",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/ending_good.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6800
+      },
+      {
+        "id": "voice_pt-BR_ending_secret",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/ending_secret.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5200
+      },
+      {
+        "id": "voice_pt-BR_intro_text",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/intro_text.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2980
+      },
+      {
+        "id": "voice_pt-BR_phase01_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4100
+      },
+      {
+        "id": "voice_pt-BR_phase01_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3687
+      },
+      {
+        "id": "voice_pt-BR_phase01_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2959
+      },
+      {
+        "id": "voice_pt-BR_phase01_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3836
+      },
+      {
+        "id": "voice_pt-BR_phase01_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7300
+      },
+      {
+        "id": "voice_pt-BR_phase01_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5000
+      },
+      {
+        "id": "voice_pt-BR_phase01_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase01_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7000
+      },
+      {
+        "id": "voice_pt-BR_phase02_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4000
+      },
+      {
+        "id": "voice_pt-BR_phase02_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3346
+      },
+      {
+        "id": "voice_pt-BR_phase02_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2831
+      },
+      {
+        "id": "voice_pt-BR_phase02_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2959
+      },
+      {
+        "id": "voice_pt-BR_phase02_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4200
+      },
+      {
+        "id": "voice_pt-BR_phase02_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4700
+      },
+      {
+        "id": "voice_pt-BR_phase02_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4200
+      },
+      {
+        "id": "voice_pt-BR_phase02_voice_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase02_voice_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "troll",
+        "lang": "pt-BR",
+        "durationMs": 3292
+      },
+      {
+        "id": "voice_pt-BR_phase03_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3794
+      },
+      {
+        "id": "voice_pt-BR_phase03_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2618
+      },
+      {
+        "id": "voice_pt-BR_phase03_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5300
+      },
+      {
+        "id": "voice_pt-BR_phase03_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2575
+      },
+      {
+        "id": "voice_pt-BR_phase03_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4000
+      },
+      {
+        "id": "voice_pt-BR_phase03_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5000
+      },
+      {
+        "id": "voice_pt-BR_phase03_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4100
+      },
+      {
+        "id": "voice_pt-BR_phase03_troll_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase03_troll_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "troll",
+        "lang": "pt-BR",
+        "durationMs": 5400
+      },
+      {
+        "id": "voice_pt-BR_phase04_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3431
+      },
+      {
+        "id": "voice_pt-BR_phase04_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3474
+      },
+      {
+        "id": "voice_pt-BR_phase04_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4600
+      },
+      {
+        "id": "voice_pt-BR_phase04_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4000
+      },
+      {
+        "id": "voice_pt-BR_phase04_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6100
+      },
+      {
+        "id": "voice_pt-BR_phase04_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3111
+      },
+      {
+        "id": "voice_pt-BR_phase04_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8100
+      },
+      {
+        "id": "voice_pt-BR_phase04_silas_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_silas_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "silas",
+        "lang": "pt-BR",
+        "durationMs": 3052
+      },
+      {
+        "id": "voice_pt-BR_phase04_silas_02",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase04_silas_02.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "silas",
+        "lang": "pt-BR",
+        "durationMs": 4700
+      },
+      {
+        "id": "voice_pt-BR_phase05_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5300
+      },
+      {
+        "id": "voice_pt-BR_phase05_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3495
+      },
+      {
+        "id": "voice_pt-BR_phase05_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3367
+      },
+      {
+        "id": "voice_pt-BR_phase05_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3218
+      },
+      {
+        "id": "voice_pt-BR_phase05_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4400
+      },
+      {
+        "id": "voice_pt-BR_phase05_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2660
+      },
+      {
+        "id": "voice_pt-BR_phase05_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase05_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7500
+      },
+      {
+        "id": "voice_pt-BR_phase06_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3196
+      },
+      {
+        "id": "voice_pt-BR_phase06_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3260
+      },
+      {
+        "id": "voice_pt-BR_phase06_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3367
+      },
+      {
+        "id": "voice_pt-BR_phase06_clara_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_clara_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "clara",
+        "lang": "pt-BR",
+        "durationMs": 2447
+      },
+      {
+        "id": "voice_pt-BR_phase06_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2490
+      },
+      {
+        "id": "voice_pt-BR_phase06_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5600
+      },
+      {
+        "id": "voice_pt-BR_phase06_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6300
+      },
+      {
+        "id": "voice_pt-BR_phase06_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase06_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6700
+      },
+      {
+        "id": "voice_pt-BR_phase07_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6500
+      },
+      {
+        "id": "voice_pt-BR_phase07_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2895
+      },
+      {
+        "id": "voice_pt-BR_phase07_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2298
+      },
+      {
+        "id": "voice_pt-BR_phase07_clara_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_clara_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "clara",
+        "lang": "pt-BR",
+        "durationMs": 2810
+      },
+      {
+        "id": "voice_pt-BR_phase07_clara_02",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_clara_02.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "clara",
+        "lang": "pt-BR",
+        "durationMs": 3538
+      },
+      {
+        "id": "voice_pt-BR_phase07_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3708
+      },
+      {
+        "id": "voice_pt-BR_phase07_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4900
+      },
+      {
+        "id": "voice_pt-BR_phase07_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5100
+      },
+      {
+        "id": "voice_pt-BR_phase07_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase07_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4600
+      },
+      {
+        "id": "voice_pt-BR_phase08_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3132
+      },
+      {
+        "id": "voice_pt-BR_phase08_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5600
+      },
+      {
+        "id": "voice_pt-BR_phase08_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3047
+      },
+      {
+        "id": "voice_pt-BR_phase08_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2234
+      },
+      {
+        "id": "voice_pt-BR_phase08_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7000
+      },
+      {
+        "id": "voice_pt-BR_phase08_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4500
+      },
+      {
+        "id": "voice_pt-BR_phase08_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase08_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8700
+      },
+      {
+        "id": "voice_pt-BR_phase09_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4500
+      },
+      {
+        "id": "voice_pt-BR_phase09_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2788
+      },
+      {
+        "id": "voice_pt-BR_phase09_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2938
+      },
+      {
+        "id": "voice_pt-BR_phase09_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3388
+      },
+      {
+        "id": "voice_pt-BR_phase09_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6400
+      },
+      {
+        "id": "voice_pt-BR_phase09_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6800
+      },
+      {
+        "id": "voice_pt-BR_phase09_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase09_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6300
+      },
+      {
+        "id": "voice_pt-BR_phase10_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3623
+      },
+      {
+        "id": "voice_pt-BR_phase10_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3111
+      },
+      {
+        "id": "voice_pt-BR_phase10_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3218
+      },
+      {
+        "id": "voice_pt-BR_phase10_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2895
+      },
+      {
+        "id": "voice_pt-BR_phase10_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6300
+      },
+      {
+        "id": "voice_pt-BR_phase10_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3730
+      },
+      {
+        "id": "voice_pt-BR_phase10_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5800
+      },
+      {
+        "id": "voice_pt-BR_phase10_troll_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase10_troll_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "troll",
+        "lang": "pt-BR",
+        "durationMs": 3036
+      },
+      {
+        "id": "voice_pt-BR_phase11_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3858
+      },
+      {
+        "id": "voice_pt-BR_phase11_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4100
+      },
+      {
+        "id": "voice_pt-BR_phase11_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2660
+      },
+      {
+        "id": "voice_pt-BR_phase11_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2660
+      },
+      {
+        "id": "voice_pt-BR_phase11_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8100
+      },
+      {
+        "id": "voice_pt-BR_phase11_prisoner_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_prisoner_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "prisoner",
+        "lang": "pt-BR",
+        "durationMs": 2819
+      },
+      {
+        "id": "voice_pt-BR_phase11_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2788
+      },
+      {
+        "id": "voice_pt-BR_phase11_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase11_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8500
+      },
+      {
+        "id": "voice_pt-BR_phase12_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2831
+      },
+      {
+        "id": "voice_pt-BR_phase12_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4900
+      },
+      {
+        "id": "voice_pt-BR_phase12_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3367
+      },
+      {
+        "id": "voice_pt-BR_phase12_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3644
+      },
+      {
+        "id": "voice_pt-BR_phase12_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5400
+      },
+      {
+        "id": "voice_pt-BR_phase12_prisoner_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_prisoner_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "prisoner",
+        "lang": "pt-BR",
+        "durationMs": 2528
+      },
+      {
+        "id": "voice_pt-BR_phase12_prisoner_02",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_prisoner_02.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "prisoner",
+        "lang": "pt-BR",
+        "durationMs": 5700
+      },
+      {
+        "id": "voice_pt-BR_phase12_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5600
+      },
+      {
+        "id": "voice_pt-BR_phase12_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase12_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6700
+      },
+      {
+        "id": "voice_pt-BR_phase13_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2639
+      },
+      {
+        "id": "voice_pt-BR_phase13_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2788
+      },
+      {
+        "id": "voice_pt-BR_phase13_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6600
+      },
+      {
+        "id": "voice_pt-BR_phase13_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3708
+      },
+      {
+        "id": "voice_pt-BR_phase13_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4700
+      },
+      {
+        "id": "voice_pt-BR_phase13_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5200
+      },
+      {
+        "id": "voice_pt-BR_phase13_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 11900
+      },
+      {
+        "id": "voice_pt-BR_phase13_silas_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_silas_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "silas",
+        "lang": "pt-BR",
+        "durationMs": 4800
+      },
+      {
+        "id": "voice_pt-BR_phase13_silas_02",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase13_silas_02.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "silas",
+        "lang": "pt-BR",
+        "durationMs": 6700
+      },
+      {
+        "id": "voice_pt-BR_phase14_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5600
+      },
+      {
+        "id": "voice_pt-BR_phase14_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2788
+      },
+      {
+        "id": "voice_pt-BR_phase14_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3687
+      },
+      {
+        "id": "voice_pt-BR_phase14_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3388
+      },
+      {
+        "id": "voice_pt-BR_phase14_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4500
+      },
+      {
+        "id": "voice_pt-BR_phase14_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4500
+      },
+      {
+        "id": "voice_pt-BR_phase14_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase14_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 10400
+      },
+      {
+        "id": "voice_pt-BR_phase15_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3474
+      },
+      {
+        "id": "voice_pt-BR_phase15_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3474
+      },
+      {
+        "id": "voice_pt-BR_phase15_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4500
+      },
+      {
+        "id": "voice_pt-BR_phase15_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3452
+      },
+      {
+        "id": "voice_pt-BR_phase15_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5500
+      },
+      {
+        "id": "voice_pt-BR_phase15_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4800
+      },
+      {
+        "id": "voice_pt-BR_phase15_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase15_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7700
+      },
+      {
+        "id": "voice_pt-BR_phase16_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3879
+      },
+      {
+        "id": "voice_pt-BR_phase16_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3516
+      },
+      {
+        "id": "voice_pt-BR_phase16_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4800
+      },
+      {
+        "id": "voice_pt-BR_phase16_clara_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_clara_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "clara",
+        "lang": "pt-BR",
+        "durationMs": 3580
+      },
+      {
+        "id": "voice_pt-BR_phase16_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3132
+      },
+      {
+        "id": "voice_pt-BR_phase16_creature_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_creature_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "troll_boss",
+        "lang": "pt-BR",
+        "durationMs": 3505
+      },
+      {
+        "id": "voice_pt-BR_phase16_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8100
+      },
+      {
+        "id": "voice_pt-BR_phase16_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5800
+      },
+      {
+        "id": "voice_pt-BR_phase16_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase16_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 13000
+      },
+      {
+        "id": "voice_pt-BR_phase17_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2618
+      },
+      {
+        "id": "voice_pt-BR_phase17_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3474
+      },
+      {
+        "id": "voice_pt-BR_phase17_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3218
+      },
+      {
+        "id": "voice_pt-BR_phase17_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2746
+      },
+      {
+        "id": "voice_pt-BR_phase17_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7700
+      },
+      {
+        "id": "voice_pt-BR_phase17_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5900
+      },
+      {
+        "id": "voice_pt-BR_phase17_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase17_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 7000
+      },
+      {
+        "id": "voice_pt-BR_phase18_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4900
+      },
+      {
+        "id": "voice_pt-BR_phase18_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4300
+      },
+      {
+        "id": "voice_pt-BR_phase18_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4000
+      },
+      {
+        "id": "voice_pt-BR_phase18_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4300
+      },
+      {
+        "id": "voice_pt-BR_phase18_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8700
+      },
+      {
+        "id": "voice_pt-BR_phase18_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2959
+      },
+      {
+        "id": "voice_pt-BR_phase18_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase18_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 6900
+      },
+      {
+        "id": "voice_pt-BR_phase19_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3410
+      },
+      {
+        "id": "voice_pt-BR_phase19_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3239
+      },
+      {
+        "id": "voice_pt-BR_phase19_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4900
+      },
+      {
+        "id": "voice_pt-BR_phase19_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3196
+      },
+      {
+        "id": "voice_pt-BR_phase19_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 10600
+      },
+      {
+        "id": "voice_pt-BR_phase19_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 5000
+      },
+      {
+        "id": "voice_pt-BR_phase19_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 14400
+      },
+      {
+        "id": "voice_pt-BR_phase19_silas_01",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_silas_01.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "silas",
+        "lang": "pt-BR",
+        "durationMs": 8000
+      },
+      {
+        "id": "voice_pt-BR_phase19_silas_02",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase19_silas_02.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "troll_boss",
+        "lang": "pt-BR",
+        "durationMs": 4400
+      },
+      {
+        "id": "voice_pt-BR_phase20_choice_a",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_choice_a.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4400
+      },
+      {
+        "id": "voice_pt-BR_phase20_choice_b",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_choice_b.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3324
+      },
+      {
+        "id": "voice_pt-BR_phase20_choice_c",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_choice_c.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3367
+      },
+      {
+        "id": "voice_pt-BR_phase20_cliffhanger",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_cliffhanger.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4300
+      },
+      {
+        "id": "voice_pt-BR_phase20_intro",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_intro.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 8900
+      },
+      {
+        "id": "voice_pt-BR_phase20_revelation",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_revelation.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4600
+      },
+      {
+        "id": "voice_pt-BR_phase20_scene",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/phase20_scene.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 10400
+      },
+      {
+        "id": "voice_pt-BR_puzzle_sixth_face",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/puzzle_sixth_face.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2106
+      },
+      {
+        "id": "voice_pt-BR_theo_q1",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/theo_q1.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "theo",
+        "lang": "pt-BR",
+        "durationMs": 1700
+      },
+      {
+        "id": "voice_pt-BR_theo_q2",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/theo_q2.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "theo",
+        "lang": "pt-BR",
+        "durationMs": 2383
+      },
+      {
+        "id": "voice_pt-BR_theo_q3",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/theo_q3.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "theo",
+        "lang": "pt-BR",
+        "durationMs": 2319
+      },
+      {
+        "id": "voice_pt-BR_title_subtitle",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/title_subtitle.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3600
+      },
+      {
+        "id": "voice_pt-BR_transform_hint_11",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/transform_hint_11.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4400
+      },
+      {
+        "id": "voice_pt-BR_transform_hint_14",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/transform_hint_14.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 4200
+      },
+      {
+        "id": "voice_pt-BR_transform_hint_17",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/transform_hint_17.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 3495
+      },
+      {
+        "id": "voice_pt-BR_transform_hint_20",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/transform_hint_20.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2618
+      },
+      {
+        "id": "voice_pt-BR_transform_hint_7",
+        "kind": "audio",
+        "path": "/assets/audio/voice/pt-BR/transform_hint_7.ogg",
+        "pack": "voice",
+        "optional": true,
+        "preload": false,
+        "speaker": "narrator",
+        "lang": "pt-BR",
+        "durationMs": 2681
+      }
+    ],
+    "video": [
+      {
+        "id": "cutscene_opening",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/opening.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/opening.mp4",
+        "trigger": {
+          "type": "beforePhase",
+          "phase": 1
+        }
+      },
+      {
+        "id": "cutscene_parents_gone",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/parents_gone.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/parents_gone.mp4",
+        "trigger": {
+          "type": "beforePhase",
+          "phase": 2
+        }
+      },
+      {
+        "id": "cutscene_first_troll",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/first_troll.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/first_troll.mp4",
+        "trigger": {
+          "type": "beforePhase",
+          "phase": 3
+        }
+      },
+      {
+        "id": "cutscene_revelations",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/revelations.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/revelations.mp4",
+        "trigger": {
+          "type": "beforePhase",
+          "phase": 14
+        }
+      },
+      {
+        "id": "cutscene_boss",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/boss.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/boss.mp4",
+        "trigger": {
+          "type": "beforePhase",
+          "phase": 17
+        }
+      },
+      {
+        "id": "cutscene_transformation",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/transformation.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/transformation.mp4",
+        "trigger": {
+          "type": "beforePhase",
+          "phase": 19
+        }
+      },
+      {
+        "id": "cutscene_cube",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/cube.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/cube.mp4",
+        "trigger": {
+          "type": "beforePuzzle"
+        }
+      },
+      {
+        "id": "cutscene_ending_good",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_good.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_good.mp4",
+        "trigger": {
+          "type": "ending",
+          "ending": "good"
+        }
+      },
+      {
+        "id": "cutscene_ending_good_en-US",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_good.en-US.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_good.en-US.mp4",
+        "lang": "en-US"
+      },
+      {
+        "id": "cutscene_ending_good_es-ES",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_good.es-ES.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_good.es-ES.mp4",
+        "lang": "es-ES"
+      },
+      {
+        "id": "cutscene_ending_bad",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_bad.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_bad.mp4",
+        "trigger": {
+          "type": "ending",
+          "ending": "bad"
+        }
+      },
+      {
+        "id": "cutscene_ending_bad_en-US",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_bad.en-US.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_bad.en-US.mp4",
+        "lang": "en-US"
+      },
+      {
+        "id": "cutscene_ending_bad_es-ES",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_bad.es-ES.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_bad.es-ES.mp4",
+        "lang": "es-ES"
+      },
+      {
+        "id": "cutscene_ending_secret",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_secret.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_secret.mp4",
+        "trigger": {
+          "type": "ending",
+          "ending": "secret"
+        }
+      },
+      {
+        "id": "cutscene_ending_secret_en-US",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_secret.en-US.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_secret.en-US.mp4",
+        "lang": "en-US"
+      },
+      {
+        "id": "cutscene_ending_secret_es-ES",
+        "kind": "video",
+        "path": "/assets/video/cutscenes/ending_secret.es-ES.webm",
+        "pack": "video",
+        "optional": true,
+        "preload": false,
+        "fallback": "/assets/video/cutscenes/ending_secret.es-ES.mp4",
+        "lang": "es-ES"
+      }
     ]
   },
   "metadata": {
@@ -792,9 +3928,12 @@
     "sources": {
       "svg": "tools/assets/generate-svg.mjs + tools/assets/rasterize.mjs",
       "ai_images": "tools/comfyui/batch.mjs (ComfyUI SD1.5 DirectML)",
-      "manifest": "tools/assets/build-manifest.mjs"
+      "manifest": "tools/assets/build-manifest.mjs",
+      "audio": "tools/audio/{voices,music,sfx,ambience}.py",
+      "video": "tools/video/build-cutscenes.mjs",
+      "registry": "tools/assets/build-registry.mjs"
     },
-    "notes": "Audio entries remain optional until local TTS/music models or API keys exist. Background entries optional until files exist on disk (manifest-gated).",
-    "updatedAt": "2026-09-24T13:08:03.774Z"
+    "notes": "Audio/video entries are optional and manifest-gated; voices via Kokoro/Piper (local), music/sfx/ambience procedural, cutscenes via FFmpeg.",
+    "updatedAt": "2026-09-24T18:21:15.484Z"
   }
 }

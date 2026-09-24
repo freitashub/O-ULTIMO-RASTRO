@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { t } from '@/i18n';
+import { playMusicTrack, preloadSfx } from '@/game/SceneAudio';
 
 export class TitleScene extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,7 @@ export class TitleScene extends Phaser.Scene {
   create(): void {
     const { width, height } = this.cameras.main;
     this.cameras.main.setBackgroundColor('#0B0B10');
+    void preloadSfx(this, ['ui_click', 'ui_hover']);
 
     const title = this.add
       .text(width / 2, height / 2 - 60, t('menu.title'), {
@@ -49,6 +51,8 @@ export class TitleScene extends Phaser.Scene {
     });
 
     const start = (): void => {
+      // primeira interação do usuário desbloqueia o áudio no navegador
+      void playMusicTrack(this, 'menu', 1500);
       this.scene.start('MenuScene');
     };
 

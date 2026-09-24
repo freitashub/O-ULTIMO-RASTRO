@@ -9,6 +9,8 @@ export interface AssetsManifest {
   endings: string[];
   transformation: string[];
   characters: string[];
+  audio: string[];
+  video: string[];
   all: string[];
 }
 
@@ -16,7 +18,7 @@ let cache: AssetsManifest | null = null;
 let pending: Promise<AssetsManifest> | null = null;
 
 const EMPTY: AssetsManifest = {
-  version: 1,
+  version: 2,
   backgrounds: [],
   symbols: [],
   portraits: [],
@@ -25,6 +27,8 @@ const EMPTY: AssetsManifest = {
   endings: [],
   transformation: [],
   characters: [],
+  audio: [],
+  video: [],
   all: []
 };
 
@@ -50,6 +54,8 @@ export async function loadAssetsManifest(): Promise<AssetsManifest> {
         endings: data.endings ?? [],
         transformation: data.transformation ?? [],
         characters: data.characters ?? [],
+        audio: data.audio ?? [],
+        video: data.video ?? [],
         all: data.all ?? []
       };
     } catch {
@@ -73,8 +79,16 @@ export function hasAssetPath(path: string): boolean {
     cache.cubeFaces.includes(path) ||
     cache.endings.includes(path) ||
     cache.transformation.includes(path) ||
-    cache.characters.includes(path)
+    cache.characters.includes(path) ||
+    cache.audio.includes(path) ||
+    cache.video.includes(path)
   );
+}
+
+/** Para testes: injeta um manifest sem fetch. */
+export function setAssetsManifestForTests(manifest: Partial<AssetsManifest> | null): void {
+  cache = manifest ? { ...EMPTY, ...manifest } : null;
+  pending = null;
 }
 
 export function getManifest(): AssetsManifest {

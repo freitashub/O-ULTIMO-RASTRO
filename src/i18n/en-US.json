@@ -76,5 +76,11 @@
   "transform.hint.11": "For a moment, the reflection in Theo's eyes looks different.",
   "transform.hint.14": "Theo's shadow on the wall is slightly deformed.",
   "transform.hint.17": "Theo's breathing sounds different. Deeper.",
-  "transform.hint.20": "Theo's face appears on the cube."
+  "transform.hint.20": "Theo's face appears on the cube.",
+  "subtitle.speaker.troll_boss": "Creature",
+  "subtitle.speaker.prisoner": "Prisoner",
+  "cutscene.skip": "SKIP",
+  "cutscene.hint": "Esc/Space: skip · P: pause · R: replay",
+  "cutscene.paused": "PAUSED",
+  "settings.ambienceVolume": "Ambience volume"
 }

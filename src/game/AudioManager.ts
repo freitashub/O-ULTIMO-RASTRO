@@ -6,7 +6,10 @@ export type AudioChannel = 'master' | 'music' | 'sfx' | 'voice' | 'ambience';
 type VolumeCapableSound = Phaser.Sound.BaseSound & { setVolume(v: number): void };
 
 let currentMusic: VolumeCapableSound | null = null;
+let currentMusicKey: string | null = null;
 let currentAmbience: VolumeCapableSound | null = null;
+let currentAmbienceKey: string | null = null;
+let currentVoice: Phaser.Sound.BaseSound | null = null;
 let muted = false;
 
 function asVolumeCapable(sound: Phaser.Sound.BaseSound | null): VolumeCapableSound | null {
@@ -18,7 +21,7 @@ function asVolumeCapable(sound: Phaser.Sound.BaseSound | null): VolumeCapableSou
   return null;
 }
 
-function channelVolume(channel: Exclude<AudioChannel, 'master'>): number {
+export function channelVolume(channel: Exclude<AudioChannel, 'master'>): number {
   const s = getState().audioSettings;
   if (muted || s.muted) return 0;
   const channelVol =
@@ -35,6 +38,8 @@ function channelVolume(channel: Exclude<AudioChannel, 'master'>): number {
 function applyVolumes(): void {
   if (currentMusic) currentMusic.setVolume(channelVolume('music'));
   if (currentAmbience) currentAmbience.setVolume(channelVolume('ambience'));
+  const voice = asVolumeCapable(currentVoice);
+  if (voice) voice.setVolume(channelVolume('voice'));
 }
 
 export function playMusic(scene: Phaser.Scene, key: string, loop = true): void {
@@ -45,6 +50,7 @@ export function playMusic(scene: Phaser.Scene, key: string, loop = true): void {
   }
   const sound = scene.sound.add(key, { loop, volume: channelVolume('music') });
   currentMusic = asVolumeCapable(sound);
+  currentMusicKey = key;
   sound.play();
 }
 
@@ -54,6 +60,11 @@ export function stopMusic(): void {
     currentMusic.destroy();
     currentMusic = null;
   }
+  currentMusicKey = null;
+}
+
+export function getCurrentMusicKey(): string | null {
+  return currentMusicKey;
 }
 
 export function playAmbience(scene: Phaser.Scene, key: string, loop = true): void {
@@ -64,6 +75,7 @@ export function playAmbience(scene: Phaser.Scene, key: string, loop = true): voi
   }
   const sound = scene.sound.add(key, { loop, volume: channelVolume('ambience') });
   currentAmbience = asVolumeCapable(sound);
+  currentAmbienceKey = key;
   sound.play();
 }
 
@@ -73,6 +85,11 @@ export function stopAmbience(): void {
     currentAmbience.destroy();
     currentAmbience = null;
   }
+  currentAmbienceKey = null;
+}
+
+export function getCurrentAmbienceKey(): string | null {
+  return currentAmbienceKey;
 }
 
 export function playSfx(scene: Phaser.Scene, key: string, volume?: number): void {
@@ -84,12 +101,37 @@ export function playSfx(scene: Phaser.Scene, key: string, volume?: number): void
   scene.sound.play(key, { volume: vol });
 }
 
-export function playVoice(scene: Phaser.Scene, key: string): void {
+/** Toca uma voz (apenas uma por vez). Retorna o som para sincronização, ou null. */
+export function playVoice(scene: Phaser.Scene, key: string): Phaser.Sound.BaseSound | null {
+  stopVoice();
   if (!scene.cache.audio.exists(key)) {
     console.warn(`Voice ${key} não encontrada.`);
-    return;
+    return null;
   }
-  scene.sound.play(key, { volume: channelVolume('voice') });
+  const sound = scene.sound.add(key, { volume: channelVolume('voice') });
+  currentVoice = sound;
+  sound.once('complete', () => {
+    if (currentVoice === sound) currentVoice = null;
+    sound.destroy();
+  });
+  sound.play();
+  return sound;
+}
+
+export function stopVoice(): void {
+  if (currentVoice) {
+    currentVoice.stop();
+    currentVoice.destroy();
+    currentVoice = null;
+  }
+}
+
+export function pauseVoice(): void {
+  currentVoice?.pause();
+}
+
+export function resumeVoice(): void {
+  currentVoice?.resume();
 }
 
 export function setChannelVolume(
@@ -110,11 +152,24 @@ export function setMasterVolume(volume: number): void {
   applyVolumes();
 }
 
-export function toggleMute(): boolean {
-  muted = !muted;
-  getState().audioSettings.muted = muted;
+/** Reaplica volumes atuais (após carregar save ou mudar settings). */
+export function refreshVolumes(): void {
+  muted = getState().audioSettings.muted;
   applyVolumes();
-  return muted;
+}
+
+export function toggleMute(): boolean {
+  const next = !isMuted();
+  muted = next;
+  getState().audioSettings.muted = next;
+  applyVolumes();
+  return next;
+}
+
+export function setMuted(value: boolean): void {
+  muted = value;
+  getState().audioSettings.muted = value;
+  applyVolumes();
 }
 
 export function isMuted(): boolean {
@@ -147,6 +202,8 @@ export function fadeOutMusic(scene: Phaser.Scene, durationMs = 1000): void {
   const music = currentMusic;
   const start = channelVolume('music');
   const proxy = { v: start };
+  currentMusic = null;
+  currentMusicKey = null;
   scene.tweens.add({
     targets: proxy,
     v: 0,
@@ -157,7 +214,6 @@ export function fadeOutMusic(scene: Phaser.Scene, durationMs = 1000): void {
     onComplete: () => {
       music.stop();
       music.destroy();
-      if (currentMusic === music) currentMusic = null;
     }
   });
 }
@@ -166,7 +222,20 @@ export function setMusicVolume(_scene: Phaser.Scene, volume: number): void {
   setChannelVolume('music', volume);
 }
 
+export function pauseAllAudio(): void {
+  currentMusic?.pause();
+  currentAmbience?.pause();
+  currentVoice?.pause();
+}
+
+export function resumeAllAudio(): void {
+  currentMusic?.resume();
+  currentAmbience?.resume();
+  currentVoice?.resume();
+}
+
 export function stopAllAudio(): void {
   stopMusic();
   stopAmbience();
+  stopVoice();
 }

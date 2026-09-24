@@ -8,30 +8,16 @@ import path from 'node:path';
 
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
-
-function walk(dir, urlPrefix) {
-  const out = [];
-  if (!fs.existsSync(dir)) return out;
-  for (const f of fs.readdirSync(dir)) {
-    const p = path.join(dir, f);
-    if (fs.statSync(p).isDirectory()) out.push(...walk(p, urlPrefix));
-    else if (/\.(png|webp|jpg|jpeg|svg|mp3|ogg|wav|webm)$/i.test(f)) {
-      out.push(`${urlPrefix}/${f}`);
-    }
-  }
-  return out;
-}
+const EXT = /\.(png|webp|jpg|jpeg|svg|mp3|ogg|wav|webm|mp4)$/i;
 
 function walkDeep(dir, urlPrefix, base = '') {
   const out = [];
   if (!fs.existsSync(dir)) return out;
-  for (const f of fs.readdirSync(dir)) {
+  for (const f of fs.readdirSync(dir).sort()) {
     const p = path.join(dir, f);
     const rel = base ? `${base}/${f}` : f;
     if (fs.statSync(p).isDirectory()) out.push(...walkDeep(p, urlPrefix, rel));
-    else if (/\.(png|webp|jpg|jpeg|svg|mp3|ogg|wav|webm)$/i.test(f)) {
-      out.push(`${urlPrefix}/${rel}`);
-    }
+    else if (EXT.test(f)) out.push(`${urlPrefix}/${rel}`);
   }
   return out;
 }
@@ -47,9 +33,11 @@ const cubeFaces = images.filter((p) => p.startsWith('/images/cube/') && p.endsWi
 const endings = images.filter((p) => p.startsWith('/images/endings/') && p.endsWith('.png'));
 const transformation = images.filter((p) => p.startsWith('/images/transformation/') && p.endsWith('.png'));
 const characters = assets.filter((p) => p.startsWith('/assets/characters/'));
+const audio = assets.filter((p) => /\.(ogg|mp3|wav)$/i.test(p));
+const video = assets.filter((p) => /\.(webm|mp4)$/i.test(p));
 
 const manifest = {
-  version: 1,
+  version: 2,
   generatedAt: new Date().toISOString(),
   backgrounds,
   symbols,
@@ -59,6 +47,8 @@ const manifest = {
   endings,
   transformation,
   characters,
+  audio,
+  video,
   all: [...images, ...assets]
 };
 
@@ -78,5 +68,7 @@ console.log(
   'cube=' + cubeFaces.length,
   'endings=' + endings.length,
   'tr=' + transformation.length,
-  'chars=' + characters.length
+  'chars=' + characters.length,
+  'audio=' + audio.length,
+  'video=' + video.length
 );

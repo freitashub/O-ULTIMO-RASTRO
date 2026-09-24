@@ -76,5 +76,11 @@
   "transform.hint.11": "Por un instante, el reflejo en los ojos de Theo parece diferente.",
   "transform.hint.14": "La sombra de Theo en la pared está ligeramente deformada.",
   "transform.hint.17": "La respiración de Theo suena diferente. Más profunda.",
-  "transform.hint.20": "La cara de Theo aparece en el cubo."
+  "transform.hint.20": "La cara de Theo aparece en el cubo.",
+  "subtitle.speaker.troll_boss": "Criatura",
+  "subtitle.speaker.prisoner": "Prisionero",
+  "cutscene.skip": "SALTAR",
+  "cutscene.hint": "Esc/Espacio: saltar · P: pausar · R: repetir",
+  "cutscene.paused": "PAUSADO",
+  "settings.ambienceVolume": "Volumen del ambiente"
 }
