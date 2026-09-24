@@ -1,0 +1,11 @@
+{
+  "id": "bg_phase05",
+  "promptId": "03580b04-ea6a-43c0-bedd-829a59ba7274",
+  "out": "public/assets/backgrounds/phase-05-arquivo.webp",
+  "generatedAt": "2026-09-23T21:09:59.432Z",
+  "seed": 105,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors"
+}

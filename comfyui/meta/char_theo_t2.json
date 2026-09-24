@@ -1,0 +1,12 @@
+{
+  "id": "char_theo_t2",
+  "promptId": "53960ad2-4518-4b6a-8124-b00856f7831f",
+  "out": "public/assets/characters/char_theo_t2.webp",
+  "generatedAt": "2026-09-23T22:10:16.047Z",
+  "seed": 212,
+  "steps": 6,
+  "width": 480,
+  "height": 720,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors",
+  "prompt": "character reference sheet, boy age 11 mid transformation stage 2, subtle veins under pale skin, brighter eyes, slightly elongated shadow, messy dark hair, worn blue-gray jacket, full body, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text"
+}

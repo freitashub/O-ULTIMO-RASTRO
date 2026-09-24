@@ -1,0 +1,10 @@
+{
+  "id": "bg_phase01",
+  "promptId": "aa13e9a1-27bc-4802-8816-98e3fd3d9108",
+  "prompt": "...",
+  "seed": 101,
+  "steps": 6,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors",
+  "out": "public/assets/backgrounds/phase-01-casa.webp",
+  "generatedAt": "2026-09-23T18:59:37.989Z"
+}

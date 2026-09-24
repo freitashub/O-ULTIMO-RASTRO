@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-09-23T18:53:32.591Z",
+  "method": "original-vector-svg",
+  "style": "gothic-dark-cinematic",
+  "styleGuide": "docs/VISUAL_STYLE_GUIDE.md",
+  "assets": [
+    {
+      "path": "/assets/symbols/arvore.svg",
+      "bytes": 1031
+    },
+    {
+      "path": "/assets/symbols/corvo.svg",
+      "bytes": 994
+    },
+    {
+      "path": "/assets/symbols/lua.svg",
+      "bytes": 750
+    },
+    {
+      "path": "/assets/symbols/mao.svg",
+      "bytes": 857
+    },
+    {
+      "path": "/assets/symbols/olho.svg",
+      "bytes": 819
+    },
+    {
+      "path": "/assets/symbols/rosto.svg",
+      "bytes": 1163
+    },
+    {
+      "path": "/images/clues/clara_instructions.svg",
+      "bytes": 538
+    },
+    {
+      "path": "/images/clues/dark_well.svg",
+      "bytes": 499
+    },
+    {
+      "path": "/images/clues/doorless.svg",
+      "bytes": 488
+    },
+    {
+      "path": "/images/clues/elias_shirt.svg",
+      "bytes": 490
+    },
+    {
+      "path": "/images/clues/eye_symbol.svg",
+      "bytes": 452
+    },
+    {
+      "path": "/images/clues/ghost_identity.svg",
+      "bytes": 603
+    },
+    {
+      "path": "/images/clues/hidden_truth.svg",
+      "bytes": 578
+    },
+    {
+      "path": "/images/clues/illusion.svg",
+      "bytes": 407
+    },
+    {
+      "path": "/images/clues/inscription.svg",
+      "bytes": 523
+    },
+    {
+      "path": "/images/clues/map_shape.svg",
+      "bytes": 512
+    },
+    {
+      "path": "/images/clues/organized.svg",
+      "bytes": 686
+    },
+    {
+      "path": "/images/clues/orun_tool_symbol.svg",
+      "bytes": 476
+    },
+    {
+      "path": "/images/clues/photo_false.svg",
+      "bytes": 602
+    },
+    {
+      "path": "/images/clues/police_car_footage.svg",
+      "bytes": 549
+    },
+    {
+      "path": "/images/clues/prisoner_warning.svg",
+      "bytes": 495
+    },
+    {
+      "path": "/images/clues/restricted_area_camera.svg",
+      "bytes": 543
+    },
+    {
+      "path": "/images/clues/silas_underground.svg",
+      "bytes": 483
+    },
+    {
+      "path": "/images/clues/sixth_mark_note.svg",
+      "bytes": 534
+    },
+    {
+      "path": "/images/clues/thirteen_days.svg",
+      "bytes": 382
+    },
+    {
+      "path": "/images/clues/tire_mark.svg",
+      "bytes": 504
+    },
+    {
+      "path": "/images/clues/unused_ticket.svg",
+      "bytes": 533
+    },
+    {
+      "path": "/images/cube/face_arvore.svg",
+      "bytes": 583
+    },
+    {
+      "path": "/images/cube/face_corvo.svg",
+      "bytes": 569
+    },
+    {
+      "path": "/images/cube/face_lua.svg",
+      "bytes": 450
+    },
+    {
+      "path": "/images/cube/face_mao.svg",
+      "bytes": 667
+    },
+    {
+      "path": "/images/cube/face_olho.svg",
+      "bytes": 555
+    },
+    {
+      "path": "/images/cube/face_rosto.svg",
+      "bytes": 617
+    },
+    {
+      "path": "/images/endings/ending_bad.svg",
+      "bytes": 562
+    },
+    {
+      "path": "/images/endings/ending_good.svg",
+      "bytes": 651
+    },
+    {
+      "path": "/images/endings/ending_secret.svg",
+      "bytes": 640
+    },
+    {
+      "path": "/images/portraits/clara.svg",
+      "bytes": 1034
+    },
+    {
+      "path": "/images/portraits/elias.svg",
+      "bytes": 987
+    },
+    {
+      "path": "/images/portraits/silas.svg",
+      "bytes": 1194
+    },
+    {
+      "path": "/images/portraits/theo.svg",
+      "bytes": 1206
+    },
+    {
+      "path": "/images/portraits/troll.svg",
+      "bytes": 1242
+    },
+    {
+      "path": "/images/symbols/arvore.svg",
+      "bytes": 1031
+    },
+    {
+      "path": "/images/symbols/corvo.svg",
+      "bytes": 994
+    },
+    {
+      "path": "/images/symbols/lua.svg",
+      "bytes": 750
+    },
+    {
+      "path": "/images/symbols/mao.svg",
+      "bytes": 857
+    },
+    {
+      "path": "/images/symbols/olho.svg",
+      "bytes": 819
+    },
+    {
+      "path": "/images/symbols/rosto.svg",
+      "bytes": 1163
+    },
+    {
+      "path": "/images/transformation/theo_t0.svg",
+      "bytes": 784
+    },
+    {
+      "path": "/images/transformation/theo_t1.svg",
+      "bytes": 928
+    },
+    {
+      "path": "/images/transformation/theo_t2.svg",
+      "bytes": 1122
+    },
+    {
+      "path": "/images/transformation/theo_t3.svg",
+      "bytes": 1122
+    },
+    {
+      "path": "/images/transformation/theo_t4.svg",
+      "bytes": 1310
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": "char_theo_t4",
+      "out": "public/assets/characters/char_theo_t4.webp",
+      "width": 384,
+      "height": 576,
+      "steps": 4,
+      "seed": 9214,
+      "prompt": "character reference sheet, fully transformed young troll humanoid, gray-green skin, small horns, elongated limbs, glowing pale eyes, remnants of blue-gray jacket, full body standing pose, stylized 2D animation gothic dark, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, gore, anime screenshot, blurry"
+    }
+  ]
+}

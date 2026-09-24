@@ -1,0 +1,218 @@
+[
+  {
+    "id": "tire_mark",
+    "phase": 1,
+    "text": "Marca de pneu no piso da garagem.",
+    "importance": "medium",
+    "type": "environment",
+    "linkedFlags": ["saw_tire_mark"],
+    "relatedSymbols": [],
+    "futureReferences": [15]
+  },
+  {
+    "id": "eye_symbol",
+    "phase": 2,
+    "text": "Símbolo do olho no sino da igreja.",
+    "symbol": "olho",
+    "importance": "high",
+    "type": "symbol",
+    "linkedFlags": ["found_eye_symbol"],
+    "relatedSymbols": ["olho"],
+    "futureReferences": [14, 20]
+  },
+  {
+    "id": "elias_shirt",
+    "phase": 3,
+    "text": "Tecido da camisa de Elias no túnel.",
+    "importance": "high",
+    "type": "direct",
+    "linkedFlags": ["elias_tech_found"],
+    "relatedSymbols": ["lua"],
+    "futureReferences": [17, 18]
+  },
+  {
+    "id": "police_car_footage",
+    "phase": 4,
+    "text": "Gravação mostra os pais entrando em um carro da polícia.",
+    "importance": "high",
+    "type": "direct",
+    "linkedFlags": ["saw_police_car"],
+    "relatedSymbols": [],
+    "futureReferences": [5, 11, 13]
+  },
+  {
+    "id": "thirteen_days",
+    "phase": 5,
+    "text": "Desaparecimentos em intervalos de 13 dias. O nome de Theo está na lista.",
+    "symbol": "mao",
+    "importance": "high",
+    "type": "direct",
+    "linkedFlags": ["thirteen_day_pattern", "theo_on_list"],
+    "relatedSymbols": ["mao"],
+    "futureReferences": [11, 13, 20]
+  },
+  {
+    "id": "unused_ticket",
+    "phase": 6,
+    "text": "Bilhete de trem comprado por 'Clara V.' e nunca utilizado.",
+    "importance": "medium",
+    "type": "direct",
+    "linkedFlags": ["found_ticket"],
+    "relatedSymbols": [],
+    "futureReferences": [7]
+  },
+  {
+    "id": "sixth_mark_note",
+    "phase": 7,
+    "text": "Anotação de Clara: 'Se eu desaparecer, procure a sexta marca.'",
+    "importance": "high",
+    "type": "character",
+    "linkedFlags": ["sixth_mark_clue"],
+    "relatedSymbols": ["rosto"],
+    "futureReferences": [16, 20]
+  },
+  {
+    "id": "restricted_area_camera",
+    "phase": 8,
+    "text": "Câmera registra veículo em área restrita ao lado do porto seco — apenas sombras.",
+    "importance": "medium",
+    "type": "environment",
+    "linkedFlags": ["saw_restricted_vehicle"],
+    "relatedSymbols": [],
+    "futureReferences": [11]
+  },
+  {
+    "id": "ghost_identity",
+    "phase": 9,
+    "text": "Identidade falsa criada para esconder movimentações dos trolls. Foto plantada com criança desconhecida.",
+    "symbol": "corvo",
+    "importance": "high",
+    "type": "false",
+    "linkedFlags": ["ghost_identity_found", "planted_photo"],
+    "relatedSymbols": ["corvo"],
+    "futureReferences": [19, 20]
+  },
+  {
+    "id": "orun_tool_symbol",
+    "phase": 10,
+    "text": "Ferramenta do ferreiro com o mesmo símbolo do Cubo de Orun.",
+    "importance": "high",
+    "type": "symbol",
+    "linkedFlags": ["saw_orun_symbol"],
+    "relatedSymbols": [],
+    "futureReferences": [18, 20]
+  },
+  {
+    "id": "prisoner_warning",
+    "phase": 11,
+    "text": "Prisioneiro humano: 'A polícia trabalha para eles.' Ele conhece o nome de Theo.",
+    "importance": "high",
+    "type": "character",
+    "linkedFlags": ["prisoner_spoke"],
+    "relatedSymbols": [],
+    "futureReferences": [12, 13]
+  },
+  {
+    "id": "silas_underground_visits",
+    "phase": 12,
+    "text": "Registros: o chefe da polícia visita o subterrâneo há anos.",
+    "importance": "high",
+    "type": "direct",
+    "linkedFlags": ["silas_underground"],
+    "relatedSymbols": [],
+    "futureReferences": [13, 16]
+  },
+  {
+    "id": "organized_disappearances",
+    "phase": 13,
+    "text": "Desaparecimentos organizados para retirar quem descobre os trolls. Clara e Elias acharam o caminho central.",
+    "importance": "high",
+    "type": "direct",
+    "linkedFlags": ["knows_organized", "parents_knew_path"],
+    "relatedSymbols": [],
+    "futureReferences": [16, 18]
+  },
+  {
+    "id": "map_troll_shape",
+    "phase": 14,
+    "text": "Locais do mapa formam a estrutura de um troll; centro na casa de Theo.",
+    "symbol": "arvore",
+    "importance": "high",
+    "type": "symbol",
+    "linkedFlags": ["map_decoded"],
+    "relatedSymbols": ["arvore"],
+    "futureReferences": [15, 17, 20]
+  },
+  {
+    "id": "dark_well_entrance",
+    "phase": 15,
+    "text": "Poço sem iluminação leva à porta da fotografia da Fase 1.",
+    "importance": "high",
+    "type": "environment",
+    "linkedFlags": ["found_real_entrance"],
+    "relatedSymbols": [],
+    "futureReferences": [19, 20]
+  },
+  {
+    "id": "illusion_falters",
+    "phase": 16,
+    "text": "Ilusão dos pais falha com memória real. Olhos de Silas no espelho são de troll.",
+    "importance": "high",
+    "type": "character",
+    "linkedFlags": ["illusion_broken", "silas_revealed"],
+    "relatedSymbols": ["rosto"],
+    "futureReferences": [17, 19]
+  },
+  {
+    "id": "clara_instructions",
+    "phase": 17,
+    "text": "Instrução de Clara: 'Não confie no que estiver escrito. Confie no que você viu.'",
+    "importance": "high",
+    "type": "retroactive",
+    "linkedFlags": ["clara_message"],
+    "relatedSymbols": [],
+    "futureReferences": [18, 19]
+  },
+  {
+    "id": "doorless_entrance",
+    "phase": 18,
+    "text": "Esconderijo principal atrás de entrada sem porta. Desenho do cubo com seis símbolos.",
+    "importance": "high",
+    "type": "direct",
+    "linkedFlags": ["knows_doorless"],
+    "relatedSymbols": ["olho", "lua", "mao", "corvo", "arvore", "rosto"],
+    "futureReferences": [19, 20]
+  },
+  {
+    "id": "photo_is_distraction",
+    "phase": 19,
+    "text": "Foto da Fase 9 é falsa: a criança tem o rosto de Silas jovem.",
+    "importance": "high",
+    "type": "false",
+    "linkedFlags": ["photo_revealed_false"],
+    "relatedSymbols": [],
+    "futureReferences": [20]
+  },
+  {
+    "id": "cube_inscription",
+    "phase": 20,
+    "text": "Inscrição do cubo: ordem de quem viu primeiro nas fases.",
+    "symbol": "rosto",
+    "importance": "high",
+    "type": "final",
+    "linkedFlags": ["read_inscription"],
+    "relatedSymbols": ["olho", "lua", "mao", "corvo", "arvore", "rosto"],
+    "futureReferences": [20]
+  },
+  {
+    "id": "hidden_truth",
+    "phase": 20,
+    "text": "Verdade mais antiga: sala com dezenas de desenhos, incluindo o rosto de Theo.",
+    "symbol": "rosto",
+    "importance": "high",
+    "type": "final",
+    "linkedFlags": ["hidden_truth"],
+    "relatedSymbols": ["olho", "lua", "mao", "corvo", "arvore", "rosto"],
+    "futureReferences": []
+  }
+]

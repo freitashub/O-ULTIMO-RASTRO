@@ -1,0 +1,205 @@
+{
+  "generatedAt": "2026-09-24T15:17:36.395Z",
+  "pass": 23,
+  "fail": 0,
+  "notes": 1,
+  "total": 23,
+  "checks": [
+    {
+      "name": "1. iniciar novo jogo (menu)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "fase 1 story carregada",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "3. backgrounds 20 fases existem+manifest",
+      "ok": true,
+      "detail": "20/20"
+    },
+    {
+      "name": "3. backgrounds 20 fases HTTP ok (carregadas no browser)",
+      "ok": true,
+      "detail": "http=20 map=20 missing="
+    },
+    {
+      "name": "8. Cubo de Orun faces carregadas",
+      "ok": true,
+      "detail": "got=face_olho.png,face_lua.png,face_mao.png,face_corvo.png,face_arvore.png,face_rosto.png"
+    },
+    {
+      "name": "10. final pós-puzzle (arte ending_*.png)",
+      "ok": true,
+      "detail": "ending_bad.png"
+    },
+    {
+      "name": "10. final secret render + arte",
+      "ok": true,
+      "detail": "size=27214 artNetwork=true"
+    },
+    {
+      "name": "10. final good render + arte",
+      "ok": true,
+      "detail": "size=20410 artNetwork=true"
+    },
+    {
+      "name": "10. final bad render + arte",
+      "ok": true,
+      "detail": "size=14796 artNetwork=true"
+    },
+    {
+      "name": "6. pistas descobertas carregam ícones (CluesScene)",
+      "ok": true,
+      "detail": "icons=1 urls=tire_mark.png fails=0"
+    },
+    {
+      "name": "7. símbolos coletados exibem ícones (DiaryScene)",
+      "ok": true,
+      "detail": "symbols=1 urls=olho.webp fails=0"
+    },
+    {
+      "name": "11. idioma (cycle menu)",
+      "ok": true,
+      "detail": "language-cycle-1,language-cycle-2,language-cycle-3,language-cycle-4"
+    },
+    {
+      "name": "12. legendas (sem erros SubtitleRenderer)",
+      "ok": true,
+      "detail": "no subtitle errors"
+    },
+    {
+      "name": "15. referências quebradas (HTTP 4xx/5xx em assets)",
+      "ok": true,
+      "detail": "count=0 sample="
+    },
+    {
+      "name": "16. assets ausentes no disco (referenciados)",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "13. carregamento/preload sem falha loaderror grave",
+      "ok": true,
+      "detail": "no load failures"
+    },
+    {
+      "name": "20. jogo sem chamadas ao ComfyUI (:8188)",
+      "ok": true,
+      "detail": "no requests to 8188"
+    },
+    {
+      "name": "4-5. personagens char_*.webp solicitados no browser",
+      "ok": true,
+      "status": "pass",
+      "detail": "count=9 (arquivos existem=7)"
+    },
+    {
+      "name": "5. retratos /images/portraits solicitados",
+      "ok": true,
+      "status": "pass",
+      "detail": "count=7"
+    },
+    {
+      "name": "9. transformação /images/transformation solicitados",
+      "ok": true,
+      "status": "pass",
+      "detail": "count=1"
+    },
+    {
+      "name": "17-18. screenshots de fases geradas (inspeção visual manual)",
+      "ok": true,
+      "detail": "21 shots"
+    },
+    {
+      "name": "14. console sem erros (excl. áudio opcional ausente)",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "name": "console.warn count",
+      "ok": true,
+      "status": "note",
+      "detail": "4"
+    }
+  ],
+  "consoleErrors": [],
+  "consoleWarns": [
+    "console.warn: [.WebGL-0x33fc001d2800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "console.warn: [.WebGL-0x33fc001d2800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "console.warn: [.WebGL-0x33fc001d2800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "console.warn: [.WebGL-0x33fc001d2800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+  ],
+  "networkFail": [],
+  "networkOkCount": 170,
+  "phaseBgRequests": {
+    "1": 200,
+    "2": 200,
+    "3": 200,
+    "4": 200,
+    "5": 200,
+    "6": 200,
+    "7": 200,
+    "8": 200,
+    "9": 200,
+    "10": 200,
+    "11": 200,
+    "12": 200,
+    "13": 200,
+    "14": 200,
+    "15": 200,
+    "16": 200,
+    "17": 200,
+    "18": 200,
+    "19": 200,
+    "20": 200
+  },
+  "comfyCalls": [],
+  "textureLoads": [
+    "http://localhost:5173/assets/backgrounds/phase-01-casa.webp",
+    "http://localhost:5173/assets/characters/char_theo.webp",
+    "http://localhost:5173/images/portraits/theo.png",
+    "http://localhost:5173/assets/backgrounds/phase-02-igreja.webp",
+    "http://localhost:5173/assets/backgrounds/phase-03-tunel.webp",
+    "http://localhost:5173/assets/characters/char_troll.webp",
+    "http://localhost:5173/images/portraits/troll.png",
+    "http://localhost:5173/assets/backgrounds/phase-04-delegacia.webp",
+    "http://localhost:5173/assets/characters/char_silas.webp",
+    "http://localhost:5173/images/portraits/silas.png",
+    "http://localhost:5173/assets/backgrounds/phase-05-arquivo.webp",
+    "http://localhost:5173/assets/characters/char_theo_t4.webp",
+    "http://localhost:5173/assets/backgrounds/phase-06-estacao.webp",
+    "http://localhost:5173/assets/backgrounds/phase-07-biblioteca.webp",
+    "http://localhost:5173/assets/characters/char_clara.webp",
+    "http://localhost:5173/images/transformation/theo_t4.png",
+    "http://localhost:5173/images/portraits/clara.png",
+    "http://localhost:5173/assets/backgrounds/phase-08-porto.webp",
+    "http://localhost:5173/assets/backgrounds/phase-09-registros.webp",
+    "http://localhost:5173/assets/backgrounds/phase-10-oficina.webp",
+    "http://localhost:5173/assets/backgrounds/phase-11-cidade.webp",
+    "http://localhost:5173/assets/backgrounds/phase-12-chave.webp",
+    "http://localhost:5173/assets/backgrounds/phase-13-silas.webp",
+    "http://localhost:5173/assets/backgrounds/phase-14-mapa.webp",
+    "http://localhost:5173/assets/backgrounds/phase-15-montanha.webp",
+    "http://localhost:5173/assets/backgrounds/phase-16-sala.webp",
+    "http://localhost:5173/assets/backgrounds/phase-17-ultima-cidade.webp",
+    "http://localhost:5173/assets/backgrounds/phase-18-registros.webp",
+    "http://localhost:5173/assets/characters/char_elias.webp",
+    "http://localhost:5173/images/portraits/elias.png",
+    "http://localhost:5173/assets/backgrounds/phase-19-aviso.webp",
+    "http://localhost:5173/assets/backgrounds/phase-20-caverna.webp",
+    "http://localhost:5173/images/cube/face_olho.png",
+    "http://localhost:5173/images/cube/face_lua.png",
+    "http://localhost:5173/images/cube/face_mao.png",
+    "http://localhost:5173/images/cube/face_corvo.png",
+    "http://localhost:5173/images/cube/face_arvore.png",
+    "http://localhost:5173/images/cube/face_rosto.png",
+    "http://localhost:5173/images/endings/ending_bad.png",
+    "http://localhost:5173/images/endings/ending_secret.png",
+    "http://localhost:5173/images/endings/ending_good.png",
+    "http://localhost:5173/images/clues/tire_mark.png",
+    "http://localhost:5173/assets/symbols/olho.webp"
+  ]
+}

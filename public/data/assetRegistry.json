@@ -1,0 +1,800 @@
+{
+  "packs": {
+    "core": [
+      {
+        "id": "phases",
+        "kind": "json",
+        "path": "/data/phases.json",
+        "pack": "core",
+        "preload": true
+      },
+      {
+        "id": "clues",
+        "kind": "json",
+        "path": "/data/clues.json",
+        "pack": "core",
+        "preload": true
+      },
+      {
+        "id": "symbols",
+        "kind": "json",
+        "path": "/data/symbols.json",
+        "pack": "core",
+        "preload": true
+      },
+      {
+        "id": "cube-config",
+        "kind": "json",
+        "path": "/data/cube-config.json",
+        "pack": "core",
+        "preload": true
+      },
+      {
+        "id": "assets-manifest",
+        "kind": "json",
+        "path": "/data/assets-manifest.json",
+        "pack": "core",
+        "preload": true
+      },
+      {
+        "id": "phases-zh",
+        "kind": "json",
+        "path": "/data/phases.zh-CN.json",
+        "pack": "core",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "phases-ja",
+        "kind": "json",
+        "path": "/data/phases.ja-JP.json",
+        "pack": "core",
+        "optional": true,
+        "preload": false
+      }
+    ],
+    "audio": [
+      {
+        "id": "bgm_main",
+        "kind": "audio",
+        "path": "/audio/bgm_main.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bgm_tension",
+        "kind": "audio",
+        "path": "/audio/bgm_tension.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bgm_credits",
+        "kind": "audio",
+        "path": "/audio/bgm_credits.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "ui_click",
+        "kind": "audio",
+        "path": "/audio/ui_click.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "sfx_investigate",
+        "kind": "audio",
+        "path": "/audio/sfx_investigate.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "sfx_choice",
+        "kind": "audio",
+        "path": "/audio/sfx_choice.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "sfx_puzzle_ok",
+        "kind": "audio",
+        "path": "/audio/sfx_puzzle_ok.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "sfx_puzzle_fail",
+        "kind": "audio",
+        "path": "/audio/sfx_puzzle_fail.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "amb_room",
+        "kind": "audio",
+        "path": "/audio/amb_room.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "voice_theo_01",
+        "kind": "audio",
+        "path": "/audio/voice_theo_01.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "voice_clara_01",
+        "kind": "audio",
+        "path": "/audio/voice_clara_01.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "voice_narrator_01",
+        "kind": "audio",
+        "path": "/audio/voice_narrator_01.mp3",
+        "pack": "audio",
+        "optional": true,
+        "preload": false
+      }
+    ],
+    "images": [
+      {
+        "id": "bg_phase01",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-01-casa.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase02",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-02-igreja.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase03",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-03-tunel.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase04",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-04-delegacia.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase05",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-05-arquivo.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase06",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-06-estacao.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase07",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-07-biblioteca.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase08",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-08-porto.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase09",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-09-registros.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase10",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-10-oficina.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase11",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-11-cidade.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase12",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-12-chave.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase13",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-13-silas.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase14",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-14-mapa.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase15",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-15-montanha.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase16",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-16-sala.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase17",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-17-ultima-cidade.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase18",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-18-registros.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase19",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-19-aviso.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "bg_phase20",
+        "kind": "image",
+        "path": "/assets/backgrounds/phase-20-caverna.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_clara",
+        "kind": "image",
+        "path": "/assets/characters/char_clara.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_elias",
+        "kind": "image",
+        "path": "/assets/characters/char_elias.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_silas",
+        "kind": "image",
+        "path": "/assets/characters/char_silas.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_theo",
+        "kind": "image",
+        "path": "/assets/characters/char_theo.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_theo_t2",
+        "kind": "image",
+        "path": "/assets/characters/char_theo_t2.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_theo_t4",
+        "kind": "image",
+        "path": "/assets/characters/char_theo_t4.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "char_troll",
+        "kind": "image",
+        "path": "/assets/characters/char_troll.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_clara_instructions",
+        "kind": "image",
+        "path": "/images/clues/clara_instructions.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_dark_well",
+        "kind": "image",
+        "path": "/images/clues/dark_well.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_doorless",
+        "kind": "image",
+        "path": "/images/clues/doorless.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_elias_shirt",
+        "kind": "image",
+        "path": "/images/clues/elias_shirt.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_eye_symbol",
+        "kind": "image",
+        "path": "/images/clues/eye_symbol.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_ghost_identity",
+        "kind": "image",
+        "path": "/images/clues/ghost_identity.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_hidden_truth",
+        "kind": "image",
+        "path": "/images/clues/hidden_truth.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_illusion",
+        "kind": "image",
+        "path": "/images/clues/illusion.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_inscription",
+        "kind": "image",
+        "path": "/images/clues/inscription.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_map_shape",
+        "kind": "image",
+        "path": "/images/clues/map_shape.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_organized",
+        "kind": "image",
+        "path": "/images/clues/organized.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_orun_tool_symbol",
+        "kind": "image",
+        "path": "/images/clues/orun_tool_symbol.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_photo_false",
+        "kind": "image",
+        "path": "/images/clues/photo_false.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_police_car_footage",
+        "kind": "image",
+        "path": "/images/clues/police_car_footage.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_prisoner_warning",
+        "kind": "image",
+        "path": "/images/clues/prisoner_warning.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_restricted_area_camera",
+        "kind": "image",
+        "path": "/images/clues/restricted_area_camera.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_silas_underground",
+        "kind": "image",
+        "path": "/images/clues/silas_underground.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_sixth_mark_note",
+        "kind": "image",
+        "path": "/images/clues/sixth_mark_note.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_thirteen_days",
+        "kind": "image",
+        "path": "/images/clues/thirteen_days.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_tire_mark",
+        "kind": "image",
+        "path": "/images/clues/tire_mark.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "clue_unused_ticket",
+        "kind": "image",
+        "path": "/images/clues/unused_ticket.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "cube_face_arvore",
+        "kind": "image",
+        "path": "/images/cube/face_arvore.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "cube_face_corvo",
+        "kind": "image",
+        "path": "/images/cube/face_corvo.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "cube_face_lua",
+        "kind": "image",
+        "path": "/images/cube/face_lua.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "cube_face_mao",
+        "kind": "image",
+        "path": "/images/cube/face_mao.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "cube_face_olho",
+        "kind": "image",
+        "path": "/images/cube/face_olho.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "cube_face_rosto",
+        "kind": "image",
+        "path": "/images/cube/face_rosto.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "ending_bad",
+        "kind": "image",
+        "path": "/images/endings/ending_bad.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "ending_good",
+        "kind": "image",
+        "path": "/images/endings/ending_good.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "ending_secret",
+        "kind": "image",
+        "path": "/images/endings/ending_secret.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "portrait_clara",
+        "kind": "image",
+        "path": "/images/portraits/clara.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "portrait_elias",
+        "kind": "image",
+        "path": "/images/portraits/elias.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "portrait_silas",
+        "kind": "image",
+        "path": "/images/portraits/silas.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "portrait_theo",
+        "kind": "image",
+        "path": "/images/portraits/theo.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "portrait_troll",
+        "kind": "image",
+        "path": "/images/portraits/troll.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_arvore",
+        "kind": "image",
+        "path": "/images/symbols/arvore.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_corvo",
+        "kind": "image",
+        "path": "/images/symbols/corvo.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_lua",
+        "kind": "image",
+        "path": "/images/symbols/lua.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_mao",
+        "kind": "image",
+        "path": "/images/symbols/mao.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_olho",
+        "kind": "image",
+        "path": "/images/symbols/olho.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_rosto",
+        "kind": "image",
+        "path": "/images/symbols/rosto.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_webp_arvore",
+        "kind": "image",
+        "path": "/assets/symbols/arvore.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_webp_corvo",
+        "kind": "image",
+        "path": "/assets/symbols/corvo.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_webp_lua",
+        "kind": "image",
+        "path": "/assets/symbols/lua.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_webp_mao",
+        "kind": "image",
+        "path": "/assets/symbols/mao.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_webp_olho",
+        "kind": "image",
+        "path": "/assets/symbols/olho.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "symbol_webp_rosto",
+        "kind": "image",
+        "path": "/assets/symbols/rosto.webp",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "transformation_t0",
+        "kind": "image",
+        "path": "/images/transformation/theo_t0.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "transformation_t1",
+        "kind": "image",
+        "path": "/images/transformation/theo_t1.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "transformation_t2",
+        "kind": "image",
+        "path": "/images/transformation/theo_t2.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "transformation_t3",
+        "kind": "image",
+        "path": "/images/transformation/theo_t3.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      },
+      {
+        "id": "transformation_t4",
+        "kind": "image",
+        "path": "/images/transformation/theo_t4.png",
+        "pack": "images",
+        "optional": true,
+        "preload": false
+      }
+    ]
+  },
+  "metadata": {
+    "production": "2026-09-23",
+    "style": "gothic-dark-cinematic",
+    "sources": {
+      "svg": "tools/assets/generate-svg.mjs + tools/assets/rasterize.mjs",
+      "ai_images": "tools/comfyui/batch.mjs (ComfyUI SD1.5 DirectML)",
+      "manifest": "tools/assets/build-manifest.mjs"
+    },
+    "notes": "Audio entries remain optional until local TTS/music models or API keys exist. Background entries optional until files exist on disk (manifest-gated).",
+    "updatedAt": "2026-09-24T13:08:03.774Z"
+  }
+}

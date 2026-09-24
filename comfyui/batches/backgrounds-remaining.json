@@ -1,0 +1,194 @@
+{
+  "items": [
+    {
+      "id": "bg_phase02",
+      "out": "public/assets/backgrounds/phase-02-igreja.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 102,
+      "prompt": "ancient abandoned church interior at night, stone walls, hanging bell, carved eye symbol on bell, cold blue moon rays through stained glass, gothic dark cinematic digital painting, dust motes, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase03",
+      "out": "public/assets/backgrounds/phase-03-tunel.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 103,
+      "prompt": "dark railway tunnel under mountain, wet stone, abandoned wooden cart, single distant cold light, torn fabric on rails, gothic horror cinematic digital painting, deep shadows, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase04",
+      "out": "public/assets/backgrounds/phase-04-delegacia.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 104,
+      "prompt": "old police station interior night, fluorescent flicker, empty desk, security monitor with grainy footage of car, filing cabinets, cold institutional green-gray, cinematic noir digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase05",
+      "out": "public/assets/backgrounds/phase-05-arquivo.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 105,
+      "prompt": "police cold archive room, endless metal shelves of files, one open drawer with list of names, single hanging bulb, dust, gothic institutional horror, cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase06",
+      "out": "public/assets/backgrounds/phase-06-estacao.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 106,
+      "prompt": "abandoned train station platform at dusk, empty tracks, forgotten ticket on bench, fog, iron pillars, melancholic gothic cinematic digital painting, cool blue shadows, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase07",
+      "out": "public/assets/backgrounds/phase-07-biblioteca.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 107,
+      "prompt": "old library at night, tall dark wooden shelves, open ledger with handwritten note, single green desk lamp, cobwebs, gothic scholarly gloom, cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase08",
+      "out": "public/assets/backgrounds/phase-08-porto.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 108,
+      "prompt": "dry dock harbor at night, rusted cranes, chained gate to restricted area, security camera on pole, wet concrete, cold industrial gothic cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase09",
+      "out": "public/assets/backgrounds/phase-09-registros.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 109,
+      "prompt": "bureaucratic records center, endless card catalog drawers, one drawer glowing faint cyan, paper stacks, fluorescent hum aesthetic, eerie institutional gothic cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase10",
+      "out": "public/assets/backgrounds/phase-10-oficina.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 110,
+      "prompt": "blacksmith workshop forge cold and dark, anvil, strange runic tool on wall, iron filings, ember glow dying, gothic craftsman horror cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase11",
+      "out": "public/assets/backgrounds/phase-11-cidade.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 111,
+      "prompt": "vast underground troll city, crooked stone towers, bioluminescent moss, hanging bridges, cold cyan light wells, dark fantasy gothic cinematic digital painting, awe and dread, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase12",
+      "out": "public/assets/backgrounds/phase-12-chave.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 112,
+      "prompt": "underground archive vault, stone ribs, iron key on pedestal, chained shelves of forbidden scrolls, single cyan rune light, gothic horror cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase13",
+      "out": "public/assets/backgrounds/phase-13-silas.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 113,
+      "prompt": "dark office confrontation room, heavy desk, low-angle dramatic light, long shadow of imposing figure on wall, venetian blind stripes, noir gothic thriller cinematic digital painting, empty room, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase14",
+      "out": "public/assets/backgrounds/phase-14-mapa.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 114,
+      "prompt": "aerial view of forest and roads forming troll silhouette shape, old parchment map aesthetic over dark landscape, cyan contour lines, mysterious cartography, gothic cinematic digital painting, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase15",
+      "out": "public/assets/backgrounds/phase-15-montanha.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 115,
+      "prompt": "stark mountain peak with dark well mouth, wind-scoured rock, thin cloud, cold starlight, vertigo composition, gothic isolation cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase16",
+      "out": "public/assets/backgrounds/phase-16-sala.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 116,
+      "prompt": "surreal illusion chamber, impossible doors, mirrored false parents silhouettes dissolving into mist, cold cyan and warm false gold conflict, psychological horror gothic cinematic digital painting, no faces clear, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase17",
+      "out": "public/assets/backgrounds/phase-17-ultima-cidade.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 117,
+      "prompt": "last underground city street, crooked lamps, warning posters torn, fog between stone buildings, oppressive quiet, gothic dystopian cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase18",
+      "out": "public/assets/backgrounds/phase-18-registros.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 118,
+      "prompt": "truth vault with glowing ledger of names, cyan light bursting from open book, dust crystals in beam, dark stone chamber, revelatory gothic cinematic digital painting, no readable text, no people",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase19",
+      "out": "public/assets/backgrounds/phase-19-aviso.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 119,
+      "prompt": "cave entrance with carved warning runes glowing red-cyan, twisted roots, torch embers, threshold of no return, gothic horror cinematic digital painting, no people, no readable text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    },
+    {
+      "id": "bg_phase20",
+      "out": "public/assets/backgrounds/phase-20-caverna.webp",
+      "width": 768,
+      "height": 432,
+      "steps": 7,
+      "seed": 120,
+      "prompt": "vast silent cavern chamber, obsidian pedestal holding glowing cubic artifact, cyan runes, deep blue darkness, sacred and terrible, gothic mystical cinematic digital painting, no people, no text",
+      "negative": "text, watermark, signature, bright, cheerful, cartoon, anime, lowres, blurry"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+[
+  { "id": "olho", "name": "Olho", "phase": 2, "assetPath": "/assets/symbols/olho.webp", "diaryNote": "Vi este símbolo no sino da igreja." },
+  { "id": "lua", "name": "Lua", "phase": 3, "assetPath": "/assets/symbols/lua.webp", "diaryNote": "Estava no túnel, perto do tecido do papai." },
+  { "id": "mao", "name": "Mão", "phase": 5, "assetPath": "/assets/symbols/mao.webp", "diaryNote": "No arquivo da delegacia." },
+  { "id": "corvo", "name": "Corvo", "phase": 9, "assetPath": "/assets/symbols/corvo.webp", "diaryNote": "Apareceu no documento que mudou sozinho." },
+  { "id": "arvore", "name": "Árvore", "phase": 14, "assetPath": "/assets/symbols/arvore.webp", "diaryNote": "No mapa que forma um troll visto de cima." },
+  { "id": "rosto", "name": "Rosto", "phase": 20, "assetPath": "/assets/symbols/rosto.webp", "diaryNote": "Só apareceu no cubo. É o meu rosto." }
+]

@@ -1,0 +1,11 @@
+{
+  "id": "bg_phase08",
+  "promptId": "e1e3044f-2b82-4247-9219-8c10cb7e830e",
+  "out": "public/assets/backgrounds/phase-08-porto.webp",
+  "generatedAt": "2026-09-23T21:09:59.735Z",
+  "seed": 108,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors"
+}

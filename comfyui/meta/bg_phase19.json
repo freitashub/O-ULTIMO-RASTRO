@@ -1,0 +1,12 @@
+{
+  "id": "bg_phase19",
+  "promptId": "2d967ff8-323b-4bf3-9281-ce7f6491ced5",
+  "out": "public/assets/backgrounds/phase-19-aviso.webp",
+  "generatedAt": "2026-09-23T21:27:25.510Z",
+  "seed": 119,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors",
+  "prompt": "cave entrance with carved warning runes glowing red-cyan, twisted roots, torch embers, threshold of no return, gothic horror cinematic digital painting, no people, no readable text"
+}

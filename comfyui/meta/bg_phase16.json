@@ -1,0 +1,11 @@
+{
+  "id": "bg_phase16",
+  "promptId": "4bedddbd-a122-481c-b0d2-d00606576638",
+  "out": "public/assets/backgrounds/phase-16-sala.webp",
+  "generatedAt": "2026-09-23T21:10:00.501Z",
+  "seed": 116,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors"
+}

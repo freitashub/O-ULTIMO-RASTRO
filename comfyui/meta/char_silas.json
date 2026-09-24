@@ -1,0 +1,12 @@
+{
+  "id": "char_silas",
+  "promptId": "8945d0db-649a-4643-937f-cef36a780f8f",
+  "out": "public/assets/characters/char_silas.webp",
+  "generatedAt": "2026-09-23T22:03:10.102Z",
+  "seed": 204,
+  "steps": 6,
+  "width": 480,
+  "height": 720,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors",
+  "prompt": "character reference sheet, imposing older man in dark tailored suit, elegant menace, restrained smile, full body standing pose, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text"
+}

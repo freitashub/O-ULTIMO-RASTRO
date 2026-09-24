@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": "char_theo",
+      "out": "public/assets/characters/char_theo.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 201,
+      "prompt": "character reference sheet, single boy age 11, messy dark hair, large worried brown eyes, worn blue-gray jacket, dark trousers, sneakers, small backpack, full body standing pose, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, anime screenshot, blurry"
+    },
+    {
+      "id": "char_clara",
+      "out": "public/assets/characters/char_clara.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 202,
+      "prompt": "character reference sheet, adult woman, long dark hair, soft dark coat, kind tired face, full body standing pose, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, anime screenshot, blurry"
+    },
+    {
+      "id": "char_elias",
+      "out": "public/assets/characters/char_elias.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 203,
+      "prompt": "character reference sheet, tall adult man, short dark hair, strong brow, dark casual clothes, full body standing pose, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, anime screenshot, blurry"
+    },
+    {
+      "id": "char_silas",
+      "out": "public/assets/characters/char_silas.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 204,
+      "prompt": "character reference sheet, imposing older man in dark tailored suit, elegant menace, restrained smile, full body standing pose, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, anime screenshot, blurry"
+    },
+    {
+      "id": "char_troll",
+      "out": "public/assets/characters/char_troll.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 205,
+      "prompt": "character reference sheet, tall troll creature, elongated silhouette, high shoulders, long arms, small horned head, desaturated olive green rocky skin, glowing amber eyes, full body standing pose, stylized 2D animation gothic dark, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, gore, anime screenshot, blurry"
+    },
+    {
+      "id": "char_theo_t2",
+      "out": "public/assets/characters/char_theo_t2.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 212,
+      "prompt": "character reference sheet, boy age 11 mid transformation stage 2, subtle veins under pale skin, brighter eyes, slightly elongated shadow, messy dark hair, worn blue-gray jacket, full body, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, gore, anime screenshot, blurry"
+    },
+    {
+      "id": "char_theo_t4",
+      "out": "public/assets/characters/char_theo_t4.webp",
+      "width": 480,
+      "height": 720,
+      "steps": 6,
+      "seed": 214,
+      "prompt": "character reference sheet, fully transformed young troll humanoid, gray-green skin, small horns, elongated limbs, glowing pale eyes, remnants of blue-gray jacket, full body standing pose, stylized 2D animation gothic dark, clean lineart, dark background, no text",
+      "negative": "text, watermark, photo, realistic 3d, bright, cheerful, gore, anime screenshot, blurry"
+    }
+  ]
+}

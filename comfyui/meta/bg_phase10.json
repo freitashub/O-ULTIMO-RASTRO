@@ -1,0 +1,11 @@
+{
+  "id": "bg_phase10",
+  "promptId": "e40ef338-46d0-4963-ae78-6ef890298b2f",
+  "out": "public/assets/backgrounds/phase-10-oficina.webp",
+  "generatedAt": "2026-09-23T21:09:59.931Z",
+  "seed": 110,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors"
+}

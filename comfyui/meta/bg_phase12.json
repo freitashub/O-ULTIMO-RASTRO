@@ -1,0 +1,11 @@
+{
+  "id": "bg_phase12",
+  "promptId": "6d3d2209-2d56-4a8f-8107-c1332f636140",
+  "out": "public/assets/backgrounds/phase-12-chave.webp",
+  "generatedAt": "2026-09-23T21:10:00.120Z",
+  "seed": 112,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors"
+}

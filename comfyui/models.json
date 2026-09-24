@@ -1,0 +1,23 @@
+[
+  "checkpoints",
+  "configs",
+  "loras",
+  "vae",
+  "text_encoders",
+  "diffusion_models",
+  "clip_vision",
+  "style_models",
+  "embeddings",
+  "diffusers",
+  "vae_approx",
+  "controlnet",
+  "gligen",
+  "upscale_models",
+  "latent_upscale_models",
+  "custom_nodes",
+  "hypernetworks",
+  "photomaker",
+  "classifiers",
+  "model_patches",
+  "audio_encoders"
+]

@@ -1,0 +1,12 @@
+{
+  "id": "char_clara",
+  "promptId": "94cb2c41-3626-41e9-b412-ccbca2145199",
+  "out": "public/assets/characters/char_clara.webp",
+  "generatedAt": "2026-09-23T22:03:09.720Z",
+  "seed": 202,
+  "steps": 6,
+  "width": 480,
+  "height": 720,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors",
+  "prompt": "character reference sheet, adult woman, long dark hair, soft dark coat, kind tired face, full body standing pose, stylized 2D animation gothic dark emotional, clean lineart, dark background, no text"
+}

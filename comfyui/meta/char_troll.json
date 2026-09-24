@@ -1,0 +1,12 @@
+{
+  "id": "char_troll",
+  "promptId": "73923106-78ab-4f99-8dd3-ee4b716a5f81",
+  "out": "public/assets/characters/char_troll.webp",
+  "generatedAt": "2026-09-23T22:04:02.330Z",
+  "seed": 205,
+  "steps": 6,
+  "width": 480,
+  "height": 720,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors",
+  "prompt": "character reference sheet, tall troll creature, elongated silhouette, high shoulders, long arms, small horned head, desaturated olive green rocky skin, glowing amber eyes, full body standing pose, stylized 2D animation gothic dark, clean lineart, dark background, no text"
+}

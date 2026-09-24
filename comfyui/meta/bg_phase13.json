@@ -1,0 +1,11 @@
+{
+  "id": "bg_phase13",
+  "promptId": "b39d0ce8-da4d-4ea9-88a1-ebee2c2780ca",
+  "out": "public/assets/backgrounds/phase-13-silas.webp",
+  "generatedAt": "2026-09-23T21:10:00.207Z",
+  "seed": 113,
+  "steps": 6,
+  "width": 640,
+  "height": 360,
+  "ckpt": "v1-5-pruned-emaonly-fp16.safetensors"
+}
