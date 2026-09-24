@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-24T18:21:15.525Z",
+  "generatedAt": "2026-09-24T19:07:50.773Z",
   "backgrounds": [
     "/assets/backgrounds/phase-01-casa.webp",
     "/assets/backgrounds/phase-02-igreja.webp",
@@ -1386,6 +1386,13 @@
     "/assets/music/phase19_aviso_choque.ogg",
     "/assets/music/phase20_caverna_silencio.mp3",
     "/assets/music/phase20_caverna_silencio.ogg",
+    "/assets/sprites/clara.png",
+    "/assets/sprites/elias.png",
+    "/assets/sprites/silas.png",
+    "/assets/sprites/theo.png",
+    "/assets/sprites/theo_t2.png",
+    "/assets/sprites/theo_t4.png",
+    "/assets/sprites/troll.png",
     "/assets/symbols/arvore.svg",
     "/assets/symbols/arvore.webp",
     "/assets/symbols/corvo.svg",

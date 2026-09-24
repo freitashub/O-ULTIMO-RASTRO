@@ -95,5 +95,13 @@
   "menu.desc.options": "Idioma, audio, subtítulos y accesibilidad.",
   "menu.desc.deleteSave": "Borra el progreso guardado.",
   "menu.version": "v0.4 · en desarrollo",
-  "title.audioHint": "El sonido se activa con el primer clic"
+  "title.audioHint": "El sonido se activa con el primer clic",
+  "explore.hint": "Flechas/WASD: andar · Clic: ir a · E/Enter: interactuar · 1-3: investigar directo",
+  "explore.investigate": "INVESTIGAR AQUÍ",
+  "explore.close": "CERRAR",
+  "explore.talk": "HABLAR",
+  "explore.back": "VOLVER",
+  "explore.near": "Pulsa E",
+  "explore.clues": "pistas",
+  "explore.menu": "MENÚ"
 }

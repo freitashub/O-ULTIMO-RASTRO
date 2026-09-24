@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "notes": "Layout 2D por fase: área caminhável, spawn, NPC, clima, luz e hotspots (escolhas e detalhes). Coordenadas em 1280x720.",
+  "scenes": [
+    { "phase": 1, "weather": "dust", "light": "lamp", "walk": { "minX": 90, "maxX": 1190, "minY": 560, "maxY": 680 }, "spawn": [640, 660],
+      "objects": [
+        { "id": "clock", "kind": "detail", "label": "Relógio parado", "x": 150, "y": 250, "text": "Os ponteiros pararam às 23:47. O vidro está frio." },
+        { "id": "coat", "kind": "detail", "label": "Casaco da mãe", "x": 470, "y": 600, "text": "O casaco de Clara está no chão, ainda úmido. Ela nunca deixaria isso aqui." },
+        { "id": "window", "kind": "detail", "label": "Janela", "x": 830, "y": 270, "text": "Lá fora, a luz da rua brilha sobre uma marca de pneu na garagem." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 80, "y": 430 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 640, "y": 470 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 1180, "y": 440, "icon": "/images/clues/tire_mark.png" }
+      ] },
+    { "phase": 2, "weather": "dust", "light": "moon", "walk": { "minX": 80, "maxX": 1200, "minY": 560, "maxY": 690 }, "spawn": [200, 660],
+      "objects": [
+        { "id": "symbol", "kind": "detail", "label": "Símbolo na parede", "x": 880, "y": 320, "text": "O mesmo desenho do casaco da mãe, riscado na pedra: um olho.", "icon": "/images/clues/eye_symbol.png" },
+        { "id": "bell", "kind": "detail", "label": "Sino", "x": 1140, "y": 430, "text": "O sino balança sozinho. Não há vento." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 110, "y": 520 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 330, "y": 570 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 960, "y": 340 }
+      ] },
+    { "phase": 3, "weather": "fog", "light": "dark", "walk": { "minX": 80, "maxX": 1200, "minY": 540, "maxY": 690 }, "spawn": [180, 650],
+      "npc": { "id": "troll", "x": 950, "y": 560, "facing": -1, "ghost": true, "name": "troll" },
+      "objects": [
+        { "id": "drag", "kind": "detail", "label": "Marcas de arrasto", "x": 520, "y": 610, "text": "Duas linhas paralelas no cascalho. Alguém foi arrastado para dentro." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 1040, "y": 600 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 340, "y": 280 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 640, "y": 330, "icon": "/images/clues/elias_shirt.png" }
+      ] },
+    { "phase": 4, "weather": "none", "light": "neon", "walk": { "minX": 80, "maxX": 1200, "minY": 560, "maxY": 690 }, "spawn": [200, 660],
+      "npc": { "id": "silas", "x": 900, "y": 590, "facing": -1, "name": "silas" },
+      "objects": [
+        { "id": "desk", "kind": "detail", "label": "Balcão", "x": 640, "y": 520, "text": "Fichas, carimbos, um café frio. Ninguém parece surpreso com um menino sozinho." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 150, "y": 520 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 1120, "y": 470, "icon": "/images/clues/police_car_footage.png" },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 640, "y": 430 }
+      ] },
+    { "phase": 5, "weather": "dust", "light": "neon", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [640, 670],
+      "objects": [
+        { "id": "list", "kind": "detail", "label": "Lista de nomes", "x": 560, "y": 600, "text": "Dezenas de nomes riscados. O último nome da lista é o de Theo." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 300, "y": 520, "icon": "/images/clues/thirteen_days.png" },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 760, "y": 520 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1150, "y": 520 }
+      ] },
+    { "phase": 6, "weather": "fog", "light": "day", "walk": { "minX": 80, "maxX": 1200, "minY": 540, "maxY": 690 }, "spawn": [200, 660],
+      "npc": { "id": "troll", "x": 1020, "y": 560, "facing": -1, "ghost": true, "name": "troll" },
+      "objects": [
+        { "id": "letter", "kind": "detail", "label": "Carta", "x": 420, "y": 630, "text": "\"Filho, talvez tenhamos que partir.\" A letra parece a de Clara. Parece." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 520, "y": 430, "icon": "/images/clues/unused_ticket.png" },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 150, "y": 500 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1160, "y": 600 }
+      ] },
+    { "phase": 7, "weather": "dust", "light": "lamp", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "clara", "x": 1050, "y": 600, "facing": -1, "ghost": true, "name": "clara" },
+      "objects": [
+        { "id": "letters", "kind": "detail", "label": "Duas cartas", "x": 640, "y": 600, "text": "Lado a lado, as letras não coincidem. A falsificação é quase perfeita." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 640, "y": 500, "icon": "/images/clues/sixth_mark_note.png" },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 110, "y": 500 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1180, "y": 500 }
+      ] },
+    { "phase": 8, "weather": "fog", "light": "moon", "walk": { "minX": 80, "maxX": 1200, "minY": 560, "maxY": 690 }, "spawn": [200, 660],
+      "npc": { "id": "troll", "x": 1080, "y": 580, "facing": -1, "ghost": true, "name": "troll" },
+      "objects": [
+        { "id": "docs", "kind": "detail", "label": "Documentos de viagem", "x": 330, "y": 640, "text": "Passaportes com carimbos que não existem. Datas impossíveis." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 150, "y": 560 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 520, "y": 470, "icon": "/images/clues/restricted_area_camera.png" },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1190, "y": 480 }
+      ] },
+    { "phase": 9, "weather": "dust", "light": "neon", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "troll", "x": 940, "y": 600, "facing": -1, "ghost": true, "name": "troll" },
+      "objects": [
+        { "id": "computer", "kind": "detail", "label": "Terminal", "x": 380, "y": 560, "text": "Enquanto Theo lê, o texto muda sozinho. Alguém está reescrevendo o registro agora." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 640, "y": 520, "icon": "/images/clues/ghost_identity.png" },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 150, "y": 520 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1150, "y": 520 }
+      ] },
+    { "phase": 10, "weather": "embers", "light": "fire", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "troll", "x": 640, "y": 620, "facing": -1, "name": "troll" },
+      "objects": [
+        { "id": "tool", "kind": "detail", "label": "Ferramenta marcada", "x": 780, "y": 640, "text": "Uma ferramenta de ferro com o mesmo símbolo do Cubo de Orun gravado no cabo.", "icon": "/images/clues/orun_tool_symbol.png" },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 640, "y": 520 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 120, "y": 600 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1200, "y": 500 }
+      ] },
+    { "phase": 11, "weather": "fog", "light": "moon", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "troll", "x": 1000, "y": 620, "facing": -1, "name": "troll" },
+      "objects": [
+        { "id": "shadow", "kind": "detail", "label": "Sombra na parede", "x": 500, "y": 640, "text": "Por um instante, a sombra de Theo parece deformada. Mais longa. Mais fina." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 200, "y": 600 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 760, "y": 520, "icon": "/images/clues/prisoner_warning.png" },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1200, "y": 560 }
+      ] },
+    { "phase": 12, "weather": "dust", "light": "dark", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "objects": [
+        { "id": "key", "kind": "detail", "label": "Chave com inscrição", "x": 700, "y": 630, "text": "\"Você não devia estar aqui.\" Não soou como ameaça. Soou como aviso." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 150, "y": 520 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 1100, "y": 520, "icon": "/images/clues/silas_underground_visits.png" },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 600, "y": 560 }
+      ] },
+    { "phase": 13, "weather": "dust", "light": "day", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "silas", "x": 760, "y": 610, "facing": -1, "name": "silas", "talk": true },
+      "objects": [
+        { "id": "bars", "kind": "detail", "label": "Sombras das grades", "x": 300, "y": 500, "text": "A luz entra pelas grades. Silas fica exatamente onde a sombra o corta ao meio." }
+      ] },
+    { "phase": 14, "weather": "fog", "light": "day", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "objects": [
+        { "id": "map", "kind": "detail", "label": "Mapa", "x": 640, "y": 630, "text": "Todos os lugares visitados formam um desenho visto do alto: a estrutura de um troll. No centro, a casa de Theo.", "icon": "/images/clues/map_troll_shape.png" },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 640, "y": 500 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 120, "y": 560 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1150, "y": 560 }
+      ] },
+    { "phase": 15, "weather": "fog", "light": "moon", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "objects": [
+        { "id": "lights", "kind": "detail", "label": "Entradas iluminadas", "x": 500, "y": 560, "text": "Iluminadas demais para uma caverna abandonada. A luz é artificial." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 300, "y": 560 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 700, "y": 630 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1100, "y": 560, "icon": "/images/clues/dark_well_entrance.png" }
+      ] },
+    { "phase": 16, "weather": "dust", "light": "illusion", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "clara", "x": 700, "y": 610, "facing": -1, "ghost": true, "name": "clara", "talk": true },
+      "objects": [
+        { "id": "mirror", "kind": "detail", "label": "Espelho", "x": 1020, "y": 300, "text": "No reflexo, atrás dos pais, os olhos de Silas. Olhos de troll." }
+      ] },
+    { "phase": 17, "weather": "fog", "light": "moon", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "objects": [
+        { "id": "breath", "kind": "detail", "label": "Respiração", "x": 640, "y": 640, "text": "A respiração de Theo soa diferente. Mais funda." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 300, "y": 420, "icon": "/images/clues/clara_instructions.png" },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 900, "y": 420 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1200, "y": 520 }
+      ] },
+    { "phase": 18, "weather": "dust", "light": "moon", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "elias", "x": 1000, "y": 610, "facing": -1, "silhouette": true, "name": "elias" },
+      "objects": [
+        { "id": "drawing", "kind": "detail", "label": "Desenho do cubo", "x": 640, "y": 620, "text": "Um cubo com seis símbolos. O sexto está borrado, como se alguém tivesse hesitado." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 400, "y": 600 },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 1150, "y": 480, "icon": "/images/clues/doorless_entrance.png" },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 100, "y": 600 }
+      ] },
+    { "phase": 19, "weather": "embers", "light": "fire", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "npc": { "id": "silas", "x": 1000, "y": 620, "facing": -1, "name": "silas", "talk": true },
+      "objects": [
+        { "id": "cave", "kind": "choice", "choice": "c", "x": 640, "y": 500, "icon": "/images/clues/photo_is_distraction.png" }
+      ] },
+    { "phase": 20, "weather": "fog", "light": "cube", "walk": { "minX": 80, "maxX": 1200, "minY": 600, "maxY": 690 }, "spawn": [200, 670],
+      "objects": [
+        { "id": "pedestal", "kind": "detail", "label": "Pedestal", "x": 900, "y": 560, "text": "Uma pedra circular e um pedestal. Sobre ele, o Cubo de Orun." },
+        { "id": "a", "kind": "choice", "choice": "a", "x": 300, "y": 430, "icon": "/images/clues/cube_inscription.png" },
+        { "id": "b", "kind": "choice", "choice": "b", "x": 960, "y": 520 },
+        { "id": "c", "kind": "choice", "choice": "c", "x": 1120, "y": 470 }
+      ] }
+  ]
+}

@@ -15,6 +15,8 @@ import { Phase } from '@/types/Phase';
 
 interface ChoiceSceneData {
   phaseId: number;
+  /** escolha já feita na exploração 2D: pula a lista e vai direto à consequência */
+  choiceId?: string;
 }
 
 export class ChoiceScene extends Phaser.Scene {
@@ -39,6 +41,11 @@ export class ChoiceScene extends Phaser.Scene {
     for (const c of this.phase.choices) void ensureVoiceLine(this, choiceLineId(this.phase.id, c.id));
     void ensureVoiceLine(this, phaseLineId(this.phase.id, 'revelation'));
     void ensureVoiceLine(this, phaseLineId(this.phase.id, 'cliffhanger'));
+    this.cameras.main.fadeIn(300, 0, 0, 0);
+    if (data?.choiceId && this.phase.choices.some((c) => c.id === data.choiceId)) {
+      void this.handleChoice(data.choiceId);
+      return;
+    }
 
     const { width } = this.cameras.main;
     this.cameras.main.setBackgroundColor('#0B0B10');

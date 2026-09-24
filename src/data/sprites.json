@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "basePath": "/assets/sprites",
+  "sprites": {
+    "theo": {
+      "file": "theo.png",
+      "width": 150,
+      "height": 580,
+      "desc": "Theo, pose frontal",
+      "source": "/assets/characters/char_theo.webp",
+      "generator": "rembg-u2net + PIL"
+    },
+    "theo_t2": {
+      "file": "theo_t2.png",
+      "width": 203,
+      "height": 580,
+      "desc": "Theo, transformação nível 2",
+      "source": "/assets/characters/char_theo_t2.webp",
+      "generator": "rembg-u2net + PIL"
+    },
+    "theo_t4": {
+      "file": "theo_t4.png",
+      "width": 255,
+      "height": 580,
+      "desc": "Theo, transformação nível 4",
+      "source": "/assets/characters/char_theo_t4.webp",
+      "generator": "rembg-u2net + PIL"
+    },
+    "clara": {
+      "file": "clara.png",
+      "width": 155,
+      "height": 580,
+      "desc": "Clara, pose em pé (figura esquerda)",
+      "source": "/assets/characters/char_clara.webp",
+      "generator": "rembg-u2net + PIL"
+    },
+    "elias": {
+      "file": "elias.png",
+      "width": 201,
+      "height": 580,
+      "desc": "Elias, silhueta (a folha original não tem rosto; usado como vulto)",
+      "source": "/assets/characters/char_elias.webp",
+      "generator": "rembg-u2net + PIL"
+    },
+    "silas": {
+      "file": "silas.png",
+      "width": 202,
+      "height": 580,
+      "desc": "Silas, pose em pé (figura central superior)",
+      "source": "/assets/characters/char_silas.webp",
+      "generator": "rembg-u2net + PIL"
+    },
+    "troll": {
+      "file": "troll.png",
+      "width": 107,
+      "height": 580,
+      "desc": "Troll, figura central",
+      "source": "/assets/characters/char_troll.webp",
+      "generator": "rembg-u2net + PIL"
+    }
+  }
+}

@@ -95,5 +95,13 @@
   "menu.desc.options": "Language, audio, subtitles and accessibility.",
   "menu.desc.deleteSave": "Deletes saved progress.",
   "menu.version": "v0.4 · in development",
-  "title.audioHint": "Sound is enabled on the first click"
+  "title.audioHint": "Sound is enabled on the first click",
+  "explore.hint": "Arrows/WASD: walk · Click: go to · E/Enter: interact · 1-3: investigate directly",
+  "explore.investigate": "INVESTIGATE HERE",
+  "explore.close": "CLOSE",
+  "explore.talk": "TALK",
+  "explore.back": "BACK",
+  "explore.near": "Press E",
+  "explore.clues": "clues",
+  "explore.menu": "MENU"
 }
