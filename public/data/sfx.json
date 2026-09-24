@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "basePath": "/assets/audio/sfx",
+  "sfx": {
+    "sfx_step_wood": {
+      "file": "sfx_step_wood",
+      "desc": "passos (madeira)",
+      "durationMs": 2500,
+      "generator": "procedural-synth"
+    },
+    "sfx_step_stone": {
+      "file": "sfx_step_stone",
+      "desc": "passos (pedra)",
+      "durationMs": 2500,
+      "generator": "procedural-synth"
+    },
+    "sfx_step_gravel": {
+      "file": "sfx_step_gravel",
+      "desc": "passos (cascalho)",
+      "durationMs": 2500,
+      "generator": "procedural-synth"
+    },
+    "sfx_door_open": {
+      "file": "sfx_door_open",
+      "desc": "porta abrindo (rangido)",
+      "durationMs": 1600,
+      "generator": "procedural-synth"
+    },
+    "sfx_door_close": {
+      "file": "sfx_door_close",
+      "desc": "porta fechando",
+      "durationMs": 900,
+      "generator": "procedural-synth"
+    },
+    "sfx_metal_gate": {
+      "file": "sfx_metal_gate",
+      "desc": "grade de metal fechando",
+      "durationMs": 2200,
+      "generator": "procedural-synth"
+    },
+    "sfx_metal_clank": {
+      "file": "sfx_metal_clank",
+      "desc": "metal (ferramenta/chave)",
+      "durationMs": 1200,
+      "generator": "procedural-synth"
+    },
+    "sfx_wood_creak": {
+      "file": "sfx_wood_creak",
+      "desc": "madeira rangendo",
+      "durationMs": 1300,
+      "generator": "procedural-synth"
+    },
+    "sfx_impact_low": {
+      "file": "sfx_impact_low",
+      "desc": "impacto grave",
+      "durationMs": 1500,
+      "generator": "procedural-synth"
+    },
+    "sfx_paper_rustle": {
+      "file": "sfx_paper_rustle",
+      "desc": "papel (folhear)",
+      "durationMs": 900,
+      "generator": "procedural-synth"
+    },
+    "sfx_paper_turn": {
+      "file": "sfx_paper_turn",
+      "desc": "papel (virar página)",
+      "durationMs": 900,
+      "generator": "procedural-synth"
+    },
+    "sfx_wind_gust": {
+      "file": "sfx_wind_gust",
+      "desc": "rajada de vento",
+      "durationMs": 3500,
+      "generator": "procedural-synth"
+    },
+    "sfx_rain_burst": {
+      "file": "sfx_rain_burst",
+      "desc": "chuva (rajada curta)",
+      "durationMs": 4000,
+      "generator": "procedural-synth"
+    },
+    "sfx_object_pickup": {
+      "file": "sfx_object_pickup",
+      "desc": "pegar objeto",
+      "durationMs": 500,
+      "generator": "procedural-synth"
+    },
+    "sfx_suspense_sting": {
+      "file": "sfx_suspense_sting",
+      "desc": "sting de suspense",
+      "durationMs": 3000,
+      "generator": "procedural-synth"
+    },
+    "sfx_creature_breath": {
+      "file": "sfx_creature_breath",
+      "desc": "respiração de criatura",
+      "durationMs": 3500,
+      "generator": "procedural-synth"
+    },
+    "sfx_troll_growl": {
+      "file": "sfx_troll_growl",
+      "desc": "rosnado de troll",
+      "durationMs": 1800,
+      "generator": "procedural-synth"
+    },
+    "sfx_troll_step": {
+      "file": "sfx_troll_step",
+      "desc": "passo pesado de troll",
+      "durationMs": 1200,
+      "generator": "procedural-synth"
+    },
+    "sfx_transformation_pulse": {
+      "file": "sfx_transformation_pulse",
+      "desc": "pulso de transformação",
+      "durationMs": 4000,
+      "generator": "procedural-synth"
+    },
+    "sfx_cube_rotate": {
+      "file": "sfx_cube_rotate",
+      "desc": "girar face do cubo",
+      "durationMs": 800,
+      "generator": "procedural-synth"
+    },
+    "sfx_cube_solve": {
+      "file": "sfx_cube_solve",
+      "desc": "cubo resolvido",
+      "durationMs": 4500,
+      "generator": "procedural-synth"
+    },
+    "sfx_cube_fail": {
+      "file": "sfx_cube_fail",
+      "desc": "cubo: sequência errada",
+      "durationMs": 1500,
+      "generator": "procedural-synth"
+    },
+    "ui_click": {
+      "file": "ui_click",
+      "desc": "UI clique",
+      "durationMs": 120,
+      "generator": "procedural-synth"
+    },
+    "ui_hover": {
+      "file": "ui_hover",
+      "desc": "UI hover",
+      "durationMs": 80,
+      "generator": "procedural-synth"
+    },
+    "ui_confirm": {
+      "file": "ui_confirm",
+      "desc": "UI confirmar",
+      "durationMs": 500,
+      "generator": "procedural-synth"
+    },
+    "sfx_investigate": {
+      "file": "sfx_investigate",
+      "desc": "investigar (motivo curto)",
+      "durationMs": 1800,
+      "generator": "procedural-synth"
+    },
+    "sfx_clue_found": {
+      "file": "sfx_clue_found",
+      "desc": "pista encontrada",
+      "durationMs": 2200,
+      "generator": "procedural-synth"
+    },
+    "sfx_symbol_found": {
+      "file": "sfx_symbol_found",
+      "desc": "símbolo encontrado",
+      "durationMs": 3000,
+      "generator": "procedural-synth"
+    },
+    "sfx_choice_wrong": {
+      "file": "sfx_choice_wrong",
+      "desc": "escolha errada",
+      "durationMs": 1399,
+      "generator": "procedural-synth"
+    },
+    "sfx_bell_toll": {
+      "file": "sfx_bell_toll",
+      "desc": "sino da igreja",
+      "durationMs": 5000,
+      "generator": "procedural-synth"
+    },
+    "sfx_clock_tick": {
+      "file": "sfx_clock_tick",
+      "desc": "relógio (tique)",
+      "durationMs": 2000,
+      "generator": "procedural-synth"
+    },
+    "sfx_whisper": {
+      "file": "sfx_whisper",
+      "desc": "sussurro sob o chão",
+      "durationMs": 2200,
+      "generator": "procedural-synth"
+    },
+    "sfx_camera_static": {
+      "file": "sfx_camera_static",
+      "desc": "estática de câmera",
+      "durationMs": 1500,
+      "generator": "procedural-synth"
+    },
+    "sfx_stone_grind": {
+      "file": "sfx_stone_grind",
+      "desc": "pedra circular deslizando",
+      "durationMs": 3000,
+      "generator": "procedural-synth"
+    },
+    "sfx_heartbeat": {
+      "file": "sfx_heartbeat",
+      "desc": "batimento cardíaco",
+      "durationMs": 4000,
+      "generator": "procedural-synth"
+    }
+  }
+}
