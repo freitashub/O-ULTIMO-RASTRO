@@ -3,6 +3,7 @@ import { getPhase } from '@/systems/PhaseLoader';
 import { setCurrentPhase, getState } from '@/game/GameState';
 import { saveGame } from '@/game/SaveManager';
 import { getTransformationHint, getTransformationLevel } from '@/game/TransformationSystem';
+import { getTransformationImagePath } from '@/game/CharacterMap';
 import { ensureImage } from '@/game/OptionalAssets';
 import { CutscenePlayer, CutsceneStep, createCutscenePlayer } from '@/systems/CutscenePlayer';
 import { ensureVoiceLine, playPhaseAudio, playSfxById, preloadSfx, voiceKey } from '@/game/SceneAudio';
@@ -219,6 +220,14 @@ export class StoryScene extends Phaser.Scene {
       .text(width - 70, 22, `${clues} ${t('explore.clues')}`, { fontFamily: FONT_BODY, fontSize: '13px', color: '#9c978c' })
       .setOrigin(1, 0.5)
       .setDepth(201);
+    // marca da transformação (nível atual) ao lado do contador
+    const level = getTransformationLevel();
+    const markPath = level > 0 ? getTransformationImagePath(level) : '/images/transformation/theo_t0.png';
+    if (markPath) {
+      void ensureImage(this, markPath, markPath).then((ok) => {
+        if (ok && this.scene.isActive()) this.add.image(width - 200, 32, markPath).setDisplaySize(36, 36).setDepth(201).setAlpha(level > 0 ? 0.95 : 0.45);
+      });
+    }
     const menuBtn = this.add
       .text(width - 70, 44, t('explore.menu'), { fontFamily: FONT_BODY, fontSize: '12px', color: '#7d7970' })
       .setOrigin(1, 0.5)
@@ -260,9 +269,11 @@ export class StoryScene extends Phaser.Scene {
     kb.on('keydown-ESC', () => (this.panel ? this.closePanel() : this.leaveToMenu()));
     ['ONE', 'TWO', 'THREE'].forEach((key, i) => {
       kb.on(`keydown-${key}`, () => {
-        if (this.panel || this.busy || !this.phase) return;
+        if (this.busy || !this.phase) return;
         const choice = this.phase.choices[i];
-        if (choice) this.chooseDirectly(choice.id);
+        if (!choice) return;
+        this.closePanel();
+        this.chooseDirectly(choice.id);
       });
     });
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer, over: Phaser.GameObjects.GameObject[]) => {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T18:26:22.407Z",
+  "generatedAt": "2026-09-24T20:14:43.759Z",
   "pass": 23,
   "fail": 0,
   "notes": 1,
@@ -38,17 +38,17 @@
     {
       "name": "10. final secret render + arte",
       "ok": true,
-      "detail": "size=39483 artNetwork=true"
+      "detail": "size=53708 artNetwork=true"
     },
     {
       "name": "10. final good render + arte",
       "ok": true,
-      "detail": "size=37140 artNetwork=true"
+      "detail": "size=52559 artNetwork=true"
     },
     {
       "name": "10. final bad render + arte",
       "ok": true,
-      "detail": "size=16445 artNetwork=true"
+      "detail": "size=25184 artNetwork=true"
     },
     {
       "name": "6. pistas descobertas carregam ícones (CluesScene)",
@@ -91,10 +91,10 @@
       "detail": "no requests to 8188"
     },
     {
-      "name": "4-5. personagens char_*.webp solicitados no browser",
+      "name": "4-5. sprites de personagens (/assets/sprites) solicitados no browser",
       "ok": true,
       "status": "pass",
-      "detail": "count=9 (arquivos existem=7)"
+      "detail": "count=10 (arquivos existem=7)"
     },
     {
       "name": "5. retratos /images/portraits solicitados",
@@ -106,7 +106,7 @@
       "name": "9. transformação /images/transformation solicitados",
       "ok": true,
       "status": "pass",
-      "detail": "count=1"
+      "detail": "count=7"
     },
     {
       "name": "17-18. screenshots de fases geradas (inspeção visual manual)",
@@ -122,34 +122,13 @@
       "name": "console.warn count",
       "ok": true,
       "status": "note",
-      "detail": "4"
+      "detail": "0"
     }
   ],
   "consoleErrors": [],
-  "consoleWarns": [
-    "console.warn: [.WebGL-0x279400152e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "console.warn: [.WebGL-0x279400152e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "console.warn: [.WebGL-0x279400152e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "console.warn: [.WebGL-0x279400152e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
-  ],
-  "networkFail": [
-    {
-      "url": "http://localhost:5173/src/data/cutscenes.json?import",
-      "status": 0,
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "url": "http://localhost:5173/node_modules/.vite/deps/phaser.js?v=4a5aeca1",
-      "status": 0,
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "url": "http://localhost:5173/src/data/voiceLines.json?import",
-      "status": 0,
-      "failure": "net::ERR_ABORTED"
-    }
-  ],
-  "networkOkCount": 511,
+  "consoleWarns": [],
+  "networkFail": [],
+  "networkOkCount": 526,
   "phaseBgRequests": {
     "1": 200,
     "2": 200,
@@ -175,21 +154,26 @@
   "comfyCalls": [],
   "textureLoads": [
     "http://localhost:5173/assets/backgrounds/phase-01-casa.webp",
-    "http://localhost:5173/assets/characters/char_theo.webp",
+    "http://localhost:5173/assets/sprites/theo.png",
+    "http://localhost:5173/images/transformation/theo_t0.png",
     "http://localhost:5173/images/portraits/theo.png",
     "http://localhost:5173/assets/backgrounds/phase-02-igreja.webp",
+    "http://localhost:5173/images/transformation/theo_t1.png",
     "http://localhost:5173/assets/backgrounds/phase-03-tunel.webp",
-    "http://localhost:5173/assets/characters/char_troll.webp",
+    "http://localhost:5173/assets/sprites/theo_t2.png",
+    "http://localhost:5173/assets/sprites/troll.png",
+    "http://localhost:5173/images/transformation/theo_t2.png",
     "http://localhost:5173/images/portraits/troll.png",
     "http://localhost:5173/assets/backgrounds/phase-04-delegacia.webp",
-    "http://localhost:5173/assets/characters/char_silas.webp",
+    "http://localhost:5173/assets/sprites/silas.png",
+    "http://localhost:5173/images/transformation/theo_t3.png",
     "http://localhost:5173/images/portraits/silas.png",
     "http://localhost:5173/assets/backgrounds/phase-05-arquivo.webp",
-    "http://localhost:5173/assets/characters/char_theo_t4.webp",
+    "http://localhost:5173/assets/sprites/theo_t4.png",
+    "http://localhost:5173/images/transformation/theo_t4.png",
     "http://localhost:5173/assets/backgrounds/phase-06-estacao.webp",
     "http://localhost:5173/assets/backgrounds/phase-07-biblioteca.webp",
-    "http://localhost:5173/assets/characters/char_clara.webp",
-    "http://localhost:5173/images/transformation/theo_t4.png",
+    "http://localhost:5173/assets/sprites/clara.png",
     "http://localhost:5173/images/portraits/clara.png",
     "http://localhost:5173/assets/backgrounds/phase-08-porto.webp",
     "http://localhost:5173/assets/backgrounds/phase-09-registros.webp",
@@ -202,7 +186,7 @@
     "http://localhost:5173/assets/backgrounds/phase-16-sala.webp",
     "http://localhost:5173/assets/backgrounds/phase-17-ultima-cidade.webp",
     "http://localhost:5173/assets/backgrounds/phase-18-registros.webp",
-    "http://localhost:5173/assets/characters/char_elias.webp",
+    "http://localhost:5173/assets/sprites/elias.png",
     "http://localhost:5173/images/portraits/elias.png",
     "http://localhost:5173/assets/backgrounds/phase-19-aviso.webp",
     "http://localhost:5173/assets/backgrounds/phase-20-caverna.webp",

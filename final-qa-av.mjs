@@ -1,13 +1,15 @@
 /**
- * QA audiovisual em navegador (Playwright/Chromium): cutscenes (vídeo + legendas + skip/pausa/replay),
- * música/ambiência/voz por fase, SFX de UI, idioma (vídeo localizado), mute/volume e save/reload.
+ * QA audiovisual + jogabilidade 2D em navegador (Playwright/Chromium, sem flag de autoplay):
+ * título/menu, desbloqueio de áudio, cutscenes em engine (StageDirector: atores, legendas, pausa, replay, skip),
+ * exploração (andar, hotspots, escolha), música/ambiência/voz por fase, save/reload, idioma, mute.
  * Requer `npm run dev` em :5173. Saída: final-qa-av-results.json + final-qa-av-shots/.
  */
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const BASE = 'http://localhost:5173/';
+// renderer=canvas: Canvas2D é ~2x mais rápido que WebGL por software em Chromium headless.
+const BASE = 'http://localhost:5173/?renderer=canvas';
 const OUT = path.join(process.cwd(), 'final-qa-av-shots');
 const REPORT = path.join(process.cwd(), 'final-qa-av-results.json');
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -20,19 +22,17 @@ const check = (name, ok, detail = '') => {
   checks.push({ name, ok: !!ok, detail: String(detail) });
   console.log(`${ok ? 'PASS' : 'FAIL'} - ${name}${detail ? ' :: ' + detail : ''}`);
 };
-const hit = (re) => requests.filter((r) => re.test(r.url) && r.status === 200 || (re.test(r.url) && r.status === 206));
-const anyHit = (re) => hit(re).length > 0;
+const anyHit = (re) => requests.some((r) => re.test(r.url) && (r.status === 200 || r.status === 206));
 
-// Chromium: usa PW_EXECUTABLE_PATH ou o binário pré-instalado do ambiente, se existir; senão o padrão do Playwright.
 const exe = process.env.PW_EXECUTABLE_PATH || (fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
-const browser = await chromium.launch({ headless: true, executablePath: exe, args: ['--autoplay-policy=no-user-gesture-required'] });
+const browser = await chromium.launch({ headless: true, executablePath: exe });
 const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
 const page = await context.newPage();
 page.on('pageerror', (e) => consoleErrors.push(`pageerror: ${e.message}`));
 page.on('console', (m) => {
   if (m.type() !== 'error') return;
   const url = m.location()?.url ?? '';
-  if (/favicon/.test(url)) return; // favicon ausente não é erro do jogo
+  if (/favicon/.test(url)) return;
   consoleErrors.push(`console.error: ${m.text()} [${url}]`);
 });
 page.on('response', (res) => requests.push({ url: res.url(), status: res.status() }));
@@ -40,185 +40,219 @@ page.on('requestfailed', (req) => requests.push({ url: req.url(), status: 0 }));
 
 const shot = (n) => page.screenshot({ path: path.join(OUT, `${n}.png`) });
 const wait = (ms) => page.waitForTimeout(ms);
-const gameState = () => page.evaluate(() => {
-  const game = window.__UR_GAME__;
-  if (!game) return null;
-  const active = game.scene.getScenes(true).map((s) => s.scene.key);
-  const sounds = game.sound.sounds.map((s) => ({ key: s.key, playing: s.isPlaying, paused: s.isPaused, loop: s.loop, volume: s.volume }));
-  const videos = game.scene.getScenes(true).flatMap((s) => s.children.list.filter((c) => c.type === 'Video').map((v) => ({ key: v.cacheKey ?? v._cacheKey, playing: v.isPlaying(), t: v.getCurrentTime(), paused: v.isPaused?.() })));
-  const subtitles = game.scene.getScenes(true).flatMap((s) => s.children.list.filter((c) => c.type === 'Text' && c.depth === 1001).map((t) => t.text));
-  return { active, sounds, videos, subtitles };
-});
+const state = () =>
+  page.evaluate(() => {
+    const g = window.__UR_GAME__;
+    if (!g) return null;
+    const active = g.scene.getScenes(true).map((s) => s.scene.key);
+    const sounds = [];
+    for (const s of g.sound.sounds) {
+      try { sounds.push({ key: s.key.split('/').pop(), playing: s.isPlaying, volume: +s.volume.toFixed(3) }); } catch { /* som em destruição */ }
+    }
+    const scene = g.scene.getScenes(true)[0];
+    const actors = scene ? scene.children.list.filter((c) => c.type === 'Container' && c.id).map((c) => ({ id: c.id, x: Math.round(c.x), y: Math.round(c.y), alpha: +c.alpha.toFixed(2) })) : [];
+    const subtitles = g.scene.getScenes(true).flatMap((s) => s.children.list.filter((c) => c.type === 'Text' && c.depth === 1001).map((t) => t.text));
+    const cut = g.scene.getScene('CutsceneScene');
+    const stage = active.includes('CutsceneScene') && cut?.getDirectorState ? cut.getDirectorState() : 'none';
+    const menuItems = active.includes('MenuScene') ? scene.children.list.filter((c) => c.type === 'Text' && c.input).length : 0;
+    const panel = active.includes('StoryScene') ? scene.children.list.filter((c) => c.type === 'Container' && c.depth === 900).flatMap((c) => c.list.filter((o) => o.type === 'Text').map((o) => o.text)) : [];
+    return { locked: g.sound.locked, active, sounds, actors, subtitles, stage, panel, menuItems };
+  });
+async function waitFor(pred, timeout = 12000, label = '') {
+  const t0 = Date.now();
+  let last = null;
+  while (Date.now() - t0 < timeout) {
+    last = await state();
+    if (last && pred(last)) return last;
+    await wait(150);
+  }
+  console.log(`  (timeout esperando ${label}; estado: ${JSON.stringify(last?.active)})`);
+  return last;
+}
+const inScene = (key) => (s) => s.active.includes(key);
+const playing = (s, re) => s.sounds.some((x) => re.test(x.key) && x.playing);
+
+
+/** Seleciona um item do menu pelo rótulo (independe de índice/presença de save). */
+async function menuSelect(re) {
+  await waitFor((x) => inScene('MenuScene')(x) && x.menuItems > 0, 8000, 'menu pronto');
+  await wait(150);
+  const pos = await page.evaluate((src) => {
+    const m = window.__UR_GAME__.scene.getScene('MenuScene');
+    const it = m.children.list.find((c) => c.type === 'Text' && c.input && new RegExp(src).test(c.text));
+    return it ? { x: it.x + 10, y: it.y } : null;
+  }, re.source);
+  if (!pos) return false;
+  await page.mouse.click(pos.x, pos.y);
+  await wait(400);
+  return true;
+}
+
+async function freshStart(query = '') {
+  await page.goto(BASE + query, { waitUntil: 'networkidle' });
+  await wait(800);
+  await page.evaluate(() => indexedDB.deleteDatabase('ultimo_rastro'));
+  await page.goto(BASE + query, { waitUntil: 'networkidle' });
+  await waitFor(inScene('TitleScene'), 8000, 'TitleScene');
+  await wait(600);
+}
+async function titleToMenu() {
+  await page.mouse.click(640, 360);
+  const s = await waitFor((x) => inScene('MenuScene')(x) && x.menuItems > 0 && playing(x, /bgm_menu_tema/), 8000, 'MenuScene pronto + música');
+  await wait(300);
+  return s;
+}
+async function newGameToIntro() {
+  await page.keyboard.press('Enter');
+  await waitFor(inScene('IntroScene'), 6000, 'IntroScene');
+  await wait(300);
+}
 
 try {
-  await page.goto(BASE, { waitUntil: 'networkidle' });
-  await wait(2200);
-  await page.evaluate(() => indexedDB.deleteDatabase('ultimo_rastro'));
-  await page.mouse.click(640, 360); // title -> menu (gesto de usuário desbloqueia áudio)
-  await wait(1500);
-  let st = await gameState();
-  check('1. menu: música do menu tocando', st?.sounds.some((s) => /bgm_menu_tema/.test(s.key) && s.playing), JSON.stringify(st?.sounds.map((s) => s.key)));
-  check('1b. menu: música requisitada (HTTP 200/206)', anyHit(/bgm_menu_tema\.(ogg|mp3)/));
-
-  // NOVO JOGO -> Intro -> cutscene 'opening' (vídeo)
+  // ---------------------------------------------------------------- título, menu, áudio
+  await freshStart();
+  await shot('00-title');
+  let st = await titleToMenu();
+  check('1. título → menu: áudio desbloqueado no 1º clique e música do menu tocando (sem flag de autoplay)', st && !st.locked && playing(st, /bgm_menu_tema/), JSON.stringify(st?.sounds));
+  await shot('01-menu');
+  await page.keyboard.press('ArrowDown');
   await page.keyboard.press('Enter');
-  await wait(800);
-  check('2. sfx ui_click requisitado', anyHit(/ui_click\.(ogg|mp3)/));
-  await page.keyboard.press('Space'); // intro -> cutscene
-  await wait(4000);
-  st = await gameState();
-  check('3. cutscene opening: CutsceneScene ativa', st?.active.includes('CutsceneScene'), st?.active.join(','));
-  check('3b. cutscene opening: vídeo webm requisitado', anyHit(/cutscenes\/opening\.webm/));
-  check('3c. cutscene opening: objeto Video tocando', st?.videos.some((v) => v.playing), JSON.stringify(st?.videos));
-  await wait(3000);
-  st = await gameState();
-  check('4. legenda sincronizada visível durante o vídeo', (st?.subtitles ?? []).length > 0, (st?.subtitles ?? []).join(' | '));
-  await shot('01-cutscene-opening');
-  // pausa / retomada
-  await page.keyboard.press('P');
-  await wait(800);
-  const paused = await gameState();
-  await page.keyboard.press('P');
-  await wait(1200);
-  const resumed = await gameState();
-  check('5. pausa (P) pausa o vídeo e retoma', paused?.videos.some((v) => !v.playing || v.paused) && resumed?.videos.some((v) => v.playing), `paused=${JSON.stringify(paused?.videos)} resumed=${JSON.stringify(resumed?.videos)}`);
-  // replay
-  await page.keyboard.press('R');
-  await wait(2500);
-  st = await gameState();
-  check('6. replay (R) reinicia a cutscene', st?.active.includes('CutsceneScene') && st?.videos.some((v) => v.t < 6), JSON.stringify(st?.videos));
-  // skip
+  st = await waitFor((x) => inScene('MenuScene')(x), 4000, 'submenu');
+  await wait(600);
+  check('1b. menu: SFX de navegação requisitado', anyHit(/ui_(hover|click)\.(ogg|mp3)/));
+  await shot('01b-menu-extras');
   await page.keyboard.press('Escape');
-  await wait(1500);
-  st = await gameState();
-  check('7. skip (Esc) leva à StoryScene fase 1', st?.active.includes('StoryScene'), st?.active.join(','));
-  check('7b. vídeo destruído após skip', (st?.videos ?? []).length === 0);
-  await wait(2500);
-  st = await gameState();
-  check('8. fase 1: música da fase tocando', st?.sounds.some((s) => /phase01_casa_medo/.test(s.key) && s.playing), st?.sounds.map((s) => s.key).join(','));
-  check('8b. fase 1: ambiência tocando', st?.sounds.some((s) => /amb_house/.test(s.key) && s.playing));
-  check('8c. fase 1: narração (voz) requisitada', anyHit(/voice\/pt-BR\/phase01_intro\.(ogg|mp3)/));
-  check('8d. fase 1: legenda da narração visível', (st?.subtitles ?? []).some((t) => /Theo chega em casa/.test(t)), (st?.subtitles ?? []).join('|'));
-  await shot('02-story-phase1-audio');
+  await wait(700);
 
-  // escolha -> consequência (voz) -> cliffhanger -> cutscene parents_gone
-  await page.keyboard.press('Enter'); // story -> choice
-  await wait(1200);
-  await page.keyboard.press('2'); // garagem (correta)
-  await wait(1500);
-  check('9. escolha: sfx de confirmação + pista', anyHit(/ui_confirm\.(ogg|mp3)/) && anyHit(/sfx_clue_found\.(ogg|mp3)/));
-  check('9b. consequência narrada (voz choice_b)', anyHit(/phase01_choice_b\.(ogg|mp3)/));
-  await page.keyboard.press('Enter'); // pula revelação
-  await wait(2600);
-  check('9c. cliffhanger: sting + voz', anyHit(/sfx_suspense_sting\.(ogg|mp3)/) && anyHit(/phase01_cliffhanger\.(ogg|mp3)/));
-  await page.keyboard.press('Enter'); // -> cutscene parents_gone
-  await wait(3500);
-  st = await gameState();
-  check('10. cutscene parents_gone dispara antes da fase 2', st?.active.includes('CutsceneScene') && anyHit(/cutscenes\/parents_gone\.webm/), st?.active.join(','));
-  await shot('03-cutscene-parents-gone');
-  await page.keyboard.press('Escape');
-  await wait(2500);
-  st = await gameState();
-  check('10b. fase 2 com música/ambiência próprias', st?.sounds.some((s) => /phase02_igreja/.test(s.key) && s.playing) && st?.sounds.some((s) => /amb_church/.test(s.key)), st?.sounds.map((s) => s.key).join(','));
-
-  // save/reload: continuar mantém fase 2 e não repete cutscene já vista
-  await page.goto(BASE, { waitUntil: 'networkidle' });
-  await wait(2200);
-  await page.mouse.click(640, 360);
-  await wait(1200);
-  await page.keyboard.press('ArrowDown'); // CONTINUAR
-  await page.keyboard.press('Enter');
-  await wait(3000);
-  st = await gameState();
-  check('11. save/reload: CONTINUAR volta à StoryScene com áudio', st?.active.includes('StoryScene') && st?.sounds.some((s) => s.playing), st?.active.join(','));
-
-  // idioma en-US: cutscene de final localizada + voz en-US
-  await page.goto(BASE, { waitUntil: 'networkidle' });
-  await wait(2200);
-  await page.mouse.click(640, 360);
-  await wait(1000);
-  const menuButtons = await page.evaluate(() => {
-    const game = window.__UR_GAME__;
-    const menu = game.scene.getScene('MenuScene');
-    return menu.children.list.filter((c) => c.type === 'Text' && c.input).map((t) => ({ text: t.text, x: t.x, y: t.y }));
-  });
-  const langBtn = menuButtons.find((b) => /IDIOMA|LANGUAGE|IDIOMA/.test(b.text));
-  if (langBtn) { await page.mouse.click(langBtn.x, langBtn.y); await wait(900); }
-  const testBtn = (await page.evaluate(() => {
-    const game = window.__UR_GAME__;
-    const menu = game.scene.getScene('MenuScene');
-    return menu.children.list.filter((c) => c.type === 'Text' && c.input).map((t) => ({ text: t.text, x: t.x, y: t.y }));
-  })).find((b) => /TEST|TESTAR|PROBAR/.test(b.text));
-  if (testBtn) { await page.mouse.click(testBtn.x, testBtn.y); await wait(1200); }
-  const fireBtn = (await page.evaluate(() => {
-    const game = window.__UR_GAME__;
-    const s = game.scene.getScene('EndingTestScene');
-    return s.children.list.filter((c) => c.type === 'Text' && c.input).map((t) => ({ text: t.text, x: t.x, y: t.y }));
-  })).find((b) => /GOOD|BOM|BUENO/i.test(b.text));
-  if (fireBtn) { await page.mouse.click(fireBtn.x, fireBtn.y); await wait(3500); }
-  st = await gameState();
-  check('12. idioma en-US: cutscene de final localizada (ending_good.en-US.webm)', anyHit(/ending_good\.en-US\.webm/), st?.active.join(','));
-  check('12b. legenda do final em inglês', (st?.subtitles ?? []).some((t) => /You did not only find/.test(t)), (st?.subtitles ?? []).join('|'));
-  await shot('04-ending-good-en');
-  await page.keyboard.press('Escape');
-  await wait(2500);
-  st = await gameState();
-  check('13. EndingScene após cutscene: música + voz do final', st?.active.includes('EndingScene') && st?.sounds.some((s) => /bgm_final_bom/.test(s.key)) && anyHit(/voice\/en-US\/ending_good\.(ogg|mp3)/), st?.sounds.map((s) => s.key).join(','));
-
-  // mute via settings
-  await page.goto(BASE, { waitUntil: 'networkidle' });
-  await wait(2200);
-  await page.mouse.click(640, 360);
-  await wait(1200);
-  const audioBtn = (await page.evaluate(() => {
-    const game = window.__UR_GAME__;
-    const menu = game.scene.getScene('MenuScene');
-    return menu.children.list.filter((c) => c.type === 'Text' && c.input).map((t) => ({ text: t.text, x: t.x, y: t.y }));
-  })).find((b) => /ÁUDIO|AUDIO/i.test(b.text));
-  if (audioBtn) { await page.mouse.click(audioBtn.x, audioBtn.y); await wait(900); }
-  const muteBtn = (await page.evaluate(() => {
-    const game = window.__UR_GAME__;
-    const s = game.scene.getScene('SettingsScene');
-    return s.children.list.filter((c) => c.type === 'Text' && c.input).map((t) => ({ text: t.text, x: t.x, y: t.y }));
-  })).find((b) => /Silenciado|Muted|Silenciado/i.test(b.text));
-  if (muteBtn) { await page.mouse.click(muteBtn.x + 40, muteBtn.y + 10); await wait(900); }
-  st = await gameState();
-  const music = st?.sounds.find((s) => /bgm_menu_tema/.test(s.key));
-  check('14. mute: volume da música vai a 0', music && music.volume === 0, JSON.stringify(music));
-  if (muteBtn) { await page.mouse.click(muteBtn.x + 40, muteBtn.y + 10); await wait(900); }
-  st = await gameState();
-  const music2 = st?.sounds.find((s) => /bgm_menu_tema/.test(s.key));
-  check('14b. unmute: volume restaurado', music2 && music2.volume > 0, JSON.stringify(music2));
-  await shot('05-settings-audio');
-
-  const errorsBeforeFallbackTest = consoleErrors.length;
-  // fallback sem vídeo: simulamos falha de rede bloqueando os arquivos de vídeo
-  await page.route(/cutscenes\/.*\.(webm|mp4)/, (route) => route.abort());
-  await page.goto(BASE, { waitUntil: 'networkidle' });
-  await wait(2200);
-  await page.evaluate(() => indexedDB.deleteDatabase('ultimo_rastro'));
-  await page.mouse.click(640, 360);
-  await wait(1200);
-  await page.keyboard.press('Enter');
-  await wait(800);
+  // ---------------------------------------------------------------- cutscene de abertura (em engine)
+  await newGameToIntro();
   await page.keyboard.press('Space');
-  await wait(5000);
-  st = await gameState();
-  check('15. fallback sem vídeo: cutscene em passos (voz + legenda + música)', st?.active.includes('CutsceneScene') && (st?.videos ?? []).length === 0 && st?.sounds.some((s) => /phase01_casa_medo/.test(s.key)) && (st?.subtitles ?? []).length > 0, `active=${st?.active.join(',')} subs=${(st?.subtitles ?? []).join('|')} sounds=${st?.sounds.map((s) => s.key).join(',')}`);
-  await shot('06-cutscene-fallback');
+  st = await waitFor((x) => inScene('CutsceneScene')(x) && x.stage === 'playing' && x.actors.some((a) => a.id === 'theo'), 12000, 'cutscene opening com Theo');
+  check('2. cutscene opening: StageDirector tocando com Theo em cena', st?.active.includes('CutsceneScene') && st?.stage === 'playing' && st?.actors.some((a) => a.id === 'theo'), `${st?.active} ${JSON.stringify(st?.actors)}`);
+  check('2b. cutscene: música e ambiência da cena', playing(st, /phase01_casa_medo/) && playing(st, /amb_house/), st?.sounds.filter((x) => x.playing).map((x) => x.key).join(','));
+  const theoA = st?.actors.find((a) => a.id === 'theo');
+  st = await waitFor((x) => x.subtitles.length > 0, 8000, 'legenda');
+  check('2c. legenda sincronizada com a voz', (st?.subtitles ?? []).length > 0 && anyHit(/voice\/pt-BR\/(intro_text|phase01_intro)\.(ogg|mp3)/), (st?.subtitles ?? []).join(' | '));
+  await wait(2500);
+  st = await state();
+  const theoB = st?.actors.find((a) => a.id === 'theo');
+  check('2d. Theo se move durante a cutscene (animação em engine)', theoA && theoB && theoA.x !== theoB.x, `${JSON.stringify(theoA)} -> ${JSON.stringify(theoB)}`);
+  await shot('02-cutscene-opening');
+  await page.keyboard.press('P');
+  await wait(500);
+  const paused = await state();
+  await page.keyboard.press('P');
+  await wait(500);
+  const resumed = await state();
+  check('3. pausa (P) e retomada', paused?.stage === 'paused' && resumed?.stage === 'playing', `${paused?.stage} -> ${resumed?.stage}`);
+  await page.keyboard.press('R');
+  st = await waitFor((x) => inScene('CutsceneScene')(x) && x.stage === 'playing' && x.actors.some((a) => a.id === 'theo' && a.x < 300), 12000, 'replay');
+  check('4. replay (R) reinicia a cutscene', st?.stage === 'playing' && st?.actors.some((a) => a.id === 'theo' && a.x < 300), JSON.stringify(st?.actors));
   await page.keyboard.press('Escape');
+  st = await waitFor((x) => inScene('StoryScene')(x) && x.actors.some((a) => a.id === 'theo'), 12000, 'StoryScene');
+  check('5. skip (Esc) leva à exploração da fase 1', st?.active.includes('StoryScene'), st?.active.join(','));
+
+  // ---------------------------------------------------------------- exploração 2D
+  st = await waitFor((x) => playing(x, /phase01_casa_medo/) && playing(x, /amb_house/), 8000, 'áudio fase 1');
+  check('6. fase 1: música + ambiência da fase tocando', playing(st, /phase01_casa_medo/) && playing(st, /amb_house/), st?.sounds.filter((x) => x.playing).map((x) => x.key).join(','));
+  st = await waitFor((x) => x.subtitles.length > 0, 8000, 'narração');
+  check('6b. fase 1: narração com legenda', (st?.subtitles ?? []).length > 0 && anyHit(/voice\/pt-BR\/phase01_intro\.(ogg|mp3)/), (st?.subtitles ?? []).join('|'));
+  const t0 = (await state())?.actors.find((a) => a.id === 'theo');
+  await page.keyboard.down('ArrowRight');
+  await wait(700);
+  await page.keyboard.up('ArrowRight');
+  await wait(150);
+  const t1 = (await state())?.actors.find((a) => a.id === 'theo');
+  check('7. Theo anda com as setas', t0 && t1 && t1.x > t0.x + 40, `${JSON.stringify(t0)} -> ${JSON.stringify(t1)}`);
+  check('7b. passos com SFX', anyHit(/sfx_step_wood\.(ogg|mp3)/));
+  await page.mouse.click(470, 600);
+  st = await waitFor((x) => x.panel.length > 0, 8000, 'painel do hotspot');
+  check('8. hotspot "Casaco da mãe": Theo vai até o objeto e abre o painel', (st?.panel ?? []).some((t) => /Casaco/.test(t)), (st?.panel ?? []).join(' | '));
+  await shot('03-explore-hotspot');
+  await page.keyboard.press('Escape');
+  await wait(300);
+  await page.mouse.click(1180, 440);
+  st = await waitFor((x) => x.panel.some((t) => /Garagem/.test(t)), 8000, 'painel Garagem');
+  check('8b. escolha "Garagem" como lugar na cena', (st?.panel ?? []).some((t) => /Garagem/.test(t)), (st?.panel ?? []).join(' | '));
+  await shot('04-explore-choice');
+  await page.keyboard.press('Escape');
+  await wait(200);
+  await page.keyboard.press('2');
+  st = await waitFor((x) => inScene('ChoiceScene')(x), 8000, 'ChoiceScene');
   await wait(1500);
-  st = await gameState();
-  check('15b. fallback: skip funciona', st?.active.includes('StoryScene'));
-  await page.unroute(/cutscenes\/.*\.(webm|mp4)/);
+  check('9. investigar (tecla 2): consequência narrada + SFX de pista', st?.active.includes('ChoiceScene') && anyHit(/phase01_choice_b\.(ogg|mp3)/) && anyHit(/sfx_clue_found\.(ogg|mp3)/), st?.active.join(','));
+  await page.keyboard.press('Enter');
+  await wait(2600);
+  check('9b. cliffhanger: sting + voz', anyHit(/sfx_suspense_sting\.(ogg|mp3)/) && anyHit(/phase01_cliffhanger\.(ogg|mp3)/));
+  await page.keyboard.press('Enter');
+  st = await waitFor((x) => inScene('CutsceneScene')(x) && x.actors.some((a) => a.id === 'clara'), 12000, 'parents_gone');
+  check('10. cutscene parents_gone antes da fase 2 (Clara em cena)', st?.active.includes('CutsceneScene') && st?.actors.some((a) => a.id === 'clara'), `${st?.active} ${JSON.stringify(st?.actors)}`);
+  await shot('05-cutscene-parents-gone');
+  await page.keyboard.press('Escape');
+  st = await waitFor((x) => inScene('StoryScene')(x) && playing(x, /phase02_igreja/) && playing(x, /amb_church/), 15000, 'fase 2');
+  check('10b. fase 2 com música/ambiência próprias', playing(st, /phase02_igreja/) && playing(st, /amb_church/), st?.sounds.filter((x) => x.playing).map((x) => x.key).join(','));
+
+  // ---------------------------------------------------------------- save/reload
+  await page.goto(BASE, { waitUntil: 'networkidle' });
+  await waitFor(inScene('TitleScene'), 8000, 'title');
+  await wait(600);
+  await titleToMenu();
+  const hadContinue = await menuSelect(/CONTINUAR|CONTINUE/);
+  check('11a. menu mostra CONTINUAR com save', hadContinue);
+  st = await waitFor((x) => inScene('StoryScene')(x) && x.actors.some((a) => a.id === 'theo') && playing(x, /phase02_igreja/), 15000, 'continuar');
+  check('11. save/reload: CONTINUAR retoma a fase 2 com Theo e áudio', st?.active.includes('StoryScene') && st?.actors.some((a) => a.id === 'theo') && playing(st, /phase02_igreja/), `${st?.active} ${st?.sounds.filter((x) => x.playing).map((x) => x.key).join(',')}`);
+
+  // ---------------------------------------------------------------- idioma en-US + final via EXTRAS > TESTAR FINAL
+  await page.goto(BASE, { waitUntil: 'networkidle' });
+  await waitFor(inScene('TitleScene'), 8000, 'title');
+  await wait(600);
+  await titleToMenu();
+  await menuSelect(/OPÇÕES|OPTIONS|OPCIONES/);
+  await menuSelect(/IDIOMA|LANGUAGE/); // pt-BR → en-US
+  await wait(300);
+  const lang = await page.evaluate(() => { const m = window.__UR_GAME__.scene.getScene('MenuScene'); return m.children.list.filter((c) => c.type === 'Text').map((t) => t.text).find((t) => /LANGUAGE|IDIOMA/.test(t)); });
+  check('12. idioma alterna para en-US no menu de opções', /en-US/.test(lang ?? ''), lang);
+  await page.keyboard.press('Escape');
+  await menuSelect(/EXTRAS/);
+  await menuSelect(/TESTAR FINAL|TEST ENDING|PROBAR FINAL/);
+  st = await waitFor(inScene('EndingTestScene'), 8000, 'EndingTestScene');
+  const goodBtn = await page.evaluate(() => { const s = window.__UR_GAME__.scene.getScene('EndingTestScene'); const b = s.children.list.find((c) => c.type === 'Text' && c.input && /GOOD/i.test(c.text)); return b ? { x: b.x, y: b.y } : null; });
+  if (goodBtn) await page.mouse.click(goodBtn.x, goodBtn.y);
+  st = await waitFor((x) => inScene('CutsceneScene')(x) && x.subtitles.length > 0, 15000, 'ending_good cutscene');
+  check('12b. final bom: cutscene em engine com voz e legenda em inglês', st?.active.includes('CutsceneScene') && anyHit(/voice\/en-US\/ending_good\.(ogg|mp3)/) && (st?.subtitles ?? []).some((t) => /You did not only find/.test(t)), (st?.subtitles ?? []).join('|'));
+  await shot('06-ending-good-en');
+  await page.keyboard.press('Escape');
+  st = await waitFor((x) => inScene('EndingScene')(x) && playing(x, /bgm_final_bom/), 12000, 'EndingScene');
+  check('13. EndingScene após a cutscene: música do final', playing(st, /bgm_final_bom/), st?.sounds.filter((x) => x.playing).map((x) => x.key).join(','));
+
+  // ---------------------------------------------------------------- mute via OPÇÕES > ÁUDIO
+  await page.goto(BASE, { waitUntil: 'networkidle' });
+  await waitFor(inScene('TitleScene'), 8000, 'title');
+  await wait(600);
+  await titleToMenu();
+  await wait(1800); // fim do fade-in da música
+  await menuSelect(/OPÇÕES|OPTIONS|OPCIONES/);
+  await menuSelect(/ÁUDIO|AUDIO/);
+  st = await waitFor(inScene('SettingsScene'), 8000, 'SettingsScene');
+  const muteBtn = await page.evaluate(() => { const s = window.__UR_GAME__.scene.getScene('SettingsScene'); const b = s.children.list.find((c) => c.type === 'Text' && c.input && /Silenciado|Muted|Silenciado/i.test(c.text)); return b ? { x: b.x, y: b.y } : null; });
+  if (muteBtn) await page.mouse.click(muteBtn.x + 40, muteBtn.y + 10);
+  await wait(1200);
+  st = await state();
+  const music = st?.sounds.find((x) => /bgm_menu_tema/.test(x.key));
+  check('14. mute: volume da música vai a 0', music && music.volume === 0, JSON.stringify(music));
+  const muteBtn2 = await page.evaluate(() => { const s = window.__UR_GAME__.scene.getScene('SettingsScene'); const b = s.children.list.find((c) => c.type === 'Text' && c.input && /Silenciado|Muted/i.test(c.text)); return b ? { x: b.x, y: b.y } : null; });
+  if (muteBtn2) await page.mouse.click(muteBtn2.x + 40, muteBtn2.y + 10);
+  await wait(1200);
+  st = await state();
+  const music2 = st?.sounds.find((x) => /bgm_menu_tema/.test(x.key));
+  check('14b. unmute: volume restaurado', music2 && music2.volume > 0, JSON.stringify(music2));
+  await shot('07-settings-audio');
 
   const failed = requests.filter((r) => r.status >= 400 && !/favicon/.test(r.url));
-  check('16. rede: nenhum asset audiovisual 404', failed.length === 0, failed.slice(0, 6).map((r) => `${r.status} ${r.url}`).join(' | '));
-  const comfy = requests.filter((r) => /8188/.test(r.url));
-  check('17. runtime não chama ComfyUI', comfy.length === 0);
-  const realErrors = consoleErrors.slice(0, errorsBeforeFallbackTest).filter((e) => !/Autoplay|play\(\) failed|AudioContext/.test(e));
-  const fallbackErrors = consoleErrors.slice(errorsBeforeFallbackTest).filter((e) => !/ERR_FAILED|cutscenes\//.test(e));
-  check('18. console sem erros (exceto o bloqueio proposital do teste 15)', realErrors.length === 0 && fallbackErrors.length === 0, [...realErrors, ...fallbackErrors].slice(0, 5).join(' | '));
+  check('15. rede: nenhum asset 404', failed.length === 0, failed.slice(0, 6).map((r) => `${r.status} ${r.url}`).join(' | '));
+  check('16. runtime não chama ComfyUI', !requests.some((r) => /8188/.test(r.url)));
+  const realErrors = consoleErrors.filter((e) => !/Autoplay|play\(\) failed|AudioContext/.test(e));
+  check('17. console sem erros', realErrors.length === 0, realErrors.slice(0, 5).join(' | '));
 } catch (err) {
   check('QA-AV script crash', false, String(err));
 }

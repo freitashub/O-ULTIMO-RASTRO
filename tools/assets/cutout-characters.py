@@ -64,7 +64,10 @@ def stylize(im: Image.Image, target_h: int) -> Image.Image:
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--height", type=int, default=560); ap.add_argument("--only"); ap.add_argument("--list", action="store_true")
+    ap.add_argument("--src", default=str(SRC), help="pasta das folhas/imagens de personagem")
+    ap.add_argument("--single", action="store_true", help="imagens já com pose única (ex.: lote characters-v2): usa o maior componente, sem crops manuais")
     args = ap.parse_args()
+    src_dir = Path(args.src)
     OUT.mkdir(parents=True, exist_ok=True)
     sess = new_session("u2net")
     meta = {"version": 1, "basePath": "/assets/sprites", "sprites": {}}
@@ -72,8 +75,9 @@ def main():
     if meta_path.exists(): meta = json.loads(meta_path.read_text())
     for cid, cfg in POSES.items():
         if args.only and args.only != cid: continue
-        src = SRC / f"char_{cid}.webp"
-        if not src.exists(): print("sem folha:", cid); continue
+        src = next((src_dir / f"char_{cid}{ext}" for ext in (".webp", ".png", ".jpg") if (src_dir / f"char_{cid}{ext}").exists()), None)
+        if src is None: print("sem folha:", cid); continue
+        if args.single: cfg = {"pick": 0, "desc": cfg["desc"]}
         im = Image.open(src).convert("RGBA")
         cut = remove(im, session=sess)
         alpha = np.array(cut)[:, :, 3]

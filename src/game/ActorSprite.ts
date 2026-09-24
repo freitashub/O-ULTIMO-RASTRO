@@ -1,22 +1,9 @@
 import Phaser from 'phaser';
-import spriteData from '@/data/sprites.json';
 import { ensureImage } from '@/game/OptionalAssets';
 import { getState } from '@/game/GameState';
+import { spritePath } from '@/game/SpriteCatalog';
 
-interface SpritesShape {
-  basePath: string;
-  sprites: Record<string, { file: string; width: number; height: number; desc: string }>;
-}
-const SPRITES = spriteData as SpritesShape;
-
-export function spritePath(id: string): string | null {
-  const s = SPRITES.sprites[id];
-  return s ? `${SPRITES.basePath}/${s.file}` : null;
-}
-
-export function listSprites(): string[] {
-  return Object.keys(SPRITES.sprites);
-}
+export { spritePath, listSprites } from '@/game/SpriteCatalog';
 
 export interface ActorOptions {
   /** altura em px do ator na "linha de frente" (y máximo) */

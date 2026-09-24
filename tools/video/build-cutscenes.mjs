@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 /**
+ * DEPRECATED (v0.4): as cutscenes passaram a rodar em engine (StageDirector, src/data/cutscenes.json
+ * versão 2 com "stage"). Este montador lê o formato v1 ("shots"/"lines"/"sfx"), disponível no
+ * histórico (tag v0.3.0-audiovisual-complete). Mantido apenas como referência.
+ *
  * Montagem de cutscenes cinematográficas com FFmpeg a partir dos assets existentes.
  * (backgrounds, personagens, ícones) + zoom/pan (Ken Burns), xfade, vinheta, grão,
  * letterbox + mix de música/ambiência/voz/SFX. Legendas ficam a cargo do jogo.
@@ -20,6 +24,10 @@ const only = opt('--only', null);
 const langs = opt('--langs', 'pt-BR,en-US,es-ES').split(',');
 
 const data = JSON.parse(fs.readFileSync(path.join(root, 'src/data/cutscenes.json'), 'utf8'));
+if (!data.cutscenes?.[0]?.shots) {
+  console.error('cutscenes.json está no formato v2 (stage). Este montador de vídeo foi descontinuado; ver docs/FINAL_AUDIO_VIDEO_REPORT.md.');
+  process.exit(2);
+}
 const voice = JSON.parse(fs.readFileSync(path.join(root, 'src/data/voiceLines.json'), 'utf8'));
 const music = JSON.parse(fs.readFileSync(path.join(root, 'src/data/music.json'), 'utf8'));
 const sfxMeta = JSON.parse(fs.readFileSync(path.join(root, 'src/data/sfx.json'), 'utf8'));

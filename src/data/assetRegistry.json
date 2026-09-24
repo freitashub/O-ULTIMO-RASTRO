@@ -3730,195 +3730,77 @@
         "durationMs": 2681
       }
     ],
-    "video": [
+    "video": [],
+    "sprites": [
       {
-        "id": "cutscene_opening",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/opening.webm",
-        "pack": "video",
+        "id": "sprite_theo",
+        "kind": "image",
+        "path": "/assets/sprites/theo.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/opening.mp4",
-        "trigger": {
-          "type": "beforePhase",
-          "phase": 1
-        }
+        "width": 150,
+        "height": 580
       },
       {
-        "id": "cutscene_parents_gone",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/parents_gone.webm",
-        "pack": "video",
+        "id": "sprite_theo_t2",
+        "kind": "image",
+        "path": "/assets/sprites/theo_t2.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/parents_gone.mp4",
-        "trigger": {
-          "type": "beforePhase",
-          "phase": 2
-        }
+        "width": 203,
+        "height": 580
       },
       {
-        "id": "cutscene_first_troll",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/first_troll.webm",
-        "pack": "video",
+        "id": "sprite_theo_t4",
+        "kind": "image",
+        "path": "/assets/sprites/theo_t4.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/first_troll.mp4",
-        "trigger": {
-          "type": "beforePhase",
-          "phase": 3
-        }
+        "width": 255,
+        "height": 580
       },
       {
-        "id": "cutscene_revelations",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/revelations.webm",
-        "pack": "video",
+        "id": "sprite_clara",
+        "kind": "image",
+        "path": "/assets/sprites/clara.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/revelations.mp4",
-        "trigger": {
-          "type": "beforePhase",
-          "phase": 14
-        }
+        "width": 155,
+        "height": 580
       },
       {
-        "id": "cutscene_boss",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/boss.webm",
-        "pack": "video",
+        "id": "sprite_elias",
+        "kind": "image",
+        "path": "/assets/sprites/elias.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/boss.mp4",
-        "trigger": {
-          "type": "beforePhase",
-          "phase": 17
-        }
+        "width": 201,
+        "height": 580
       },
       {
-        "id": "cutscene_transformation",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/transformation.webm",
-        "pack": "video",
+        "id": "sprite_silas",
+        "kind": "image",
+        "path": "/assets/sprites/silas.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/transformation.mp4",
-        "trigger": {
-          "type": "beforePhase",
-          "phase": 19
-        }
+        "width": 202,
+        "height": 580
       },
       {
-        "id": "cutscene_cube",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/cube.webm",
-        "pack": "video",
+        "id": "sprite_troll",
+        "kind": "image",
+        "path": "/assets/sprites/troll.png",
+        "pack": "sprites",
         "optional": true,
         "preload": false,
-        "fallback": "/assets/video/cutscenes/cube.mp4",
-        "trigger": {
-          "type": "beforePuzzle"
-        }
-      },
-      {
-        "id": "cutscene_ending_good",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_good.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_good.mp4",
-        "trigger": {
-          "type": "ending",
-          "ending": "good"
-        }
-      },
-      {
-        "id": "cutscene_ending_good_en-US",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_good.en-US.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_good.en-US.mp4",
-        "lang": "en-US"
-      },
-      {
-        "id": "cutscene_ending_good_es-ES",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_good.es-ES.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_good.es-ES.mp4",
-        "lang": "es-ES"
-      },
-      {
-        "id": "cutscene_ending_bad",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_bad.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_bad.mp4",
-        "trigger": {
-          "type": "ending",
-          "ending": "bad"
-        }
-      },
-      {
-        "id": "cutscene_ending_bad_en-US",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_bad.en-US.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_bad.en-US.mp4",
-        "lang": "en-US"
-      },
-      {
-        "id": "cutscene_ending_bad_es-ES",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_bad.es-ES.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_bad.es-ES.mp4",
-        "lang": "es-ES"
-      },
-      {
-        "id": "cutscene_ending_secret",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_secret.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_secret.mp4",
-        "trigger": {
-          "type": "ending",
-          "ending": "secret"
-        }
-      },
-      {
-        "id": "cutscene_ending_secret_en-US",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_secret.en-US.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_secret.en-US.mp4",
-        "lang": "en-US"
-      },
-      {
-        "id": "cutscene_ending_secret_es-ES",
-        "kind": "video",
-        "path": "/assets/video/cutscenes/ending_secret.es-ES.webm",
-        "pack": "video",
-        "optional": true,
-        "preload": false,
-        "fallback": "/assets/video/cutscenes/ending_secret.es-ES.mp4",
-        "lang": "es-ES"
+        "width": 107,
+        "height": 580
       }
     ]
   },
@@ -3934,6 +3816,6 @@
       "registry": "tools/assets/build-registry.mjs"
     },
     "notes": "Audio/video entries are optional and manifest-gated; voices via Kokoro/Piper (local), music/sfx/ambience procedural, cutscenes via FFmpeg.",
-    "updatedAt": "2026-09-24T18:21:15.484Z"
+    "updatedAt": "2026-09-24T19:18:19.641Z"
   }
 }

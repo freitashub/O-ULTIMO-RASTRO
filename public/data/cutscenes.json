@@ -1,242 +1,1123 @@
 {
-  "version": 1,
-  "basePath": "/assets/video/cutscenes",
-  "width": 1280,
-  "height": 720,
-  "fps": 24,
-  "cutscenes": [
+ "version": 2,
+ "notes": "Cutscenes em engine (StageDirector): ações sequenciais sobre cenários e sprites do jogo. Vozes em voiceLines.json.",
+ "cutscenes": [
+  {
+   "id": "opening",
+   "title": "Abertura — A Casa Vazia",
+   "trigger": {
+    "type": "beforePhase",
+    "phase": 1
+   },
+   "music": "phase01",
+   "ambience": "amb_house",
+   "poster": "/assets/backgrounds/phase-01-casa.webp",
+   "stage": [
     {
-      "id": "opening",
-      "title": "Abertura — A Casa Vazia",
-      "trigger": { "type": "beforePhase", "phase": 1 },
-      "music": "phase01",
-      "ambience": "amb_house",
-      "poster": "/assets/backgrounds/phase-01-casa.webp",
-      "shots": [
-        { "type": "bg", "image": "/assets/backgrounds/phase-01-casa.webp", "duration": 12, "zoom": [1.0, 1.18], "from": [0.5, 0.5], "to": [0.55, 0.42] },
-        { "type": "figure", "image": "/assets/backgrounds/phase-01-casa.webp", "figure": "/assets/characters/char_theo.webp", "duration": 6, "zoom": [1.05, 1.12], "from": [0.5, 0.45], "to": [0.5, 0.5] },
-        { "type": "bg", "image": "/assets/backgrounds/phase-01-casa.webp", "duration": 8, "zoom": [1.2, 1.35], "from": [0.4, 0.6], "to": [0.6, 0.5] }
-      ],
-      "lines": [
-        { "at": 1.0, "voice": "intro_text" },
-        { "at": 5.0, "voice": "phase01_intro" },
-        { "at": 13.5, "voice": "theo_q1" },
-        { "at": 16.0, "voice": "phase01_scene" }
-      ],
-      "sfx": [
-        { "at": 0.5, "id": "sfx_door_open" },
-        { "at": 12.4, "id": "sfx_clock_tick" },
-        { "at": 18.0, "id": "sfx_wind_gust" }
-      ]
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-01-casa.webp",
+     "weather": "dust",
+     "darken": 0.25
     },
     {
-      "id": "parents_gone",
-      "title": "O Desaparecimento",
-      "trigger": { "type": "beforePhase", "phase": 2 },
-      "music": "phase02",
-      "ambience": "amb_church",
-      "poster": "/assets/backgrounds/phase-02-igreja.webp",
-      "shots": [
-        { "type": "bg", "image": "/assets/backgrounds/phase-01-casa.webp", "duration": 8, "zoom": [1.3, 1.45], "from": [0.7, 0.7], "to": [0.6, 0.6] },
-        { "type": "figure", "image": "/assets/backgrounds/phase-01-casa.webp", "figure": "/assets/characters/char_clara.webp", "duration": 6, "zoom": [1.0, 1.08], "from": [0.5, 0.5], "to": [0.5, 0.45] },
-        { "type": "bg", "image": "/assets/backgrounds/phase-02-igreja.webp", "duration": 9, "zoom": [1.0, 1.25], "from": [0.5, 0.5], "to": [0.5, 0.35] }
-      ],
-      "lines": [
-        { "at": 0.8, "voice": "phase01_revelation" },
-        { "at": 7.0, "voice": "phase01_cliffhanger" },
-        { "at": 12.0, "voice": "phase02_intro" },
-        { "at": 17.0, "voice": "phase02_voice_01" }
-      ],
-      "sfx": [
-        { "at": 0.5, "id": "sfx_paper_rustle" },
-        { "at": 6.0, "id": "sfx_object_pickup" },
-        { "at": 12.0, "id": "sfx_bell_toll" },
-        { "at": 16.6, "id": "sfx_whisper" }
-      ]
+     "a": "light",
+     "x": 260,
+     "y": 300,
+     "tint": 16767392,
+     "alpha": 0.25
     },
     {
-      "id": "first_troll",
-      "title": "O Primeiro Troll",
-      "trigger": { "type": "beforePhase", "phase": 3 },
-      "music": "phase03",
-      "ambience": "amb_underground",
-      "poster": "/assets/backgrounds/phase-03-tunel.webp",
-      "shots": [
-        { "type": "bg", "image": "/assets/backgrounds/phase-03-tunel.webp", "duration": 7, "zoom": [1.0, 1.12], "from": [0.5, 0.5], "to": [0.5, 0.5] },
-        { "type": "ghost", "image": "/assets/backgrounds/phase-03-tunel.webp", "figure": "/assets/characters/char_troll.webp", "duration": 8, "zoom": [1.1, 1.22], "from": [0.6, 0.5], "to": [0.62, 0.45] },
-        { "type": "bg", "image": "/assets/backgrounds/phase-03-tunel.webp", "duration": 9, "zoom": [1.2, 1.5], "from": [0.5, 0.45], "to": [0.5, 0.35] }
-      ],
-      "lines": [
-        { "at": 0.8, "voice": "phase03_intro" },
-        { "at": 7.5, "voice": "phase03_troll_01" },
-        { "at": 14.0, "voice": "phase03_revelation" },
-        { "at": 19.5, "voice": "phase03_cliffhanger" }
-      ],
-      "sfx": [
-        { "at": 0.3, "id": "sfx_step_gravel" },
-        { "at": 6.5, "id": "sfx_creature_breath" },
-        { "at": 13.0, "id": "sfx_troll_growl" },
-        { "at": 19.8, "id": "sfx_metal_gate" }
-      ]
+     "a": "music",
+     "track": "phase01"
     },
     {
-      "id": "revelations",
-      "title": "Revelações — Silas e o Mapa",
-      "trigger": { "type": "beforePhase", "phase": 14 },
-      "music": "phase14",
-      "ambience": "amb_police",
-      "poster": "/assets/backgrounds/phase-13-silas.webp",
-      "shots": [
-        { "type": "figure", "image": "/assets/backgrounds/phase-13-silas.webp", "figure": "/assets/characters/char_silas.webp", "duration": 13, "zoom": [1.0, 1.1], "from": [0.5, 0.5], "to": [0.5, 0.45] },
-        { "type": "bg", "image": "/assets/backgrounds/phase-13-silas.webp", "duration": 6, "zoom": [1.1, 1.25], "from": [0.4, 0.5], "to": [0.6, 0.5] },
-        { "type": "bg", "image": "/assets/backgrounds/phase-14-mapa.webp", "duration": 15, "zoom": [1.0, 1.4], "from": [0.5, 0.5], "to": [0.5, 0.5] }
-      ],
-      "lines": [
-        { "at": 1.0, "voice": "phase13_silas_01" },
-        { "at": 6.5, "voice": "phase13_silas_02" },
-        { "at": 14.0, "voice": "phase13_revelation" },
-        { "at": 20.0, "voice": "phase14_intro" },
-        { "at": 25.0, "voice": "phase14_revelation" },
-        { "at": 30.0, "voice": "phase14_cliffhanger" }
-      ],
-      "sfx": [
-        { "at": 19.5, "id": "sfx_paper_turn" },
-        { "at": 24.5, "id": "sfx_suspense_sting" }
-      ]
+     "a": "ambience",
+     "id": "amb_house"
     },
     {
-      "id": "boss",
-      "title": "O Chefe — A Ilusão",
-      "trigger": { "type": "beforePhase", "phase": 17 },
-      "music": "trolls",
-      "ambience": "amb_illusion",
-      "poster": "/assets/backgrounds/phase-16-sala.webp",
-      "shots": [
-        { "type": "bg", "image": "/assets/backgrounds/phase-16-sala.webp", "duration": 9, "zoom": [1.0, 1.15], "from": [0.5, 0.5], "to": [0.5, 0.45] },
-        { "type": "figure", "image": "/assets/backgrounds/phase-16-sala.webp", "figure": "/assets/characters/char_clara.webp", "duration": 5, "zoom": [1.0, 1.06], "from": [0.5, 0.5], "to": [0.5, 0.5] },
-        { "type": "figure", "image": "/assets/backgrounds/phase-16-sala.webp", "figure": "/assets/characters/char_silas.webp", "duration": 8, "zoom": [1.0, 1.15], "from": [0.5, 0.5], "to": [0.5, 0.4] },
-        { "type": "ghost", "image": "/assets/backgrounds/phase-16-sala.webp", "figure": "/assets/characters/char_troll.webp", "duration": 7, "zoom": [1.15, 1.3], "from": [0.6, 0.5], "to": [0.55, 0.45] }
-      ],
-      "lines": [
-        { "at": 0.8, "voice": "phase16_intro" },
-        { "at": 9.5, "voice": "phase16_clara_01" },
-        { "at": 14.5, "voice": "phase16_creature_01" },
-        { "at": 19.0, "voice": "phase16_cliffhanger" },
-        { "at": 23.5, "voice": "theo_q3" }
-      ],
-      "sfx": [
-        { "at": 0.5, "id": "sfx_heartbeat" },
-        { "at": 18.5, "id": "sfx_suspense_sting" },
-        { "at": 26.0, "id": "sfx_troll_growl" }
-      ]
+     "a": "fade",
+     "to": "in",
+     "ms": 900
     },
     {
-      "id": "transformation",
-      "title": "A Transformação",
-      "trigger": { "type": "beforePhase", "phase": 19 },
-      "music": "transformation",
-      "ambience": "amb_underground",
-      "poster": "/images/transformation/theo_t4.png",
-      "shots": [
-        { "type": "icon", "icon": "/images/transformation/theo_t1.png", "duration": 5, "zoom": [1.0, 1.08], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x1a1a2a" },
-        { "type": "icon", "icon": "/images/transformation/theo_t2.png", "duration": 5, "zoom": [1.0, 1.1], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x1c1828" },
-        { "type": "icon", "icon": "/images/transformation/theo_t3.png", "duration": 6, "zoom": [1.0, 1.12], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x1e1626" },
-        { "type": "icon", "icon": "/images/transformation/theo_t4.png", "duration": 6, "zoom": [1.0, 1.16], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x201424" },
-        { "type": "figure", "image": "/assets/backgrounds/phase-18-registros.webp", "figure": "/assets/characters/char_theo_t4.webp", "duration": 5, "zoom": [1.0, 1.1], "from": [0.5, 0.5], "to": [0.5, 0.45] }
-      ],
-      "lines": [
-        { "at": 0.8, "voice": "transform_hint_7" },
-        { "at": 5.3, "voice": "transform_hint_11" },
-        { "at": 10.5, "voice": "transform_hint_14" },
-        { "at": 16.0, "voice": "transform_hint_17" },
-        { "at": 21.0, "voice": "theo_q2" }
-      ],
-      "sfx": [
-        { "at": 0.3, "id": "sfx_transformation_pulse" },
-        { "at": 10.2, "id": "sfx_transformation_pulse" },
-        { "at": 15.0, "id": "sfx_heartbeat" },
-        { "at": 20.0, "id": "sfx_transformation_pulse" }
-      ]
+     "a": "spawn",
+     "actor": "theo",
+     "x": -80,
+     "y": 660,
+     "facing": 1
     },
     {
-      "id": "cube",
-      "title": "O Cubo de Orun",
-      "trigger": { "type": "beforePuzzle" },
-      "music": "cube",
-      "ambience": "amb_cave",
-      "poster": "/assets/backgrounds/phase-20-caverna.webp",
-      "shots": [
-        { "type": "bg", "image": "/assets/backgrounds/phase-20-caverna.webp", "duration": 10, "zoom": [1.0, 1.15], "from": [0.5, 0.5], "to": [0.5, 0.45] },
-        { "type": "icon", "icon": "/images/cube/face_olho.png", "duration": 2, "zoom": [1.0, 1.05], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0a0c14" },
-        { "type": "icon", "icon": "/images/cube/face_lua.png", "duration": 2, "zoom": [1.0, 1.05], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0a0c14" },
-        { "type": "icon", "icon": "/images/cube/face_mao.png", "duration": 2, "zoom": [1.0, 1.05], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0a0c14" },
-        { "type": "icon", "icon": "/images/cube/face_corvo.png", "duration": 2, "zoom": [1.0, 1.05], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0a0c14" },
-        { "type": "icon", "icon": "/images/cube/face_arvore.png", "duration": 2, "zoom": [1.0, 1.05], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0a0c14" },
-        { "type": "icon", "icon": "/images/cube/face_rosto.png", "duration": 6, "zoom": [1.0, 1.25], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x10081a" },
-        { "type": "bg", "image": "/assets/backgrounds/phase-20-caverna.webp", "duration": 6, "zoom": [1.3, 1.5], "from": [0.5, 0.4], "to": [0.5, 0.35] }
-      ],
-      "lines": [
-        { "at": 0.8, "voice": "phase20_intro" },
-        { "at": 10.5, "voice": "cube_inscription" },
-        { "at": 20.5, "voice": "phase20_revelation" },
-        { "at": 26.0, "voice": "transform_hint_20" }
-      ],
-      "sfx": [
-        { "at": 0.3, "id": "sfx_wind_gust" },
-        { "at": 9.5, "id": "sfx_stone_grind" },
-        { "at": 12.0, "id": "sfx_cube_rotate" },
-        { "at": 14.0, "id": "sfx_cube_rotate" },
-        { "at": 16.0, "id": "sfx_cube_rotate" },
-        { "at": 18.0, "id": "sfx_cube_rotate" },
-        { "at": 20.3, "id": "sfx_symbol_found" },
-        { "at": 26.0, "id": "sfx_heartbeat" }
-      ]
+     "a": "sfx",
+     "id": "sfx_door_open"
     },
     {
-      "id": "ending_good",
-      "title": "Final — A Verdade",
-      "trigger": { "type": "ending", "ending": "good" },
-      "localized": true,
-      "music": "ending_good",
-      "ambience": "amb_ending_good",
-      "poster": "/images/endings/ending_good.png",
-      "shots": [
-        { "type": "icon", "icon": "/images/endings/ending_good.png", "duration": 8, "zoom": [1.0, 1.12], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0b1018" },
-        { "type": "bg", "image": "/assets/backgrounds/phase-01-casa.webp", "duration": 8, "zoom": [1.2, 1.0], "from": [0.5, 0.45], "to": [0.5, 0.5], "warm": true }
-      ],
-      "lines": [ { "at": 1.0, "voice": "ending_good" } ],
-      "sfx": [ { "at": 8.5, "id": "sfx_door_open" } ]
+     "a": "say",
+     "voice": "intro_text",
+     "wait": false
     },
     {
-      "id": "ending_bad",
-      "title": "Final — O Rastro",
-      "trigger": { "type": "ending", "ending": "bad" },
-      "localized": true,
-      "music": "ending_bad",
-      "ambience": "amb_ending_bad",
-      "poster": "/images/endings/ending_bad.png",
-      "shots": [
-        { "type": "icon", "icon": "/images/endings/ending_bad.png", "duration": 7, "zoom": [1.0, 1.15], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x120808" },
-        { "type": "bg", "image": "/assets/backgrounds/phase-20-caverna.webp", "duration": 7, "zoom": [1.1, 1.35], "from": [0.5, 0.5], "to": [0.5, 0.6], "dark": true }
-      ],
-      "lines": [ { "at": 1.5, "voice": "ending_bad" } ],
-      "sfx": [ { "at": 0.3, "id": "sfx_impact_low" }, { "at": 7.0, "id": "sfx_wind_gust" } ]
+     "a": "walk",
+     "actor": "theo",
+     "x": 430,
+     "y": 650
     },
     {
-      "id": "ending_secret",
-      "title": "Final Secreto — A Verdade Mais Antiga",
-      "trigger": { "type": "ending", "ending": "secret" },
-      "localized": true,
-      "music": "ending_secret",
-      "ambience": "amb_ending_secret",
-      "poster": "/images/endings/ending_secret.png",
-      "shots": [
-        { "type": "icon", "icon": "/images/cube/face_rosto.png", "duration": 6, "zoom": [1.0, 1.2], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0e0a1c" },
-        { "type": "icon", "icon": "/images/endings/ending_secret.png", "duration": 6, "zoom": [1.0, 1.1], "from": [0.5, 0.5], "to": [0.5, 0.5], "tint": "0x0a1020" },
-        { "type": "bg", "image": "/assets/backgrounds/phase-17-ultima-cidade.webp", "duration": 6, "zoom": [1.0, 1.2], "from": [0.5, 0.5], "to": [0.5, 0.4] }
-      ],
-      "lines": [ { "at": 1.0, "voice": "ending_secret" }, { "at": 7.0, "voice": "puzzle_sixth_face" } ],
-      "sfx": [ { "at": 0.3, "id": "sfx_symbol_found" }, { "at": 6.2, "id": "sfx_cube_solve" } ]
+     "a": "say",
+     "voice": "phase01_intro"
+    },
+    {
+     "a": "face",
+     "actor": "theo",
+     "dir": -1
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_clock_tick"
+    },
+    {
+     "a": "camera",
+     "zoom": 1.18,
+     "x": 420,
+     "y": 520,
+     "ms": 1600
+    },
+    {
+     "a": "say",
+     "voice": "theo_q1"
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 700,
+     "y": 640,
+     "wait": false
+    },
+    {
+     "a": "say",
+     "voice": "phase01_scene"
+    },
+    {
+     "a": "camera",
+     "zoom": 1.0,
+     "x": 640,
+     "y": 360,
+     "ms": 1200
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 800
     }
-  ]
+   ]
+  },
+  {
+   "id": "parents_gone",
+   "title": "O Desaparecimento",
+   "trigger": {
+    "type": "beforePhase",
+    "phase": 2
+   },
+   "music": "phase02",
+   "ambience": "amb_church",
+   "poster": "/assets/backgrounds/phase-02-igreja.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-01-casa.webp",
+     "weather": "dust",
+     "darken": 0.4
+    },
+    {
+     "a": "music",
+     "track": "phase01"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 700
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 320,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "spawn",
+     "actor": "clara",
+     "x": 900,
+     "y": 620,
+     "facing": -1,
+     "ghost": true,
+     "alpha": 0
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_paper_rustle"
+    },
+    {
+     "a": "say",
+     "voice": "phase01_revelation"
+    },
+    {
+     "a": "show",
+     "actor": "clara",
+     "ms": 1800
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 700,
+     "y": 640
+    },
+    {
+     "a": "say",
+     "voice": "phase01_cliffhanger"
+    },
+    {
+     "a": "hide",
+     "actor": "clara",
+     "ms": 1200
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 600
+    },
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-02-igreja.webp",
+     "weather": "dust",
+     "darken": 0.25
+    },
+    {
+     "a": "music",
+     "track": "phase02"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_church"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 600
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 160,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 760,
+     "y": 640,
+     "wait": false
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_bell_toll"
+    },
+    {
+     "a": "say",
+     "voice": "phase02_intro"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_whisper"
+    },
+    {
+     "a": "camera",
+     "zoom": 1.2,
+     "x": 760,
+     "y": 560,
+     "ms": 1400
+    },
+    {
+     "a": "say",
+     "voice": "phase02_voice_01"
+    },
+    {
+     "a": "shake",
+     "ms": 500,
+     "intensity": 0.004
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 800
+    }
+   ]
+  },
+  {
+   "id": "first_troll",
+   "title": "O Primeiro Troll",
+   "trigger": {
+    "type": "beforePhase",
+    "phase": 3
+   },
+   "music": "phase03",
+   "ambience": "amb_underground",
+   "poster": "/assets/backgrounds/phase-03-tunel.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-03-tunel.webp",
+     "weather": "fog",
+     "darken": 0.4
+    },
+    {
+     "a": "light",
+     "x": 400,
+     "y": 500,
+     "tint": 13687039,
+     "alpha": 0.2
+    },
+    {
+     "a": "music",
+     "track": "phase03"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_underground"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 800
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 140,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "spawn",
+     "actor": "troll",
+     "x": 1000,
+     "y": 600,
+     "facing": -1,
+     "ghost": true,
+     "alpha": 0
+    },
+    {
+     "a": "say",
+     "voice": "phase03_intro",
+     "wait": false
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 540,
+     "y": 640
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_creature_breath"
+    },
+    {
+     "a": "show",
+     "actor": "troll",
+     "ms": 2200
+    },
+    {
+     "a": "camera",
+     "zoom": 1.2,
+     "x": 800,
+     "y": 520,
+     "ms": 1500
+    },
+    {
+     "a": "say",
+     "voice": "phase03_troll_01"
+    },
+    {
+     "a": "wait",
+     "ms": 500
+    },
+    {
+     "a": "hide",
+     "actor": "troll",
+     "ms": 900
+    },
+    {
+     "a": "camera",
+     "zoom": 1.0,
+     "x": 640,
+     "y": 360,
+     "ms": 1200
+    },
+    {
+     "a": "say",
+     "voice": "phase03_revelation"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_metal_gate"
+    },
+    {
+     "a": "shake",
+     "ms": 600,
+     "intensity": 0.006
+    },
+    {
+     "a": "say",
+     "voice": "phase03_cliffhanger"
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 800
+    }
+   ]
+  },
+  {
+   "id": "revelations",
+   "title": "Revelações — Silas e o Mapa",
+   "trigger": {
+    "type": "beforePhase",
+    "phase": 14
+   },
+   "music": "phase14",
+   "ambience": "amb_police",
+   "poster": "/assets/backgrounds/phase-13-silas.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-13-silas.webp",
+     "weather": "dust",
+     "darken": 0.15
+    },
+    {
+     "a": "music",
+     "track": "phase13"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_police"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 700
+    },
+    {
+     "a": "spawn",
+     "actor": "silas",
+     "x": 840,
+     "y": 620,
+     "facing": -1
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 260,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 620,
+     "y": 640
+    },
+    {
+     "a": "camera",
+     "zoom": 1.15,
+     "x": 740,
+     "y": 540,
+     "ms": 1400
+    },
+    {
+     "a": "say",
+     "voice": "phase13_silas_01"
+    },
+    {
+     "a": "say",
+     "voice": "phase13_silas_02"
+    },
+    {
+     "a": "say",
+     "voice": "phase13_revelation"
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 600
+    },
+    {
+     "a": "camera",
+     "zoom": 1.0,
+     "x": 640,
+     "y": 360,
+     "ms": 10
+    },
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-14-mapa.webp",
+     "weather": "fog",
+     "darken": 0.2
+    },
+    {
+     "a": "music",
+     "track": "phase14"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 600
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 640,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_paper_turn"
+    },
+    {
+     "a": "say",
+     "voice": "phase14_intro"
+    },
+    {
+     "a": "camera",
+     "zoom": 1.3,
+     "x": 640,
+     "y": 420,
+     "ms": 2500
+    },
+    {
+     "a": "say",
+     "voice": "phase14_revelation"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_suspense_sting"
+    },
+    {
+     "a": "say",
+     "voice": "phase14_cliffhanger"
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 800
+    }
+   ]
+  },
+  {
+   "id": "boss",
+   "title": "O Chefe — A Ilusão",
+   "trigger": {
+    "type": "beforePhase",
+    "phase": 17
+   },
+   "music": "trolls",
+   "ambience": "amb_illusion",
+   "poster": "/assets/backgrounds/phase-16-sala.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-16-sala.webp",
+     "weather": "dust",
+     "darken": 0.1
+    },
+    {
+     "a": "light",
+     "x": 760,
+     "y": 420,
+     "tint": 14203135,
+     "alpha": 0.25
+    },
+    {
+     "a": "music",
+     "track": "phase16"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_illusion"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 800
+    },
+    {
+     "a": "spawn",
+     "actor": "clara",
+     "x": 760,
+     "y": 620,
+     "facing": -1,
+     "ghost": true
+    },
+    {
+     "a": "spawn",
+     "actor": "elias",
+     "x": 920,
+     "y": 625,
+     "facing": -1,
+     "silhouette": true
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 220,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "say",
+     "voice": "phase16_intro",
+     "wait": false
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 600,
+     "y": 640
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_heartbeat"
+    },
+    {
+     "a": "say",
+     "voice": "phase16_clara_01"
+    },
+    {
+     "a": "wait",
+     "ms": 500
+    },
+    {
+     "a": "music",
+     "track": "trolls"
+    },
+    {
+     "a": "hide",
+     "actor": "clara",
+     "ms": 1500
+    },
+    {
+     "a": "hide",
+     "actor": "elias",
+     "ms": 1500
+    },
+    {
+     "a": "spawn",
+     "actor": "troll",
+     "x": 820,
+     "y": 600,
+     "facing": -1,
+     "ghost": true,
+     "alpha": 0
+    },
+    {
+     "a": "show",
+     "actor": "troll",
+     "ms": 1400
+    },
+    {
+     "a": "camera",
+     "zoom": 1.2,
+     "x": 720,
+     "y": 520,
+     "ms": 1400
+    },
+    {
+     "a": "say",
+     "voice": "phase16_creature_01"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_suspense_sting"
+    },
+    {
+     "a": "say",
+     "voice": "phase16_cliffhanger"
+    },
+    {
+     "a": "say",
+     "voice": "theo_q3"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_troll_growl"
+    },
+    {
+     "a": "shake",
+     "ms": 700,
+     "intensity": 0.007
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 800
+    }
+   ]
+  },
+  {
+   "id": "transformation",
+   "title": "A Transformação",
+   "trigger": {
+    "type": "beforePhase",
+    "phase": 19
+   },
+   "music": "transformation",
+   "ambience": "amb_underground",
+   "poster": "/assets/backgrounds/phase-18-registros.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-18-registros.webp",
+     "weather": "dust",
+     "darken": 0.35
+    },
+    {
+     "a": "music",
+     "track": "transformation"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_underground"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 800
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 640,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "camera",
+     "zoom": 1.25,
+     "x": 640,
+     "y": 520,
+     "ms": 2000
+    },
+    {
+     "a": "say",
+     "voice": "transform_hint_7"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_transformation_pulse"
+    },
+    {
+     "a": "flash",
+     "ms": 500,
+     "color": 9067775
+    },
+    {
+     "a": "hide",
+     "actor": "theo",
+     "ms": 300
+    },
+    {
+     "a": "spawn",
+     "actor": "theo_t2",
+     "x": 640,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "say",
+     "voice": "transform_hint_11"
+    },
+    {
+     "a": "say",
+     "voice": "transform_hint_14"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_transformation_pulse"
+    },
+    {
+     "a": "flash",
+     "ms": 500,
+     "color": 9067775
+    },
+    {
+     "a": "hide",
+     "actor": "theo_t2",
+     "ms": 300
+    },
+    {
+     "a": "spawn",
+     "actor": "theo_t4",
+     "x": 640,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "say",
+     "voice": "transform_hint_17"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_heartbeat"
+    },
+    {
+     "a": "say",
+     "voice": "theo_q2"
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 900
+    }
+   ]
+  },
+  {
+   "id": "cube",
+   "title": "O Cubo de Orun",
+   "trigger": {
+    "type": "beforePuzzle"
+   },
+   "music": "cube",
+   "ambience": "amb_cave",
+   "poster": "/assets/backgrounds/phase-20-caverna.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-20-caverna.webp",
+     "weather": "fog",
+     "darken": 0.3
+    },
+    {
+     "a": "light",
+     "x": 900,
+     "y": 480,
+     "tint": 9429247,
+     "alpha": 0.3
+    },
+    {
+     "a": "music",
+     "track": "cube"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_cave"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 900
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 160,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_wind_gust"
+    },
+    {
+     "a": "say",
+     "voice": "phase20_intro",
+     "wait": false
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 760,
+     "y": 640
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_stone_grind"
+    },
+    {
+     "a": "say",
+     "voice": "cube_inscription"
+    },
+    {
+     "a": "camera",
+     "zoom": 1.3,
+     "x": 900,
+     "y": 520,
+     "ms": 2000
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_symbol_found"
+    },
+    {
+     "a": "say",
+     "voice": "phase20_revelation"
+    },
+    {
+     "a": "say",
+     "voice": "transform_hint_20"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_heartbeat"
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 900
+    }
+   ]
+  },
+  {
+   "id": "ending_good",
+   "title": "Final — A Verdade",
+   "trigger": {
+    "type": "ending",
+    "ending": "good"
+   },
+   "localized": true,
+   "music": "ending_good",
+   "ambience": "amb_ending_good",
+   "poster": "/assets/backgrounds/phase-01-casa.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-01-casa.webp",
+     "weather": "dust",
+     "darken": 0.0
+    },
+    {
+     "a": "light",
+     "x": 640,
+     "y": 300,
+     "tint": 16770736,
+     "alpha": 0.3
+    },
+    {
+     "a": "music",
+     "track": "ending_good"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_ending_good"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 1200
+    },
+    {
+     "a": "spawn",
+     "actor": "clara",
+     "x": 300,
+     "y": 645,
+     "facing": 1,
+     "alpha": 0
+    },
+    {
+     "a": "spawn",
+     "actor": "elias",
+     "x": 980,
+     "y": 645,
+     "facing": -1,
+     "silhouette": true,
+     "alpha": 0
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 640,
+     "y": 660,
+     "facing": -1
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_door_open"
+    },
+    {
+     "a": "show",
+     "actor": "clara",
+     "ms": 1800
+    },
+    {
+     "a": "show",
+     "actor": "elias",
+     "ms": 1800
+    },
+    {
+     "a": "say",
+     "voice": "ending_good"
+    },
+    {
+     "a": "walk",
+     "actor": "theo",
+     "x": 430,
+     "y": 650
+    },
+    {
+     "a": "wait",
+     "ms": 800
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 1400
+    }
+   ]
+  },
+  {
+   "id": "ending_bad",
+   "title": "Final — O Rastro",
+   "trigger": {
+    "type": "ending",
+    "ending": "bad"
+   },
+   "localized": true,
+   "music": "ending_bad",
+   "ambience": "amb_ending_bad",
+   "poster": "/assets/backgrounds/phase-20-caverna.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-20-caverna.webp",
+     "weather": "fog",
+     "darken": 0.5
+    },
+    {
+     "a": "music",
+     "track": "ending_bad"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_ending_bad"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 1200
+    },
+    {
+     "a": "spawn",
+     "actor": "theo_t4",
+     "x": 640,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_impact_low"
+    },
+    {
+     "a": "camera",
+     "zoom": 1.3,
+     "x": 640,
+     "y": 520,
+     "ms": 3000
+    },
+    {
+     "a": "say",
+     "voice": "ending_bad"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_wind_gust"
+    },
+    {
+     "a": "wait",
+     "ms": 1200
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 1600
+    }
+   ]
+  },
+  {
+   "id": "ending_secret",
+   "title": "Final Secreto — A Verdade Mais Antiga",
+   "trigger": {
+    "type": "ending",
+    "ending": "secret"
+   },
+   "localized": true,
+   "music": "ending_secret",
+   "ambience": "amb_ending_secret",
+   "poster": "/assets/backgrounds/phase-17-ultima-cidade.webp",
+   "stage": [
+    {
+     "a": "bg",
+     "image": "/assets/backgrounds/phase-17-ultima-cidade.webp",
+     "weather": "fog",
+     "darken": 0.2
+    },
+    {
+     "a": "light",
+     "x": 640,
+     "y": 300,
+     "tint": 9429247,
+     "alpha": 0.35
+    },
+    {
+     "a": "music",
+     "track": "ending_secret"
+    },
+    {
+     "a": "ambience",
+     "id": "amb_ending_secret"
+    },
+    {
+     "a": "fade",
+     "to": "in",
+     "ms": 1200
+    },
+    {
+     "a": "spawn",
+     "actor": "theo",
+     "x": 640,
+     "y": 660,
+     "facing": 1
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_symbol_found"
+    },
+    {
+     "a": "say",
+     "voice": "ending_secret"
+    },
+    {
+     "a": "sfx",
+     "id": "sfx_cube_solve"
+    },
+    {
+     "a": "flash",
+     "ms": 600,
+     "color": 9429247
+    },
+    {
+     "a": "say",
+     "voice": "puzzle_sixth_face"
+    },
+    {
+     "a": "wait",
+     "ms": 800
+    },
+    {
+     "a": "fade",
+     "to": "black",
+     "ms": 1500
+    }
+   ]
+  }
+ ]
 }

@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 // Cutscenes são cobertas por final-qa-av.mjs; aqui o loop de gameplay roda sem elas.
-const BASE = 'http://localhost:5173/?nocutscenes=1';
+// renderer=canvas: Canvas2D é ~2x mais rápido que WebGL por software em Chromium headless (60 fps vs ~25).
+const BASE = 'http://localhost:5173/?nocutscenes=1&renderer=canvas';
 const OUT = path.join(process.cwd(), 'smoke-shots');
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });

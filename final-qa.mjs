@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 // Cutscenes são cobertas por final-qa-av.mjs; aqui o loop de gameplay roda sem elas.
-const BASE = 'http://localhost:5173/?nocutscenes=1';
+// renderer=canvas: Canvas2D é ~2x mais rápido que WebGL por software em Chromium headless (60 fps vs ~25).
+const BASE = 'http://localhost:5173/?nocutscenes=1&renderer=canvas';
 const OUT = path.join(process.cwd(), 'final-qa-shots');
 const REPORT = path.join(process.cwd(), 'final-qa-results.json');
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -69,6 +70,34 @@ page.on('requestfailed', (req) => {
 
 async function shot(name) {
   await page.screenshot({ path: path.join(OUT, `${name}.png`), fullPage: false });
+}
+
+
+// v0.4: seleciona itens do menu pelo rótulo (independe do índice e da presença de save)
+async function menuReady() {
+  for (let i = 0; i < 40; i++) {
+    const n = await page.evaluate(() => {
+      const g = window.__UR_GAME__;
+      if (!g) return 0;
+      const m = g.scene.getScene('MenuScene');
+      return m && m.scene.isActive() ? m.children.list.filter((c) => c.type === 'Text' && c.input).length : 0;
+    });
+    if (n > 0) return true;
+    await page.waitForTimeout(100);
+  }
+  return false;
+}
+async function menuSelect(re) {
+  await menuReady();
+  const pos = await page.evaluate((src) => {
+    const m = window.__UR_GAME__.scene.getScene('MenuScene');
+    const it = m.children.list.find((c) => c.type === 'Text' && c.input && new RegExp(src).test(c.text));
+    return it ? { x: it.x + 10, y: it.y } : null;
+  }, re.source);
+  if (!pos) return false;
+  await page.mouse.click(pos.x, pos.y);
+  await page.waitForTimeout(500);
+  return true;
 }
 
 async function fresh() {
@@ -256,11 +285,8 @@ try {
     await fresh();
     await page.keyboard.press('Enter');
     await page.waitForTimeout(900);
-    for (let d = 0; d < 7; d++) {
-      await page.keyboard.press('ArrowDown');
-      await page.waitForTimeout(70);
-    }
-    await page.keyboard.press('Enter');
+    await menuSelect(/EXTRAS/);
+    await menuSelect(/TESTAR FINAL|TEST ENDING|PROBAR FINAL/);
     await page.waitForTimeout(900);
     await shot(`endingtest-${label}`);
     await page.mouse.click(clickX, 320);
@@ -295,13 +321,12 @@ try {
   await page.keyboard.press('Enter');
   await page.waitForTimeout(800);
 
-  // With save: menu = [Novo, Continuar, PISTAS, DIARIO, ...] => index 2
+  // With save (v0.4): [NOVO, CONTINUAR, EXTRAS, OPÇÕES, APAGAR] → EXTRAS(2) → PISTAS(0)
   await fresh();
   await page.keyboard.press('Enter'); // title
-  await page.waitForTimeout(700);
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('Enter'); // PISTAS
+  await page.waitForTimeout(900);
+  await menuSelect(/EXTRAS/);
+  await menuSelect(/PISTAS|CLUES/);
   await page.waitForTimeout(1200);
   await shot('clues');
   const clueIcons = [...network.ok].filter((r) => r.url.includes('/images/clues/'));
@@ -348,12 +373,9 @@ try {
 
   await fresh();
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(700);
-  // with save: [Novo, Continuar, PISTAS, DIARIO] => index 3
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('Enter'); // DIARIO
+  await page.waitForTimeout(900);
+  await menuSelect(/EXTRAS/);
+  await menuSelect(/DIÁRIO|DIARY|DIARIO/);
   await page.waitForTimeout(1200);
   await shot('diary');
   const diarySyms = [...network.ok].filter((r) => r.url.includes('/assets/symbols/'));
@@ -370,38 +392,17 @@ try {
   // IDIOMA index varies; cycle a few times and screenshot
   await fresh();
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(700);
+  await page.waitForTimeout(900);
   const langShots = [];
-  for (let i = 0; i < 6; i++) {
-    // try navigating down to IDIOMA-like entries and enter
-    await page.keyboard.press('ArrowDown');
-    await page.waitForTimeout(60);
-  }
-  await page.keyboard.press('Enter');
-  await page.waitForTimeout(700);
+  await menuSelect(/OPÇÕES|OPTIONS|OPCIONES/);
   await shot('language-attempt');
-  // Also force language via cycling menu entries with known smoke path: 3 downs without save = IDIOMA
-  await fresh();
-  await page.keyboard.press('Enter');
-  await page.waitForTimeout(700);
-  for (let d = 0; d < 3; d++) {
-    await page.keyboard.press('ArrowDown');
-    await page.waitForTimeout(60);
-  }
-  await page.keyboard.press('Enter');
-  await page.waitForTimeout(700);
+  await menuSelect(/IDIOMA|LANGUAGE/);
+  await page.waitForTimeout(400);
   await shot('language-cycle-1');
   langShots.push('language-cycle-1');
-  // Cycle again a few times
   for (let i = 0; i < 3; i++) {
-    await page.keyboard.press('Escape');
+    await menuSelect(/IDIOMA|LANGUAGE/);
     await page.waitForTimeout(400);
-    for (let d = 0; d < 3; d++) {
-      await page.keyboard.press('ArrowDown');
-      await page.waitForTimeout(50);
-    }
-    await page.keyboard.press('Enter');
-    await page.waitForTimeout(500);
     await shot(`language-cycle-${i + 2}`);
     langShots.push(`language-cycle-${i + 2}`);
   }
@@ -459,11 +460,12 @@ try {
   );
 
   // Characters / portraits / transformation — were they requested?
-  const charReq = [...network.ok].filter((r) => r.url.includes('/assets/characters/'));
+  // v0.4: personagens em cena são sprites recortados (/assets/sprites/), não mais as folhas char_*.webp
+  const charReq = [...network.ok].filter((r) => r.url.includes('/assets/sprites/'));
   const portReq = [...network.ok].filter((r) => r.url.includes('/images/portraits/'));
   const transReq = [...network.ok].filter((r) => r.url.includes('/images/transformation/'));
   note(
-    '4-5. personagens char_*.webp solicitados no browser',
+    '4-5. sprites de personagens (/assets/sprites) solicitados no browser',
     charReq.length > 0 ? 'pass' : 'fail',
     `count=${charReq.length} (arquivos existem=${manifest.characters.length})`
   );

@@ -43,6 +43,14 @@ export class ChoiceScene extends Phaser.Scene {
     void ensureVoiceLine(this, phaseLineId(this.phase.id, 'cliffhanger'));
     this.cameras.main.fadeIn(300, 0, 0, 0);
     if (data?.choiceId && this.phase.choices.some((c) => c.id === data.choiceId)) {
+      // escolha feita na exploração: mantém o retrato de quem está em cena e vai direto à consequência
+      const preselectedPortrait = getPortraitPath(getPhasePortraitId(this.phase.id));
+      await ensureImage(this, preselectedPortrait, preselectedPortrait);
+      if (!this.scene.isActive()) return;
+      this.cameras.main.setBackgroundColor('#0B0B10');
+      if (this.textures.exists(preselectedPortrait)) {
+        this.add.image(this.cameras.main.width - 90, 70, preselectedPortrait).setDisplaySize(80, 80).setDepth(12);
+      }
       void this.handleChoice(data.choiceId);
       return;
     }

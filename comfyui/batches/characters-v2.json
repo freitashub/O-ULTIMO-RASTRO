@@ -1,0 +1,133 @@
+{
+  "version": 2,
+  "notes": "Regeneração dos personagens em estilo único (pose única, fundo neutro) para a GPU do autor. Após gerar: python tools/assets/cutout-characters.py --src public/assets/characters-v2 (ver README no batch).",
+  "checkpoint": "v1-5-pruned-emaonly-fp16.safetensors",
+  "sampler": "dpmpp_2m",
+  "scheduler": "karras",
+  "jobs": [
+    {
+      "id": "char_theo_v2",
+      "output": "public/assets/characters-v2/char_theo.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1000,
+      "prompt": "menino de 11 anos, cabelo castanho encaracolado, moletom azul escuro, calça bege, tênis vermelho, expressão curiosa e determinada, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    },
+    {
+      "id": "char_theo_t2_v2",
+      "output": "public/assets/characters-v2/char_theo_t2.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1001,
+      "prompt": "menino de 11 anos, cabelo castanho encaracolado, moletom azul escuro, olhos com brilho verde sutil, sombra ligeiramente alongada, expressão inquieta, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    },
+    {
+      "id": "char_theo_t4_v2",
+      "output": "public/assets/characters-v2/char_theo_t4.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1002,
+      "prompt": "menino de 11 anos com traços de troll: pele acinzentada, olhos verdes brilhantes, orelhas pontudas, mesma roupa (moletom azul escuro), expressão vazia, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    },
+    {
+      "id": "char_clara_v2",
+      "output": "public/assets/characters-v2/char_clara.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1003,
+      "prompt": "mulher de 38 anos, mãe, cabelo escuro longo, casaco cinza úmido, expressão serena e protetora, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    },
+    {
+      "id": "char_elias_v2",
+      "output": "public/assets/characters-v2/char_elias.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1004,
+      "prompt": "homem de 42 anos, pai, barba curta grisalha, camisa xadrez com manga rasgada, expressão cansada e decidida, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    },
+    {
+      "id": "char_silas_v2",
+      "output": "public/assets/characters-v2/char_silas.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1005,
+      "prompt": "chefe de polícia de 55 anos, cabelo grisalho, quepe escuro, sobretudo preto, sorriso calmo e olhar frio, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    },
+    {
+      "id": "char_troll_v2",
+      "output": "public/assets/characters-v2/char_troll.png",
+      "width": 512,
+      "height": 768,
+      "steps": 28,
+      "cfg": 7.0,
+      "seed": 1006,
+      "prompt": "criatura troll antiga, alta e magra, pele cinza-esverdeada, braços longos, olhos verdes brilhantes, dentes pequenos, encurvada, ameaçadora mas não gore, ilustração gótica semi-realista, traço limpo, pintura digital, iluminação dramática lateral, paleta dessaturada com um acento de cor, corpo inteiro, pose frontal em pé, um único personagem, fundo cinza neutro liso, sem texto, sem folha de modelo, sem múltiplas poses",
+      "negative": "texto, marca d'água, folha de modelo, múltiplas poses, várias figuras, recortado, mãos deformadas, rosto deformado, baixa qualidade, desfocado, esboço, rabiscos, anotações",
+      "post": [
+        "rembg",
+        "normalize_height:580",
+        "outline",
+        "shadow"
+      ]
+    }
+  ],
+  "howto": [
+    "node tools/comfyui/batch.mjs --manifest comfyui/batches/characters-v2.json",
+    "pip install rembg && python tools/assets/cutout-characters.py --src public/assets/characters-v2 --single",
+    "node tools/assets/build-manifest.mjs && node tools/assets/build-registry.mjs"
+  ]
+}

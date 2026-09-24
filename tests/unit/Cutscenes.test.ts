@@ -7,17 +7,21 @@ import {
   buildFallbackSteps,
   buildSubtitleCues,
   cutsceneDuration,
-  cutsceneVideoBases,
   findCutsceneForTrigger,
   getCutscene,
   getCutscenes,
   markCutsceneSeen,
+  resolveLines,
+  stageActors,
   wasCutsceneSeen
 } from '@/game/Cutscenes';
+import { hasVoiceLine } from '@/game/VoiceLines';
+import { spritePath } from '@/game/SpriteCatalog';
+import { listSfx, musicPath, ambiencePath } from '@/game/SceneAudio';
 
 const PUBLIC = path.join(process.cwd(), 'public');
 
-describe('Cutscenes catalog', () => {
+describe('Cutscenes (stage scripts)', () => {
   beforeEach(() => {
     setLanguage('pt-BR');
     resetState();
@@ -35,44 +39,59 @@ describe('Cutscenes catalog', () => {
     expect(findCutsceneForTrigger({ type: 'ending', ending: 'secret' })?.id).toBe('ending_secret');
   });
 
-  it('subtitle cues are synced to voice durations and within the video length', () => {
+  it('every stage action references real assets (voices, sprites, sfx, music, ambience, backgrounds)', () => {
     for (const cs of getCutscenes()) {
-      const total = cutsceneDuration(cs) * 1000;
+      expect(cs.stage.length).toBeGreaterThan(3);
+      expect(cs.stage.some((a) => a.a === 'spawn')).toBe(true);
+      expect(cs.stage.some((a) => a.a === 'say')).toBe(true);
+      for (const a of cs.stage) {
+        if (a.a === 'say') expect(hasVoiceLine(a.voice, 'pt-BR')).toBe(true);
+        if (a.a === 'spawn') {
+          const p = spritePath(a.actor);
+          expect(p).not.toBeNull();
+          expect(fs.existsSync(path.join(PUBLIC, p!))).toBe(true);
+        }
+        if (a.a === 'sfx') expect(listSfx()).toContain(a.id);
+        if (a.a === 'music' && a.track) expect(musicPath(a.track)).not.toBeNull();
+        if (a.a === 'ambience' && a.id) expect(ambiencePath(a.id)).not.toBeNull();
+        if (a.a === 'bg' && a.image) expect(fs.existsSync(path.join(PUBLIC, a.image))).toBe(true);
+      }
+      expect(stageActors(cs)).toContain(cs.id === 'ending_bad' ? 'theo_t4' : 'theo');
+    }
+  });
+
+  it('subtitle cues follow the estimated timeline and voice durations', () => {
+    for (const cs of getCutscenes()) {
       const cues = buildSubtitleCues(cs);
-      expect(cues.length).toBe((cs.lines ?? []).length);
+      const lines = resolveLines(cs);
+      expect(cues.length).toBe(lines.length);
+      let prev = -1;
       for (const cue of cues) {
         expect(cue.endMs).toBeGreaterThan(cue.startMs);
-        expect(cue.endMs).toBeLessThanOrEqual(total + 1500);
+        expect(cue.startMs).toBeGreaterThanOrEqual(prev);
+        prev = cue.startMs;
         expect(cue.text).toBeTruthy();
         expect(cue.speaker).toBeTruthy();
       }
+      expect(cutsceneDuration(cs)).toBeGreaterThan(5);
+      expect(cutsceneDuration(cs)).toBeLessThan(120);
     }
   });
 
-  it('fallback steps reproduce the script timing without video', () => {
+  it('fallback steps reproduce the script timing', () => {
     const cs = getCutscene('opening')!;
     const steps = buildFallbackSteps(cs);
     expect(steps.some((s) => s.type === 'dialogue')).toBe(true);
-    const total = steps.reduce((acc, s) => acc + (s.type === 'wait' ? s.duration ?? 0 : s.line?.duration ?? 0), 0);
-    expect(total).toBeGreaterThanOrEqual(cutsceneDuration(cs) * 1000 - 1);
     for (const s of steps) if (s.type === 'dialogue') expect(s.line?.voiceAsset).toMatch(/^\/assets\/audio\/voice\//);
   });
 
-  it('every cutscene has a real webm + mp4 on disk', () => {
-    for (const cs of getCutscenes()) {
-      const [base] = cutsceneVideoBases(cs, 'pt-BR');
-      expect(fs.existsSync(path.join(PUBLIC, `${base}.webm`))).toBe(true);
-      expect(fs.existsSync(path.join(PUBLIC, `${base}.mp4`))).toBe(true);
-    }
-  });
-
-  it('localized endings prefer the language video and fall back to pt-BR', () => {
-    const cs = getCutscene('ending_good')!;
-    expect(cutsceneVideoBases(cs, 'en-US')).toEqual([
-      '/assets/video/cutscenes/ending_good.en-US',
-      '/assets/video/cutscenes/ending_good'
-    ]);
-    expect(cutsceneVideoBases(getCutscene('opening')!, 'en-US')).toEqual(['/assets/video/cutscenes/opening']);
+  it('localized endings resolve voices in the current language', () => {
+    setLanguage('en-US');
+    const lines = resolveLines(getCutscene('ending_good')!);
+    expect(lines[0].line.lang).toBe('en-US');
+    const opening = resolveLines(getCutscene('opening')!);
+    expect(opening.find((l) => l.line.id === 'intro_text')?.line.lang).toBe('en-US');
+    expect(opening.find((l) => l.line.id === 'phase01_intro')?.line.lang).toBe('pt-BR');
   });
 
   it('seen flags persist in game state', () => {

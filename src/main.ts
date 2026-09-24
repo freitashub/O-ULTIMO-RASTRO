@@ -18,8 +18,12 @@ import { CreditsScene } from '@/scenes/CreditsScene';
 import { SettingsScene } from '@/scenes/SettingsScene';
 import { CutsceneScene } from '@/scenes/CutsceneScene';
 
+// `?renderer=canvas` força Canvas2D (útil em automação headless sem GPU); padrão: AUTO (WebGL)
+const forceCanvas = typeof location !== 'undefined' && /[?&]renderer=canvas/.test(location.search);
+
 const config: Phaser.Types.Core.GameConfig = {
   ...gameConfig,
+  ...(forceCanvas ? { type: Phaser.CANVAS } : {}),
   scene: [
     BootScene,
     PreloadScene,

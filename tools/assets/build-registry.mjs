@@ -41,19 +41,22 @@ voicePack.unshift(
   entry('voice_narrator_01', 'audio', `${voice.basePath}/pt-BR/intro_text.ogg`, 'voice', { alias: 'intro_text' })
 );
 
+// v0.4: cutscenes rodam em engine (sem arquivos de vídeo). Só entra no pack o que existir em disco.
 const video = [];
+const videoBase = cuts.basePath ?? '/assets/video/cutscenes';
 for (const c of cuts.cutscenes) {
-  video.push(entry(`cutscene_${c.id}`, 'video', `${cuts.basePath}/${c.id}.webm`, 'video', { fallback: `${cuts.basePath}/${c.id}.mp4`, trigger: c.trigger }));
-  if (c.localized) for (const lang of ['en-US', 'es-ES']) {
-    const p = `${cuts.basePath}/${c.id}.${lang}.webm`;
-    if (exists(p)) video.push(entry(`cutscene_${c.id}_${lang}`, 'video', p, 'video', { fallback: `${cuts.basePath}/${c.id}.${lang}.mp4`, lang }));
-  }
+  const p = `${videoBase}/${c.id}.webm`;
+  if (exists(p)) video.push(entry(`cutscene_${c.id}`, 'video', p, 'video', { fallback: `${videoBase}/${c.id}.mp4`, trigger: c.trigger }));
 }
+// sprites recortados (public/assets/sprites) — opcionais, carregados sob demanda pelo ActorSprite
+const spritesMeta = fs.existsSync(path.join(root, 'src/data/sprites.json')) ? read('src/data/sprites.json') : { basePath: '/assets/sprites', sprites: {} };
+const spritePack = Object.entries(spritesMeta.sprites).map(([id, s]) => entry(`sprite_${id}`, 'image', `${spritesMeta.basePath}/${s.file}`, 'sprites', { width: s.width, height: s.height }));
 
-const missing = [...audio, ...voicePack, ...video].filter((e) => !exists(e.path)).map((e) => e.path);
+const missing = [...audio, ...voicePack, ...video, ...spritePack].filter((e) => !exists(e.path)).map((e) => e.path);
 registry.packs.audio = audio;
 registry.packs.voice = voicePack;
 registry.packs.video = video;
+registry.packs.sprites = spritePack;
 registry.metadata = {
   ...registry.metadata,
   sources: { ...registry.metadata.sources, audio: 'tools/audio/{voices,music,sfx,ambience}.py', video: 'tools/video/build-cutscenes.mjs', registry: 'tools/assets/build-registry.mjs' },
@@ -63,5 +66,5 @@ registry.metadata = {
 const out = JSON.stringify(registry, null, 2) + '\n';
 fs.writeFileSync(path.join(root, 'src/data/assetRegistry.json'), out);
 fs.writeFileSync(path.join(root, 'public/data/assetRegistry.json'), out);
-console.log(`registry: audio=${audio.length} voice=${voicePack.length} video=${video.length} missing=${missing.length}`);
+console.log(`registry: audio=${audio.length} voice=${voicePack.length} video=${video.length} sprites=${spritePack.length} missing=${missing.length}`);
 if (missing.length) console.log(missing.slice(0, 10).join('\n'));
