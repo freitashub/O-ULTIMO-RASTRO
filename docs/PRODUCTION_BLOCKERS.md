@@ -1,59 +1,51 @@
-﻿# PRODUCTION_BLOCKERS — O Último Rastro
+# PRODUCTION_BLOCKERS — O Último Rastro
 
-Atualizado: 2026-09-24 (produção de assets **CONCLUÍDA**; bloqueios restantes = limite técnico)
+Atualizado: 2026-09-24 (fase audiovisual **CONCLUÍDA** — detalhes em `FINAL_AUDIO_VIDEO_REPORT.md`)
 
-## Estado do ambiente
+## Estado do ambiente (sessão audiovisual)
 
 | Recurso | Estado | Impacto |
 |---|---|---|
-| ComfyUI `:8188` (Vega11 DirectML) | **ONLINE** (health 200) | Geração txt2img funcional |
-| Node/Playwright | OK | Testes e build |
-| Vite dev `:5173` | OK | Smoke test |
-| Jogo runtime | OK | Funciona sem ComfyUI |
-| ESLint | **não instalado** | `npm run lint` falha (não bloqueia build/test) |
+| ComfyUI `:8188` | **OFFLINE neste container** (instância do autor: Windows/Vega11). Snapshot `comfyui/object_info.json` analisado: nós de áudio existem, **nenhum checkpoint de áudio/vídeo** | não usado nesta fase |
+| HuggingFace | bloqueado (proxy 403) | Piper/Kokoro obtidos via GitHub Releases |
+| Kokoro-82M ONNX + Piper pt_BR (CPU) | **instalados fora do repo** | TTS real, 3 idiomas |
+| ffmpeg 6.1 / espeak-ng / sox (apt) | OK | encode, pitch, cutscenes |
+| Node/Playwright | OK (Chromium pré-instalado 1194; Playwright 1.63 → `PW_EXECUTABLE_PATH`/fallback nos scripts) | testes/QA |
+| Jogo runtime | OK, sem ComfyUI, sem 404 | — |
+| ESLint | não instalado (`npm run lint` falha; não bloqueia) | — |
 
 ## Capacidades por categoria
 
-### IMAGEM — ✅ PRODUZIDO
-- Workflow padrão txt2img: **disponível** (`tools/comfyui/batch.mjs`, `comfyui/workflows/`)
-- Checkpoint: `v1-5-pruned-emaonly-fp16.safetensors` (SD1.5)
-- Pipeline: queue → history poll → `/view` download → sharp → webp
-- **Operacional:** 640×360 / 6 steps ~3–5 min; 480×720 funciona; **320×480 / 4 steps** usado como fallback estável após crashes DirectML
-- **Instabilidade:** filas longas → `UnicodeDecodeError` em KSampler; OOM/hang ~1 GB VRAM — **mitigação: reiniciar ComfyUI, reduzir res/steps, reenfileirar** (aplicada com sucesso em `char_theo_t4`)
-- Arte vetorial SVG original: **definitiva** para símbolos/UI/cubo/pistas/retratos/endings
-- **Entregue:** 20 backgrounds + 7 personagens + 6 símbolos + 5 retratos + 21 clues + 6 cubo + 3 finais + 5 transformação = **131 no manifest**
+### IMAGEM — ✅ PRODUZIDO (sessão anterior, inalterado)
 
-### ÁUDIO / TTS / MUSIC / SFX — ❌ BLOQUEADO (limite técnico)
-- `StabilityTextToAudio` → **Unauthorized / requer login ComfyOrg**
-- ElevenLabs → **sem API key / voices 0**
-- Sem checkpoints de áudio locais
-- **Bloqueio real:** áudio permanece `optional` no registry; **nunca gerar fake**
+### VOZ — ✅ PRODUZIDO
+- 194 linhas reais (172 pt-BR, 11 en-US, 11 es-ES); 8 identidades vocais; sincronização por duração real.
+- **Bloqueio de conteúdo (não técnico):** narrativa das fases e falas de personagens só existem em pt-BR → dublagem en/es dessas 161 linhas depende de tradução do roteiro. Elias não tem falas no roteiro.
 
-### VIDEO / CUTSCENE — ❌ BLOQUEADO (limite técnico)
-- Nós de vídeo são cloud (Kling/Wan/etc.) sem modelos locais
-- Cutscenes usam sistema em código (`CutscenePlayer`) sem filme
-- **Bloqueio real:** registrar como faltante (não há modelo local)
+### MÚSICA / SFX / AMBIÊNCIA — ✅ PRODUZIDO (procedural)
+- 33 trilhas, 35 SFX, 17 ambiências — arquivos reais, validados (sem clipping, loudness controlada, loops limpos).
+- Não há modelo generativo de áudio local (Stable Audio/ACE-Step exigem checkpoint; HF bloqueado). Síntese procedural é a alternativa local adotada; substituível por trilha autoral/modelo nos mesmos paths.
+
+### CUTSCENES — ✅ PRODUZIDO (montagem FFmpeg)
+- 10 cutscenes (16 vídeos com variantes en/es dos finais), WebM + MP4, legendas pelo jogo, fallback em passos.
+- Geração de vídeo por modelo: **não necessária**.
 
 ### STT — N/A
 
 ## Decisões automáticas em vigor
-1. Pipeline + docs + referências + metadados + workflows produzidos mesmo com falhas pontuais
-2. **Art vetorial original (SVG)** é asset real e definitivo para símbolos/UI/cubo
-3. Cenas complexas e personagens full-body: preferir ComfyUI; se indisponível, registrar faltantes
-4. Áudio: só com modelo real; senão optional no registry
+1. Áudio só com arquivo real; nada marcado como pronto sem arquivo (validadores geram `docs/audio-validation.json` e `docs/video-validation.json`).
+2. Cutscenes e áudio são opcionais e manifest-gated; runtime nunca depende do ComfyUI.
+3. Paths centralizados: `SceneAudio`, `VoiceLines`, `Cutscenes`, registry, manifest.
+4. `?nocutscenes=1` apenas para automação (smoke/final-qa); `final-qa-av.mjs` cobre cutscenes.
 
 ## Riscos operacionais conhecidos
-- RAM/DirectML 1GB: resoluções ≥768 e steps altos aumentam risco de OOM/hang — preferir ≤640 e ≤6 steps
-- ComfyUI Desktop ROCm (`%LOCALAPPDATA%\Comfy-Desktop`) **crasha** com "No CUDA GPUs are available" — usar só Vega11
-- `waitHistory` pode reportar timeout com job ainda rodando — sempre rechecar `/history` e salvage via `/view`
-- PowerShell `Out-File -Encoding utf8` grava BOM — escrever JSON via Node
-- Batch report truncado para evitar tracebacks gigantes
+- Repositório cresce ~130 MB com os binários de áudio/vídeo (OGG+MP3, WebM+MP4). Se for um problema, mover MP3/MP4 para LFS ou gerar sob demanda (`npm run video:build`).
+- Piper pt_BR: leve desnasalização em vogais nasais (limitação do modelo). Alternativa documentada no relatório.
+- Safari: reprodução via fallback MP3/MP4 (não testado em Safari real nesta sessão; Chromium testado).
 
-## O que NÃO é bloqueio
-- Testes (111/111), build, smoke (16/16), docs, i18n, integração registry/manifest — executáveis offline
-
-## Gate de saída atual (2026-09-24)
-- `npm run test` → **111/111**
+## Gate de saída atual (2026-09-24, fase AV)
+- `npm run test` → **126/126**
 - `npm run build` → **OK**
-- `node smoke-test.mjs` → **16/16, 0 page errors**
-- Manifest == registry sincronizados; **131** entradas de imagem
+- `node smoke-test.mjs` → **16/16**
+- `node final-qa-av.mjs` → **31/31**
+- `tools/audio/validate.py` → 279/279 · `tools/video/validate.mjs` → 32/32

@@ -10,6 +10,7 @@
 - [Diálogos e Cutscenes](#diálogos-e-cutscenes)
 - [Asset Registry](#asset-registry)
 - [ComfyUI (pipeline externo)](COMFYUI.md)
+- [Produção audiovisual (vozes, música, SFX, cutscenes)](FINAL_AUDIO_VIDEO_REPORT.md)
 - [Testes](#testes)
 
 ## Arquitetura
@@ -68,21 +69,26 @@ STORY → CHOICE → CONSEQUENCE → REVELATION → CLIFFHANGER → NEXT
 
 ## Áudio e Legendas
 
-- `AudioManager`: music, ambience, sfx, voice; master/mute/fade.
-- `SubtitleRenderer`: cues com speaker, tamanho, fundo, posição.
-- `SettingsScene`: abas Áudio / Legendas / Acessibilidade.
+- `AudioManager`: music, ambience, sfx, voice (uma por vez, pause/resume); master/mute/fade; `refreshVolumes()` após carregar save.
+- `SceneAudio`: único ponto que resolve ids → paths (`music.json`, `sfx.json`, `ambience.json`, `voiceLines.json`) e carrega sob demanda (manifest-gated, OGG + MP3).
+- `VoiceLines`: catálogo de vozes por id + idioma com fallback pt-BR; ids `phaseNN_intro|scene|revelation|cliffhanger|choice_x`.
+- `SubtitleRenderer`: cues com speaker, tamanho, fundo, posição; sincronizadas à duração real da voz.
+- `SettingsScene`: sliders master/música/ambiência/SFX/voz + mute, aplicados ao vivo.
 - Assets de áudio são **opcionais** (registry `optional: true`); ausência não quebra o jogo.
+- Geração: `tools/audio/{voices,music,sfx,ambience}.py` · validação `npm run audio:validate`.
 
 ## Diálogos e Cutscenes
 
 - `DialogueSystem`: play/pause/resume/skip/replay, textSpeed.
-- `CutscenePlayer`: steps dialogue/subtitle/wait/sfx/voice/camera.
-- Ambos sem dependência de assets obrigatórios.
+- `CutscenePlayer`: steps dialogue/subtitle/wait/sfx/voice/camera/**video** (cues de legenda sincronizadas, pausa/retomada, `onError` → fallback).
+- `Cutscenes` + `src/data/cutscenes.json`: 10 cutscenes com gatilhos `beforePhase`/`beforePuzzle`/`ending`; `startWithCutscene()` roteia cenas; flag `cutscene_seen_<id>` no save; `?nocutscenes=1` só para automação.
+- `CutsceneScene`: WebM/MP4 (`ensureVideo`), PULAR (Esc/Espaço/Enter), pausa (P), replay (R), fallback sem vídeo.
+- Vídeos: `npm run video:build` (FFmpeg) · `npm run video:validate`.
 
 ## Asset Registry
 
 - `src/data/assetRegistry.json` + `src/game/AssetRegistry.ts`.
-- Packs: `core` (JSONs obrigatórios), `audio`, `images` (opcionais).
+- Packs: `core` (JSONs obrigatórios), `audio`, `voice`, `video`, `images` (opcionais). Packs AV regenerados por `npm run assets:registry`.
 - `PreloadScene` carrega entradas do registry; `loaderror` é tolerado.
 
 ## Testes
@@ -91,6 +97,8 @@ STORY → CHOICE → CONSEQUENCE → REVELATION → CLIFFHANGER → NEXT
 npm run test      # unit (Vitest)
 npm run build     # tsc --noEmit + vite build
 node smoke-test.mjs  # e2e (requer dev server em :5173)
+node final-qa.mjs    # QA completo (gameplay, sem cutscenes)
+node final-qa-av.mjs # QA audiovisual (cutscenes, legendas, música, voz, mute, idioma)
 ```
 
 Regras de ending (preservadas da spec):

@@ -37,3 +37,14 @@ node tools/comfyui/generate.mjs
 2. Nunca quebrar build se ComfyUI estiver offline.
 3. Saídas em `public/images/` ou `public/audio/` apenas como opcionais.
 4. Assets gerados seguem o mesmo contrato do `assetRegistry.json`.
+
+## Áudio / vídeo (fase AV, 2026-09-24)
+
+- O ComfyUI **não foi usado** para áudio/vídeo: o snapshot `comfyui/object_info.json` contém nós de áudio
+  (`EmptyLatentAudio`, `VAEDecodeAudio`, `ConditioningStableAudio`, `TextEncodeAceStepAudio`) mas
+  `comfyui/models.json` não lista nenhum checkpoint de áudio; TTS/SFX só existem como nós cloud
+  (ElevenLabs/Stability) e os nós de vídeo (Wan/LTXV/Hunyuan) não têm modelos locais.
+- Pipeline audiovisual local adotado: `tools/audio/*.py` (Kokoro/Piper + síntese procedural) e
+  `tools/video/build-cutscenes.mjs` (FFmpeg). Ver `docs/FINAL_AUDIO_VIDEO_REPORT.md`.
+- Se um checkpoint de áudio for instalado no ComfyUI do autor, um workflow pode produzir as trilhas nos
+  mesmos paths de `src/data/music.json` sem alteração de runtime.

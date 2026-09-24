@@ -62,3 +62,14 @@ Data: 2026-09-24 · Base: `v0.2.0-visual-complete` (`c10b7c6`)
 4. Integração (AudioManager helpers, VoiceLines, CutscenePlayer `video`, cenas, registry, manifest builder)
 5. QA: `npm run test`, `npm run build`, `node smoke-test.mjs`, `node final-qa.mjs` (+ checks de áudio/vídeo)
 6. Docs: `PRODUCTION_BLOCKERS.md`, `PRODUCTION_FINAL_REPORT.md`, `FINAL_AUDIO_VIDEO_REPORT.md`
+
+## 5. Status de execução (2026-09-24)
+
+| Etapa | Estado |
+|---|---|
+| 1. Vozes → `voiceLines.json` | ✅ 194 linhas |
+| 2. Música / SFX / ambiência | ✅ 33 / 35 / 17 |
+| 3. Cutscenes → `cutscenes.json` + WebM/MP4 | ✅ 10 (+6 variantes) |
+| 4. Integração | ✅ (SceneAudio, VoiceLines, Cutscenes, CutscenePlayer `video`, CutsceneScene, cenas, registry, manifest) |
+| 5. QA | ✅ test 126/126 · build OK · smoke 16/16 · final-qa-av 31/31 · áudio 279/279 · vídeo 32/32 |
+| 6. Docs | ✅ `PRODUCTION_BLOCKERS.md`, `PRODUCTION_FINAL_REPORT.md`, `FINAL_AUDIO_VIDEO_REPORT.md` |

@@ -3,6 +3,21 @@
 Data: 2026-09-24  
 Escopo: verificação browser final dos 131 assets nas 20 fases + integração completa (personagens / retratos / transformação) + gate de build/testes.
 
+## 0. Adendo — QA da fase audiovisual (2026-09-24)
+
+| Verificação | Resultado |
+|---|---|
+| `npm run test` | **126/126** (19 arquivos) |
+| `npm run build` | **OK** |
+| `node smoke-test.mjs` (`?nocutscenes=1`) | **16/16**, 0 erros de página |
+| `node final-qa.mjs` (`?nocutscenes=1`) | **23 pass / 0 fail / 1 note**; 0 console errors; 3 "network fails" = `net::ERR_ABORTED` de módulos Vite durante `page.goto` (renavegação do próprio script), nenhum asset |
+| `node final-qa-av.mjs` (novo, cutscenes ativas) | **31/31** — vídeo WebM tocando, legendas sincronizadas, pausa/retomada, replay, skip, música+ambiência+voz por fase, SFX de escolha, cutscene *parents_gone*, save/reload, idioma en-US (vídeo localizado + voz/legenda EN), mute/unmute, fallback sem vídeo, 0 × 404, 0 chamadas ComfyUI, console limpo |
+| `tools/audio/validate.py` | 279 OGG (33 música, 35 SFX, 17 ambiência, 194 vozes): **0 problemas** |
+| `tools/video/validate.mjs` | 32 vídeos (16 WebM + 16 MP4): **32 ok**, sem tela preta |
+
+Screenshots AV: `final-qa-av-shots/` (cutscene opening com legenda, fase 1 com áudio, parents_gone, final EN, settings áudio, fallback).
+Relatório completo: `FINAL_AUDIO_VIDEO_REPORT.md`.
+
 ---
 
 ## 1. Resumo executivo

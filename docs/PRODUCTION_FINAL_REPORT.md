@@ -1,7 +1,23 @@
 # PRODUCTION_FINAL_REPORT — O Último Rastro
 
 Data: 2026-09-24  
-Status: **PRODUÇÃO DE ASSETS CONCLUÍDA** (dentro do limite técnico do ambiente)
+Status: **PRODUÇÃO DE ASSETS CONCLUÍDA — VISUAL + AUDIOVISUAL** (detalhes AV em `FINAL_AUDIO_VIDEO_REPORT.md`)
+
+## 0. Adendo — fase audiovisual (2026-09-24)
+
+| Categoria | Estado | Quantidade | Onde |
+|---|---|---:|---|
+| Vozes (Kokoro/Piper, local CPU) | **CONCLUÍDO** | 194 linhas (172 pt-BR, 11 en-US, 11 es-ES) | `public/assets/audio/voice/` |
+| Música (procedural) | **CONCLUÍDO** | 33 trilhas | `public/assets/music/` |
+| SFX (procedural) | **CONCLUÍDO** | 35 | `public/assets/audio/sfx/` |
+| Ambiência (procedural) | **CONCLUÍDO** | 17 loops | `public/assets/audio/ambience/` |
+| Cutscenes (FFmpeg, WebM+MP4) | **CONCLUÍDO** | 10 (+6 variantes en/es) | `public/assets/video/cutscenes/` |
+| Dublagem en/es da narrativa das fases | **BLOQUEADO POR CONTEÚDO** | 161 linhas | requer tradução do roteiro |
+| Falas de Elias | **BLOQUEADO POR CONTEÚDO** | 0 | roteiro sem falas |
+| Música/SFX por modelo de IA | **NÃO NECESSÁRIO** (procedural entregue) / RECOMENDADO trilha autoral | — | — |
+| Vídeo por modelo generativo | **NÃO NECESSÁRIO** | — | — |
+
+Gate AV: `npm run test` 126/126 · `npm run build` OK · `smoke-test` 16/16 · `final-qa-av` 31/31 · áudio 279/279 · vídeo 32/32.
 
 ---
 
@@ -71,16 +87,12 @@ Screenshots E2E: `smoke-shots/` (menu, 20 fases, 3 finais, pistas, diário, cré
 
 ## 4. O que permanece bloqueado (limite técnico real)
 
-### Áudio / Música / SFX / TTS — **BLOQUEADO**
-- `StabilityTextToAudio` → Unauthorized / requer login ComfyOrg.
-- ElevenLabs → sem API key (voices 0).
-- Sem checkpoints de áudio locais no ComfyUI.
-- **Decisão:** permanece `optional` no registry; **nunca gerar fake**.
+### Áudio / Música / SFX / TTS — **RESOLVIDO na fase AV** (histórico abaixo)
+- Sessão visual: `StabilityTextToAudio` Unauthorized; ElevenLabs sem key; sem checkpoints de áudio no ComfyUI.
+- Sessão AV: TTS resolvido localmente (Kokoro + Piper, CPU); música/SFX/ambiência por síntese procedural (sem modelo generativo local — HF bloqueado). Ver `FINAL_AUDIO_VIDEO_REPORT.md` §2–6.
 
-### Vídeo / Cutscene — **BLOQUEADO**
-- Nós de vídeo são cloud (Kling/Wan/etc.) sem modelos locais.
-- Cutscenes continuam em código (`CutscenePlayer`) sem filme.
-- **Decisão:** registrar como faltante.
+### Vídeo / Cutscene — **RESOLVIDO na fase AV**
+- Sem modelo de vídeo local; cutscenes montadas com FFmpeg a partir dos assets existentes (WebM + MP4), legendas pelo jogo, fallback em passos.
 
 ### ESLint — **não instalado**
 - `npm run lint` falha; não bloqueia build/test (TypeScript + Vitest cobrem o gate).
@@ -125,4 +137,4 @@ node tools/comfyui/batch.mjs --manifest comfyui/batches/backgrounds-640.json
 
 A produção de assets de imagem (backgrounds, personagens, símbolos, pistas, cubo, finais, transformação) está **completa e integrada** (manifest + registry sincronizados, testes e smoke verdes).  
 
-Os únicos itens não entregues são **áudio/TTS** e **vídeo/cutscene**, bloqueados por **falta de modelo local e credencial cloud** — registrados como `optional`/faltantes, sem placeholders falsos, conforme política de produção.  
+A fase audiovisual (vozes, música, SFX, ambiência, cutscenes) foi entregue com arquivos reais, validados e integrados — ver `FINAL_AUDIO_VIDEO_REPORT.md`. Restam apenas bloqueios de **conteúdo** (tradução do roteiro para dublagem en/es completa; falas de Elias), não de tecnologia.  

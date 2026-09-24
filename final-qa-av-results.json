@@ -1,0 +1,165 @@
+{
+  "pass": 31,
+  "fail": 0,
+  "total": 31,
+  "checks": [
+    {
+      "name": "1. menu: música do menu tocando",
+      "ok": true,
+      "detail": "[\"/assets/music/bgm_menu_tema.ogg\"]"
+    },
+    {
+      "name": "1b. menu: música requisitada (HTTP 200/206)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "2. sfx ui_click requisitado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "3. cutscene opening: CutsceneScene ativa",
+      "ok": true,
+      "detail": "CutsceneScene"
+    },
+    {
+      "name": "3b. cutscene opening: vídeo webm requisitado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "3c. cutscene opening: objeto Video tocando",
+      "ok": true,
+      "detail": "[{\"key\":\"/assets/video/cutscenes/opening\",\"playing\":true,\"t\":3.483982,\"paused\":false}]"
+    },
+    {
+      "name": "4. legenda sincronizada visível durante o vídeo",
+      "ok": true,
+      "detail": "Narrador: Theo chega em casa. A porta está aberta. O relógio da sala está parado às 23:47."
+    },
+    {
+      "name": "5. pausa (P) pausa o vídeo e retoma",
+      "ok": true,
+      "detail": "paused=[{\"key\":\"/assets/video/cutscenes/opening\",\"playing\":false,\"t\":7.773465,\"paused\":true}] resumed=[{\"key\":\"/assets/video/cutscenes/opening\",\"playing\":true,\"t\":9.142756,\"paused\":false}]"
+    },
+    {
+      "name": "6. replay (R) reinicia a cutscene",
+      "ok": true,
+      "detail": "[{\"key\":\"/assets/video/cutscenes/opening\",\"playing\":true,\"t\":2.246149,\"paused\":false}]"
+    },
+    {
+      "name": "7. skip (Esc) leva à StoryScene fase 1",
+      "ok": true,
+      "detail": "StoryScene"
+    },
+    {
+      "name": "7b. vídeo destruído após skip",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "8. fase 1: música da fase tocando",
+      "ok": true,
+      "detail": "/assets/music/bgm_menu_tema.ogg,/assets/music/phase01_casa_medo.ogg,/assets/audio/ambience/amb_house.ogg,/assets/audio/voice/pt-BR/phase01_intro.ogg"
+    },
+    {
+      "name": "8b. fase 1: ambiência tocando",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "8c. fase 1: narração (voz) requisitada",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "8d. fase 1: legenda da narração visível",
+      "ok": true,
+      "detail": "Narrador: Theo chega em casa. A porta está aberta. O relógio da sala está parado às 23:47."
+    },
+    {
+      "name": "9. escolha: sfx de confirmação + pista",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "9b. consequência narrada (voz choice_b)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "9c. cliffhanger: sting + voz",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "10. cutscene parents_gone dispara antes da fase 2",
+      "ok": true,
+      "detail": "CutsceneScene"
+    },
+    {
+      "name": "10b. fase 2 com música/ambiência próprias",
+      "ok": true,
+      "detail": "/assets/music/bgm_menu_tema.ogg,/assets/music/phase02_igreja_curiosidade.ogg,/assets/audio/ambience/amb_church.ogg,/assets/audio/voice/pt-BR/phase02_intro.ogg"
+    },
+    {
+      "name": "11. save/reload: CONTINUAR volta à StoryScene com áudio",
+      "ok": true,
+      "detail": "StoryScene"
+    },
+    {
+      "name": "12. idioma en-US: cutscene de final localizada (ending_good.en-US.webm)",
+      "ok": true,
+      "detail": "CutsceneScene"
+    },
+    {
+      "name": "12b. legenda do final em inglês",
+      "ok": true,
+      "detail": "Narrator: You did not only find the path.\nYou found the truth.\nBut a part of you stayed behind."
+    },
+    {
+      "name": "13. EndingScene após cutscene: música + voz do final",
+      "ok": true,
+      "detail": "/assets/music/bgm_final_bom.ogg,/assets/audio/ambience/amb_ending_good.ogg,/assets/audio/voice/en-US/ending_good.ogg"
+    },
+    {
+      "name": "14. mute: volume da música vai a 0",
+      "ok": true,
+      "detail": "{\"key\":\"/assets/music/bgm_menu_tema.ogg\",\"playing\":true,\"paused\":false,\"loop\":true,\"volume\":0}"
+    },
+    {
+      "name": "14b. unmute: volume restaurado",
+      "ok": true,
+      "detail": "{\"key\":\"/assets/music/bgm_menu_tema.ogg\",\"playing\":true,\"paused\":false,\"loop\":true,\"volume\":0.6000000238418579}"
+    },
+    {
+      "name": "15. fallback sem vídeo: cutscene em passos (voz + legenda + música)",
+      "ok": true,
+      "detail": "active=CutsceneScene subs=Narrador: Theo chega em casa.\nA porta está aberta. sounds=/assets/music/bgm_menu_tema.ogg,/assets/music/phase01_casa_medo.ogg,/assets/audio/ambience/amb_house.ogg,/assets/audio/voice/pt-BR/intro_text.ogg"
+    },
+    {
+      "name": "15b. fallback: skip funciona",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "16. rede: nenhum asset audiovisual 404",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "17. runtime não chama ComfyUI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "18. console sem erros (exceto o bloqueio proposital do teste 15)",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "consoleErrors": [
+    "console.error: Failed to load resource: net::ERR_FAILED [http://localhost:5173/assets/video/cutscenes/opening.webm]"
+  ]
+}
