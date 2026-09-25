@@ -26,7 +26,7 @@
     {
       "name": "3. cena espacial real (Babylon): piso, paredes, objetos (meshes ≥ 40)",
       "ok": true,
-      "detail": "meshes=55"
+      "detail": "meshes=44"
     },
     {
       "name": "4. Theo carregado de GLB (glTF) com posição 3D",
@@ -46,12 +46,12 @@
     {
       "name": "6. Theo se move por input de teclado (setas)",
       "ok": true,
-      "detail": "{\"x\":-4.1,\"y\":0,\"z\":-1.5,\"yaw\":1.571,\"speed\":0,\"state\":\"idle\",\"touching\":[]} → {\"x\":-4.74,\"y\":0,\"z\":3.192,\"yaw\":-0.266,\"speed\":0,\"state\":\"idle\",\"touching\":[\"wall_w\"]}"
+      "detail": "{\"x\":-4.1,\"y\":0,\"z\":-1.5,\"yaw\":1.571,\"speed\":0,\"state\":\"idle\",\"touching\":[]} → {\"x\":-4.74,\"y\":0,\"z\":3.168,\"yaw\":-0.266,\"speed\":0,\"state\":\"idle\",\"touching\":[\"wall_w\"]}"
     },
     {
       "name": "7. Theo colide com a parede (continua pressionando e não atravessa)",
       "ok": true,
-      "detail": "parede=wall_w (-4.74,1.818) → (-4.74,2.743)"
+      "detail": "parede=wall_w (-4.74,1.786) → (-4.74,2.714)"
     },
     {
       "name": "7b. aceleração/desaceleração (velocidade volta a 0 ao soltar)",
@@ -61,7 +61,7 @@
     {
       "name": "8. contorna a estante (frente → trás → ponta leste) sem atravessá-la",
       "ok": true,
-      "detail": "oeste=(-0.533,2.456) trás=(-0.622,3.669) trás-leste=(2.895,3.61) fim=(3.026,2.237)"
+      "detail": "oeste=(-0.567,2.426) trás=(-0.609,3.639) trás-leste=(2.877,3.601) fim=(3.012,2.221)"
     },
     {
       "name": "8b. câmera troca de enquadramento ao atravessar a garagem (transição suave)",

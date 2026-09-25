@@ -6,7 +6,7 @@
     {
       "name": "1. título → menu: áudio desbloqueado no 1º clique e música do menu tocando (sem flag de autoplay)",
       "ok": true,
-      "detail": "[{\"key\":\"bgm_menu_tema.ogg\",\"playing\":true,\"volume\":0.074}]"
+      "detail": "[{\"key\":\"bgm_menu_tema.ogg\",\"playing\":true,\"volume\":0.072}]"
     },
     {
       "name": "1b. menu: SFX de navegação requisitado",
@@ -16,12 +16,12 @@
     {
       "name": "2. cutscene opening: StageDirector tocando com Theo em cena",
       "ok": true,
-      "detail": "CutsceneScene [{\"id\":\"theo\",\"x\":-77,\"y\":660,\"alpha\":1}]"
+      "detail": "CutsceneScene [{\"id\":\"theo\",\"x\":-80,\"y\":660,\"alpha\":1}]"
     },
     {
       "name": "2b. cutscene: música e ambiência da cena",
       "ok": true,
-      "detail": "bgm_menu_tema.ogg,phase01_casa_medo.ogg,amb_house.ogg,sfx_door_open.ogg,intro_text.ogg"
+      "detail": "bgm_menu_tema.ogg,phase01_casa_medo.ogg,amb_house.ogg"
     },
     {
       "name": "2c. legenda sincronizada com a voz",
@@ -31,7 +31,7 @@
     {
       "name": "2d. Theo se move durante a cutscene (animação em engine)",
       "ok": true,
-      "detail": "{\"id\":\"theo\",\"x\":-77,\"y\":660,\"alpha\":1} -> {\"id\":\"theo\",\"x\":351,\"y\":652,\"alpha\":1}"
+      "detail": "{\"id\":\"theo\",\"x\":-80,\"y\":660,\"alpha\":1} -> {\"id\":\"theo\",\"x\":351,\"y\":652,\"alpha\":1}"
     },
     {
       "name": "3. pausa (P) e retomada",
@@ -51,7 +51,7 @@
     {
       "name": "6. fase 1: música + ambiência da fase tocando",
       "ok": true,
-      "detail": "bgm_menu_tema.ogg,phase01_casa_medo.ogg,amb_house.ogg,sfx_door_open.ogg,phase01_intro.ogg"
+      "detail": "bgm_menu_tema.ogg,phase01_casa_medo.ogg,amb_house.ogg,sfx_door_open.ogg"
     },
     {
       "name": "6b. fase 1: narração com legenda",
@@ -61,7 +61,7 @@
     {
       "name": "7. Theo anda com as setas",
       "ok": true,
-      "detail": "{\"id\":\"theo\",\"x\":640,\"y\":660,\"alpha\":1} -> {\"id\":\"theo\",\"x\":776,\"y\":660,\"alpha\":1}"
+      "detail": "{\"id\":\"theo\",\"x\":640,\"y\":660,\"alpha\":1} -> {\"id\":\"theo\",\"x\":773,\"y\":660,\"alpha\":1}"
     },
     {
       "name": "7b. passos com SFX",
@@ -106,7 +106,7 @@
     {
       "name": "11. save/reload: CONTINUAR retoma a fase 2 com Theo e áudio",
       "ok": true,
-      "detail": "StoryScene bgm_menu_tema.ogg,phase02_igreja_curiosidade.ogg,amb_church.ogg"
+      "detail": "StoryScene bgm_menu_tema.ogg,phase02_igreja_curiosidade.ogg,amb_church.ogg,phase02_intro.ogg"
     },
     {
       "name": "12. idioma alterna para en-US no menu de opções",
