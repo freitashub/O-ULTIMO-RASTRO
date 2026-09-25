@@ -12,6 +12,8 @@
 - [ComfyUI (pipeline externo)](COMFYUI.md)
 - [Produção audiovisual (vozes, música, SFX, cutscenes)](FINAL_AUDIO_VIDEO_REPORT.md)
 - [Rework v0.4: jogabilidade 2D, menu, áudio, cutscenes em engine](REWORK_V0.4_REPORT.md)
+- [Setup MCP/3D + vertical slice espacial da Fase 1](SETUP_REPORT.md)
+- [Cutscenes do Google Flow](CUTSCENES_GOOGLE_FLOW.md)
 - [Testes](#testes)
 
 ## Arquitetura
@@ -99,8 +101,15 @@ npm run test      # unit (Vitest)
 npm run build     # tsc --noEmit + vite build
 node smoke-test.mjs  # e2e (requer dev server em :5173)
 node final-qa.mjs    # QA completo (gameplay, sem cutscenes)
-node final-qa-av.mjs # QA audiovisual (cutscenes, legendas, música, voz, mute, idioma)
+node final-qa-av.mjs # QA audiovisual + runtime 2D (fases 2–20; usa ?spatial=0)
+node qa-spatial.mjs  # vertical slice 3D da fase 1 (Babylon.js)
 ```
+
+## Runtime espacial (3D)
+
+- Fase 1 roda na `SpatialScene`: mundo Babylon.js (`src/spatial/SpatialWorld.ts`) sob o canvas transparente do Phaser (HUD, legendas, painéis).
+- Layout em `src/spatial/garageLayout.ts`; modelo `public/assets/models/theo.glb` gerado por `npm run assets:models`.
+- `?spatial=0` força a exploração 2D. Falha de WebGL cai automaticamente no 2D.
 
 Regras de ending (preservadas da spec):
 
