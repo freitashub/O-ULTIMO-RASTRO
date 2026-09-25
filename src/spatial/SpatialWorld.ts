@@ -56,6 +56,8 @@ export interface SpatialStepEvents {
 
 export interface SpatialDebugState {
   theo: { x: number; y: number; z: number; yaw: number; speed: number; state: TheoState; touching: string[] };
+  /** rotações atuais (rad) de algumas juntas — QA da animação */
+  pose: { thighL: number; thighR: number; shinL: number; shinR: number; upperarmL: number; forearmL: number };
   camera: string;
   focus: string | null;
   occludedBy: string | null;
@@ -85,7 +87,26 @@ const THEO_CHEST_Y = 1.0;
 /** raio do collider do Theo no plano (m) */
 export const THEO_RADIUS = 0.26;
 
-type RigParts = Record<'hips' | 'torso' | 'head' | 'arm_L' | 'arm_R' | 'leg_L' | 'leg_R', TransformNode | null>;
+const RIG_JOINTS = [
+  'hips', 'spine', 'chest', 'neck', 'head',
+  'shoulder_L', 'upperarm_L', 'forearm_L', 'hand_L', 'shoulder_R', 'upperarm_R', 'forearm_R', 'hand_R',
+  'thigh_L', 'shin_L', 'foot_L', 'thigh_R', 'shin_R', 'foot_R'
+] as const;
+type RigJoint = (typeof RIG_JOINTS)[number];
+type RigParts = Record<RigJoint, TransformNode | null>;
+
+/** Sinais dos eixos por articulação (descobertos ao carregar: dependem da conversão de mão do glTF). */
+interface RigSigns {
+  /** rotação X positiva leva a coxa para frente? (+1 / −1) */
+  legSwing: number;
+  /** rotação X positiva leva o braço para frente? */
+  armSwing: number;
+  /** rotação Z positiva abre o braço esquerdo para fora? */
+  armOutL: number;
+  armOutR: number;
+}
+
+const emptyParts = (): RigParts => Object.fromEntries(RIG_JOINTS.map((j) => [j, null])) as RigParts;
 
 export class SpatialWorld {
   readonly layout: SpatialLayout;
@@ -94,7 +115,9 @@ export class SpatialWorld {
   private opts: SpatialWorldOptions;
   private collider!: Mesh;
   private rig!: TransformNode;
-  private parts: RigParts = { hips: null, torso: null, head: null, arm_L: null, arm_R: null, leg_L: null, leg_R: null };
+  private parts: RigParts = emptyParts();
+  private rest = new Map<RigJoint, Vector3>();
+  private signs: RigSigns = { legSwing: 1, armSwing: 1, armOutL: 1, armOutR: -1 };
   private yaw = 0;
   private yawOffset = 0;
   private speed = 0;
@@ -401,7 +424,13 @@ export class SpatialWorld {
       }
       const all = [root, ...root.getDescendants(false)] as TransformNode[];
       const find = (n: string): TransformNode | null => all.find((x) => x.name === n) ?? null;
-      for (const k of Object.keys(this.parts) as Array<keyof RigParts>) this.parts[k] = find(k);
+      for (const k of RIG_JOINTS) {
+        const node = find(k);
+        // o loader do glTF sempre define rotationQuaternion (que tem precedência sobre rotation);
+        // as juntas do Theo têm rotação identidade no modelo, então anulamos para animar por Euler
+        if (node) node.rotationQuaternion = null;
+        this.parts[k] = node;
+      }
       // descobre a frente do modelo (nariz − cabeça) para alinhar o yaw independentemente da conversão de eixos
       this.rig.rotation.y = 0;
       this.rig.computeWorldMatrix(true);
@@ -412,7 +441,9 @@ export class SpatialWorld {
         const f = nose.getAbsolutePosition().subtract(head.getAbsolutePosition());
         this.yawOffset = -Math.atan2(f.x, f.z);
       }
-      return !!(this.parts.leg_L && this.parts.arm_L);
+      this.captureRest();
+      this.detectSigns();
+      return !!(this.parts.thigh_L && this.parts.upperarm_L && this.parts.shin_L);
     } catch (err) {
       console.warn('Theo GLB indisponível, usando rig primitivo:', err);
       return false;
@@ -421,29 +452,97 @@ export class SpatialWorld {
 
   /** Mesmo esqueleto do GLB feito com primitivas (headless/testes ou fallback). */
   private buildPrimitiveTheo(): void {
-    const mk = (name: string, parent: TransformNode, t: [number, number, number], size?: [number, number, number], offY = 0, rgb: [number, number, number] = [0.07, 0.16, 0.27]): TransformNode => {
-      const node = new TransformNode(name, this.scene);
-      node.parent = parent;
-      node.position.set(...t);
-      if (size) {
-        const m = MeshBuilder.CreateBox(`${name}_mesh`, { width: size[0], height: size[1], depth: size[2] }, this.scene);
-        m.parent = node;
-        m.position.y = offY;
-        m.material = this.material(`${name}_m`, rgb);
-      }
-      return node;
+    const J: Record<RigJoint, [number, number, number]> = {
+      hips: [0, 0.8, 0], spine: [0, 0.92, 0], chest: [0, 1.05, 0], neck: [0, 1.23, 0], head: [0, 1.3, 0],
+      shoulder_L: [0.06, 1.19, 0], upperarm_L: [0.175, 1.185, 0], forearm_L: [0.2, 0.95, 0], hand_L: [0.215, 0.74, 0],
+      shoulder_R: [-0.06, 1.19, 0], upperarm_R: [-0.175, 1.185, 0], forearm_R: [-0.2, 0.95, 0], hand_R: [-0.215, 0.74, 0],
+      thigh_L: [0.085, 0.79, 0], shin_L: [0.09, 0.45, 0], foot_L: [0.092, 0.075, 0],
+      thigh_R: [-0.085, 0.79, 0], shin_R: [-0.09, 0.45, 0], foot_R: [-0.092, 0.075, 0]
     };
-    const hips = mk('hips', this.rig, [0, 0.78, 0], [0.34, 0.16, 0.2], 0, [0.52, 0.45, 0.36]);
-    const torso = mk('torso', hips, [0, 0.06, 0], [0.4, 0.44, 0.24], 0.22);
-    const neck = mk('neck', torso, [0, 0.46, 0]);
-    const head = mk('head', neck, [0, 0.06, 0], [0.26, 0.3, 0.26], 0.15, [0.86, 0.69, 0.56]);
-    mk('nose', head, [0, 0.13, 0.14], [0.03, 0.04, 0.03], 0, [0.86, 0.69, 0.56]);
-    const armL = mk('arm_L', torso, [0.25, 0.4, 0], [0.1, 0.46, 0.11], -0.21);
-    const armR = mk('arm_R', torso, [-0.25, 0.4, 0], [0.1, 0.46, 0.11], -0.21);
-    const legL = mk('leg_L', hips, [0.09, -0.04, 0], [0.13, 0.66, 0.14], -0.33, [0.52, 0.45, 0.36]);
-    const legR = mk('leg_R', hips, [-0.09, -0.04, 0], [0.13, 0.66, 0.14], -0.33, [0.52, 0.45, 0.36]);
-    this.parts = { hips, torso, head, arm_L: armL, arm_R: armR, leg_L: legL, leg_R: legR };
+    const parent: Partial<Record<RigJoint, RigJoint>> = {
+      spine: 'hips', chest: 'spine', neck: 'chest', head: 'neck', shoulder_L: 'chest', upperarm_L: 'shoulder_L', forearm_L: 'upperarm_L', hand_L: 'forearm_L',
+      shoulder_R: 'chest', upperarm_R: 'shoulder_R', forearm_R: 'upperarm_R', hand_R: 'forearm_R', thigh_L: 'hips', shin_L: 'thigh_L', foot_L: 'shin_L',
+      thigh_R: 'hips', shin_R: 'thigh_R', foot_R: 'shin_R'
+    };
+    const seg: Partial<Record<RigJoint, [number, number, number, [number, number, number]]>> = {
+      hips: [0.3, 0.14, 0.2, [0.25, 0.19, 0.12]], spine: [0.3, 0.14, 0.2, [0.02, 0.05, 0.11]], chest: [0.34, 0.18, 0.21, [0.02, 0.05, 0.11]],
+      head: [0.2, 0.23, 0.21, [0.72, 0.43, 0.3]], upperarm_L: [0.09, 0.23, 0.1, [0.02, 0.05, 0.11]], upperarm_R: [0.09, 0.23, 0.1, [0.02, 0.05, 0.11]],
+      forearm_L: [0.08, 0.2, 0.08, [0.02, 0.05, 0.11]], forearm_R: [0.08, 0.2, 0.08, [0.02, 0.05, 0.11]], thigh_L: [0.13, 0.33, 0.14, [0.25, 0.19, 0.12]],
+      thigh_R: [0.13, 0.33, 0.14, [0.25, 0.19, 0.12]], shin_L: [0.1, 0.36, 0.1, [0.25, 0.19, 0.12]], shin_R: [0.1, 0.36, 0.1, [0.25, 0.19, 0.12]],
+      foot_L: [0.09, 0.07, 0.22, [0.4, 0.03, 0.02]], foot_R: [0.09, 0.07, 0.22, [0.4, 0.03, 0.02]]
+    };
+    for (const j of RIG_JOINTS) {
+      const node = new TransformNode(j, this.scene);
+      const par = parent[j];
+      node.parent = par ? this.parts[par]! : this.rig;
+      const p = J[j];
+      const pp = par ? J[par] : [0, 0, 0];
+      node.position.set(p[0] - pp[0], p[1] - pp[1], p[2] - pp[2]);
+      this.parts[j] = node;
+      const sg = seg[j];
+      if (sg) {
+        const m = MeshBuilder.CreateBox(`${j}_mesh`, { width: sg[0], height: sg[1], depth: sg[2] }, this.scene);
+        m.parent = node;
+        m.position.y = j === 'head' || j === 'hips' || j === 'spine' || j === 'chest' ? sg[1] / 2 - 0.02 : j.startsWith('foot') ? -0.03 : -sg[1] / 2;
+        if (j.startsWith('foot')) m.position.z = 0.05;
+        m.material = this.material(`${j}_m`, sg[3]);
+      }
+    }
+    const nose = new TransformNode('nose', this.scene);
+    nose.parent = this.parts.head;
+    nose.position.set(0, 0.075, 0.11);
     this.yawOffset = 0;
+    this.captureRest();
+    this.detectSigns();
+  }
+
+  private captureRest(): void {
+    this.rest.clear();
+    for (const j of RIG_JOINTS) {
+      const n = this.parts[j];
+      if (n) this.rest.set(j, n.position.clone());
+    }
+  }
+
+  /**
+   * Descobre, em espaço do rig, para que lado cada rotação leva o membro (a conversão de mão do
+   * glTF para o Babylon espelha eixos). Assim a animação independe da origem do modelo.
+   */
+  private detectSigns(): void {
+    const localOf = (n: TransformNode | null): Vector3 | null => {
+      if (!n) return null;
+      this.rig.computeWorldMatrix(true);
+      let cur: TransformNode | null = n;
+      const chain: TransformNode[] = [];
+      while (cur) {
+        chain.unshift(cur);
+        cur = cur.parent as TransformNode | null;
+      }
+      for (const c of chain) c.computeWorldMatrix(true);
+      const inv = this.rig.getWorldMatrix().clone().invert();
+      return Vector3.TransformCoordinates(n.getAbsolutePosition(), inv);
+    };
+    const probe = (joint: RigJoint, end: RigJoint, axis: 'x' | 'z', read: (v: Vector3) => number): number => {
+      const j = this.parts[joint];
+      const e = this.parts[end];
+      if (!j || !e) return 1;
+      const before = localOf(e);
+      j.rotation[axis] = 0.4;
+      const after = localOf(e);
+      j.rotation[axis] = 0;
+      if (!before || !after) return 1;
+      return read(after.subtract(before)) >= 0 ? 1 : -1;
+    };
+    const saved = this.rig.rotation.y;
+    this.rig.rotation.y = this.yawOffset; // frente do modelo = +Z do rig
+    const fwd = (v: Vector3): number => v.z;
+    this.signs = {
+      legSwing: probe('thigh_L', 'foot_L', 'x', fwd),
+      armSwing: probe('upperarm_L', 'hand_L', 'x', fwd),
+      armOutL: probe('upperarm_L', 'hand_L', 'z', (v) => (localOf(this.parts.hand_L)!.x >= 0 ? v.x : -v.x)),
+      armOutR: probe('upperarm_R', 'hand_R', 'z', (v) => (localOf(this.parts.hand_R)!.x >= 0 ? v.x : -v.x))
+    };
+    this.rig.rotation.y = saved;
   }
 
   private buildCamera(): void {
@@ -605,40 +704,89 @@ export class SpatialWorld {
     this.updateRig(dt, events);
   }
 
+  /** Aproxima o valor atual do alvo (suavização exponencial independente do fps). */
+  private ease(cur: number, target: number, rate: number, dt: number): number {
+    return cur + (target - cur) * Math.min(1, dt * rate);
+  }
+
   private updateRig(dt: number, events?: SpatialStepEvents): void {
     const p = this.parts;
+    if (!p.hips) return;
     const reduce = !!this.opts.reduceMotion;
+    const S = this.signs;
     const k = Math.min(1, this.speed / WALK_SPEED);
+    const r = (j: RigJoint): Vector3 => this.rest.get(j) ?? Vector3.Zero();
+    const set = (j: RigJoint, x: number, y: number, z: number, rate = 14): void => {
+      const n = p[j];
+      if (!n) return;
+      n.rotation.x = this.ease(n.rotation.x, x, rate, dt);
+      n.rotation.y = this.ease(n.rotation.y, y, rate, dt);
+      n.rotation.z = this.ease(n.rotation.z, z, rate, dt);
+    };
+
     if (this.state === 'walk' && !reduce) {
-      this.walkPhase += dt * (6.5 + 3 * k);
-      const s = Math.sin(this.walkPhase);
-      if (p.leg_L) p.leg_L.rotation.x = s * 0.62 * k;
-      if (p.leg_R) p.leg_R.rotation.x = -s * 0.62 * k;
-      if (p.arm_L) p.arm_L.rotation.x = -s * 0.5 * k;
-      if (p.arm_R) p.arm_R.rotation.x = s * 0.5 * k;
-      if (p.hips) p.hips.position.y = 0.78 + Math.abs(Math.cos(this.walkPhase)) * 0.035 * k;
-      if (p.torso) p.torso.rotation.y = s * 0.08 * k;
-      if (p.head) p.head.rotation.x = 0.04;
+      // ciclo de marcha: coxas alternadas, joelho dobra na fase de balanço, pé acompanha,
+      // braços opostos com cotovelo, quadril sobe na passagem e gira; tronco contra-rota
+      this.walkPhase += dt * (5.2 + 3.6 * k);
+      const ph = this.walkPhase;
+      const s = Math.sin(ph);
+      const c = Math.cos(ph);
+      const L = S.legSwing;
+      const A = S.armSwing;
+      const thighL = s * 0.52 * k;
+      const thighR = -s * 0.52 * k;
+      const kneeL = (0.08 + 0.95 * Math.max(0, c) * Math.max(0, c + 0.2)) * k;
+      const kneeR = (0.08 + 0.95 * Math.max(0, -c) * Math.max(0, -c + 0.2)) * k;
+      set('thigh_L', L * thighL, 0, 0, 30);
+      set('thigh_R', L * thighR, 0, 0, 30);
+      set('shin_L', -L * kneeL, 0, 0, 30);
+      set('shin_R', -L * kneeR, 0, 0, 30);
+      set('foot_L', L * (-thighL * 0.35 + kneeL * 0.25), 0, 0, 30);
+      set('foot_R', L * (-thighR * 0.35 + kneeR * 0.25), 0, 0, 30);
+      set('upperarm_L', A * (-s * 0.5 * k), 0, S.armOutL * 0.06, 20);
+      set('upperarm_R', A * (s * 0.5 * k), 0, S.armOutR * 0.06, 20);
+      set('forearm_L', A * (0.25 + 0.45 * Math.max(0, -s) * k), 0, 0, 20);
+      set('forearm_R', A * (0.25 + 0.45 * Math.max(0, s) * k), 0, 0, 20);
+      set('hips', 0, s * 0.1 * k, s * 0.045 * k, 20);
+      set('spine', L * 0.06 * k, -s * 0.12 * k, 0, 20);
+      set('chest', 0, -s * 0.08 * k, -s * 0.03 * k, 20);
+      set('neck', 0, s * 0.1 * k, 0, 20);
+      set('head', -L * 0.04 * k, s * 0.06 * k, 0, 20);
+      const hr = r('hips');
+      p.hips.position.y = hr.y + (0.028 * (1 - Math.abs(s)) - 0.018) * k;
       const sign = s >= 0 ? 1 : -1;
       if (sign !== this.lastStepSign) {
         this.lastStepSign = sign;
         if (events) events.footstep = true;
       }
     } else {
-      this.idlePhase += dt * 1.7;
-      const b = Math.sin(this.idlePhase);
-      const ease = Math.min(1, dt * 8);
-      for (const part of [p.leg_L, p.leg_R, p.arm_L]) if (part) part.rotation.x += (0 - part.rotation.x) * ease;
-      if (p.torso) {
-        p.torso.rotation.y += (0 - p.torso.rotation.y) * ease;
-        p.torso.scaling.y = reduce ? 1 : 1 + b * 0.012;
-      }
-      if (p.hips) p.hips.position.y += (0.78 - p.hips.position.y) * ease;
-      if (p.head) p.head.rotation.x = reduce ? 0 : b * 0.03;
-      if (p.arm_R) {
-        const lift = this.state === 'interact' ? Math.sin(Math.min(1, this.interactT / 0.55) * Math.PI) * -1.15 : 0;
-        p.arm_R.rotation.x += (lift - p.arm_R.rotation.x) * Math.min(1, dt * 14);
-      }
+      // parado: respiração, troca de peso, olhar em volta; ou gesto de examinar
+      this.idlePhase += dt;
+      const t = this.idlePhase;
+      const breath = reduce ? 0 : Math.sin(t * 1.9);
+      const sway = reduce ? 0 : Math.sin(t * 0.45);
+      const look = reduce ? 0 : Math.sin(t * 0.23) * Math.sin(t * 0.61);
+      const L = S.legSwing;
+      const A = S.armSwing;
+      const interact = this.state === 'interact' ? Math.sin(Math.min(1, this.interactT / 0.55) * Math.PI) : 0;
+      set('thigh_L', L * 0.02, 0, 0, 8);
+      set('thigh_R', L * -0.02, 0, 0, 8);
+      set('shin_L', -L * 0.05, 0, 0, 8);
+      set('shin_R', -L * 0.03, 0, 0, 8);
+      set('foot_L', 0, 0, 0, 8);
+      set('foot_R', 0, 0, 0, 8);
+      set('hips', 0, 0, sway * 0.025, 4);
+      set('spine', L * (0.02 + 0.22 * interact), 0, -sway * 0.02, 6);
+      set('chest', -L * breath * 0.025, 0, 0, 6);
+      set('neck', 0, look * 0.25, 0, 3);
+      set('head', L * (0.08 * interact) + breath * 0.01, look * 0.2, 0, 3);
+      set('upperarm_L', A * 0.04, 0, S.armOutL * (0.07 + breath * 0.01), 8);
+      set('forearm_L', A * 0.18, 0, 0, 8);
+      set('upperarm_R', A * (0.04 + 1.15 * interact), 0, S.armOutR * (0.07 + breath * 0.01), 12);
+      set('forearm_R', A * (0.18 + 0.35 * interact), 0, 0, 12);
+      const hr = r('hips');
+      p.hips.position.x = hr.x + sway * 0.012;
+      p.hips.position.y = this.ease(p.hips.position.y, hr.y - 0.004 - interact * 0.03, 10, dt);
     }
   }
 
@@ -770,6 +918,14 @@ export class SpatialWorld {
     const p = this.collider.position;
     return {
       theo: { x: +p.x.toFixed(3), y: +p.y.toFixed(3), z: +p.z.toFixed(3), yaw: +this.yaw.toFixed(3), speed: +this.speed.toFixed(3), state: this.state, touching: [...this.lastHits] },
+      pose: {
+        thighL: +(this.parts.thigh_L?.rotation.x ?? 0).toFixed(3),
+        thighR: +(this.parts.thigh_R?.rotation.x ?? 0).toFixed(3),
+        shinL: +(this.parts.shin_L?.rotation.x ?? 0).toFixed(3),
+        shinR: +(this.parts.shin_R?.rotation.x ?? 0).toFixed(3),
+        upperarmL: +(this.parts.upperarm_L?.rotation.x ?? 0).toFixed(3),
+        forearmL: +(this.parts.forearm_L?.rotation.x ?? 0).toFixed(3)
+      },
       camera: this.cameraSpec.id,
       focus: this.focus?.id ?? null,
       occludedBy: this.occluderBetweenCameraAndTheo(),

@@ -159,14 +159,56 @@ describe('SpatialWorld (Babylon NullEngine: colisão, raycast, oclusão)', () =>
   });
 });
 
-describe('modelo GLB do Theo', () => {
-  it('é um glTF binário válido com o esqueleto articulado esperado', async () => {
+describe('modelo GLB do Theo (v2, skinned)', () => {
+  it('malha contínua com esqueleto: 19 ossos (joelho, cotovelo, tornozelo, pescoço) e pesos normalizados', async () => {
     const file = path.join(process.cwd(), 'public/assets/models/theo.glb');
     expect(fs.existsSync(file)).toBe(true);
-    expect(fs.statSync(file).size).toBeLessThan(200_000);
+    expect(fs.statSync(file).size).toBeLessThan(500_000);
     const doc = await new NodeIO().read(file);
     const names = doc.getRoot().listNodes().map((n) => n.getName());
-    for (const n of ['theo', 'hips', 'torso', 'head', 'nose', 'arm_L', 'arm_R', 'leg_L', 'leg_R']) expect(names).toContain(n);
+    for (const n of ['theo', 'hips', 'spine', 'chest', 'neck', 'head', 'nose', 'upperarm_L', 'forearm_L', 'hand_L', 'upperarm_R', 'forearm_R', 'thigh_L', 'shin_L', 'foot_L', 'thigh_R', 'shin_R', 'foot_R']) {
+      expect(names).toContain(n);
+    }
+    const skins = doc.getRoot().listSkins();
+    expect(skins).toHaveLength(1);
+    expect(skins[0].listJoints()).toHaveLength(19);
+    const meshes = doc.getRoot().listMeshes();
+    expect(meshes).toHaveLength(1); // um único corpo, não peças empilhadas
+    for (const prim of meshes[0].listPrimitives()) {
+      const w = prim.getAttribute('WEIGHTS_0')!.getArray()!;
+      for (let i = 0; i < w.length; i += 4) expect(w[i] + w[i + 1] + w[i + 2] + w[i + 3]).toBeCloseTo(1, 4);
+      expect(prim.getAttribute('JOINTS_0')).toBeTruthy();
+    }
+  });
+});
+
+describe('animação procedural do Theo', () => {
+  it('caminhada: coxas alternadas, joelhos dobram, braços opostos às pernas; parado volta ao repouso', async () => {
+    const w = new SpatialWorld(GARAGE_LAYOUT, { headless: true });
+    await w.build();
+    w.teleport(-2, -1, 0);
+    let maxThighDiff = 0;
+    let maxKnee = 0;
+    let armOpposite = 0;
+    let samples = 0;
+    for (let i = 0; i < 60; i++) {
+      w.step(1 / 30, { x: 0, y: 0, world: { x: 1, z: 0 } });
+      const pose = w.getDebugState().pose;
+      maxThighDiff = Math.max(maxThighDiff, Math.abs(pose.thighL - pose.thighR));
+      maxKnee = Math.max(maxKnee, Math.abs(pose.shinL), Math.abs(pose.shinR));
+      if (i > 20 && Math.abs(pose.thighL) > 0.1) {
+        samples++;
+        if (Math.sign(pose.thighL) !== Math.sign(pose.upperarmL)) armOpposite++;
+      }
+    }
+    expect(maxThighDiff).toBeGreaterThan(0.6);
+    expect(maxKnee).toBeGreaterThan(0.4);
+    expect(armOpposite / Math.max(1, samples)).toBeGreaterThan(0.8);
+    for (let i = 0; i < 45; i++) w.step(1 / 30, { x: 0, y: 0 });
+    const rest = w.getDebugState().pose;
+    expect(Math.abs(rest.thighL)).toBeLessThan(0.08);
+    expect(Math.abs(rest.shinL)).toBeLessThan(0.12);
+    w.dispose();
   });
 });
 
