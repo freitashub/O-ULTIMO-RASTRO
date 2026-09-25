@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PAT}"
+      }
+    },
+    "babylonjs-node-material": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@babylonjs/mcp-servers",
+        "nme"
+      ],
+      "env": {}
+    },
+    "babylonjs-node-geometry": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@babylonjs/mcp-servers",
+        "nge"
+      ],
+      "env": {}
+    }
+  }
+}
