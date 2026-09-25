@@ -20,9 +20,13 @@
     "audio:validate": "python3 tools/audio/validate.py"
   },
   "dependencies": {
+    "@babylonjs/core": "^9.28.0",
+    "@babylonjs/loaders": "^9.28.0",
     "phaser": "^4.2.1"
   },
   "devDependencies": {
+    "@gltf-transform/cli": "^4.5.0",
+    "@gltf-transform/core": "^4.5.0",
     "@types/node": "^26.6.2",
     "@vitest/coverage-v8": "^5.0.1",
     "fake-indexeddb": "^6.2.5",
