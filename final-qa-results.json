@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T20:00:12.531Z",
+  "generatedAt": "2026-09-25T21:03:19.440Z",
   "pass": 23,
   "fail": 0,
   "notes": 1,
@@ -127,10 +127,10 @@
   ],
   "consoleErrors": [],
   "consoleWarns": [
-    "console.warn: [.WebGL-0x30a403531200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "console.warn: [.WebGL-0x30a403531200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "console.warn: [.WebGL-0x30a403531200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "console.warn: [.WebGL-0x30a403531200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    "console.warn: [.WebGL-0x113400121600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "console.warn: [.WebGL-0x113400121600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "console.warn: [.WebGL-0x113400121600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "console.warn: [.WebGL-0x113400121600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
   ],
   "networkFail": [],
   "networkOkCount": 523,
