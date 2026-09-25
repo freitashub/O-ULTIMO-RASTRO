@@ -36,3 +36,13 @@ referencias/personagens/
 
 Essas imagens são apenas referência de desenvolvimento; o jogo não as
 carrega em runtime.
+
+## Status
+
+| Personagem | Referência | Assets derivados |
+|---|---|---|
+| Theo (normal) | `theo/theo_normal.webp` | sprite 2D, retrato, textura do rosto e modelo 3D — `npm run assets:theo` |
+
+O pipeline recorta o fundo branco sem redesenhar a arte (`tools/art/`), mede proporções e cores na
+imagem e gera o modelo 3D por script (`tools/models/build-theo-glb.mjs`). Versões transformadas
+(`theo_t2`, `theo_t4`) continuam com a arte antiga até chegarem as referências delas.

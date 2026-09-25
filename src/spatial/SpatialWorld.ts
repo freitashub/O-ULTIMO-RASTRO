@@ -17,6 +17,7 @@ import type { AbstractMesh } from '@babylonjs/core/Meshes/abstractMesh';
 import { TransformNode } from '@babylonjs/core/Meshes/transformNode';
 import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial';
 import { DynamicTexture } from '@babylonjs/core/Materials/Textures/dynamicTexture';
+import type { BaseTexture } from '@babylonjs/core/Materials/Textures/baseTexture';
 import { FreeCamera } from '@babylonjs/core/Cameras/freeCamera';
 import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
 import { PointLight } from '@babylonjs/core/Lights/pointLight';
@@ -27,6 +28,7 @@ import { ImportMeshAsync } from '@babylonjs/core/Loading/sceneLoader';
 import '@babylonjs/core/Culling/ray';
 import '@babylonjs/core/Lights/Shadows/shadowGeneratorSceneComponent';
 import '@babylonjs/loaders/glTF';
+import '@babylonjs/core/Rendering/outlineRenderer';
 import {
   BoxCollider2D,
   CameraSpec,
@@ -391,16 +393,17 @@ export class SpatialWorld {
     this.rig = new TransformNode('theo_rig', this.scene);
     this.rig.position.copyFrom(this.collider.position);
     // luz de personagem (fraca, curta): mantém o Theo legível no escuro sem iluminar a sala
-    const charLight = new PointLight('theo_light', new Vector3(0.35, 1.9, 0.9), this.scene);
+    const charLight = new PointLight('theo_light', new Vector3(0.3, 1.55, 1.1), this.scene);
     charLight.parent = this.rig;
-    charLight.diffuse = new Color3(0.95, 0.85, 0.7);
+    charLight.diffuse = new Color3(0.9, 0.88, 0.84);
     charLight.intensity = 0.55;
     charLight.range = 2.6;
   }
 
   private async loadTheoModel(url: string): Promise<boolean> {
     try {
-      const result = await ImportMeshAsync(url, this.scene);
+      // sem buffers sRGB: o material padrão (abaixo) espera a textura do rosto em espaço gama
+      const result = await ImportMeshAsync(url, this.scene, { pluginOptions: { gltf: { useSRGBBuffers: false } } });
       const root = result.meshes.find((m) => m.name === '__root__') ?? result.meshes[0];
       if (!root) return false;
       root.parent = this.rig;
@@ -408,19 +411,42 @@ export class SpatialWorld {
       // PBR sem mapa de ambiente fica quase preto: converte para material padrão com a mesma cor base
       const converted = new Map<string, StandardMaterial>();
       for (const m of result.meshes) {
-        const src = m.material as unknown as { name: string; albedoColor?: Color3; getClassName(): string } | null;
+        const src = m.material as unknown as {
+          name: string;
+          albedoColor?: Color3;
+          albedoTexture?: BaseTexture | null;
+          backFaceCulling?: boolean;
+          getClassName(): string;
+        } | null;
         if (!src || src.getClassName() !== 'PBRMaterial') continue;
         let std = converted.get(src.name);
         if (!std) {
           std = new StandardMaterial(`theo_${src.name}`, this.scene);
           const c = src.albedoColor ?? new Color3(0.5, 0.5, 0.5);
-          // albedo do glTF é linear; o material padrão espera gama
+          // albedo do glTF é linear; o material padrão espera gama (cor por vértice multiplica por cima)
           std.diffuseColor = c.toGammaSpace();
-          std.specularColor = new Color3(0.08, 0.08, 0.08);
+          std.specularColor = new Color3(0.05, 0.05, 0.05);
           std.emissiveColor = c.toGammaSpace().scale(0.12);
+          if (src.albedoTexture) {
+            // rosto: a própria arte do Theo; emissivo maior para os traços lerem na penumbra
+            std.diffuseTexture = src.albedoTexture;
+            std.emissiveTexture = src.albedoTexture;
+            std.emissiveColor = new Color3(0.22, 0.22, 0.22);
+          }
+          if (src.backFaceCulling === false) {
+            // casaco aberto: o forro aparece pela abertura
+            std.backFaceCulling = false;
+            std.twoSidedLighting = true;
+          }
           converted.set(src.name, std);
         }
         m.material = std;
+        // contorno de nanquim, como na arte de referência
+        if (m instanceof Mesh && m.skeleton) {
+          m.renderOutline = true;
+          m.outlineColor = new Color3(0.02, 0.02, 0.03);
+          m.outlineWidth = 0.0035;
+        }
       }
       const all = [root, ...root.getDescendants(false)] as TransformNode[];
       const find = (n: string): TransformNode | null => all.find((x) => x.name === n) ?? null;

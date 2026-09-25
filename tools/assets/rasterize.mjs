@@ -64,6 +64,8 @@ for (const id of ['ending_good', 'ending_bad', 'ending_secret']) {
 for (const id of ['theo', 'clara', 'elias', 'silas', 'troll']) {
   const src = `public/images/portraits/${id}.svg`;
   if (!fs.existsSync(src)) continue;
+  // personagens com arte de referência aprovada têm retrato derivado dela (tools/art/build-<id>-art.mjs)
+  if (fs.existsSync(`referencias/personagens/${id}`)) continue;
   await convertPng(src, `public/images/portraits/${id}.png`, 512, 512);
   meta.files.push(`/images/portraits/${id}.png`);
 }

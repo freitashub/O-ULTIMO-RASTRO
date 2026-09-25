@@ -4,11 +4,11 @@
   "sprites": {
     "theo": {
       "file": "theo.png",
-      "width": 150,
+      "width": 178,
       "height": 580,
-      "desc": "Theo, pose frontal",
-      "source": "/assets/characters/char_theo.webp",
-      "generator": "rembg-u2net + PIL"
+      "desc": "Theo, pose frontal (arte de referência aprovada)",
+      "source": "/referencias/personagens/theo/theo_normal.webp",
+      "generator": "tools/art/build-theo-art.mjs (recorte por flood fill, sem redesenho)"
     },
     "theo_t2": {
       "file": "theo_t2.png",

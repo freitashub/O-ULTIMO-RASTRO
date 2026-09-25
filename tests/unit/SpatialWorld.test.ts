@@ -159,7 +159,7 @@ describe('SpatialWorld (Babylon NullEngine: colisão, raycast, oclusão)', () =>
   });
 });
 
-describe('modelo GLB do Theo (v2, skinned)', () => {
+describe('modelo GLB do Theo (v3, skinned, arte de referência)', () => {
   it('malha contínua com esqueleto: 19 ossos (joelho, cotovelo, tornozelo, pescoço) e pesos normalizados', async () => {
     const file = path.join(process.cwd(), 'public/assets/models/theo.glb');
     expect(fs.existsSync(file)).toBe(true);
@@ -179,6 +179,36 @@ describe('modelo GLB do Theo (v2, skinned)', () => {
       for (let i = 0; i < w.length; i += 4) expect(w[i] + w[i + 1] + w[i + 2] + w[i + 3]).toBeCloseTo(1, 4);
       expect(prim.getAttribute('JOINTS_0')).toBeTruthy();
     }
+  });
+
+  it('fiel à arte: rosto texturizado com a referência, casaco dupla face e peças do figurino', async () => {
+    const doc = await new NodeIO().read(path.join(process.cwd(), 'public/assets/models/theo.glb'));
+    const prims = doc.getRoot().listMeshes()[0].listPrimitives();
+    const byMat = new Map(prims.map((p) => [p.getMaterial()!.getName(), p]));
+    for (const m of ['coat', 'sweater', 'shirt', 'pants', 'patch', 'boot', 'bag', 'strap', 'hair', 'face', 'skin']) expect(byMat.has(m), m).toBe(true);
+    const face = byMat.get('face')!;
+    expect(face.getAttribute('TEXCOORD_0')).toBeTruthy();
+    expect(face.getMaterial()!.getBaseColorTexture()?.getMimeType()).toBe('image/jpeg');
+    expect(byMat.get('coat')!.getMaterial()!.getDoubleSided()).toBe(true);
+    // cor por vértice (sujeira) nas roupas
+    expect(byMat.get('coat')!.getAttribute('COLOR_0')).toBeTruthy();
+    // altura ~1,45 m com os pés no chão
+    let minY = Infinity, maxY = -Infinity;
+    for (const p of prims) {
+      const a = p.getAttribute('POSITION')!.getArray()!;
+      for (let i = 1; i < a.length; i += 3) { minY = Math.min(minY, a[i]); maxY = Math.max(maxY, a[i]); }
+    }
+    expect(minY).toBeGreaterThan(-0.01);
+    expect(maxY).toBeGreaterThan(1.4);
+    expect(maxY).toBeLessThan(1.6);
+  });
+
+  it('assets 2D do Theo derivados da referência (sprite do catálogo bate com o arquivo)', async () => {
+    expect(fs.existsSync(path.join(process.cwd(), 'referencias/personagens/theo/theo_normal.webp'))).toBe(true);
+    const sprites = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/sprites.json'), 'utf8'));
+    const png = fs.readFileSync(path.join(process.cwd(), 'public/assets/sprites/theo.png'));
+    expect(png.readUInt32BE(16)).toBe(sprites.sprites.theo.width);
+    expect(png.readUInt32BE(20)).toBe(sprites.sprites.theo.height);
   });
 });
 

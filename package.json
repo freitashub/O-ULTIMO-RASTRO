@@ -19,7 +19,8 @@
     "assets:registry": "node tools/assets/build-registry.mjs",
     "audio:validate": "python3 tools/audio/validate.py",
     "qa:spatial": "node qa-spatial.mjs",
-    "assets:models": "node tools/models/build-theo-glb.mjs && gltf-transform validate public/assets/models/theo.glb"
+    "assets:models": "node tools/models/build-theo-glb.mjs && gltf-transform validate public/assets/models/theo.glb",
+    "assets:theo": "node tools/art/build-theo-art.mjs && npm run assets:models"
   },
   "dependencies": {
     "@babylonjs/core": "^9.28.0",

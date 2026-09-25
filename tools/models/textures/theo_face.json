@@ -1,0 +1,17 @@
+{
+  "source": "referencias/personagens/theo/theo_normal.webp",
+  "window": {
+    "cx": 153,
+    "cy": 196,
+    "half": 80
+  },
+  "skinSRGB": [
+    193,
+    174,
+    157
+  ],
+  "cutoutSize": [
+    377,
+    1231
+  ]
+}

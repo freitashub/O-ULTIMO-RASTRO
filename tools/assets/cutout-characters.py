@@ -75,6 +75,8 @@ def main():
     if meta_path.exists(): meta = json.loads(meta_path.read_text())
     for cid, cfg in POSES.items():
         if args.only and args.only != cid: continue
+        # arte de referência aprovada tem pipeline próprio (tools/art/build-<id>-art.mjs)
+        if (ROOT / "referencias" / "personagens" / cid).exists(): continue
         src = next((src_dir / f"char_{cid}{ext}" for ext in (".webp", ".png", ".jpg") if (src_dir / f"char_{cid}{ext}").exists()), None)
         if src is None: print("sem folha:", cid); continue
         if args.single: cfg = {"pick": 0, "desc": cfg["desc"]}
