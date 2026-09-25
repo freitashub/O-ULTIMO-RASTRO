@@ -17,6 +17,7 @@ import { EndingTestScene } from '@/scenes/EndingTestScene';
 import { CreditsScene } from '@/scenes/CreditsScene';
 import { SettingsScene } from '@/scenes/SettingsScene';
 import { CutsceneScene } from '@/scenes/CutsceneScene';
+import { SpatialScene } from '@/scenes/SpatialScene';
 
 // `?renderer=canvas` força Canvas2D (útil em automação headless sem GPU); padrão: AUTO (WebGL)
 const forceCanvas = typeof location !== 'undefined' && /[?&]renderer=canvas/.test(location.search);
@@ -39,7 +40,8 @@ const config: Phaser.Types.Core.GameConfig = {
     EndingTestScene,
     CreditsScene,
     SettingsScene,
-    CutsceneScene
+    CutsceneScene,
+    SpatialScene
   ]
 };
 

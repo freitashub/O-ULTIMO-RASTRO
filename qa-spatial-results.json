@@ -1,0 +1,148 @@
+{
+  "pass": 28,
+  "fail": 0,
+  "total": 28,
+  "checks": [
+    {
+      "name": "1. CUTSCENE 01: vídeo externo (/cutscenes/opening.webm) tocando no CutsceneScene",
+      "ok": true,
+      "detail": "mode=video state=playing"
+    },
+    {
+      "name": "1b. legenda fora do vídeo (SubtitleRenderer + sidecar .cues.json)",
+      "ok": true,
+      "detail": "Narrador: Theo chega em casa.\nA porta está aberta."
+    },
+    {
+      "name": "1c. pausa/retomada do vídeo (P)",
+      "ok": true,
+      "detail": "paused"
+    },
+    {
+      "name": "2. transição vídeo → gameplay 3D (fim do vídeo abre a garagem)",
+      "ok": true,
+      "detail": "SpatialScene"
+    },
+    {
+      "name": "3. cena espacial real (Babylon): piso, paredes, objetos (meshes ≥ 40)",
+      "ok": true,
+      "detail": "meshes=55"
+    },
+    {
+      "name": "4. Theo carregado de GLB (glTF) com posição 3D",
+      "ok": true,
+      "detail": "{\"x\":-4.1,\"y\":0,\"z\":-1.5,\"yaw\":1.571,\"speed\":0,\"state\":\"idle\",\"touching\":[]}"
+    },
+    {
+      "name": "4b. modelo /assets/models/theo.glb requisitado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "5. câmera fixa ativa observando o ambiente",
+      "ok": true,
+      "detail": "cam_east"
+    },
+    {
+      "name": "6. Theo se move por input de teclado (setas)",
+      "ok": true,
+      "detail": "{\"x\":-4.1,\"y\":0,\"z\":-1.5,\"yaw\":1.571,\"speed\":0,\"state\":\"idle\",\"touching\":[]} → {\"x\":-4.74,\"y\":0,\"z\":3.192,\"yaw\":-0.266,\"speed\":0,\"state\":\"idle\",\"touching\":[\"wall_w\"]}"
+    },
+    {
+      "name": "7. Theo colide com a parede (continua pressionando e não atravessa)",
+      "ok": true,
+      "detail": "parede=wall_w (-4.74,1.818) → (-4.74,2.743)"
+    },
+    {
+      "name": "7b. aceleração/desaceleração (velocidade volta a 0 ao soltar)",
+      "ok": true,
+      "detail": "speed=0"
+    },
+    {
+      "name": "8. contorna a estante (frente → trás → ponta leste) sem atravessá-la",
+      "ok": true,
+      "detail": "oeste=(-0.533,2.456) trás=(-0.622,3.669) trás-leste=(2.895,3.61) fim=(3.026,2.237)"
+    },
+    {
+      "name": "8b. câmera troca de enquadramento ao atravessar a garagem (transição suave)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "9. oclusão real: a estante fica entre a câmera e o Theo",
+      "ok": true,
+      "detail": "occludedBy=shelf cam=cam_west"
+    },
+    {
+      "name": "10. save/load: CONTINUAR reabre a garagem 3D (fase 1)",
+      "ok": true,
+      "detail": "SpatialScene"
+    },
+    {
+      "name": "11. interação por proximidade + raycast: foco na marca de pneu",
+      "ok": true,
+      "detail": "focus=tire"
+    },
+    {
+      "name": "12. interagir (E): Theo reage e abre o painel da escolha \"Garagem\"",
+      "ok": true,
+      "detail": "Garagem | Onde procurar agora? | INVESTIGAR AQUI | VOLTAR"
+    },
+    {
+      "name": "12b. ícone da pista carregado no painel",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "13. escolha feita na cena 3D → consequência narrada",
+      "ok": true,
+      "detail": "ChoiceScene"
+    },
+    {
+      "name": "14. pista encontrada e salva (tire_mark)",
+      "ok": true,
+      "detail": "{\"clues\":[\"tire_mark\"],\"choices\":{\"1\":\"b\"}}"
+    },
+    {
+      "name": "15. transição gameplay → CUTSCENE 02 (vídeo externo parents_gone)",
+      "ok": true,
+      "detail": "mode=video src=calhost:5173/cutscenes/parents_gone.webm"
+    },
+    {
+      "name": "15b. após a CUTSCENE 02: fase 2 (runtime 2D preservado)",
+      "ok": true,
+      "detail": "StoryScene"
+    },
+    {
+      "name": "16. canvas 3D descartado ao sair da slice (sem vazamento)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "17. sem arquivo do Google Flow: cutscene em engine (fallback) toca",
+      "ok": true,
+      "detail": "mode=stage"
+    },
+    {
+      "name": "17b. cutscene em engine → garagem 3D",
+      "ok": true,
+      "detail": "SpatialScene"
+    },
+    {
+      "name": "18. nenhum 404/erro de rede",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "19. runtime não chama ComfyUI/MCP",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "20. console sem erros",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "consoleErrors": []
+}

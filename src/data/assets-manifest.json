@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-24T19:18:19.690Z",
+  "generatedAt": "2026-09-25T16:25:45.384Z",
   "backgrounds": [
     "/assets/backgrounds/phase-01-casa.webp",
     "/assets/backgrounds/phase-02-igreja.webp",
@@ -659,6 +659,10 @@
     "/assets/music/phase20_caverna_silencio.ogg"
   ],
   "video": [],
+  "models": [
+    "/assets/models/theo.glb"
+  ],
+  "cutscenes": [],
   "all": [
     "/images/clues/clara_instructions.png",
     "/images/clues/clara_instructions.svg",
@@ -1287,6 +1291,7 @@
     "/assets/characters/char_theo_t2.webp",
     "/assets/characters/char_theo_t4.webp",
     "/assets/characters/char_troll.webp",
+    "/assets/models/theo.glb",
     "/assets/music/bgm_caverna.mp3",
     "/assets/music/bgm_caverna.ogg",
     "/assets/music/bgm_credits.mp3",

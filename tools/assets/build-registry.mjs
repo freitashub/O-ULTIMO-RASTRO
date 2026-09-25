@@ -43,11 +43,19 @@ voicePack.unshift(
 
 // v0.4: cutscenes rodam em engine (sem arquivos de vídeo). Só entra no pack o que existir em disco.
 const video = [];
-const videoBase = cuts.basePath ?? '/assets/video/cutscenes';
+// cutscenes externas (Google Flow) em public/cutscenes/<id>[.<lang>].webm|mp4
+const videoBase = '/cutscenes';
 for (const c of cuts.cutscenes) {
-  const p = `${videoBase}/${c.id}.webm`;
-  if (exists(p)) video.push(entry(`cutscene_${c.id}`, 'video', p, 'video', { fallback: `${videoBase}/${c.id}.mp4`, trigger: c.trigger }));
+  for (const suffix of ['', '.en-US', '.es-ES']) {
+    const webm = `${videoBase}/${c.id}${suffix}.webm`;
+    const mp4 = `${videoBase}/${c.id}${suffix}.mp4`;
+    const p = exists(webm) ? webm : exists(mp4) ? mp4 : null;
+    if (p) video.push(entry(`cutscene_${c.id}${suffix.replace('.', '_')}`, 'video', p, 'video', { fallback: exists(mp4) && p !== mp4 ? mp4 : undefined, trigger: c.trigger }));
+  }
 }
+// modelos 3D (GLB) do runtime espacial
+const modelsDir = path.join(root, 'public/assets/models');
+const modelPack = fs.existsSync(modelsDir) ? fs.readdirSync(modelsDir).filter((f) => /\.(glb|gltf)$/i.test(f)).map((f) => entry(`model_${f.replace(/\.(glb|gltf)$/i, '')}`, 'model', `/assets/models/${f}`, 'models')) : [];
 // sprites recortados (public/assets/sprites) — opcionais, carregados sob demanda pelo ActorSprite
 const spritesMeta = fs.existsSync(path.join(root, 'src/data/sprites.json')) ? read('src/data/sprites.json') : { basePath: '/assets/sprites', sprites: {} };
 const spritePack = Object.entries(spritesMeta.sprites).map(([id, s]) => entry(`sprite_${id}`, 'image', `${spritesMeta.basePath}/${s.file}`, 'sprites', { width: s.width, height: s.height }));
@@ -57,6 +65,7 @@ registry.packs.audio = audio;
 registry.packs.voice = voicePack;
 registry.packs.video = video;
 registry.packs.sprites = spritePack;
+registry.packs.models = modelPack;
 registry.metadata = {
   ...registry.metadata,
   sources: { ...registry.metadata.sources, audio: 'tools/audio/{voices,music,sfx,ambience}.py', video: 'tools/video/build-cutscenes.mjs', registry: 'tools/assets/build-registry.mjs' },
@@ -66,5 +75,5 @@ registry.metadata = {
 const out = JSON.stringify(registry, null, 2) + '\n';
 fs.writeFileSync(path.join(root, 'src/data/assetRegistry.json'), out);
 fs.writeFileSync(path.join(root, 'public/data/assetRegistry.json'), out);
-console.log(`registry: audio=${audio.length} voice=${voicePack.length} video=${video.length} sprites=${spritePack.length} missing=${missing.length}`);
+console.log(`registry: audio=${audio.length} voice=${voicePack.length} video=${video.length} sprites=${spritePack.length} models=${modelPack.length} missing=${missing.length}`);
 if (missing.length) console.log(missing.slice(0, 10).join('\n'));

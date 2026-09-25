@@ -2,13 +2,18 @@ import Phaser from 'phaser';
 import {
   CutsceneDef,
   CutsceneTrigger,
+  cuesFromSidecar,
+  externalVideoBases,
   cutscenesDisabled,
   findCutsceneForTrigger,
   getCutscene,
   markCutsceneSeen,
   wasCutsceneSeen
 } from '@/game/Cutscenes';
-import { stopAllAudio } from '@/game/AudioManager';
+import { channelVolume, isMuted, stopAllAudio } from '@/game/AudioManager';
+import { ensureVideo } from '@/game/OptionalAssets';
+import { hasAssetPath, loadAssetsManifest } from '@/game/AssetsManifest';
+import { CutscenePlayer, createCutscenePlayer } from '@/systems/CutscenePlayer';
 import { getState } from '@/game/GameState';
 import { saveGame } from '@/game/SaveManager';
 import { StageDirector } from '@/systems/StageDirector';
@@ -39,9 +44,14 @@ export function startWithCutscene(scene: Phaser.Scene, trigger: CutsceneTrigger,
   scene.scene.start('CutsceneScene', { cutsceneId: def.id, next } satisfies CutsceneSceneData);
 }
 
-/** Cutscene em engine: cenários + sprites + vozes dirigidos pelo StageDirector. */
+/**
+ * Cutscene: vídeo externo (Google Flow, `public/cutscenes/<id>.webm|mp4`) quando existir no manifest;
+ * senão, cutscene em engine (cenários + sprites + vozes dirigidos pelo StageDirector).
+ */
 export class CutsceneScene extends Phaser.Scene {
   private director: StageDirector | null = null;
+  private videoPlayer: CutscenePlayer | null = null;
+  private mode: 'video' | 'stage' | 'none' = 'none';
   private def: CutsceneDef | null = null;
   private next: CutsceneNext = { scene: 'MenuScene' };
   private pausedLabel: Phaser.GameObjects.Text | null = null;
@@ -54,6 +64,8 @@ export class CutsceneScene extends Phaser.Scene {
   create(data: CutsceneSceneData): void {
     this.finished = false;
     this.director = null;
+    this.videoPlayer = null;
+    this.mode = 'none';
     this.next = data?.next ?? { scene: 'MenuScene' };
     this.def = getCutscene(data?.cutsceneId ?? '');
     this.cameras.main.setBackgroundColor('#000000');
@@ -65,12 +77,65 @@ export class CutsceneScene extends Phaser.Scene {
     markCutsceneSeen(this.def.id);
     void saveGame(getState());
     this.buildUi(this.def);
-    this.director = new StageDirector(this);
-    // inicia no próximo tick: durante create() a cena ainda não está RUNNING (isActive() = false)
     const def = this.def;
-    this.time.delayedCall(10, () => {
-      if (!this.finished && this.director) void this.director.play(def.stage, () => this.goNext());
-    });
+    // inicia no próximo tick: durante create() a cena ainda não está RUNNING (isActive() = false)
+    this.time.delayedCall(10, () => void this.start(def));
+  }
+
+  private async start(def: CutsceneDef): Promise<void> {
+    if (this.finished) return;
+    if (await this.tryExternalVideo(def)) return;
+    this.startStage(def);
+  }
+
+  private startStage(def: CutsceneDef): void {
+    if (this.finished) return;
+    this.mode = 'stage';
+    this.director = new StageDirector(this);
+    void this.director.play(def.stage, () => this.goNext());
+  }
+
+  /** Vídeo externo + legendas do sidecar. Falha de rede/codec → cutscene em engine. */
+  private async tryExternalVideo(def: CutsceneDef): Promise<boolean> {
+    await loadAssetsManifest();
+    let key: string | null = null;
+    for (const base of externalVideoBases(def)) {
+      if (await ensureVideo(this, base, base)) {
+        key = base;
+        break;
+      }
+    }
+    if (!key || this.finished || !this.scene.isActive()) return false;
+    let sidecar: { cues?: [] } | null = null;
+    const cuesPath = `/cutscenes/${def.id}.cues.json`;
+    if (hasAssetPath(cuesPath)) {
+      try {
+        sidecar = await (await fetch(cuesPath)).json();
+      } catch {
+        sidecar = null;
+      }
+    }
+    stopAllAudio(); // o vídeo traz a própria trilha
+    this.mode = 'video';
+    this.videoPlayer = createCutscenePlayer(this);
+    this.videoPlayer.play(
+      [
+        {
+          type: 'video',
+          key,
+          cues: cuesFromSidecar(sidecar),
+          volume: isMuted() ? 0 : Math.max(channelVolume('voice'), channelVolume('music')),
+          onError: () => {
+            console.warn(`Cutscene ${def.id}: vídeo externo falhou; usando cutscene em engine.`);
+            this.videoPlayer?.destroy();
+            this.videoPlayer = null;
+            this.startStage(def);
+          }
+        }
+      ],
+      { onEnd: () => this.goNext() }
+    );
+    return true;
   }
 
   private buildUi(def: CutsceneDef): void {
@@ -111,12 +176,24 @@ export class CutsceneScene extends Phaser.Scene {
 
   skip(): void {
     if (this.finished) return;
-    if (this.director) this.director.skip();
+    if (this.videoPlayer) this.videoPlayer.skip();
+    else if (this.director) this.director.skip();
     else this.goNext();
   }
 
   togglePause(): void {
-    if (!this.director || this.finished) return;
+    if (this.finished) return;
+    if (this.videoPlayer) {
+      if (this.videoPlayer.getState() === 'playing') {
+        this.videoPlayer.pause();
+        this.pausedLabel?.setVisible(true);
+      } else if (this.videoPlayer.getState() === 'paused') {
+        this.videoPlayer.resume();
+        this.pausedLabel?.setVisible(false);
+      }
+      return;
+    }
+    if (!this.director) return;
     if (this.director.getState() === 'playing') {
       this.director.pause();
       this.pausedLabel?.setVisible(true);
@@ -131,13 +208,20 @@ export class CutsceneScene extends Phaser.Scene {
     this.finished = true;
     this.director?.destroy();
     this.director = null;
+    this.videoPlayer?.destroy();
+    this.videoPlayer = null;
     stopAllAudio();
     this.scene.restart({ cutsceneId: this.def.id, next: this.next } satisfies CutsceneSceneData);
   }
 
   /** Estado para QA/automação. */
   getDirectorState(): string {
+    if (this.videoPlayer) return this.videoPlayer.getState();
     return this.director?.getState() ?? 'none';
+  }
+
+  getMode(): 'video' | 'stage' | 'none' {
+    return this.mode;
   }
 
   private goNext(): void {
@@ -145,6 +229,9 @@ export class CutsceneScene extends Phaser.Scene {
     this.finished = true;
     this.director?.destroy();
     this.director = null;
+    this.videoPlayer?.destroy();
+    this.videoPlayer = null;
+    this.mode = 'none';
     this.cameras.main.setZoom(1);
     this.time.delayedCall(50, () => this.scene.start(this.next.scene, this.next.data));
   }

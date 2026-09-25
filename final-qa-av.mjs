@@ -9,7 +9,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 // renderer=canvas: Canvas2D é ~2x mais rápido que WebGL por software em Chromium headless.
-const BASE = 'http://localhost:5173/?renderer=canvas';
+// spatial=0: este script cobre o runtime 2D (fases 2–20); a fase 1 espacial (3D) é coberta por qa-spatial.mjs.
+const BASE = 'http://localhost:5173/?renderer=canvas&spatial=0';
 const OUT = path.join(process.cwd(), 'final-qa-av-shots');
 const REPORT = path.join(process.cwd(), 'final-qa-av-results.json');
 fs.rmSync(OUT, { recursive: true, force: true });

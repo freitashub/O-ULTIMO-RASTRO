@@ -8,7 +8,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
-const EXT = /\.(png|webp|jpg|jpeg|svg|mp3|ogg|wav|webm|mp4)$/i;
+const EXT = /\.(png|webp|jpg|jpeg|svg|mp3|ogg|wav|webm|mp4|glb|gltf|json)$/i;
 
 function walkDeep(dir, urlPrefix, base = '') {
   const out = [];
@@ -24,6 +24,8 @@ function walkDeep(dir, urlPrefix, base = '') {
 
 const images = walkDeep(path.join(publicDir, 'images'), '/images');
 const assets = walkDeep(path.join(publicDir, 'assets'), '/assets');
+// cutscenes externas (ex.: Google Flow): public/cutscenes/<id>.webm|mp4 (+ <id>.cues.json opcional)
+const cutscenes = walkDeep(path.join(publicDir, 'cutscenes'), '/cutscenes');
 
 const backgrounds = assets.filter((p) => p.startsWith('/assets/backgrounds/'));
 const symbols = assets.filter((p) => p.startsWith('/assets/symbols/') && p.endsWith('.webp'));
@@ -34,7 +36,8 @@ const endings = images.filter((p) => p.startsWith('/images/endings/') && p.endsW
 const transformation = images.filter((p) => p.startsWith('/images/transformation/') && p.endsWith('.png'));
 const characters = assets.filter((p) => p.startsWith('/assets/characters/'));
 const audio = assets.filter((p) => /\.(ogg|mp3|wav)$/i.test(p));
-const video = assets.filter((p) => /\.(webm|mp4)$/i.test(p));
+const video = [...assets, ...cutscenes].filter((p) => /\.(webm|mp4)$/i.test(p));
+const models = assets.filter((p) => /\.(glb|gltf)$/i.test(p));
 
 const manifest = {
   version: 2,
@@ -49,7 +52,9 @@ const manifest = {
   characters,
   audio,
   video,
-  all: [...images, ...assets]
+  models,
+  cutscenes,
+  all: [...images, ...assets, ...cutscenes]
 };
 
 const out = path.join(publicDir, 'data', 'assets-manifest.json');
@@ -70,5 +75,7 @@ console.log(
   'tr=' + transformation.length,
   'chars=' + characters.length,
   'audio=' + audio.length,
-  'video=' + video.length
+  'video=' + video.length,
+  'models=' + models.length,
+  'cutscenes=' + cutscenes.length
 );

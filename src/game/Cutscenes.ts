@@ -146,6 +146,40 @@ export function stageActors(def: CutsceneDef): string[] {
   return Array.from(new Set(def.stage.filter((a): a is Extract<StageAction, { a: 'spawn' }> => a.a === 'spawn').map((a) => a.actor)));
 }
 
+/** Diretório das cutscenes em vídeo produzidas fora do jogo (ex.: Google Flow). */
+export const EXTERNAL_CUTSCENE_DIR = '/cutscenes';
+
+/** Bases de vídeo externo (sem extensão) a tentar, em ordem: idioma atual → padrão. */
+export function externalVideoBases(def: CutsceneDef, lang: string = getLanguage()): string[] {
+  const base = `${EXTERNAL_CUTSCENE_DIR}/${def.id}`;
+  return lang !== 'pt-BR' ? [`${base}.${lang}`, base] : [base];
+}
+
+export interface ExternalCueRef {
+  startMs: number;
+  endMs?: number;
+  /** id de voiceLines.json: texto/legenda localizados e locutor */
+  voice?: string;
+  text?: string;
+  speaker?: string;
+}
+
+/**
+ * Converte o sidecar `<id>.cues.json` ({ cues: [...] }) em cues do SubtitleRenderer.
+ * Legendas ficam fora do vídeo; `voice` usa o texto localizado de voiceLines.json.
+ */
+export function cuesFromSidecar(data: { cues?: ExternalCueRef[] } | null, lang: string = getLanguage()): SubtitleCue[] {
+  const out: SubtitleCue[] = [];
+  for (const c of data?.cues ?? []) {
+    const line = c.voice ? getVoiceLine(c.voice, lang) : null;
+    const text = line?.text ?? c.text;
+    if (!text) continue;
+    const endMs = c.endMs ?? c.startMs + (line?.durationMs ?? 3000);
+    out.push({ text, speaker: line?.speaker ?? c.speaker, startMs: c.startMs, endMs });
+  }
+  return out.sort((a, b) => a.startMs - b.startMs);
+}
+
 /** Cutscenes desativadas para QA/automação via `?nocutscenes=1` ou `localStorage.ur_skip_cutscenes='1'`. */
 export function cutscenesDisabled(): boolean {
   try {

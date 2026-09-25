@@ -3802,6 +3802,16 @@
         "width": 107,
         "height": 580
       }
+    ],
+    "models": [
+      {
+        "id": "model_theo",
+        "kind": "model",
+        "path": "/assets/models/theo.glb",
+        "pack": "models",
+        "optional": true,
+        "preload": false
+      }
     ]
   },
   "metadata": {
@@ -3816,6 +3826,6 @@
       "registry": "tools/assets/build-registry.mjs"
     },
     "notes": "Audio/video entries are optional and manifest-gated; voices via Kokoro/Piper (local), music/sfx/ambience procedural, cutscenes via FFmpeg.",
-    "updatedAt": "2026-09-24T19:18:19.641Z"
+    "updatedAt": "2026-09-25T16:25:45.325Z"
   }
 }

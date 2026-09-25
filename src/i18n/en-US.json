@@ -103,5 +103,7 @@
   "explore.back": "BACK",
   "explore.near": "Press E",
   "explore.clues": "clues",
-  "explore.menu": "MENU"
+  "explore.menu": "MENU",
+  "spatial.garage": "Garage",
+  "spatial.hint": "WASD/arrows: walk · click floor: go to · E/Enter: interact · Esc: menu"
 }

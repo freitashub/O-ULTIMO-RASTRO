@@ -15,10 +15,16 @@ import { addBackdrop, ensureRadialTexture, FONT_BODY, FONT_TITLE } from '@/ui/At
 import { createAudioHud } from '@/ui/AudioHud';
 import { t } from '@/i18n';
 import { Phase } from '@/types/Phase';
+import { spatialEnabled } from '@/scenes/SpatialScene';
 
 interface StorySceneData {
   phaseId: number;
+  /** força a exploração 2D (fallback quando o runtime 3D falha) */
+  force2d?: boolean;
 }
+
+/** Fases já migradas para o runtime espacial (vertical slice). */
+const SPATIAL_PHASES = new Set([1]);
 
 interface Hotspot {
   obj: SceneObject;
@@ -57,7 +63,12 @@ export class StoryScene extends Phaser.Scene {
 
   async create(data: StorySceneData): Promise<void> {
     const phaseId = data?.phaseId ?? 1;
+    if (SPATIAL_PHASES.has(phaseId) && !data?.force2d && spatialEnabled()) {
+      this.scene.start('SpatialScene', { phaseId });
+      return;
+    }
     setCurrentPhase(phaseId);
+    this.cameras.main.setBackgroundColor('#07080c');
     this.hotspots = [];
     this.panel = null;
     this.busy = false;

@@ -17,7 +17,9 @@
     "qa:av": "node final-qa-av.mjs",
     "assets:manifest": "node tools/assets/build-manifest.mjs",
     "assets:registry": "node tools/assets/build-registry.mjs",
-    "audio:validate": "python3 tools/audio/validate.py"
+    "audio:validate": "python3 tools/audio/validate.py",
+    "qa:spatial": "node qa-spatial.mjs",
+    "assets:models": "node tools/models/build-theo-glb.mjs && gltf-transform validate public/assets/models/theo.glb"
   },
   "dependencies": {
     "@babylonjs/core": "^9.28.0",

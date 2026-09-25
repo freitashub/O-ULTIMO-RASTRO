@@ -103,5 +103,7 @@
   "explore.back": "VOLVER",
   "explore.near": "Pulsa E",
   "explore.clues": "pistas",
-  "explore.menu": "MENÚ"
+  "explore.menu": "MENÚ",
+  "spatial.garage": "Garaje",
+  "spatial.hint": "WASD/flechas: andar · clic en el suelo: ir · E/Enter: interactuar · Esc: menú"
 }
