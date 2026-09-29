@@ -55,11 +55,9 @@ esqueleto, sem malha, sem animação).
 | `silas.jpg`, `silas_troll.jpg` | Silas humano e Silas troll (distintivo, casaco militar) |
 | `troll_ferreiro.jpg`, `troll_guardiao.jpg`, `troll_vigia.jpg` | Troll Ferreiro, Guardião, Vigia |
 
-Consequência: os passos 4–5 do prompt (importar/validar rig, skinning, retargeting) **não têm o que validar**. Os itens 1–18 da seção 5 do prompt só
-se aplicam a modelos reais. Ver `docs/PHASE_PIPELINE.md` e o relatório da Fase 1 para as opções e a decisão pendente.
-
-Enquanto isso, o único corpo 3D existente é o **Theo v3 procedural** (gerado por script a partir da arte; esqueleto de 19 ossos). Ele entra na
-Godot como **placeholder registrado** (`docs/PLACEHOLDERS.md`), permitido apenas durante blockout (seção 36).
+Consequência: os passos 4–5 do prompt (importar/validar rig, skinning, retargeting) não tinham o que validar. **Decisão do responsável:** "você faz tudo utilizando as imagens" —
+os modelos, o rig e os GLB são gerados por script a partir da arte (`docs/CHARACTER_PIPELINE.md`); os itens de validação da seção 5 passaram a valer para esses GLB
+(`tests/test_characters.gd`). São aproximações registradas em `docs/PLACEHOLDERS.md`, não esculturas de artista.
 
 ## 4. Ambiente Godot
 

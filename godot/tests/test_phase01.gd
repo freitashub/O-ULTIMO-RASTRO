@@ -274,13 +274,13 @@ func test_rotas_erradas_registram_erro_e_avancam() -> void:
 		_free(p)
 
 
-func test_animacao_placeholder_pernas_alternam() -> void:
+func test_animacao_theo_pernas_alternam() -> void:
 	var p := await _new_phase()
 	p.player.teleport(Vector3(-3.0, 0, 1.5), 0.0)
 	p.cameras.snap()
 	p.player.controllable = true
 	await _physics(3)
-	check(p.player.rig.loaded, "placeholder GLB com esqueleto carregado")
+	check(p.player.rig.loaded, "GLB do Theo com esqueleto carregado")
 	var max_diff := 0.0
 	var max_knee := 0.0
 	Input.action_press("move_left")

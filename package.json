@@ -25,7 +25,9 @@
     "godot:import": "${GODOT:-godot} --headless --path godot --import",
     "godot:test": "${GODOT:-godot} --headless --path godot res://tests/test_runner.tscn",
     "godot:shots": "xvfb-run -a -s \"-screen 0 1280x720x24\" ${GODOT:-godot} --path godot --rendering-driver opengl3 --resolution 1280x720 res://tests/qa_shots.tscn -- --out=/tmp/ur_shots",
-    "godot:play": "${GODOT:-godot} --path godot"
+    "godot:play": "${GODOT:-godot} --path godot",
+    "godot:characters": "node tools/models/build-character.mjs all && ${GODOT:-godot} --headless --path godot --import && ${GODOT:-godot} --headless --path godot -s res://tools/build_animations.gd && ${GODOT:-godot} --headless --path godot -s res://tools/build_bonemap.gd",
+    "godot:view": "tools/godot/char-view.sh"
   },
   "dependencies": {
     "@babylonjs/core": "^9.28.0",

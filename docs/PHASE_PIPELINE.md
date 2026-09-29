@@ -15,17 +15,10 @@ Personagem/animação só contam como prontos com modelo real e rig funcional (s
 
 | Fase | Status |
 |---|---|
-| 1 | `docs/phases/PHASE_01_REPORT.md` — **implementada e testada; sem PASS** (personagem real ausente) |
+| 1 | `docs/phases/PHASE_01_REPORT.md` — **implementada e testada; sem PASS** (cenário ainda em blockout, vozes não ligadas, export Web não testado) |
 | 2–20 | não iniciadas (bloqueadas pela regra fase a fase) |
 
-## Decisão pendente: como obter os modelos 3D dos personagens
+## Decisão tomada: modelos 3D dos personagens
 
-A pasta fornecida contém **imagens** (arte de conceito), não modelos. Opções:
-
-| Opção | O que fazer | Prós | Contras |
-|---|---|---|---|
-| A. Você gera os GLB | imagem → 3D com ferramenta web (Meshy, Tripo, Hunyuan3D, Rodin…) → auto-rig (Mixamo ou a própria ferramenta) → GLB em `assets_fornecidos/personagens_3d/<id>.glb` | fidelidade ao desenho, corpo esculpido, humanoides prontos para retargeting | precisa de contas/créditos; trolls costumam sair sem rig bom |
-| B. Eu gero por script | mesmo método do Theo v3 (glTF-Transform, esqueleto próprio) para os 9 personagens | 100 % dentro do repositório, reprodutível | qualidade estilizada/"low-poly"; trolls e criaturas ficam simplificados |
-| C. Híbrido | A para humanoides (Theo, Clara, Elias, Silas, Prisioneiro), B para criaturas | melhor custo/benefício | mais coordenação |
-
-Recomendação: **C**. Em qualquer opção o Theo entra primeiro (Fase 1) e os demais só quando a fase que os usa for construída.
+A pasta fornecida continha **imagens** (arte de conceito), não modelos. O responsável decidiu: *"você faz tudo utilizando as imagens"* — os 13 modelos, o esqueleto e os
+GLB são gerados por script a partir da arte (`docs/CHARACTER_PIPELINE.md`). Continuam aceitos modelos esculpidos no futuro (substituem sem mudar a lógica).

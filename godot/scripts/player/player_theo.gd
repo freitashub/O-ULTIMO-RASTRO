@@ -20,7 +20,7 @@ const HEIGHT := 1.45
 var state: State = State.IDLE
 var camera_manager: CinematicCameraManager
 var controllable := true
-var rig: TheoPlaceholderRig
+var rig: CharacterRig
 var _basis_yaw := 0.0
 var _facing_yaw := 0.0  # yaw do visual: 0 → olha para -Z
 var _auto_target: Variant = null
@@ -41,8 +41,9 @@ func _ready() -> void:
 	shape.shape = cap
 	shape.position.y = HEIGHT / 2.0
 	add_child(shape)
-	rig = TheoPlaceholderRig.new()
+	rig = CharacterRig.new()
 	rig.name = "Visual"
+	rig.character_id = Transformation.theo_variant(int(GameState.state.get("currentPhase", 1)), int(GameState.state.get("transformationLevel", 0)))
 	add_child(rig)
 	rig.footstep.connect(func() -> void: footstep.emit())
 	# luz de personagem (sem sombra): mantém o Theo legível contra cenários escuros, como o rim light de cinema
@@ -90,6 +91,11 @@ func enter_talk() -> void:
 	controllable = false
 	velocity = Vector3(0, velocity.y, 0)
 	_set_state(State.TALK)
+
+
+## Fala/diálogo: gesto de fala enquanto durar (o HUD chama com true/false).
+func set_talking(on: bool) -> void:
+	rig.set_talking(on)
 
 
 func play_interact() -> void:

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckwrn6q62xfrm"
-path="res://.godot/imported/theo_v3_placeholder.glb-32b3e7bda39f51985b4916fb7ecdb5b3.scn"
+uid="uid://0ly5i6t2h15y"
+path="res://.godot/imported/theo_t3.glb-bd237714c18e231c09e0561176d05a4f.scn"
 
 [deps]
 
-source_file="res://assets/characters/placeholder/theo_v3_placeholder.glb"
-dest_files=["res://.godot/imported/theo_v3_placeholder.glb-32b3e7bda39f51985b4916fb7ecdb5b3.scn"]
+source_file="res://assets/characters/theo_t3/theo_t3.glb"
+dest_files=["res://.godot/imported/theo_t3.glb-bd237714c18e231c09e0561176d05a4f.scn"]
 
 [params]
 

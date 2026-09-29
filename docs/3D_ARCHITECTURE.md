@@ -9,14 +9,17 @@ godot/
   data/                    JSON sincronizados (phases, clues, symbols, i18n…) + layouts/ (3D)
   scripts/core/            GameStateModel, ChoiceSystem, SaveCodec (puros) + autoloads GameState, Data, I18n, Clues, SaveSystem, InputSetup
   scripts/camera/          CameraShot, CinematicCameraManager
-  scripts/player/          PlayerTheo (CharacterBody3D), TheoPlaceholderRig (PLACEHOLDER)
+  scripts/player/          PlayerTheo (CharacterBody3D)
+  scripts/characters/      CharacterRig (GLB + AnimationPlayer/Tree), CharacterMaterial (shader de projeção da arte + contorno)
   scripts/interaction/     Interactable, InteractionSystem
   scripts/investigation/   InvestigationSystem
   scripts/phases/          PhaseBase, Phase01, LayoutBuilder, DoorNode, Quality
   scripts/ui/              Hud (prompt, diálogo, escolha, toast, fade)
   scripts/audio/           AudioDirector (autoload, catálogo em assets/audio/catalog.json)
   scenes/                  main.tscn (menu → fase), phases/phase_NN.tscn
-  assets/                  characters/placeholder (GLB), audio (só o que as fases prontas usam)
+  shaders/                 character_projection, character_outline
+  tools/                   build_animations.gd, build_bonemap.gd (geração de recursos, rodam headless)
+  assets/                  characters/<id>/<id>.glb (13), animations/humanoid_library.res, audio (só o que as fases prontas usam)
   tests/                   runner headless + suítes + qa_shots (capturas)
 ```
 
@@ -39,7 +42,7 @@ godot/
 | Colisão real (`CharacterBody3D` + `StaticBody3D`) | substitui o controlador cinemático caseiro da versão Babylon |
 | Câmeras: volumes AABB + prioridade + histerese (não `Area3D`) | seleção pura e testável sem física; sem custo por frame de sinais |
 | Save em `user://save_current.json`, mesmo JSON v3 | no export Web `user://` é IndexedDB; compatível com os saves do Phaser |
-| Personagem placeholder com esqueleto procedural | permite provar câmera/locomoção/interação antes dos modelos reais (`docs/PLACEHOLDERS.md`) |
+| Personagens gerados por script da arte, mesmo esqueleto de 19 ossos | sem modelos 3D fornecidos; uma biblioteca de animações serve a todos (`docs/CHARACTER_PIPELINE.md`) |
 
 ## Fora de escopo por enquanto (regra: fase a fase)
 

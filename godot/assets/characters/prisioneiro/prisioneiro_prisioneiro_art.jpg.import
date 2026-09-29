@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jn3rff2buuyw"
-path="res://.godot/imported/theo_v3_placeholder_theo_face.jpg-8fb90f53f2fd205f74ff360b61006194.ctex"
+uid="uid://b8awep54jjq8g"
+path="res://.godot/imported/prisioneiro_prisioneiro_art.jpg-4556d6818db9d9f534e53c8b348a69dc.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "a76ac35c68eb6dcde21486aa23030a37"
+"md5": "3475b6535480316f40879d5ae74af578"
 }
 
 [deps]
 
-source_file="res://assets/characters/placeholder/theo_v3_placeholder_theo_face.jpg"
-dest_files=["res://.godot/imported/theo_v3_placeholder_theo_face.jpg-8fb90f53f2fd205f74ff360b61006194.ctex"]
+source_file="res://assets/characters/prisioneiro/prisioneiro_prisioneiro_art.jpg"
+dest_files=["res://.godot/imported/prisioneiro_prisioneiro_art.jpg-4556d6818db9d9f534e53c8b348a69dc.ctex"]
 
 [params]
 
