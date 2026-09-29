@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "basePath": "/assets/music",
+  "tracks": {
+    "phase01": {
+      "file": "phase01_casa_medo",
+      "mood": "medo",
+      "loop": true,
+      "durationMs": 68571,
+      "seed": 101,
+      "generator": "procedural-synth"
+    },
+    "phase02": {
+      "file": "phase02_igreja_curiosidade",
+      "mood": "curiosidade",
+      "loop": true,
+      "durationMs": 50526,
+      "seed": 102,
+      "generator": "procedural-synth"
+    },
+    "phase03": {
+      "file": "phase03_tunel_tensao",
+      "mood": "tensao",
+      "loop": true,
+      "durationMs": 54545,
+      "seed": 103,
+      "generator": "procedural-synth"
+    },
+    "phase04": {
+      "file": "phase04_delegacia_respiro",
+      "mood": "respiro",
+      "loop": true,
+      "durationMs": 58181,
+      "seed": 104,
+      "generator": "procedural-synth"
+    },
+    "phase05": {
+      "file": "phase05_arquivo_confusao",
+      "mood": "confusao",
+      "loop": true,
+      "durationMs": 54857,
+      "seed": 105,
+      "generator": "procedural-synth"
+    },
+    "phase06": {
+      "file": "phase06_estacao_melancolia",
+      "mood": "melancolia",
+      "loop": true,
+      "durationMs": 64000,
+      "seed": 106,
+      "generator": "procedural-synth"
+    },
+    "phase07": {
+      "file": "phase07_biblioteca_raiva",
+      "mood": "raiva",
+      "loop": true,
+      "durationMs": 48000,
+      "seed": 107,
+      "generator": "procedural-synth"
+    },
+    "phase08": {
+      "file": "phase08_porto_humor",
+      "mood": "humor",
+      "loop": true,
+      "durationMs": 41739,
+      "seed": 108,
+      "generator": "procedural-synth"
+    },
+    "phase09": {
+      "file": "phase09_registros_urgencia",
+      "mood": "urgencia",
+      "loop": true,
+      "durationMs": 48000,
+      "seed": 109,
+      "generator": "procedural-synth"
+    },
+    "phase10": {
+      "file": "phase10_oficina_confianca",
+      "mood": "confianca",
+      "loop": true,
+      "durationMs": 53333,
+      "seed": 110,
+      "generator": "procedural-synth"
+    },
+    "phase11": {
+      "file": "phase11_cidade_descoberta",
+      "mood": "descoberta",
+      "loop": true,
+      "durationMs": 48000,
+      "seed": 111,
+      "generator": "procedural-synth"
+    },
+    "phase12": {
+      "file": "phase12_prisioneiro_paranoia",
+      "mood": "paranoia",
+      "loop": true,
+      "durationMs": 60000,
+      "seed": 112,
+      "generator": "procedural-synth"
+    },
+    "phase13": {
+      "file": "phase13_silas_desconfianca",
+      "mood": "desconfianca",
+      "loop": true,
+      "durationMs": 56470,
+      "seed": 113,
+      "generator": "procedural-synth"
+    },
+    "phase14": {
+      "file": "phase14_mapa_choque",
+      "mood": "choque",
+      "loop": true,
+      "durationMs": 53333,
+      "seed": 114,
+      "generator": "procedural-synth"
+    },
+    "phase15": {
+      "file": "phase15_montanha_tensao",
+      "mood": "tensao",
+      "loop": true,
+      "durationMs": 54545,
+      "seed": 115,
+      "generator": "procedural-synth"
+    },
+    "phase16": {
+      "file": "phase16_sala_ilusao_pico",
+      "mood": "ilusao",
+      "loop": true,
+      "durationMs": 61935,
+      "seed": 116,
+      "generator": "procedural-synth"
+    },
+    "phase17": {
+      "file": "phase17_cidade_medo",
+      "mood": "medo",
+      "loop": true,
+      "durationMs": 68571,
+      "seed": 117,
+      "generator": "procedural-synth"
+    },
+    "phase18": {
+      "file": "phase18_verdade_raiva",
+      "mood": "raiva",
+      "loop": true,
+      "durationMs": 48000,
+      "seed": 118,
+      "generator": "procedural-synth"
+    },
+    "phase19": {
+      "file": "phase19_aviso_choque",
+      "mood": "choque",
+      "loop": true,
+      "durationMs": 53333,
+      "seed": 119,
+      "generator": "procedural-synth"
+    },
+    "phase20": {
+      "file": "phase20_caverna_silencio",
+      "mood": "silencio",
+      "loop": true,
+      "durationMs": 57599,
+      "seed": 120,
+      "generator": "procedural-synth"
+    },
+    "menu": {
+      "file": "bgm_menu_tema",
+      "mood": "tema",
+      "loop": true,
+      "durationMs": 82285,
+      "seed": 201,
+      "generator": "procedural-synth"
+    },
+    "credits": {
+      "file": "bgm_credits",
+      "mood": "creditos",
+      "loop": true,
+      "durationMs": 70588,
+      "seed": 202,
+      "generator": "procedural-synth"
+    },
+    "investigation": {
+      "file": "bgm_investigacao",
+      "mood": "curiosidade",
+      "loop": true,
+      "durationMs": 50526,
+      "seed": 203,
+      "generator": "procedural-synth"
+    },
+    "suspense": {
+      "file": "bgm_suspense",
+      "mood": "paranoia",
+      "loop": true,
+      "durationMs": 60000,
+      "seed": 204,
+      "generator": "procedural-synth"
+    },
+    "discovery": {
+      "file": "bgm_descoberta",
+      "mood": "descoberta",
+      "loop": true,
+      "durationMs": 48000,
+      "seed": 205,
+      "generator": "procedural-synth"
+    },
+    "chase": {
+      "file": "bgm_perseguicao",
+      "mood": "perseguicao",
+      "loop": true,
+      "durationMs": 43636,
+      "seed": 206,
+      "generator": "procedural-synth"
+    },
+    "trolls": {
+      "file": "bgm_trolls",
+      "mood": "trolls",
+      "loop": true,
+      "durationMs": 66206,
+      "seed": 207,
+      "generator": "procedural-synth"
+    },
+    "cave": {
+      "file": "bgm_caverna",
+      "mood": "caverna",
+      "loop": true,
+      "durationMs": 71111,
+      "seed": 208,
+      "generator": "procedural-synth"
+    },
+    "cube": {
+      "file": "bgm_cubo_orun",
+      "mood": "cubo",
+      "loop": true,
+      "durationMs": 64000,
+      "seed": 209,
+      "generator": "procedural-synth"
+    },
+    "transformation": {
+      "file": "bgm_transformacao",
+      "mood": "transformacao",
+      "loop": true,
+      "durationMs": 58181,
+      "seed": 210,
+      "generator": "procedural-synth"
+    },
+    "ending_good": {
+      "file": "bgm_final_bom",
+      "mood": "final_bom",
+      "loop": false,
+      "durationMs": 60000,
+      "seed": 211,
+      "generator": "procedural-synth"
+    },
+    "ending_bad": {
+      "file": "bgm_final_ruim",
+      "mood": "final_ruim",
+      "loop": false,
+      "durationMs": 55384,
+      "seed": 212,
+      "generator": "procedural-synth"
+    },
+    "ending_secret": {
+      "file": "bgm_final_secreto",
+      "mood": "final_secreto",
+      "loop": false,
+      "durationMs": 66206,
+      "seed": 213,
+      "generator": "procedural-synth"
+    }
+  }
+}

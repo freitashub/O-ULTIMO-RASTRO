@@ -20,7 +20,12 @@
     "audio:validate": "python3 tools/audio/validate.py",
     "qa:spatial": "node qa-spatial.mjs",
     "assets:models": "node tools/models/build-theo-glb.mjs && gltf-transform validate public/assets/models/theo.glb",
-    "assets:theo": "node tools/art/build-theo-art.mjs && npm run assets:models"
+    "assets:theo": "node tools/art/build-theo-art.mjs && npm run assets:models",
+    "godot:sync": "node tools/godot/sync-data.mjs && node tools/godot/build-layout-phase01.mjs && node tools/godot/sync-audio.mjs",
+    "godot:import": "${GODOT:-godot} --headless --path godot --import",
+    "godot:test": "${GODOT:-godot} --headless --path godot res://tests/test_runner.tscn",
+    "godot:shots": "xvfb-run -a -s \"-screen 0 1280x720x24\" ${GODOT:-godot} --path godot --rendering-driver opengl3 --resolution 1280x720 res://tests/qa_shots.tscn -- --out=/tmp/ur_shots",
+    "godot:play": "${GODOT:-godot} --path godot"
   },
   "dependencies": {
     "@babylonjs/core": "^9.28.0",

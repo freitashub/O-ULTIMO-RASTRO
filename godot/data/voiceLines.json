@@ -1,0 +1,1568 @@
+{
+  "version": 1,
+  "basePath": "/assets/audio/voice",
+  "speakers": {
+    "narrator": "voz grave, calma, ritmo lento; narração em terceira pessoa",
+    "theo": "criança de 11 anos: timbre jovem (pitch +3,5 st), curioso, ritmo levemente rápido",
+    "clara": "mãe: voz feminina quente, calma, protetora",
+    "elias": "pai: voz masculina madura, firme (sem falas no roteiro atual)",
+    "silas": "chefe de polícia: sempre calmo, lento, respostas prontas; leve reverb de sala",
+    "troll": "trolls (vigia, mensageiro, ferreiro, guardião): grave (−5 st), rosnado, eco de túnel",
+    "troll_boss": "chefe troll / Silas revelado: mesma base de Silas, −6 st, caverna",
+    "prisoner": "prisioneiro humano: sussurrado, abafado, cansado"
+  },
+  "lines": [
+    {
+      "id": "ending_bad",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "Every choice leaves a trace.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 2340
+    },
+    {
+      "id": "ending_good",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "You did not only find the path.\nYou found the truth.\nBut a part of you stayed behind.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 6000
+    },
+    {
+      "id": "ending_secret",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "You did not only find the path.\nYou found the oldest truth.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 4200
+    },
+    {
+      "id": "intro_text",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "Theo arrives home.\nThe door is open.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 3324
+    },
+    {
+      "id": "puzzle_sixth_face",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "The sixth face appears.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 2041
+    },
+    {
+      "id": "title_subtitle",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "A disappearance. Twenty phases. One truth.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 3239
+    },
+    {
+      "id": "transform_hint_11",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "For a moment, the reflection in Theo's eyes looks different.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 4000
+    },
+    {
+      "id": "transform_hint_14",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "Theo's shadow on the wall is slightly deformed.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 3388
+    },
+    {
+      "id": "transform_hint_17",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "Theo's breathing sounds different. Deeper.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 3239
+    },
+    {
+      "id": "transform_hint_20",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "Theo's face appears on the cube.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 2361
+    },
+    {
+      "id": "transform_hint_7",
+      "speaker": "narrator",
+      "lang": "en-US",
+      "text": "Theo notices a small mark on his arm.",
+      "engine": "kokoro:am_michael",
+      "durationMs": 3282
+    },
+    {
+      "id": "ending_bad",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "Toda elección deja una huella.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 2383
+    },
+    {
+      "id": "ending_good",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "No solo encontraste el camino.\nEncontraste la verdad.\nPero una parte de ti se quedó en el camino.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 6200
+    },
+    {
+      "id": "ending_secret",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "No solo encontraste el camino.\nEncontraste la verdad más antigua.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 4600
+    },
+    {
+      "id": "intro_text",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "Theo llega a casa.\nLa puerta está abierta.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 2938
+    },
+    {
+      "id": "puzzle_sixth_face",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "La sexta cara aparece.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 1978
+    },
+    {
+      "id": "title_subtitle",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "Una desaparición. Veinte fases. Una verdad.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 3154
+    },
+    {
+      "id": "transform_hint_11",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "Por un instante, el reflejo en los ojos de Theo parece diferente.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 4300
+    },
+    {
+      "id": "transform_hint_14",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "La sombra de Theo en la pared está ligeramente deformada.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 4000
+    },
+    {
+      "id": "transform_hint_17",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "La respiración de Theo suena diferente. Más profunda.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 3538
+    },
+    {
+      "id": "transform_hint_20",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "La cara de Theo aparece en el cubo.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 2511
+    },
+    {
+      "id": "transform_hint_7",
+      "speaker": "narrator",
+      "lang": "es-ES",
+      "text": "Theo nota una pequeña marca en el brazo.",
+      "engine": "kokoro:em_santa",
+      "durationMs": 2788
+    },
+    {
+      "id": "cube_inscription",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Quem viu primeiro, lembra primeiro. Quem lembrou, girou. Quem girou, encontrou.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5100
+    },
+    {
+      "id": "ending_bad",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Toda escolha deixa um rastro.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2340
+    },
+    {
+      "id": "ending_good",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Você não encontrou apenas o caminho.\nVocê encontrou a verdade.\nMas uma parte de você ficou pelo caminho.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6800
+    },
+    {
+      "id": "ending_secret",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Você não encontrou apenas o caminho.\nVocê encontrou a verdade mais antiga.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5200
+    },
+    {
+      "id": "intro_text",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo chega em casa.\nA porta está aberta.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2980
+    },
+    {
+      "id": "phase01_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra uma gaveta revirada, mas nenhuma pista nova.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4100
+    },
+    {
+      "id": "phase01_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra uma marca de pneu no piso da garagem.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3687
+    },
+    {
+      "id": "phase01_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra uma xícara fria. Nada mais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2959
+    },
+    {
+      "id": "phase01_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A fotografia mostra um desenho que Theo nunca viu antes.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3836
+    },
+    {
+      "id": "phase01_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo chega em casa. A porta está aberta. O relógio da sala está parado às 23:47.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7300
+    },
+    {
+      "id": "phase01_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "No fundo da garagem existe uma fotografia antiga com um símbolo estranho.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5000
+    },
+    {
+      "id": "phase01_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O casaco da mãe está no chão, ainda úmido. A marca de pneu no piso da garagem brilha sob a luz da rua.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7000
+    },
+    {
+      "id": "phase02_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra trilhas antigas, mas nenhuma pista nova.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4000
+    },
+    {
+      "id": "phase02_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra uma ponte abandonada. Nada mais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3346
+    },
+    {
+      "id": "phase02_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A igreja possui o mesmo símbolo no sino.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2831
+    },
+    {
+      "id": "phase02_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A voz vem de debaixo do chão da igreja.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2959
+    },
+    {
+      "id": "phase02_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo segue a marca e encontra um símbolo desenhado na parede.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4200
+    },
+    {
+      "id": "phase02_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Quando o sino balança sozinho, Theo ouve uma voz: 'Eles já estiveram aqui.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4700
+    },
+    {
+      "id": "phase02_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O mesmo símbolo aparece no casaco da mãe e no sino da igreja.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4200
+    },
+    {
+      "id": "phase02_voice_01",
+      "speaker": "troll",
+      "lang": "pt-BR",
+      "text": "Eles já estiveram aqui.",
+      "engine": "piper:pt_BR-edresson-low",
+      "durationMs": 3292
+    },
+    {
+      "id": "phase03_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O troll desaparece. Theo se perde por alguns minutos.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3794
+    },
+    {
+      "id": "phase03_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra apenas madeira velha.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2618
+    },
+    {
+      "id": "phase03_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra marcas de arrasto e um pedaço de tecido da camisa de Elias.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5300
+    },
+    {
+      "id": "phase03_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma grade fecha atrás de Theo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2575
+    },
+    {
+      "id": "phase03_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra uma criatura escondida. O troll não ataca.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4000
+    },
+    {
+      "id": "phase03_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "As marcas de arrasto levam mais fundo. Alguém foi arrastado para dentro.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5000
+    },
+    {
+      "id": "phase03_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O troll diz: 'Se eu fosse você, não procuraria seus pais aqui.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4100
+    },
+    {
+      "id": "phase03_troll_01",
+      "speaker": "troll",
+      "lang": "pt-BR",
+      "text": "Se eu fosse você, não procuraria seus pais aqui.",
+      "engine": "piper:pt_BR-edresson-low",
+      "durationMs": 5400
+    },
+    {
+      "id": "phase04_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra fichas comuns. Nada sobre os pais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3431
+    },
+    {
+      "id": "phase04_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma gravação mostra os pais entrando em um carro.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3474
+    },
+    {
+      "id": "phase04_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O gabinete está trancado. Silas pede para Theo confiar nele.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4600
+    },
+    {
+      "id": "phase04_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas comenta: 'Você tem os olhos do seu pai. E algo mais.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4000
+    },
+    {
+      "id": "phase04_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo consegue sair e procura a polícia. Chefe Silas aparece e é extremamente cordial.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6100
+    },
+    {
+      "id": "phase04_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O carro da gravação é da própria polícia.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3111
+    },
+    {
+      "id": "phase04_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas afirma: 'Seus pais podem ter decidido ir embora.' Ele menciona que as câmeras registraram tudo, com um tom evasivo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8100
+    },
+    {
+      "id": "phase04_silas_01",
+      "speaker": "silas",
+      "lang": "pt-BR",
+      "text": "Seus pais podem ter decidido ir embora.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 3052
+    },
+    {
+      "id": "phase04_silas_02",
+      "speaker": "silas",
+      "lang": "pt-BR",
+      "text": "Você tem os olhos do seu pai. E algo mais.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 4700
+    },
+    {
+      "id": "phase05_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Vários desaparecimentos ocorreram sempre em intervalos de 13 dias.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5300
+    },
+    {
+      "id": "phase05_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra placas, mas nenhuma ligada aos pais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3495
+    },
+    {
+      "id": "phase05_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Objetos comuns em prateleiras. Nada pessoal.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3367
+    },
+    {
+      "id": "phase05_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Alguém riscou o nome de Theo antes dele chegar.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3218
+    },
+    {
+      "id": "phase05_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo invade o arquivo. Existem dezenas de nomes riscados.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4400
+    },
+    {
+      "id": "phase05_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O último nome da lista é o de Theo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2660
+    },
+    {
+      "id": "phase05_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma lista de desaparecidos com nomes cruzados. O nome de Theo está na lista, com uma anotação ilegível ao lado.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7500
+    },
+    {
+      "id": "phase06_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Há um bilhete comprado, mas nunca utilizado.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3196
+    },
+    {
+      "id": "phase06_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Ônibus partindo. Nenhum registro da família.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3260
+    },
+    {
+      "id": "phase06_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A casa está fechada há semanas. Nada de novo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3367
+    },
+    {
+      "id": "phase06_clara_01",
+      "speaker": "clara",
+      "lang": "pt-BR",
+      "text": "Filho, talvez tenhamos que partir.",
+      "engine": "kokoro:pf_dora",
+      "durationMs": 2447
+    },
+    {
+      "id": "phase06_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Por que o bilhete nunca foi usado?",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2490
+    },
+    {
+      "id": "phase06_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma carta aparentemente escrita por Clara aparece: 'Filho, talvez tenhamos que partir.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5600
+    },
+    {
+      "id": "phase06_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O comprador do bilhete foi registrado como 'Clara V.' — sobrenome ambíguo, próximo de Silas Vale.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6300
+    },
+    {
+      "id": "phase06_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um troll Mensageiro entrega a carta e some antes de Theo reagir. A carta é falsa, mas Theo não sabe.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6700
+    },
+    {
+      "id": "phase07_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um livro possui a assinatura de Clara e uma anotação: 'Se eu desaparecer, procure a sexta marca.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6500
+    },
+    {
+      "id": "phase07_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Cadernos velhos. Nenhuma escrita da mãe.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2895
+    },
+    {
+      "id": "phase07_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O vizinho não viu nada útil.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2298
+    },
+    {
+      "id": "phase07_clara_01",
+      "speaker": "clara",
+      "lang": "pt-BR",
+      "text": "Se eu desaparecer, procure a sexta marca.",
+      "engine": "kokoro:pf_dora",
+      "durationMs": 2810
+    },
+    {
+      "id": "phase07_clara_02",
+      "speaker": "clara",
+      "lang": "pt-BR",
+      "text": "Não confie no que estiver escrito. Confie no que você viu.",
+      "engine": "kokoro:pf_dora",
+      "durationMs": 3538
+    },
+    {
+      "id": "phase07_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Nenhuma das pistas anteriores mostrou uma sexta marca.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3708
+    },
+    {
+      "id": "phase07_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo compara a carta com outra carta antiga da mãe. A letra é diferente.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4900
+    },
+    {
+      "id": "phase07_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Clara deixou escrito: 'Não confie no que estiver escrito. Confie no que você viu.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5100
+    },
+    {
+      "id": "phase07_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A falsificação é quase perfeita, mas os traços não coincidem.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4600
+    },
+    {
+      "id": "phase08_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Voos comuns. Nada suspeito na área pública.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3132
+    },
+    {
+      "id": "phase08_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma câmera mostra um veículo entrando em uma área restrita ao lado do porto seco.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5600
+    },
+    {
+      "id": "phase08_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Hóspedes registrados, nenhum com os pais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3047
+    },
+    {
+      "id": "phase08_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O condutor reconheceu Theo?",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2234
+    },
+    {
+      "id": "phase08_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Surge a hipótese de que um grupo estrangeiro sequestrou os pais. Há documentos de viagem falsificados.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7000
+    },
+    {
+      "id": "phase08_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Dentro do veículo não há ninguém. A câmera registra apenas sombras.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4500
+    },
+    {
+      "id": "phase08_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um troll Condutor dirige um veículo com pessoas dentro. O veículo entra em uma área restrita. O condutor olha para Theo com estranheza.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8700
+    },
+    {
+      "id": "phase09_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A identidade foi criada para esconder movimentações dos trolls.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4500
+    },
+    {
+      "id": "phase09_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Prédio fechado. Nenhum registro útil.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2788
+    },
+    {
+      "id": "phase09_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Jornais antigos, sem o nome procurado.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2938
+    },
+    {
+      "id": "phase09_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Alguém fecha o computador de Theo remotamente.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3388
+    },
+    {
+      "id": "phase09_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra um nome em registros internacionais. O nome pertence a uma pessoa que não existe.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6400
+    },
+    {
+      "id": "phase09_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma foto antiga (Clara, Elias e uma criança desconhecida) aparece entre os documentos. Theo a guarda.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6800
+    },
+    {
+      "id": "phase09_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Enquanto Theo olha um documento, o texto muda sozinho. Um troll Copista falsificou o registro.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6300
+    },
+    {
+      "id": "phase10_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Uma ferramenta possui o mesmo símbolo do Cubo de Orun.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3623
+    },
+    {
+      "id": "phase10_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A ponte está em ruínas. Sem passagem.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3111
+    },
+    {
+      "id": "phase10_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A torre está vazia. Nada de útil do alto.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3218
+    },
+    {
+      "id": "phase10_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os trolls sabem que Theo está investigando.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2895
+    },
+    {
+      "id": "phase10_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra um troll que fabrica ferramentas. Ele diz conhecer os pais. Sua atitude é calma.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6300
+    },
+    {
+      "id": "phase10_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O troll pergunta: 'Quantas marcas você já encontrou?'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3730
+    },
+    {
+      "id": "phase10_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O ferreiro trabalha na oficina. Uma ferramenta possui o mesmo símbolo do Cubo de Orun.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5800
+    },
+    {
+      "id": "phase10_troll_01",
+      "speaker": "troll",
+      "lang": "pt-BR",
+      "text": "Quantas marcas você já encontrou?",
+      "engine": "piper:pt_BR-edresson-low",
+      "durationMs": 3036
+    },
+    {
+      "id": "phase11_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Bancas estranhas. Theo não encontra pistas sobre os pais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3858
+    },
+    {
+      "id": "phase11_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um humano está preso e diz: 'A polícia trabalha para eles.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4100
+    },
+    {
+      "id": "phase11_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Móveis empoeirados. Nada pessoal.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2660
+    },
+    {
+      "id": "phase11_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Como um prisioneiro sabe quem é Theo?",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2660
+    },
+    {
+      "id": "phase11_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra uma passagem para uma cidade subterrânea. Há casas, ruas, placas e oficinas. Tudo construído por trolls.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8100
+    },
+    {
+      "id": "phase11_prisoner_01",
+      "speaker": "prisoner",
+      "lang": "pt-BR",
+      "text": "A polícia trabalha para eles.",
+      "engine": "piper:pt_BR-cadu-medium",
+      "durationMs": 2819
+    },
+    {
+      "id": "phase11_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O prisioneiro conhece o nome de Theo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2788
+    },
+    {
+      "id": "phase11_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um troll Guardião protege a entrada. Ele não ataca, mas observa. Na parede, a sombra de Theo parece deformada por um instante.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8500
+    },
+    {
+      "id": "phase12_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A torre não tem fechadura compatível.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2831
+    },
+    {
+      "id": "phase12_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Registros mostram que o chefe da polícia visita o subterrâneo há anos.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4900
+    },
+    {
+      "id": "phase12_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A casa está vazia. A chave não abre nada aqui.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3367
+    },
+    {
+      "id": "phase12_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os registros ligam Silas ao subterrâneo há anos.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3644
+    },
+    {
+      "id": "phase12_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O prisioneiro entrega uma chave. Ele afirma que a chave abre um arquivo subterrâneo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5400
+    },
+    {
+      "id": "phase12_prisoner_01",
+      "speaker": "prisoner",
+      "lang": "pt-BR",
+      "text": "Você não devia estar aqui.",
+      "engine": "piper:pt_BR-cadu-medium",
+      "durationMs": 2528
+    },
+    {
+      "id": "phase12_prisoner_02",
+      "speaker": "prisoner",
+      "lang": "pt-BR",
+      "text": "Silas não é o que parece. Mas também não é o que você imagina.",
+      "engine": "piper:pt_BR-cadu-medium",
+      "durationMs": 5700
+    },
+    {
+      "id": "phase12_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O prisioneiro sussurra: 'Silas não é o que parece. Mas também não é o que você imagina.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5600
+    },
+    {
+      "id": "phase12_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A chave tem uma inscrição. O prisioneiro diz: 'Você não devia estar aqui' — não como ameaça, mas como aviso.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6700
+    },
+    {
+      "id": "phase13_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas muda de assunto com elegância.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2639
+    },
+    {
+      "id": "phase13_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas responde com meias-verdades.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2788
+    },
+    {
+      "id": "phase13_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os desaparecimentos são organizados para retirar pessoas que descobrem a existência dos trolls.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6600
+    },
+    {
+      "id": "phase13_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os pais sabiam dos trolls antes de desaparecerem.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3708
+    },
+    {
+      "id": "phase13_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo confronta Silas. Silas não nega nada, mas também não confirma.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4700
+    },
+    {
+      "id": "phase13_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas revela que Clara e Elias descobriram o caminho para o esconderijo central.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5200
+    },
+    {
+      "id": "phase13_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas diz: 'Você está procurando uma resposta que seus pais tentaram esconder de você.' Ele comenta: 'Crianças como você não deveriam investigar sozinhas. Mas você não é como as outras.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 11900
+    },
+    {
+      "id": "phase13_silas_01",
+      "speaker": "silas",
+      "lang": "pt-BR",
+      "text": "Você está procurando uma resposta que seus pais tentaram esconder de você.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 4800
+    },
+    {
+      "id": "phase13_silas_02",
+      "speaker": "silas",
+      "lang": "pt-BR",
+      "text": "Crianças como você não deveriam investigar sozinhas. Mas você não é como as outras.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 6700
+    },
+    {
+      "id": "phase14_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O mapa mostra todos os locais visitados. O único não visitado é a montanha.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5600
+    },
+    {
+      "id": "phase14_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas repete que os pais foram embora.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2788
+    },
+    {
+      "id": "phase14_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O símbolo leva de volta a lugares já visitados.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3687
+    },
+    {
+      "id": "phase14_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Por que a casa de Theo está no centro de tudo?",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3388
+    },
+    {
+      "id": "phase14_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra um mapa com todos os lugares das fases anteriores.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4500
+    },
+    {
+      "id": "phase14_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os locais formam a estrutura de um troll. O centro é a casa de Theo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4500
+    },
+    {
+      "id": "phase14_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Todos os locais formam um desenho visto do alto. O desenho é a estrutura de um troll. No centro do desenho está a casa de Theo. No canto do mapa, um rosto discreto.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 10400
+    },
+    {
+      "id": "phase15_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A passagem é uma armadilha. Theo recua a tempo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3474
+    },
+    {
+      "id": "phase15_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "As pegadas levam em círculo de volta ao início.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3474
+    },
+    {
+      "id": "phase15_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O poço leva à mesma porta mostrada na fotografia da Fase 1.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4500
+    },
+    {
+      "id": "phase15_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O poço leva à porta da fotografia da Fase 1.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3452
+    },
+    {
+      "id": "phase15_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo percebe que a investigação inteira foi conduzida para que ele chegasse à montanha.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5500
+    },
+    {
+      "id": "phase15_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "As duas entradas visíveis são iscas. A iluminação é artificial.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4800
+    },
+    {
+      "id": "phase15_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "As entradas visíveis da caverna estão iluminadas demais para uma caverna abandonada. A iluminação é artificial.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7700
+    },
+    {
+      "id": "phase16_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A ilusão se fortalece. Theo quase não consegue sair.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3879
+    },
+    {
+      "id": "phase16_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo foge, mas perde a chance de quebrar a ilusão.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3516
+    },
+    {
+      "id": "phase16_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A ilusão começa a falhar quando Theo pergunta por uma memória verdadeira.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4800
+    },
+    {
+      "id": "phase16_clara_01",
+      "speaker": "clara",
+      "lang": "pt-BR",
+      "text": "Qual era o apelido que eu te dava quando você era pequeno?",
+      "engine": "kokoro:pf_dora",
+      "durationMs": 3580
+    },
+    {
+      "id": "phase16_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas é revelado — seus olhos são de troll.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3132
+    },
+    {
+      "id": "phase16_creature_01",
+      "speaker": "troll_boss",
+      "lang": "pt-BR",
+      "text": "Eles estão na última caverna.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 3505
+    },
+    {
+      "id": "phase16_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo encontra duas pessoas em uma sala. Eles parecem ser Clara e Elias. Momento de felicidade. Theo abraça os pais.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8100
+    },
+    {
+      "id": "phase16_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os falsos pais olham para Theo com pena. A criatura diz: 'Eles estão na última caverna.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5800
+    },
+    {
+      "id": "phase16_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Clara pergunta: 'Qual era o apelido que eu te dava quando você era pequeno?' Theo não sabe responder. Os pais não são os pais — são trolls usando uma ilusão. Nos olhos de Silas, refletidos no espelho, há olhos de troll.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 13000
+    },
+    {
+      "id": "phase17_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Clara deixou instruções para o filho.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2618
+    },
+    {
+      "id": "phase17_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "As marcas de Elias terminam em uma encruzilhada.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3474
+    },
+    {
+      "id": "phase17_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os símbolos levam a armadilhas conhecidas.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3218
+    },
+    {
+      "id": "phase17_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os pais deixaram um caminho para Theo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2746
+    },
+    {
+      "id": "phase17_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo chega à parte mais profunda do subterrâneo. Há marcas feitas por humanos. Isso confirma que os pais estiveram ali.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7700
+    },
+    {
+      "id": "phase17_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A última instrução de Clara diz: 'Não confie no que estiver escrito. Confie no que você viu.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5900
+    },
+    {
+      "id": "phase17_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "As marcas de Clara e de Elias correm pelas paredes. A respiração de Theo soa diferente. Mais funda.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 7000
+    },
+    {
+      "id": "phase18_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Destruir os registros não salva os pais. Theo perde prova valiosa.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4900
+    },
+    {
+      "id": "phase18_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O esconderijo principal está atrás de uma entrada sem porta.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4300
+    },
+    {
+      "id": "phase18_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Voltar é abandonar a investigação no momento decisivo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4000
+    },
+    {
+      "id": "phase18_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Os pais estavam tentando parar os trolls — e quase conseguiam.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4300
+    },
+    {
+      "id": "phase18_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo descobre a razão do desaparecimento. Clara e Elias descobriram o sistema de sequestros e tentaram destruir os registros.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8700
+    },
+    {
+      "id": "phase18_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um desenho mostra um cubo com seis símbolos.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2959
+    },
+    {
+      "id": "phase18_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um desenho mostra um cubo com seis símbolos. O esconderijo principal está atrás de uma entrada sem porta.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 6900
+    },
+    {
+      "id": "phase19_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas desvia a pergunta. A distração funciona.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3410
+    },
+    {
+      "id": "phase19_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas leva Theo para longe da entrada real.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3239
+    },
+    {
+      "id": "phase19_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A foto é uma distração. A entrada da caverna possui o Cubo de Orun.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4900
+    },
+    {
+      "id": "phase19_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A entrada da caverna possui o Cubo de Orun.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3196
+    },
+    {
+      "id": "phase19_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo chega diante da montanha. Silas aparece uma última vez: 'Você chegou até aqui porque seus pais queriam que você chegasse. Mas talvez eles não tenham contado tudo.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 10600
+    },
+    {
+      "id": "phase19_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A foto é falsa: a criança na foto tem o rosto de Silas quando jovem.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 5000
+    },
+    {
+      "id": "phase19_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Silas mostra uma foto antiga: Clara, Elias e uma criança desconhecida. A criança tem o rosto de Silas quando jovem. A foto é falsa — a mesma plantada na Fase 9. Silas diz: 'Você sempre chegou a um lugar depois da hora certa.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 14400
+    },
+    {
+      "id": "phase19_silas_01",
+      "speaker": "silas",
+      "lang": "pt-BR",
+      "text": "Você chegou até aqui porque seus pais queriam que você chegasse. Mas talvez eles não tenham contado tudo.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 8000
+    },
+    {
+      "id": "phase19_silas_02",
+      "speaker": "troll_boss",
+      "lang": "pt-BR",
+      "text": "Você sempre chegou a um lugar depois da hora certa.",
+      "engine": "piper:pt_BR-jeff-medium",
+      "durationMs": 4400
+    },
+    {
+      "id": "phase20_choice_a",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A ordem dos símbolos é a ordem em que apareceram nas fases.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4400
+    },
+    {
+      "id": "phase20_choice_b",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O cubo não responde sem a sequência correta.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3324
+    },
+    {
+      "id": "phase20_choice_c",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A pedra não se move. O mecanismo exige o cubo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3367
+    },
+    {
+      "id": "phase20_cliffhanger",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O mecanismo espera a sequência. O diário de Theo tem a ordem.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4300
+    },
+    {
+      "id": "phase20_intro",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A tela fica mais silenciosa. Sem música. Som de vento, pedras e a respiração de Theo. A câmera mostra a entrada. Não existe porta.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 8900
+    },
+    {
+      "id": "phase20_revelation",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O rosto de Theo aparece escondido no cubo — ele é o sexto símbolo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4600
+    },
+    {
+      "id": "phase20_scene",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Existe uma pedra circular e um pedestal com o Cubo de Orun. Na parede, uma inscrição: 'Quem viu primeiro, lembra primeiro. Quem lembrou, girou. Quem girou, encontrou.'",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 10400
+    },
+    {
+      "id": "puzzle_sixth_face",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A sexta face aparece.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2106
+    },
+    {
+      "id": "theo_q1",
+      "speaker": "theo",
+      "lang": "pt-BR",
+      "text": "Onde estão meus pais?",
+      "engine": "kokoro:pm_alex",
+      "durationMs": 1700
+    },
+    {
+      "id": "theo_q2",
+      "speaker": "theo",
+      "lang": "pt-BR",
+      "text": "Por que meus pais sabiam dos trolls?",
+      "engine": "kokoro:pm_alex",
+      "durationMs": 2383
+    },
+    {
+      "id": "theo_q3",
+      "speaker": "theo",
+      "lang": "pt-BR",
+      "text": "Quem é o verdadeiro sexto troll?",
+      "engine": "kokoro:pm_alex",
+      "durationMs": 2319
+    },
+    {
+      "id": "title_subtitle",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Um desaparecimento. Vinte fases. Uma verdade.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3600
+    },
+    {
+      "id": "transform_hint_11",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Por um instante, o reflexo dos olhos de Theo parece diferente.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4400
+    },
+    {
+      "id": "transform_hint_14",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A sombra de Theo na parede está ligeiramente deformada.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 4200
+    },
+    {
+      "id": "transform_hint_17",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "A respiração de Theo soa diferente. Mais funda.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 3495
+    },
+    {
+      "id": "transform_hint_20",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "O rosto de Theo aparece no cubo.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2618
+    },
+    {
+      "id": "transform_hint_7",
+      "speaker": "narrator",
+      "lang": "pt-BR",
+      "text": "Theo nota uma pequena marca no braço.",
+      "engine": "kokoro:pm_santa",
+      "durationMs": 2681
+    }
+  ]
+}

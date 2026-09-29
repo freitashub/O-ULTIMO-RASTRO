@@ -1,0 +1,1486 @@
+{
+ "id": "phase01",
+ "phase": 1,
+ "spawn": {
+  "pos": [
+   -1.6,
+   0,
+   1.2
+  ],
+  "yaw_deg": 0
+ },
+ "environment": {
+  "ambient": [
+   0.19,
+   0.21,
+   0.28
+  ],
+  "ambient_energy": 0.85,
+  "fog_density": 0.012,
+  "fog_color": [
+   0.07,
+   0.08,
+   0.11
+  ]
+ },
+ "boxes": [
+  {
+   "id": "floor_sala",
+   "pos": [
+    -2,
+    -0.1,
+    -0.5
+   ],
+   "size": [
+    8,
+    0.2,
+    7
+   ],
+   "color": [
+    0.3,
+    0.2,
+    0.13
+   ],
+   "collider": true,
+   "mat": "floor",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "floor_garagem",
+   "pos": [
+    6,
+    -0.1,
+    -0.5
+   ],
+   "size": [
+    8,
+    0.2,
+    7
+   ],
+   "color": [
+    0.33,
+    0.32,
+    0.31
+   ],
+   "collider": true,
+   "mat": "concrete",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "floor_varanda",
+   "pos": [
+    -2.9000000000000004,
+    -0.1,
+    5.1
+   ],
+   "size": [
+    7,
+    0.2,
+    4.2
+   ],
+   "color": [
+    0.2,
+    0.2,
+    0.22
+   ],
+   "collider": true,
+   "mat": "concrete",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "ceil_sala",
+   "pos": [
+    -2,
+    3.1,
+    -0.5
+   ],
+   "size": [
+    8,
+    0.2,
+    7
+   ],
+   "color": [
+    0.27,
+    0.27,
+    0.29
+   ],
+   "collider": false,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "ceil_garagem",
+   "pos": [
+    6,
+    3.1,
+    -0.5
+   ],
+   "size": [
+    8,
+    0.2,
+    7
+   ],
+   "color": [
+    0.33,
+    0.32,
+    0.31
+   ],
+   "collider": false,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_n_sala_0",
+   "pos": [
+    -5.55,
+    1.5,
+    -4.1
+   ],
+   "size": [
+    1.0999999999999996,
+    3,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_n_sala_lintel_0",
+   "pos": [
+    -4.5,
+    2.55,
+    -4.1
+   ],
+   "size": [
+    1,
+    0.8999999999999999,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_n_sala_1",
+   "pos": [
+    -3,
+    1.5,
+    -4.1
+   ],
+   "size": [
+    2,
+    3,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_n_sala_lintel_1",
+   "pos": [
+    -1.5,
+    2.55,
+    -4.1
+   ],
+   "size": [
+    1,
+    0.8999999999999999,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_n_sala_end",
+   "pos": [
+    0.5,
+    1.5,
+    -4.1
+   ],
+   "size": [
+    3,
+    3,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_n_garagem_end",
+   "pos": [
+    6.05,
+    1.5,
+    -4.1
+   ],
+   "size": [
+    8.1,
+    3,
+    0.2
+   ],
+   "color": [
+    0.33,
+    0.32,
+    0.31
+   ],
+   "collider": true,
+   "mat": "concrete",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_s_sala_0",
+   "pos": [
+    -5,
+    1.5,
+    3.1
+   ],
+   "size": [
+    2.1999999999999997,
+    3,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_s_sala_lintel_0",
+   "pos": [
+    -3,
+    2.65,
+    3.1
+   ],
+   "size": [
+    1.8,
+    0.7000000000000002,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_s_sala_end",
+   "pos": [
+    -0.050000000000000044,
+    1.5,
+    3.1
+   ],
+   "size": [
+    4.1,
+    3,
+    0.2
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_s_garagem_end",
+   "pos": [
+    6.05,
+    1.5,
+    3.1
+   ],
+   "size": [
+    8.1,
+    3,
+    0.2
+   ],
+   "color": [
+    0.33,
+    0.32,
+    0.31
+   ],
+   "collider": true,
+   "mat": "concrete",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_w_end",
+   "pos": [
+    -6.1,
+    1.5,
+    -0.4999999999999998
+   ],
+   "size": [
+    0.2,
+    3,
+    7.199999999999999
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_e_end",
+   "pos": [
+    10.1,
+    1.5,
+    -0.4999999999999998
+   ],
+   "size": [
+    0.2,
+    3,
+    7.199999999999999
+   ],
+   "color": [
+    0.33,
+    0.32,
+    0.31
+   ],
+   "collider": true,
+   "mat": "concrete",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_mid_0",
+   "pos": [
+    2,
+    1.5,
+    -2.775
+   ],
+   "size": [
+    0.2,
+    3,
+    2.45
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_mid_lintel_0",
+   "pos": [
+    2,
+    2.55,
+    -1
+   ],
+   "size": [
+    0.2,
+    0.8999999999999999,
+    1.1
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "wall_mid_end",
+   "pos": [
+    2,
+    1.5,
+    1.275
+   ],
+   "size": [
+    0.2,
+    3,
+    3.45
+   ],
+   "color": [
+    0.3,
+    0.31,
+    0.33
+   ],
+   "collider": true,
+   "mat": "plaster",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "garage_gate",
+   "pos": [
+    6,
+    1.2,
+    3.08
+   ],
+   "size": [
+    3.2,
+    2.4,
+    0.06
+   ],
+   "color": [
+    0.27,
+    0.3,
+    0.33
+   ],
+   "collider": false,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "rail_s",
+   "pos": [
+    -2.9,
+    0.5,
+    7.2
+   ],
+   "size": [
+    7,
+    1,
+    0.1
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "rail_w",
+   "pos": [
+    -6.4,
+    0.5,
+    5.1
+   ],
+   "size": [
+    0.1,
+    1,
+    4.4
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "rail_e",
+   "pos": [
+    0.6,
+    0.5,
+    5.1
+   ],
+   "size": [
+    0.1,
+    1,
+    4.4
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "porch_post_l",
+   "pos": [
+    -3.8,
+    1.2,
+    3.05
+   ],
+   "size": [
+    0.14,
+    2.4,
+    0.14
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": false,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "porch_post_r",
+   "pos": [
+    -2.2,
+    1.2,
+    3.05
+   ],
+   "size": [
+    0.14,
+    2.4,
+    0.14
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": false,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "sofa",
+   "pos": [
+    -5.15,
+    0.4,
+    0.4
+   ],
+   "size": [
+    0.95,
+    0.8,
+    2.3
+   ],
+   "color": [
+    0.22,
+    0.26,
+    0.31
+   ],
+   "collider": true,
+   "mat": "fabric",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "coffee_table",
+   "pos": [
+    -3.4,
+    0.22,
+    0.4
+   ],
+   "size": [
+    1.2,
+    0.44,
+    0.7
+   ],
+   "color": [
+    0.3,
+    0.2,
+    0.13
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "bookshelf",
+   "pos": [
+    -5.75,
+    1,
+    -2.7
+   ],
+   "size": [
+    0.4,
+    2,
+    1.7
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "clock",
+   "pos": [
+    -5.86,
+    1.9,
+    -1.1
+   ],
+   "size": [
+    0.08,
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.8,
+    0.75,
+    0.6
+   ],
+   "collider": false,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "coat",
+   "pos": [
+    -2.5,
+    0.03,
+    1.3
+   ],
+   "size": [
+    0.7,
+    0.06,
+    0.5
+   ],
+   "color": [
+    0.36,
+    0.33,
+    0.38
+   ],
+   "collider": false,
+   "mat": "fabric",
+   "rot_y": 0.5,
+   "cast": false
+  },
+  {
+   "id": "sala_lamp",
+   "pos": [
+    -3.4,
+    2.75,
+    -0.5
+   ],
+   "size": [
+    0.22,
+    0.3,
+    0.22
+   ],
+   "color": [
+    1,
+    0.9,
+    0.7
+   ],
+   "collider": false,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "workbench",
+   "pos": [
+    7,
+    0.45,
+    -3.55
+   ],
+   "size": [
+    2,
+    0.9,
+    0.8
+   ],
+   "color": [
+    0.3,
+    0.2,
+    0.13
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "toolbox",
+   "pos": [
+    7.6,
+    1.02,
+    -3.55
+   ],
+   "size": [
+    0.5,
+    0.24,
+    0.26
+   ],
+   "color": [
+    0.5,
+    0.1,
+    0.08
+   ],
+   "collider": false,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "cabinet",
+   "pos": [
+    9.55,
+    1.1,
+    -2.6
+   ],
+   "size": [
+    0.7,
+    2.2,
+    1.2
+   ],
+   "color": [
+    0.27,
+    0.3,
+    0.33
+   ],
+   "collider": true,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "shelf",
+   "pos": [
+    8.8,
+    0.8,
+    2.6
+   ],
+   "size": [
+    2,
+    1.6,
+    0.6
+   ],
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "crate_1",
+   "pos": [
+    2.6,
+    0.35,
+    2.3
+   ],
+   "size": [
+    0.9,
+    0.7,
+    0.9
+   ],
+   "color": [
+    0.42,
+    0.33,
+    0.21
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "crate_2",
+   "pos": [
+    2.65,
+    1,
+    2.25
+   ],
+   "size": [
+    0.7,
+    0.6,
+    0.7
+   ],
+   "color": [
+    0.42,
+    0.33,
+    0.21
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": 0.3,
+   "cast": false
+  },
+  {
+   "id": "crate_3",
+   "pos": [
+    5,
+    0.3,
+    -3.3
+   ],
+   "size": [
+    0.8,
+    0.6,
+    1
+   ],
+   "color": [
+    0.42,
+    0.33,
+    0.21
+   ],
+   "collider": true,
+   "mat": "wood",
+   "rot_y": -0.2,
+   "cast": false
+  },
+  {
+   "id": "pinboard",
+   "pos": [
+    9.94,
+    1.5,
+    0.2
+   ],
+   "size": [
+    0.05,
+    0.9,
+    1.3
+   ],
+   "color": [
+    0.35,
+    0.25,
+    0.16
+   ],
+   "collider": false,
+   "mat": "wood",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "photo",
+   "pos": [
+    9.9,
+    1.5,
+    0.2
+   ],
+   "size": [
+    0.03,
+    0.42,
+    0.32
+   ],
+   "color": [
+    0.62,
+    0.56,
+    0.44
+   ],
+   "collider": false,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  },
+  {
+   "id": "garage_bulb",
+   "pos": [
+    6,
+    2.8,
+    -0.4
+   ],
+   "size": [
+    0.14,
+    0.2,
+    0.14
+   ],
+   "color": [
+    1,
+    0.9,
+    0.7
+   ],
+   "collider": false,
+   "mat": "metal",
+   "rot_y": 0,
+   "cast": false
+  }
+ ],
+ "decals": [
+  {
+   "id": "tire_mark_porch",
+   "pos": [
+    -4.3,
+    0.012,
+    5.2
+   ],
+   "size": [
+    1,
+    3.2
+   ],
+   "rot_y": 0.12,
+   "color": [
+    0.03,
+    0.03,
+    0.04
+   ],
+   "alpha": 0.85,
+   "shine": true
+  },
+  {
+   "id": "puddle_porch",
+   "pos": [
+    -3.2,
+    0.011,
+    6
+   ],
+   "size": [
+    1.6,
+    1
+   ],
+   "rot_y": -0.3,
+   "color": [
+    0.18,
+    0.22,
+    0.3
+   ],
+   "alpha": 0.6,
+   "shine": true
+  },
+  {
+   "id": "oil_stain",
+   "pos": [
+    6.3,
+    0.006,
+    0.9
+   ],
+   "size": [
+    1.6,
+    1.1
+   ],
+   "rot_y": 0,
+   "color": [
+    0.05,
+    0.05,
+    0.06
+   ],
+   "alpha": 0.6
+  },
+  {
+   "id": "tire_mark",
+   "pos": [
+    6.2,
+    0.008,
+    0.2
+   ],
+   "size": [
+    2,
+    3.6
+   ],
+   "rot_y": 0.05,
+   "color": [
+    0.04,
+    0.04,
+    0.05
+   ],
+   "alpha": 0.85
+  }
+ ],
+ "interactables": [
+  {
+   "id": "clock",
+   "kind": "detail",
+   "label": "Relógio parado",
+   "pos": [
+    -5.5,
+    0,
+    -1.1
+   ],
+   "radius": 1.4,
+   "height": 1.9,
+   "on_interact": {
+    "type": "examine",
+    "id": "clock",
+    "text": "Os ponteiros pararam às 23:47. O vidro está frio.",
+    "flag": "saw_stopped_clock"
+   }
+  },
+  {
+   "id": "coat",
+   "kind": "detail",
+   "label": "Casaco da mãe",
+   "pos": [
+    -2.5,
+    0,
+    1.3
+   ],
+   "radius": 1.3,
+   "height": 0.1,
+   "on_interact": {
+    "type": "examine",
+    "id": "coat",
+    "text": "O casaco de Clara está no chão, ainda úmido. Ela nunca deixaria isso aqui.",
+    "flag": "saw_mother_coat"
+   }
+  },
+  {
+   "id": "porch_tire",
+   "kind": "detail",
+   "label": "Marca de pneu",
+   "pos": [
+    -4.3,
+    0,
+    5
+   ],
+   "radius": 1.6,
+   "height": 0.05,
+   "on_interact": {
+    "type": "examine",
+    "id": "porch_tire",
+    "text": "O casaco da mãe está no chão, ainda úmido. A marca de pneu no piso da garagem brilha sob a luz da rua.",
+    "flag": "saw_tire_mark"
+   }
+  },
+  {
+   "id": "door_quarto",
+   "kind": "choice",
+   "label": "Quarto da mãe",
+   "pos": [
+    -4.5,
+    0,
+    -4
+   ],
+   "radius": 1.5,
+   "height": 1.1,
+   "door": "door_quarto",
+   "on_interact": {
+    "type": "choice",
+    "choice": "a"
+   }
+  },
+  {
+   "id": "door_cozinha",
+   "kind": "choice",
+   "label": "Cozinha",
+   "pos": [
+    -1.5,
+    0,
+    -4
+   ],
+   "radius": 1.5,
+   "height": 1.1,
+   "door": "door_cozinha",
+   "on_interact": {
+    "type": "choice",
+    "choice": "c"
+   }
+  },
+  {
+   "id": "door_garagem",
+   "kind": "choice",
+   "label": "Garagem",
+   "pos": [
+    2,
+    0,
+    -1
+   ],
+   "radius": 1.5,
+   "height": 1.1,
+   "door": "door_garagem",
+   "on_interact": {
+    "type": "choice",
+    "choice": "b"
+   }
+  },
+  {
+   "id": "garage_tire",
+   "kind": "detail",
+   "label": "Marca de pneu",
+   "pos": [
+    6.2,
+    0,
+    0.2
+   ],
+   "radius": 1.7,
+   "height": 0.05,
+   "enabled": false,
+   "on_interact": {
+    "type": "examine",
+    "id": "garage_tire",
+    "text": "Borracha fresca, a marca vai até a vaga vazia. O carro saiu com pressa.",
+    "authored": true,
+    "flag": "saw_tire_mark",
+    "clue": "tire_mark"
+   }
+  },
+  {
+   "id": "workbench",
+   "kind": "detail",
+   "label": "Bancada",
+   "pos": [
+    7,
+    0,
+    -3
+   ],
+   "radius": 1.4,
+   "height": 0.95,
+   "enabled": false,
+   "on_interact": {
+    "type": "examine",
+    "id": "workbench",
+    "text": "Ferramentas do pai, alinhadas como ele gosta. Falta só a lanterna.",
+    "authored": true
+   }
+  },
+  {
+   "id": "cabinet",
+   "kind": "detail",
+   "label": "Armário",
+   "pos": [
+    9.1,
+    0,
+    -2.6
+   ],
+   "radius": 1.3,
+   "height": 1.2,
+   "enabled": false,
+   "on_interact": {
+    "type": "examine",
+    "id": "cabinet",
+    "text": "Trancado. Um arranhão recente na fechadura.",
+    "authored": true
+   }
+  },
+  {
+   "id": "photo",
+   "kind": "detail",
+   "label": "Fotografia antiga",
+   "pos": [
+    9.4,
+    0,
+    0.2
+   ],
+   "radius": 1.5,
+   "height": 1.5,
+   "enabled": false,
+   "on_interact": {
+    "type": "examine",
+    "id": "photo",
+    "text": "No fundo da garagem existe uma fotografia antiga com um símbolo estranho.",
+    "flag": "found_photo_symbol",
+    "then": "finish_phase"
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "door_quarto",
+   "pos": [
+    -4.5,
+    0,
+    -4.1
+   ],
+   "axis": "x",
+   "width": 1,
+   "height": 2.1,
+   "hinge": "min",
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ]
+  },
+  {
+   "id": "door_cozinha",
+   "pos": [
+    -1.5,
+    0,
+    -4.1
+   ],
+   "axis": "x",
+   "width": 1,
+   "height": 2.1,
+   "hinge": "max",
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ]
+  },
+  {
+   "id": "door_garagem",
+   "pos": [
+    2,
+    0,
+    -1
+   ],
+   "axis": "z",
+   "width": 1.1,
+   "height": 2.1,
+   "hinge": "min",
+   "color": [
+    0.16,
+    0.12,
+    0.09
+   ]
+  }
+ ],
+ "cameras": [
+  {
+   "id": "sala_entrada",
+   "camera_position": [
+    1.6,
+    2.65,
+    -3.5
+   ],
+   "fov": 44,
+   "priority": 0,
+   "transition": 0.55,
+   "follow_damping": 5,
+   "camera_zone": {
+    "min": [
+     -6,
+     -1,
+     -0.3
+    ],
+    "max": [
+     2,
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "id": "sala_portas",
+   "camera_position": [
+    -5.6,
+    2.6,
+    2.6
+   ],
+   "fov": 46,
+   "priority": 0,
+   "transition": 0.55,
+   "follow_damping": 5,
+   "camera_zone": {
+    "min": [
+     -6,
+     -1,
+     -4
+    ],
+    "max": [
+     2,
+     4,
+     -0.3
+    ]
+   }
+  },
+  {
+   "id": "varanda",
+   "camera_position": [
+    -3,
+    2.5,
+    6.8
+   ],
+   "fov": 50,
+   "priority": 0,
+   "transition": 0.55,
+   "follow_damping": 5,
+   "camera_zone": {
+    "min": [
+     -6.5,
+     -1,
+     3
+    ],
+    "max": [
+     0.7,
+     4,
+     7.3
+    ]
+   }
+  },
+  {
+   "id": "garagem_entrada",
+   "camera_position": [
+    9.4,
+    2.7,
+    2.5
+   ],
+   "fov": 46,
+   "priority": 0,
+   "transition": 0.55,
+   "follow_damping": 5,
+   "camera_zone": {
+    "min": [
+     2,
+     -1,
+     -4
+    ],
+    "max": [
+     6.2,
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "id": "garagem_fundo",
+   "camera_position": [
+    2.6,
+    2.7,
+    -3.5
+   ],
+   "fov": 46,
+   "priority": 0,
+   "transition": 0.55,
+   "follow_damping": 5,
+   "camera_zone": {
+    "min": [
+     6.2,
+     -1,
+     -4
+    ],
+    "max": [
+     10.2,
+     4,
+     3
+    ]
+   }
+  }
+ ],
+ "lights": [
+  {
+   "id": "sala_lamp",
+   "kind": "omni",
+   "pos": [
+    -3.4,
+    2.5,
+    -0.5
+   ],
+   "color": [
+    1,
+    0.78,
+    0.5
+   ],
+   "energy": 1.1,
+   "range": 7.5,
+   "shadow": false
+  },
+  {
+   "id": "sala_cold",
+   "kind": "omni",
+   "pos": [
+    -3,
+    2.6,
+    4.5
+   ],
+   "color": [
+    0.5,
+    0.62,
+    0.95
+   ],
+   "energy": 0.8,
+   "range": 7,
+   "shadow": false
+  },
+  {
+   "id": "garage_bulb",
+   "kind": "spot",
+   "pos": [
+    6,
+    2.7,
+    -0.4
+   ],
+   "color": [
+    1,
+    0.82,
+    0.55
+   ],
+   "energy": 2,
+   "range": 11,
+   "angle": 80,
+   "shadow": true
+  },
+  {
+   "id": "garage_fill",
+   "kind": "omni",
+   "pos": [
+    6,
+    2.6,
+    0.5
+   ],
+   "color": [
+    0.6,
+    0.66,
+    0.85
+   ],
+   "energy": 0.55,
+   "range": 12,
+   "shadow": false
+  },
+  {
+   "id": "porch_street",
+   "kind": "omni",
+   "pos": [
+    -1.5,
+    3.2,
+    5.5
+   ],
+   "color": [
+    0.45,
+    0.58,
+    1
+   ],
+   "energy": 1.2,
+   "range": 8,
+   "shadow": false
+  }
+ ],
+ "audio": {
+  "music": "music_phase01",
+  "ambience": "amb_house"
+ },
+ "objective": "Descobrir o que aconteceu."
+}

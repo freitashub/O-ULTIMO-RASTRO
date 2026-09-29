@@ -1,0 +1,44 @@
+{
+ "sfx_step_wood": {
+  "file": "res://assets/audio/sfx_step_wood.ogg"
+ },
+ "sfx_step_stone": {
+  "file": "res://assets/audio/sfx_step_stone.ogg"
+ },
+ "sfx_door_open": {
+  "file": "res://assets/audio/sfx_door_open.ogg"
+ },
+ "sfx_door_close": {
+  "file": "res://assets/audio/sfx_door_close.ogg"
+ },
+ "sfx_paper_rustle": {
+  "file": "res://assets/audio/sfx_paper_rustle.ogg"
+ },
+ "ui_confirm": {
+  "file": "res://assets/audio/ui_confirm.ogg"
+ },
+ "ui_hover": {
+  "file": "res://assets/audio/ui_hover.ogg"
+ },
+ "sfx_investigate": {
+  "file": "res://assets/audio/sfx_investigate.ogg"
+ },
+ "sfx_clue_found": {
+  "file": "res://assets/audio/sfx_clue_found.ogg"
+ },
+ "sfx_choice_wrong": {
+  "file": "res://assets/audio/sfx_choice_wrong.ogg"
+ },
+ "amb_house": {
+  "file": "res://assets/audio/amb_house.ogg",
+  "loop": true
+ },
+ "amb_interior": {
+  "file": "res://assets/audio/amb_interior.ogg",
+  "loop": true
+ },
+ "music_phase01": {
+  "file": "res://assets/audio/phase01_casa_medo.ogg",
+  "loop": true
+ }
+}

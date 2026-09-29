@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "inscription": "Quem viu primeiro, lembra primeiro. Quem lembrou, girou. Quem girou, encontrou.",
+  "faces": ["olho", "lua", "mao", "corvo", "arvore", "rosto"],
+  "solution": ["olho", "lua", "mao", "corvo", "arvore"],
+  "hiddenFace": "rosto",
+  "mappings": [
+    { "clue": "eye_symbol", "symbol": "olho", "phase": 2, "position": 1 },
+    { "clue": "elias_shirt", "symbol": "lua", "phase": 3, "position": 2 },
+    { "clue": "thirteen_days", "symbol": "mao", "phase": 5, "position": 3 },
+    { "clue": "ghost_identity", "symbol": "corvo", "phase": 9, "position": 4 },
+    { "clue": "map_troll_shape", "symbol": "arvore", "phase": 14, "position": 5 },
+    { "clue": "cube_inscription", "symbol": "rosto", "phase": 20, "position": 6 }
+  ]
+}

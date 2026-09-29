@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "basePath": "/assets/audio/ambience",
+  "ambience": {
+    "amb_city": {
+      "file": "amb_city",
+      "desc": "cidade (tráfego distante, vento urbano)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_house": {
+      "file": "amb_house",
+      "desc": "casa (tom de sala, relógio, chuva na janela)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_forest": {
+      "file": "amb_forest",
+      "desc": "floresta noturna (vento nas folhas, grilos)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_church": {
+      "file": "amb_church",
+      "desc": "igreja (reverberação, goteiras)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_police": {
+      "file": "amb_police",
+      "desc": "delegacia (fluorescente, teclas distantes)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_interior": {
+      "file": "amb_interior",
+      "desc": "interior genérico (arquivo, biblioteca)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_underground": {
+      "file": "amb_underground",
+      "desc": "subterrâneo (goteiras, rumor grave)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_trolls": {
+      "file": "amb_trolls",
+      "desc": "cidade dos trolls (respiração, rosnados distantes)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_forge": {
+      "file": "amb_forge",
+      "desc": "oficina do ferreiro (fogo, martelo)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_cave": {
+      "file": "amb_cave",
+      "desc": "caverna final (vento, goteiras, respiração)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_mountain": {
+      "file": "amb_mountain",
+      "desc": "montanha (vento forte)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_illusion": {
+      "file": "amb_illusion",
+      "desc": "sala da ilusão (brilho irreal)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_cube": {
+      "file": "amb_cube",
+      "desc": "Cubo de Orun (zumbido cristalino)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_ending_good": {
+      "file": "amb_ending_good",
+      "desc": "final bom (amanhecer, pássaros)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_ending_bad": {
+      "file": "amb_ending_bad",
+      "desc": "final ruim (vento, batimento lento)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_ending_secret": {
+      "file": "amb_ending_secret",
+      "desc": "final secreto (brilho profundo)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    },
+    "amb_station": {
+      "file": "amb_station",
+      "desc": "estação / porto (motores, vento)",
+      "loop": true,
+      "durationMs": 40000,
+      "generator": "procedural-synth"
+    }
+  }
+}

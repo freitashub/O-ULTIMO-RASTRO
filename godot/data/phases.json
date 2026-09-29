@@ -1,0 +1,787 @@
+[
+  {
+    "id": 1,
+    "title": "A Casa Vazia",
+    "act": 1,
+    "intro": "Theo chega em casa. A porta está aberta. O relógio da sala está parado às 23:47.",
+    "scene": "O casaco da mãe está no chão, ainda úmido. A marca de pneu no piso da garagem brilha sob a luz da rua.",
+    "objective": "Descobrir o que aconteceu.",
+    "image": "/assets/backgrounds/phase-01-casa.webp",
+    "music": "/assets/music/phase01_casa_medo.ogg",
+    "ambience": "/assets/audio/ambience/amb_house.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Quarto da mãe",
+        "correct": false,
+        "consequence": "Theo encontra uma gaveta revirada, mas nenhuma pista nova.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Garagem",
+        "correct": true,
+        "consequence": "Theo encontra uma marca de pneu no piso da garagem.",
+        "clueReward": "tire_mark",
+        "justification": "A marca de pneu está visível na cena de entrada da casa."
+      },
+      {
+        "id": "c",
+        "text": "Cozinha",
+        "correct": false,
+        "consequence": "Theo encontra uma xícara fria. Nada mais.",
+        "justification": ""
+      }
+    ],
+    "revelation": "No fundo da garagem existe uma fotografia antiga com um símbolo estranho.",
+    "cliffhanger": "A fotografia mostra um desenho que Theo nunca viu antes.",
+    "justification": "O jogador deve olhar a marca de pneu visível na cena de entrada.",
+    "respiroPhase": false
+  },
+  {
+    "id": 2,
+    "title": "A Marca na Parede",
+    "act": 1,
+    "intro": "Theo segue a marca e encontra um símbolo desenhado na parede.",
+    "scene": "O mesmo símbolo aparece no casaco da mãe e no sino da igreja.",
+    "objective": "Seguir o símbolo.",
+    "image": "/assets/backgrounds/phase-02-igreja.webp",
+    "music": "/assets/music/phase02_igreja_curiosidade.ogg",
+    "ambience": "/assets/audio/ambience/amb_church.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Floresta",
+        "correct": false,
+        "consequence": "Theo encontra trilhas antigas, mas nenhuma pista nova.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Ponte velha",
+        "correct": false,
+        "consequence": "Theo encontra uma ponte abandonada. Nada mais.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Igreja antiga",
+        "correct": true,
+        "consequence": "A igreja possui o mesmo símbolo no sino.",
+        "clueReward": "eye_symbol",
+        "justification": "O símbolo do olho aparece no casaco da mãe na Fase 1 e no sino da igreja."
+      }
+    ],
+    "symbolReward": "olho",
+    "revelation": "Quando o sino balança sozinho, Theo ouve uma voz: 'Eles já estiveram aqui.'",
+    "cliffhanger": "A voz vem de debaixo do chão da igreja.",
+    "justification": "O símbolo do olho estava no casaco da mãe.",
+    "respiroPhase": false
+  },
+  {
+    "id": 3,
+    "title": "O Primeiro Troll",
+    "act": 1,
+    "intro": "Theo encontra uma criatura escondida. O troll não ataca.",
+    "scene": "O troll diz: 'Se eu fosse você, não procuraria seus pais aqui.'",
+    "objective": "Encontrar o caminho certo.",
+    "image": "/assets/backgrounds/phase-03-tunel.webp",
+    "music": "/assets/music/phase03_tunel_tensao.ogg",
+    "ambience": "/assets/audio/ambience/amb_underground.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Seguir o troll",
+        "correct": false,
+        "consequence": "O troll desaparece. Theo se perde por alguns minutos.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Verificar a carroça abandonada",
+        "correct": false,
+        "consequence": "Theo encontra apenas madeira velha.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Entrar no túnel",
+        "correct": true,
+        "consequence": "Theo encontra marcas de arrasto e um pedaço de tecido da camisa de Elias.",
+        "clueReward": "elias_shirt",
+        "justification": "Na Fase 2, o som vinha do subsolo — o túnel é a continuação lógica."
+      }
+    ],
+    "symbolReward": "lua",
+    "revelation": "As marcas de arrasto levam mais fundo. Alguém foi arrastado para dentro.",
+    "cliffhanger": "Uma grade fecha atrás de Theo.",
+    "justification": "O som da voz na Fase 2 vinha de baixo do chão.",
+    "respiroPhase": false
+  },
+  {
+    "id": 4,
+    "title": "O Policial",
+    "act": 1,
+    "intro": "Theo consegue sair e procura a polícia. Chefe Silas aparece e é extremamente cordial.",
+    "scene": "Silas afirma: 'Seus pais podem ter decidido ir embora.' Ele menciona que as câmeras registraram tudo, com um tom evasivo.",
+    "objective": "Investigar o que a polícia sabe.",
+    "image": "/assets/backgrounds/phase-04-delegacia.webp",
+    "music": "/assets/music/phase04_delegacia_respiro.ogg",
+    "ambience": "/assets/audio/ambience/amb_police.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Arquivo da delegacia",
+        "correct": false,
+        "consequence": "Theo encontra fichas comuns. Nada sobre os pais.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Sala de câmeras",
+        "correct": true,
+        "consequence": "Uma gravação mostra os pais entrando em um carro.",
+        "clueReward": "police_car_footage",
+        "justification": "Silas disse que 'as câmeras registraram tudo' com tom evasivo — ele não quer que Theo veja as câmeras."
+      },
+      {
+        "id": "c",
+        "text": "Gabinete de Silas",
+        "correct": false,
+        "consequence": "O gabinete está trancado. Silas pede para Theo confiar nele.",
+        "justification": ""
+      }
+    ],
+    "revelation": "O carro da gravação é da própria polícia.",
+    "cliffhanger": "Silas comenta: 'Você tem os olhos do seu pai. E algo mais.'",
+    "justification": "Silas menciona as câmeras de forma evasiva.",
+    "respiroPhase": true
+  },
+  {
+    "id": 5,
+    "title": "O Arquivo Morto",
+    "act": 2,
+    "intro": "Theo invade o arquivo. Existem dezenas de nomes riscados.",
+    "scene": "Uma lista de desaparecidos com nomes cruzados. O nome de Theo está na lista, com uma anotação ilegível ao lado.",
+    "objective": "Encontrar um padrão.",
+    "image": "/assets/backgrounds/phase-05-arquivo.webp",
+    "music": "/assets/music/phase05_arquivo_confusao.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Arquivo de desaparecidos",
+        "correct": true,
+        "consequence": "Vários desaparecimentos ocorreram sempre em intervalos de 13 dias.",
+        "clueReward": "thirteen_days",
+        "justification": "O carro da Fase 4 era da polícia, então o arquivo de desaparecidos é o próximo passo lógico."
+      },
+      {
+        "id": "b",
+        "text": "Registros de veículos",
+        "correct": false,
+        "consequence": "Theo encontra placas, mas nenhuma ligada aos pais.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Sala de objetos apreendidos",
+        "correct": false,
+        "consequence": "Objetos comuns em prateleiras. Nada pessoal.",
+        "justification": ""
+      }
+    ],
+    "symbolReward": "mao",
+    "revelation": "O último nome da lista é o de Theo.",
+    "cliffhanger": "Alguém riscou o nome de Theo antes dele chegar.",
+    "justification": "O carro da polícia na Fase 4 leva ao arquivo de desaparecidos.",
+    "respiroPhase": false
+  },
+  {
+    "id": 6,
+    "title": "Eles Foram Embora?",
+    "act": 2,
+    "intro": "Uma carta aparentemente escrita por Clara aparece: 'Filho, talvez tenhamos que partir.'",
+    "scene": "Um troll Mensageiro entrega a carta e some antes de Theo reagir. A carta é falsa, mas Theo não sabe.",
+    "objective": "Seguir o rastro da carta.",
+    "image": "/assets/backgrounds/phase-06-estacao.webp",
+    "music": "/assets/music/phase06_estacao_melancolia.ogg",
+    "ambience": "/assets/audio/ambience/amb_station.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Estação de trem",
+        "correct": true,
+        "consequence": "Há um bilhete comprado, mas nunca utilizado.",
+        "clueReward": "unused_ticket",
+        "justification": "A carta menciona 'partir' e o arquivo da Fase 5 mostrava que a família viajava de trem frequentemente."
+      },
+      {
+        "id": "b",
+        "text": "Rodoviária",
+        "correct": false,
+        "consequence": "Ônibus partindo. Nenhum registro da família.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Fazenda da família",
+        "correct": false,
+        "consequence": "A casa está fechada há semanas. Nada de novo.",
+        "justification": ""
+      }
+    ],
+    "revelation": "O comprador do bilhete foi registrado como 'Clara V.' — sobrenome ambíguo, próximo de Silas Vale.",
+    "cliffhanger": "Por que o bilhete nunca foi usado?",
+    "justification": "A carta fala em partir; o arquivo mostrou viagens de trem.",
+    "respiroPhase": true
+  },
+  {
+    "id": 7,
+    "title": "A Letra",
+    "act": 2,
+    "intro": "Theo compara a carta com outra carta antiga da mãe. A letra é diferente.",
+    "scene": "A falsificação é quase perfeita, mas os traços não coincidem.",
+    "objective": "Provar que a carta é falsa.",
+    "image": "/assets/backgrounds/phase-07-biblioteca.webp",
+    "music": "/assets/music/phase07_biblioteca_raiva.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Biblioteca",
+        "correct": true,
+        "consequence": "Um livro possui a assinatura de Clara e uma anotação: 'Se eu desaparecer, procure a sexta marca.'",
+        "clueReward": "sixth_mark_note",
+        "justification": "Na Fase 6, o bilhete tinha um selo da biblioteca municipal."
+      },
+      {
+        "id": "b",
+        "text": "Escola antiga",
+        "correct": false,
+        "consequence": "Cadernos velhos. Nenhuma escrita da mãe.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Casa do vizinho",
+        "correct": false,
+        "consequence": "O vizinho não viu nada útil.",
+        "justification": ""
+      }
+    ],
+    "revelation": "Clara deixou escrito: 'Não confie no que estiver escrito. Confie no que você viu.'",
+    "cliffhanger": "Nenhuma das pistas anteriores mostrou uma sexta marca.",
+    "justification": "O selo da biblioteca no bilhete da Fase 6.",
+    "respiroPhase": false
+  },
+  {
+    "id": 8,
+    "title": "Outro País",
+    "act": 2,
+    "intro": "Surge a hipótese de que um grupo estrangeiro sequestrou os pais. Há documentos de viagem falsificados.",
+    "scene": "Um troll Condutor dirige um veículo com pessoas dentro. O veículo entra em uma área restrita. O condutor olha para Theo com estranheza.",
+    "objective": "Seguir o veículo.",
+    "image": "/assets/backgrounds/phase-08-porto.webp",
+    "music": "/assets/music/phase08_porto_humor.ogg",
+    "ambience": "/assets/audio/ambience/amb_station.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Aeroporto",
+        "correct": false,
+        "consequence": "Voos comuns. Nada suspeito na área pública.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Porto seco",
+        "correct": true,
+        "consequence": "Uma câmera mostra um veículo entrando em uma área restrita ao lado do porto seco.",
+        "clueReward": "restricted_area_camera",
+        "justification": "O veículo da cena inicial entrou em uma área restrita que, no mapa da cidade, fica ao lado do porto seco."
+      },
+      {
+        "id": "c",
+        "text": "Hotel antigo",
+        "correct": false,
+        "consequence": "Hóspedes registrados, nenhum com os pais.",
+        "justification": ""
+      }
+    ],
+    "revelation": "Dentro do veículo não há ninguém. A câmera registra apenas sombras.",
+    "cliffhanger": "O condutor reconheceu Theo?",
+    "justification": "Área restrita no mapa fica ao lado do porto seco.",
+    "respiroPhase": true
+  },
+  {
+    "id": 9,
+    "title": "O Homem Que Não Existe",
+    "act": 2,
+    "intro": "Theo encontra um nome em registros internacionais. O nome pertence a uma pessoa que não existe.",
+    "scene": "Enquanto Theo olha um documento, o texto muda sozinho. Um troll Copista falsificou o registro.",
+    "objective": "Descobrir quem está por trás da identidade falsa.",
+    "image": "/assets/backgrounds/phase-09-registros.webp",
+    "music": "/assets/music/phase09_registros_urgencia.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Centro de registros",
+        "correct": true,
+        "consequence": "A identidade foi criada para esconder movimentações dos trolls.",
+        "clueReward": "ghost_identity",
+        "justification": "O documento que mudou tinha um carimbo do centro de registros."
+      },
+      {
+        "id": "b",
+        "text": "Antigo consulado",
+        "correct": false,
+        "consequence": "Prédio fechado. Nenhum registro útil.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Biblioteca municipal",
+        "correct": false,
+        "consequence": "Jornais antigos, sem o nome procurado.",
+        "justification": ""
+      }
+    ],
+    "symbolReward": "corvo",
+    "revelation": "Uma foto antiga (Clara, Elias e uma criança desconhecida) aparece entre os documentos. Theo a guarda.",
+    "cliffhanger": "Alguém fecha o computador de Theo remotamente.",
+    "justification": "O carimbo do documento aponta para o centro de registros.",
+    "respiroPhase": false
+  },
+  {
+    "id": 10,
+    "title": "O Ferreiro",
+    "act": 3,
+    "intro": "Theo encontra um troll que fabrica ferramentas. Ele diz conhecer os pais. Sua atitude é calma.",
+    "scene": "O ferreiro trabalha na oficina. Uma ferramenta possui o mesmo símbolo do Cubo de Orun.",
+    "objective": "Observar o que o ferreiro fabrica.",
+    "image": "/assets/backgrounds/phase-10-oficina.webp",
+    "music": "/assets/music/phase10_oficina_confianca.ogg",
+    "ambience": "/assets/audio/ambience/amb_forge.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Oficina",
+        "correct": true,
+        "consequence": "Uma ferramenta possui o mesmo símbolo do Cubo de Orun.",
+        "clueReward": "orun_tool_symbol",
+        "justification": "O ferreiro é visto trabalhando na oficina na cena inicial."
+      },
+      {
+        "id": "b",
+        "text": "Ponte subterrânea",
+        "correct": false,
+        "consequence": "A ponte está em ruínas. Sem passagem.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Torre de observação",
+        "correct": false,
+        "consequence": "A torre está vazia. Nada de útil do alto.",
+        "justification": ""
+      }
+    ],
+    "revelation": "O troll pergunta: 'Quantas marcas você já encontrou?'",
+    "cliffhanger": "Os trolls sabem que Theo está investigando.",
+    "justification": "O ferreiro está na oficina na cena inicial.",
+    "respiroPhase": true
+  },
+  {
+    "id": 11,
+    "title": "A Cidade Debaixo",
+    "act": 3,
+    "intro": "Theo encontra uma passagem para uma cidade subterrânea. Há casas, ruas, placas e oficinas. Tudo construído por trolls.",
+    "scene": "Um troll Guardião protege a entrada. Ele não ataca, mas observa. Na parede, a sombra de Theo parece deformada por um instante.",
+    "objective": "Explorar a cidade subterrânea.",
+    "image": "/assets/backgrounds/phase-11-cidade.webp",
+    "music": "/assets/music/phase11_cidade_descoberta.ogg",
+    "ambience": "/assets/audio/ambience/amb_trolls.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Mercado",
+        "correct": false,
+        "consequence": "Bancas estranhas. Theo não encontra pistas sobre os pais.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Prisão",
+        "correct": true,
+        "consequence": "Um humano está preso e diz: 'A polícia trabalha para eles.'",
+        "clueReward": "prisoner_warning",
+        "justification": "Na Fase 5, o nome de Theo estava riscado na lista de desaparecidos — a lista era de prisioneiros."
+      },
+      {
+        "id": "c",
+        "text": "Casa abandonada",
+        "correct": false,
+        "consequence": "Móveis empoeirados. Nada pessoal.",
+        "justification": ""
+      }
+    ],
+    "revelation": "O prisioneiro conhece o nome de Theo.",
+    "cliffhanger": "Como um prisioneiro sabe quem é Theo?",
+    "justification": "A lista da Fase 5 era de prisioneiros.",
+    "respiroPhase": false
+  },
+  {
+    "id": 12,
+    "title": "O Prisioneiro",
+    "act": 3,
+    "intro": "O prisioneiro entrega uma chave. Ele afirma que a chave abre um arquivo subterrâneo.",
+    "scene": "A chave tem uma inscrição. O prisioneiro diz: 'Você não devia estar aqui' — não como ameaça, mas como aviso.",
+    "objective": "Usar a chave.",
+    "image": "/assets/backgrounds/phase-12-chave.webp",
+    "music": "/assets/music/phase12_prisioneiro_paranoia.ogg",
+    "ambience": "/assets/audio/ambience/amb_underground.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Torre",
+        "correct": false,
+        "consequence": "A torre não tem fechadura compatível.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Arquivo subterrâneo",
+        "correct": true,
+        "consequence": "Registros mostram que o chefe da polícia visita o subterrâneo há anos.",
+        "clueReward": "silas_underground_visits",
+        "justification": "A chave tem uma inscrição que corresponde ao arquivo subterrâneo."
+      },
+      {
+        "id": "c",
+        "text": "Casa do guarda",
+        "correct": false,
+        "consequence": "A casa está vazia. A chave não abre nada aqui.",
+        "justification": ""
+      }
+    ],
+    "revelation": "O prisioneiro sussurra: 'Silas não é o que parece. Mas também não é o que você imagina.'",
+    "cliffhanger": "Os registros ligam Silas ao subterrâneo há anos.",
+    "justification": "A inscrição na chave corresponde ao arquivo subterrâneo.",
+    "respiroPhase": false
+  },
+  {
+    "id": 13,
+    "title": "O Chefe",
+    "act": 3,
+    "intro": "Theo confronta Silas. Silas não nega nada, mas também não confirma.",
+    "scene": "Silas diz: 'Você está procurando uma resposta que seus pais tentaram esconder de você.' Ele comenta: 'Crianças como você não deveriam investigar sozinhas. Mas você não é como as outras.'",
+    "objective": "Extrair a verdade de Silas.",
+    "image": "/assets/backgrounds/phase-13-silas.webp",
+    "music": "/assets/music/phase13_silas_desconfianca.ogg",
+    "ambience": "/assets/audio/ambience/amb_police.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Perguntar sobre Clara",
+        "correct": false,
+        "consequence": "Silas muda de assunto com elegância.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Perguntar sobre Elias",
+        "correct": false,
+        "consequence": "Silas responde com meias-verdades.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Perguntar sobre os desaparecimentos",
+        "correct": true,
+        "consequence": "Os desaparecimentos são organizados para retirar pessoas que descobrem a existência dos trolls.",
+        "clueReward": "organized_disappearances",
+        "justification": "Na Fase 5, o intervalo de 13 dias entre desaparecimentos foi descoberto. Perguntar sobre o padrão é a pergunta que Silas não quer responder."
+      }
+    ],
+    "revelation": "Silas revela que Clara e Elias descobriram o caminho para o esconderijo central.",
+    "cliffhanger": "Os pais sabiam dos trolls antes de desaparecerem.",
+    "justification": "O padrão de 13 dias da Fase 5.",
+    "respiroPhase": false
+  },
+  {
+    "id": 14,
+    "title": "O Mapa",
+    "act": 4,
+    "intro": "Theo encontra um mapa com todos os lugares das fases anteriores.",
+    "scene": "Todos os locais formam um desenho visto do alto. O desenho é a estrutura de um troll. No centro do desenho está a casa de Theo. No canto do mapa, um rosto discreto.",
+    "objective": "Interpretar o mapa.",
+    "image": "/assets/backgrounds/phase-14-mapa.webp",
+    "music": "/assets/music/phase14_mapa_choque.ogg",
+    "ambience": "/assets/audio/ambience/amb_interior.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Seguir o mapa para a montanha",
+        "correct": true,
+        "consequence": "O mapa mostra todos os locais visitados. O único não visitado é a montanha.",
+        "clueReward": "map_troll_shape",
+        "justification": "O único local não visitado no mapa é a montanha. Dedução lógica."
+      },
+      {
+        "id": "b",
+        "text": "Voltar para a delegacia",
+        "correct": false,
+        "consequence": "Silas repete que os pais foram embora.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Seguir o símbolo do olho",
+        "correct": false,
+        "consequence": "O símbolo leva de volta a lugares já visitados.",
+        "justification": ""
+      }
+    ],
+    "symbolReward": "arvore",
+    "revelation": "Os locais formam a estrutura de um troll. O centro é a casa de Theo.",
+    "cliffhanger": "Por que a casa de Theo está no centro de tudo?",
+    "justification": "A montanha é o único local não visitado no mapa.",
+    "respiroPhase": false
+  },
+  {
+    "id": 15,
+    "title": "A Armadilha",
+    "act": 4,
+    "intro": "Theo percebe que a investigação inteira foi conduzida para que ele chegasse à montanha.",
+    "scene": "As entradas visíveis da caverna estão iluminadas demais para uma caverna abandonada. A iluminação é artificial.",
+    "objective": "Escolher a entrada real.",
+    "image": "/assets/backgrounds/phase-15-montanha.webp",
+    "music": "/assets/music/phase15_montanha_tensao.ogg",
+    "ambience": "/assets/audio/ambience/amb_mountain.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Entrar pela passagem iluminada",
+        "correct": false,
+        "consequence": "A passagem é uma armadilha. Theo recua a tempo.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Seguir a trilha de pegadas",
+        "correct": false,
+        "consequence": "As pegadas levam em círculo de volta ao início.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Descer pelo poço sem iluminação",
+        "correct": true,
+        "consequence": "O poço leva à mesma porta mostrada na fotografia da Fase 1.",
+        "clueReward": "dark_well_entrance",
+        "justification": "As duas entradas visíveis são iscas iluminadas. O poço sem iluminação é a entrada real."
+      }
+    ],
+    "revelation": "As duas entradas visíveis são iscas. A iluminação é artificial.",
+    "cliffhanger": "O poço leva à porta da fotografia da Fase 1.",
+    "justification": "Iluminação artificial demais para caverna abandonada.",
+    "respiroPhase": false
+  },
+  {
+    "id": 16,
+    "title": "Os Pais",
+    "act": 4,
+    "intro": "Theo encontra duas pessoas em uma sala. Eles parecem ser Clara e Elias. Momento de felicidade. Theo abraça os pais.",
+    "scene": "Clara pergunta: 'Qual era o apelido que eu te dava quando você era pequeno?' Theo não sabe responder. Os pais não são os pais — são trolls usando uma ilusão. Nos olhos de Silas, refletidos no espelho, há olhos de troll.",
+    "objective": "Descobrir a verdade sobre os 'pais'.",
+    "image": "/assets/backgrounds/phase-16-sala.webp",
+    "music": "/assets/music/phase16_sala_ilusao_pico.ogg",
+    "ambience": "/assets/audio/ambience/amb_illusion.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Ficar",
+        "correct": false,
+        "consequence": "A ilusão se fortalece. Theo quase não consegue sair.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Correr",
+        "correct": false,
+        "consequence": "Theo foge, mas perde a chance de quebrar a ilusão.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Tentar conversar",
+        "correct": true,
+        "consequence": "A ilusão começa a falhar quando Theo pergunta por uma memória verdadeira.",
+        "clueReward": "illusion_falters",
+        "justification": "Na Fase 7, Clara deixou escrito: 'Não confie no que estiver escrito. Confie no que você viu.' A ilusão falha quando confrontada com memória real."
+      }
+    ],
+    "revelation": "Os falsos pais olham para Theo com pena. A criatura diz: 'Eles estão na última caverna.'",
+    "cliffhanger": "Silas é revelado — seus olhos são de troll.",
+    "justification": "A memória real confronta a ilusão escrita.",
+    "respiroPhase": false
+  },
+  {
+    "id": 17,
+    "title": "A Última Cidade",
+    "act": 5,
+    "intro": "Theo chega à parte mais profunda do subterrâneo. Há marcas feitas por humanos. Isso confirma que os pais estiveram ali.",
+    "scene": "As marcas de Clara e de Elias correm pelas paredes. A respiração de Theo soa diferente. Mais funda.",
+    "objective": "Seguir as marcas certas.",
+    "image": "/assets/backgrounds/phase-17-ultima-cidade.webp",
+    "music": "/assets/music/phase17_cidade_medo.ogg",
+    "ambience": "/assets/audio/ambience/amb_trolls.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Seguir as marcas de Clara",
+        "correct": true,
+        "consequence": "Clara deixou instruções para o filho.",
+        "clueReward": "clara_instructions",
+        "justification": "Na Fase 14, o mapa mostrava que Clara passou por último pela região."
+      },
+      {
+        "id": "b",
+        "text": "Seguir as marcas de Elias",
+        "correct": false,
+        "consequence": "As marcas de Elias terminam em uma encruzilhada.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Seguir os símbolos dos trolls",
+        "correct": false,
+        "consequence": "Os símbolos levam a armadilhas conhecidas.",
+        "justification": ""
+      }
+    ],
+    "revelation": "A última instrução de Clara diz: 'Não confie no que estiver escrito. Confie no que você viu.'",
+    "cliffhanger": "Os pais deixaram um caminho para Theo.",
+    "justification": "O mapa da Fase 14 mostra Clara passou por último.",
+    "respiroPhase": false
+  },
+  {
+    "id": 18,
+    "title": "A Verdade dos Pais",
+    "act": 5,
+    "intro": "Theo descobre a razão do desaparecimento. Clara e Elias descobriram o sistema de sequestros e tentaram destruir os registros.",
+    "scene": "Um desenho mostra um cubo com seis símbolos. O esconderijo principal está atrás de uma entrada sem porta.",
+    "objective": "Decidir o próximo passo.",
+    "image": "/assets/backgrounds/phase-18-registros.webp",
+    "music": "/assets/music/phase18_verdade_raiva.ogg",
+    "ambience": "/assets/audio/ambience/amb_underground.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Destruir os registros",
+        "correct": false,
+        "consequence": "Destruir os registros não salva os pais. Theo perde prova valiosa.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Procurar o esconderijo principal",
+        "correct": true,
+        "consequence": "O esconderijo principal está atrás de uma entrada sem porta.",
+        "clueReward": "doorless_entrance",
+        "justification": "Destruir os registros não salva os pais. Voltar é abandonar. Procurar o esconderijo é a única ação coerente com o objetivo."
+      },
+      {
+        "id": "c",
+        "text": "Voltar para a cidade",
+        "correct": false,
+        "consequence": "Voltar é abandonar a investigação no momento decisivo.",
+        "justification": ""
+      }
+    ],
+    "revelation": "Um desenho mostra um cubo com seis símbolos.",
+    "cliffhanger": "Os pais estavam tentando parar os trolls — e quase conseguiam.",
+    "justification": "Procurar o esconderijo é a única ação coerente com o objetivo de encontrar os pais.",
+    "respiroPhase": false
+  },
+  {
+    "id": 19,
+    "title": "O Último Aviso",
+    "act": 5,
+    "intro": "Theo chega diante da montanha. Silas aparece uma última vez: 'Você chegou até aqui porque seus pais queriam que você chegasse. Mas talvez eles não tenham contado tudo.'",
+    "scene": "Silas mostra uma foto antiga: Clara, Elias e uma criança desconhecida. A criança tem o rosto de Silas quando jovem. A foto é falsa — a mesma plantada na Fase 9. Silas diz: 'Você sempre chegou a um lugar depois da hora certa.'",
+    "objective": "Ignorar a distração e encontrar a entrada.",
+    "image": "/assets/backgrounds/phase-19-aviso.webp",
+    "music": "/assets/music/phase19_aviso_choque.ogg",
+    "ambience": "/assets/audio/ambience/amb_mountain.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Perguntar quem é a criança",
+        "correct": false,
+        "consequence": "Silas desvia a pergunta. A distração funciona.",
+        "justification": ""
+      },
+      {
+        "id": "b",
+        "text": "Seguir Silas",
+        "correct": false,
+        "consequence": "Silas leva Theo para longe da entrada real.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Ignorar Silas e procurar a entrada",
+        "correct": true,
+        "consequence": "A foto é uma distração. A entrada da caverna possui o Cubo de Orun.",
+        "clueReward": "photo_is_distraction",
+        "justification": "A foto é uma distração. Theo já viu a verdade na Fase 16 (olhos de Silas). A entrada é o objetivo."
+      }
+    ],
+    "revelation": "A foto é falsa: a criança na foto tem o rosto de Silas quando jovem.",
+    "cliffhanger": "A entrada da caverna possui o Cubo de Orun.",
+    "justification": "A foto da Fase 9 era falsa; a verdade dos olhos de Silas veio na Fase 16.",
+    "respiroPhase": false
+  },
+  {
+    "id": 20,
+    "title": "O Último Esconderijo",
+    "act": 5,
+    "intro": "A tela fica mais silenciosa. Sem música. Som de vento, pedras e a respiração de Theo. A câmera mostra a entrada. Não existe porta.",
+    "scene": "Existe uma pedra circular e um pedestal com o Cubo de Orun. Na parede, uma inscrição: 'Quem viu primeiro, lembra primeiro. Quem lembrou, girou. Quem girou, encontrou.'",
+    "objective": "Resolver o mecanismo da entrada da caverna.",
+    "image": "/assets/backgrounds/phase-20-caverna.webp",
+    "music": "/assets/music/phase20_caverna_silencio.ogg",
+    "ambience": "/assets/audio/ambience/amb_cave.ogg",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Ler a inscrição na parede",
+        "correct": true,
+        "consequence": "A ordem dos símbolos é a ordem em que apareceram nas fases.",
+        "clueReward": "cube_inscription",
+        "justification": "A inscrição explica que quem viu primeiro é a ordem correta — a ordem das fases 2, 3, 5, 9 e 14."
+      },
+      {
+        "id": "b",
+        "text": "Tocar o cubo imediatamente",
+        "correct": false,
+        "consequence": "O cubo não responde sem a sequência correta.",
+        "justification": ""
+      },
+      {
+        "id": "c",
+        "text": "Forçar a pedra circular",
+        "correct": false,
+        "consequence": "A pedra não se move. O mecanismo exige o cubo.",
+        "justification": ""
+      }
+    ],
+    "revelation": "O rosto de Theo aparece escondido no cubo — ele é o sexto símbolo.",
+    "cliffhanger": "O mecanismo espera a sequência. O diário de Theo tem a ordem.",
+    "justification": "A inscrição na parede define a regra do cubo.",
+    "respiroPhase": false
+  }
+]
